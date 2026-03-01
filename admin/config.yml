@@ -1,0 +1,19 @@
+backend:
+  name: git-gateway
+  branch: main # 你的 GitHub 默认分支，如果是 master 请改成 master
+
+# 你在后台上传的图片，会自动存到这个文件夹
+media_folder: "images/uploads" 
+public_folder: "images/uploads"
+
+collections:
+  - name: "works"
+    label: "品牌策划作品"
+    folder: "content/works" # 你发布的文章会自动生成文件存到这里
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "项目名称 (如: 徽仨宝 | 爱吃仨宝...)", name: "title", widget: "string"}
+      - {label: "项目简介 (如: 馄饨品牌全案设计)", name: "desc", widget: "string"}
+      - {label: "封面图 (建议比例 4:3)", name: "cover", widget: "image"}
+      - {label: "详细排版内容 (在这里自由插入几十张图片和文字)", name: "body", widget: "markdown"}
