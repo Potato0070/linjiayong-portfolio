@@ -6,139 +6,129 @@
     <title>林嘉雍 | 品牌策划与视觉架构</title>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <style>
-        /* 极简深邃高定美学 */
+        /* 极致纯粹的黑白灰高定美学 */
         :root {
             --bg-color: #0a0a0a;
             --text-main: #f0f0f0;
             --text-muted: #666666;
-            --accent: #ffffff;
+            --border-color: #222222;
         }
         body {
             margin: 0;
             padding: 0;
             background-color: var(--bg-color);
             color: var(--text-main);
-            font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", sans-serif;
-            overflow-x: hidden;
+            font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
         
-        /* 首屏：无重力宇航员区域 */
+        /* 极简首屏区 */
         .hero-section {
-            height: 100vh;
+            height: 50vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            position: relative;
-        }
-
-        .headline {
-            font-size: 3rem;
-            font-weight: 300;
-            letter-spacing: 8px;
-            z-index: 10;
             text-align: center;
+            border-bottom: 1px solid var(--border-color);
         }
-
+        .headline {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 10px;
+            margin-bottom: 10px;
+        }
         .sub-headline {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
-            letter-spacing: 4px;
-            margin-top: 20px;
-            z-index: 10;
+            letter-spacing: 5px;
         }
 
-        /* 宇航员悬浮系统 */
-        .astronaut-container {
-            position: absolute;
-            top: 20%;
-            right: 15%;
-            width: 300px;
-            opacity: 0.8;
-            /* 核心动画：极慢的无重力上下浮动 */
-            animation: float 8s ease-in-out infinite; 
-            z-index: 1;
-        }
-
-        /* 高定单色处理 */
-        .astronaut-img {
-            width: 100%;
-            filter: grayscale(100%) contrast(120%) brightness(0.8);
-        }
-
-        /* 流动安全绳 (SVG贝塞尔曲线) */
-        .tether {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 400px;
-            height: 400px;
-            transform: translate(-120%, -20%);
-            z-index: 0;
-            pointer-events: none;
-        }
-        
-        .tether path {
-            fill: none;
-            stroke: rgba(255, 255, 255, 0.15);
-            stroke-width: 2;
-            /* 流动光泽动画 */
-            stroke-dasharray: 10 20;
-            animation: flow 3s linear infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(3deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
-        }
-
-        @keyframes flow {
-            from { stroke-dashoffset: 100; }
-            to { stroke-dashoffset: 0; }
-        }
-
-        /* 作品画廊网格（准备接收后台数据） */
+        /* 作品画廊网格 */
         .gallery-section {
-            padding: 100px 5%;
+            padding: 80px 5%;
             max-width: 1400px;
             margin: 0 auto;
         }
-        
-        .section-title {
-            font-size: 1.2rem;
+        .section-header {
+            font-size: 0.85rem;
             color: var(--text-muted);
+            letter-spacing: 3px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+        
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        /* 极简卡片样式 */
+        .work-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            group: hover;
+            cursor: pointer;
+        }
+        .work-image-placeholder {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background-color: #111;
+            border: 1px solid var(--border-color);
+            margin-bottom: 20px;
+            transition: border-color 0.4s ease;
+        }
+        .work-card:hover .work-image-placeholder {
+            border-color: #555;
+        }
+        .work-title {
+            font-size: 1.2rem;
+            font-weight: 400;
             letter-spacing: 2px;
-            margin-bottom: 60px;
-            border-bottom: 1px solid #222;
-            padding-bottom: 20px;
+            margin-bottom: 8px;
+        }
+        .work-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
         }
     </style>
 </head>
 <body>
 
     <div class="hero-section">
-        <div class="astronaut-container">
-            <img class="astronaut-img" src="https://cdn.pixabay.com/photo/2020/05/26/07/43/astronaut-5221908_1280.png" alt="Explorer">
-        </div>
-        <svg class="tether" viewBox="0 0 200 200">
-            <path d="M 200 50 Q 100 150 0 200" />
-        </svg>
-
-        <h1 class="headline">策略锚定，视觉失重。</h1>
+        <h1 class="headline">策略锚定，视觉克制。</h1>
         <p class="sub-headline">商业内核与高定美学的边界探索</p>
     </div>
 
     <div class="gallery-section">
-        <div class="section-title">SELECTED WORKS // 01</div>
+        <div class="section-header">SELECTED WORKS // 01</div>
         
-        <div id="work-grid" style="color: #666; font-weight: 300;">
-            [系统正在从私有库拉取你的最新排版作品...]
+        <div class="work-grid" id="cms-works">
+            <div class="work-card">
+                <div class="work-image-placeholder"></div>
+                <div class="work-title">徽仨宝</div>
+                <div class="work-desc">品牌全案升级与视觉架构重塑，探索地方风味的当代表达。</div>
+            </div>
+            
+            <div class="work-card">
+                <div class="work-image-placeholder"></div>
+                <div class="work-title">晓棠</div>
+                <div class="work-desc">高端川菜品牌策略，深邃视觉与商业定位的精准咬合。</div>
+            </div>
+
+            <div class="work-card">
+                <div class="work-image-placeholder"></div>
+                <div class="work-title">麦香甬</div>
+                <div class="work-desc">鸡煲饭品类赛道的视觉升维与心智占领。</div>
+            </div>
         </div>
     </div>
 
     <script>
-        // 这一小段代码确保你的后台登录功能正常
+        // 保持 Netlify 后台登录门禁正常运转
         if (window.netlifyIdentity) {
             window.netlifyIdentity.on("init", user => {
                 if (!user) {
