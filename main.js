@@ -135,18 +135,22 @@ window.openWork = function(workId) {
         currentScale = 100; zoomText.textContent = '100%';
         scrollTopDetailBtn.classList.remove('scroll-top-enabled'); scrollTopDetailBtn.classList.add('scroll-top-disabled');
         
-        const blocksContainer = document.createElement('div');
-        blocksContainer.id = "blocksContainer"; 
-        blocksContainer.className = "w-full mx-auto px-4 md:px-12 py-10 md:py-16 flex flex-col gap-8 md:gap-12";
-        blocksContainer.style.maxWidth = `${baseContainerWidth}px`;
-        blocksContainer.style.fontSize = `100%`; 
-        
+        // 1. 先注入真·全屏固定水印（独立于排版容器之外）
         const watermark = document.createElement('div');
         watermark.className = 'watermark-layer';
-        blocksContainer.appendChild(watermark);
+        modalImageContainer.appendChild(watermark);
+        // 延迟0.1秒显示水印，增加高级淡入感
+        setTimeout(() => watermark.classList.add('active'), 100);
+
+        // 2. 再建立排版容器
+        const blocksContainer = document.createElement('div');
+        blocksContainer.id = "blocksContainer"; 
+        blocksContainer.className = "w-full mx-auto px-4 md:px-12 py-10 md:py-16 flex flex-col gap-8 md:gap-12 relative z-10";
+        blocksContainer.style.maxWidth = `${baseContainerWidth}px`;
+        blocksContainer.style.fontSize = `100%`; 
 
         const titleBlock = document.createElement('h1');
-        titleBlock.className = "text-4xl md:text-5xl lg:text-6xl font-black color-main tracking-tighter mb-8 mt-8 md:mt-12 text-balance leading-tight text-center md:text-left relative z-[21]";
+        titleBlock.className = "text-4xl md:text-5xl lg:text-6xl font-black color-main tracking-tighter mb-8 mt-8 md:mt-12 text-balance leading-tight text-center md:text-left";
         titleBlock.innerHTML = work.title;
         blocksContainer.appendChild(titleBlock);
 
@@ -158,32 +162,32 @@ window.openWork = function(workId) {
                 let el;
                 if (block.type === 'h1') {
                     el = document.createElement('h2');
-                    el.className = `text-3xl md:text-4xl font-extrabold color-main tracking-tight mt-12 md:mt-16 mb-4 border-b-2 border-[var(--text-main)] pb-4 opacity-90 relative z-[21]`;
+                    el.className = `text-3xl md:text-4xl font-extrabold color-main tracking-tight mt-12 md:mt-16 mb-4 border-b-2 border-[var(--text-main)] pb-4 opacity-90`;
                     el.innerHTML = block.html;
                 } 
                 else if (block.type === 'h2') {
                     el = document.createElement('h3');
-                    el.className = `text-xl md:text-2xl font-bold color-main tracking-wide mt-10 md:mt-12 mb-2 border-l-[5px] border-[var(--text-main)] pl-4 opacity-85 relative z-[21]`;
+                    el.className = `text-xl md:text-2xl font-bold color-main tracking-wide mt-10 md:mt-12 mb-2 border-l-[5px] border-[var(--text-main)] pl-4 opacity-85`;
                     el.innerHTML = block.html;
                 } 
                 else if (block.type === 'p') {
                     el = document.createElement('p');
-                    el.className = `text-[16px] md:text-[18px] leading-[2.2] font-medium color-main opacity-80 tracking-[0.05em] text-justify text-balance relative z-[21]`;
+                    el.className = `text-[16px] md:text-[18px] leading-[2.2] font-medium color-main opacity-80 tracking-[0.05em] text-justify text-balance`;
                     el.innerHTML = block.html;
                 } 
                 else if (block.type === 'quote') {
                     el = document.createElement('blockquote');
-                    el.className = `bg-[var(--glass-bg)] border-l-[4px] border-[var(--text-main)] p-6 md:p-8 my-8 md:my-10 text-xl md:text-2xl font-serif italic color-main opacity-75 rounded-r-xl shadow-sm relative z-[21]`;
+                    el.className = `bg-[var(--glass-bg)] border-l-[4px] border-[var(--text-main)] p-6 md:p-8 my-8 md:my-10 text-xl md:text-2xl font-serif italic color-main opacity-75 rounded-r-xl shadow-sm`;
                     el.innerHTML = block.html;
                 }
                 else if (block.type === 'divider') {
                     el = document.createElement('div');
-                    el.className = `flex justify-center items-center my-10 opacity-30 relative z-[21]`;
+                    el.className = `flex justify-center items-center my-10 opacity-30`;
                     el.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-[var(--text-main)] mx-2"></span><span class="w-2.5 h-2.5 rounded-full bg-[var(--text-main)] mx-2"></span><span class="w-1.5 h-1.5 rounded-full bg-[var(--text-main)] mx-2"></span>`;
                 }
                 else if (block.type === 'image') {
                     el = document.createElement('div');
-                    el.className = `w-full relative rounded-xl md:rounded-2xl overflow-hidden bg-[var(--glass-bg)] min-h-[20vh] shadow-lg my-2 relative z-[21]`;
+                    el.className = `w-full relative rounded-xl md:rounded-2xl overflow-hidden bg-[var(--glass-bg)] min-h-[20vh] shadow-lg my-2`;
                     const img = document.createElement('img');
                     img.src = block.src;
                     img.className = "relative z-[1] block w-full h-auto pointer-events-none transform transition-transform duration-[1s] hover:scale-[1.01]";
