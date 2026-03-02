@@ -89,18 +89,57 @@ body::after {
 @keyframes slideDownStagger { 0% { transform: translateY(-110%); opacity: 0; filter: blur(10px); } 100% { transform: translateY(0); opacity: 1; filter: blur(0); } }
 
 /* ========================================== */
-/* 5. 核心防盗水印系统 (已强化透明度与层级) */
 /* ========================================== */
-.watermark-layer {
-    position: absolute; inset: 0; z-index: 50; pointer-events: none; /* z-index拉高，确保覆盖内容 */
-    background-image: url("data:image/svg+xml,%3Csvg width='350' height='350' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(175,175) rotate(-30) translate(-175,-175)'%3E%3Ctext x='175' y='165' font-size='16' fill='rgba(0,0,0,0.12)' font-family='sans-serif' font-weight='900' letter-spacing='5' text-anchor='middle'%3E版权作品 · 禁止盗用%3C/text%3E%3Ctext x='175' y='185' font-size='10' fill='rgba(0,0,0,0.08)' font-family='sans-serif' font-weight='bold' letter-spacing='2' text-anchor='middle'%3ESTRICTLY CONFIDENTIAL %26 DO NOT COPY%3C/text%3E%3C/g%3E%3C/svg%3E");
-    background-repeat: repeat; mix-blend-mode: multiply;
-}
-.dark-mode .watermark-layer {
-    background-image: url("data:image/svg+xml,%3Csvg width='350' height='350' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(175,175) rotate(-30) translate(-175,-175)'%3E%3Ctext x='175' y='165' font-size='16' fill='rgba(255,255,255,0.08)' font-family='sans-serif' font-weight='900' letter-spacing='5' text-anchor='middle'%3E版权作品 · 禁止盗用%3C/text%3E%3Ctext x='175' y='185' font-size='10' fill='rgba(255,255,255,0.05)' font-family='sans-serif' font-weight='bold' letter-spacing='2' text-anchor='middle'%3ESTRICTLY CONFIDENTIAL %26 DO NOT COPY%3C/text%3E%3C/g%3E%3C/svg%3E");
-    mix-blend-mode: screen;
-}
+/* 5. 核心：高定防盗水印与图层控制 (全平台兼容版) */
+/* ========================================== */
 
+/* 修复苹果 iOS 底部安全区（小黑条）遮挡内容的问题 */
+.modal-scroll-box { 
+    overflow: auto; -webkit-overflow-scrolling: touch; 
+    padding-bottom: env(safe-area-inset-bottom, 40px); /* 苹果安全区适配 */
+}
+.modal-scroll-box::-webkit-scrollbar { width: 0px; height: 0px; } 
+
+/* 真·全屏悬浮水印：抛弃不稳定的混合模式，采用中性灰固定层，确保安卓/苹果绝对一致 */
+.watermark-layer {
+    position: fixed; /* 核心：固定在屏幕上，不随内容滚动和缩放 */
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 40; /* 盖在图文之上，交互按钮之下 */
+    pointer-events: none;
+    /* 采用 16% 透明度的中性灰，在纯黑/纯白图片上均能保持高级的可见度 */
+    background-image: url("data:image/svg+xml,%3Csvg width='380' height='380' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(190,190) rotate(-25) translate(-190,-190)'%3E%3Ctext x='190' y='180' font-size='18' fill='rgba(140,140,140,0.16)' font-family='sans-serif' font-weight='900' letter-spacing='5' text-anchor='middle'%3E版权作品 · 禁止盗用%3C/text%3E%3Ctext x='190' y='205' font-size='10' fill='rgba(140,140,140,0.14)' font-family='sans-serif' font-weight='bold' letter-spacing='2' text-anchor='middle'%3ESTRICTLY CONFIDENTIAL%3C/text%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: repeat;
+    opacity: 0; transition: opacity 0.8s ease; /* 淡入效果 */
+}
+/* 夜间模式微调亮度 */
+.dark-mode .watermark-layer {
+    background-image: url("data:image/svg+xml,%3Csvg width='380' height='380' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(190,190) rotate(-25) translate(-190,-190)'%3E%3Ctext x='190' y='180' font-size='18' fill='rgba(180,180,180,0.12)' font-family='sans-serif' font-weight='900' letter-spacing='5' text-anchor='middle'%3E版权作品 · 禁止盗用%3C/text%3E%3Ctext x='190' y='205' font-size='10' fill='rgba(180,180,180,0.1)' font-family='sans-serif' font-weight='bold' letter-spacing='2' text-anchor='middle'%3ESTRICTLY CONFIDENTIAL%3C/text%3E%3C/g%3E%3C/svg%3E");
+}
+.watermark-layer.active { opacity: 1; }
+
+/* 升级版极客霓虹光束 (加粗并带漫反射光晕) */
+.btn-light-beam::before {
+    content: ""; position: absolute; inset: -2px; border-radius: inherit; padding: 2px; /* 实体光线加粗到2px */
+    background: linear-gradient(90deg, transparent, var(--text-main), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    background-size: 200% 100%; animation: beamMove 2s linear infinite;
+    opacity: 0; transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: none;
+}
+/* 新增光晕层：打造高级的物理发光感 */
+.btn-light-beam::after {
+    content: ""; position: absolute; inset: -2px; border-radius: inherit; padding: 2px;
+    background: linear-gradient(90deg, transparent, var(--text-main), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    background-size: 200% 100%; animation: beamMove 2s linear infinite;
+    opacity: 0; filter: blur(6px); transition: opacity 0.4s ease; pointer-events: none; /* 6px的模糊光晕 */
+}
+.btn-light-beam:hover::before { opacity: 0.8; }
+.btn-light-beam:hover::after { opacity: 0.5; } /* 悬停时触发光晕 */
+.bg-inverted.btn-light-beam::before, .bg-inverted.btn-light-beam::after { background: linear-gradient(90deg, transparent, var(--bg-base), transparent); }
+
+/* 其他基础类 */
 @layer utilities { .text-balance { text-wrap: balance; } }
 .text-gradient-premium { background-clip: text; -webkit-background-clip: text; color: transparent; background-image: linear-gradient(135deg, #111 0%, #666 100%); }
 .dark-mode .text-gradient-premium { background-image: linear-gradient(135deg, #fff 0%, #999 100%); }
@@ -111,8 +150,6 @@ body::after {
 .modal.active { opacity: 1; visibility: visible; }
 .modal-content { transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); transform: scale(0.96) translateY(20px); opacity: 0; }
 .modal.active .modal-content { transform: scale(1) translateY(0); opacity: 1; }
-.modal-scroll-box { overflow: auto; -webkit-overflow-scrolling: touch; }
-.modal-scroll-box::-webkit-scrollbar { width: 0px; height: 0px; } 
 
 #blocksContainer { transition: max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1), font-size 0.4s cubic-bezier(0.16, 1, 0.3, 1); margin: 0 auto; position: relative; }
 
@@ -124,6 +161,9 @@ body::after {
 .liquid-glass-controls { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(30px) saturate(200%); -webkit-backdrop-filter: blur(30px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: 0 20px 40px rgba(0,0,0,0.1), inset 0 1px 3px rgba(255,255,255,1); border-radius: 40px; transition: background 0.4s ease, border-color 0.4s ease; }
 .dark-mode .liquid-glass-controls { background: rgba(25, 25, 25, 0.85); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.15); }
 .scroll-top-disabled { opacity: 0.3; cursor: not-allowed; pointer-events: none; transform: scale(0.9); }
+.scroll-top-enabled { opacity: 1; cursor: pointer; pointer-events: auto; }
+.reveal-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal-up.revealed { opacity: 1; transform: translateY(0); }
 .scroll-top-enabled { opacity: 1; cursor: pointer; pointer-events: auto; }
 .reveal-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
 .reveal-up.revealed { opacity: 1; transform: translateY(0); }
