@@ -420,7 +420,7 @@
             <div class="modal-scroll-box flex-1 w-full h-full bg-[var(--bg-base)] relative pb-40" id="workModalScrollBox">
                 <div id="loadingSpinner" class="absolute inset-0 flex flex-col items-center justify-center z-10 hidden">
                     <i class="fa fa-circle-o-notch fa-spin text-4xl text-[var(--text-main)] mb-4"></i>
-                    <p class="color-muted font-bold text-sm tracking-widest mt-4">正在加载高清切片...</p>
+                    <p class="color-muted font-bold text-sm tracking-widest mt-4">正在加载排版内容...</p>
                 </div>
                 
                 <div class="relative w-full mx-auto md:rounded-2xl overflow-hidden shadow-2xl">
@@ -428,7 +428,6 @@
                     
                     <div id="modalImageContainer" class="w-full flex flex-col items-center opacity-0 transition-opacity duration-500 origin-top">
                         </div>
-
                 </div>
             </div>
 
@@ -465,7 +464,7 @@
     </div>
 
     <script>
-        // 核心改动：准备迎接 Notion 发来的数据！
+        // 核心改动：准备迎接 Notion 发来的全新图文混排数据！
         let worksList = [];
 
         async function fetchCMSData() {
@@ -594,7 +593,7 @@
         }
 
         /* ========================================== */
-        /* 作品详情：瀑布流渐进式秒加载 */
+        /* 作品详情：高定级图文混排 + 瀑布流渲染引擎 */
         /* ========================================== */
         const workModal = document.getElementById('workModal');
         const closeWorkModal = document.getElementById('closeWorkModal');
@@ -615,36 +614,77 @@
                 document.getElementById('copyrightOverlay').classList.replace('opacity-100', 'opacity-0');
                 document.getElementById('copyrightOverlay').classList.replace('pointer-events-auto', 'pointer-events-none');
                 
-                modalImageContainer.classList.remove('opacity-100'); 
-                modalImageContainer.classList.add('opacity-0');
+                loadingSpinner.classList.add('hidden'); // 砸掉枷锁：直接展现
+                modalImageContainer.classList.remove('opacity-0'); 
+                modalImageContainer.classList.add('opacity-100');
                 
                 currentScale = 100; modalImageContainer.style.width = '100%'; zoomText.textContent = '100%';
                 scrollTopDetailBtn.classList.remove('scroll-top-enabled'); scrollTopDetailBtn.classList.add('scroll-top-disabled');
                 
-                // 提取多图或兼容旧版长图
-                const imagesToLoad = work.images && work.images.length > 0 ? work.images : (work.longImg ? [work.longImg] : []);
-                
-                if (imagesToLoad.length > 0) {
-                    // 1. 砸掉枷锁：不等了！瞬间关掉全屏转圈圈的动画
-                    loadingSpinner.classList.add('hidden'); 
-                    // 2. 瞬间把容器显现出来，给用户秒开的爽快感
-                    modalImageContainer.classList.remove('opacity-0'); 
-                    modalImageContainer.classList.add('opacity-100');
+                // --- 核心排版引擎 ---
+                const blocksContainer = document.createElement('div');
+                blocksContainer.className = "w-full max-w-[900px] mx-auto px-4 md:px-12 py-10 md:py-16 flex flex-col gap-6 md:gap-8";
+                modalImageContainer.appendChild(blocksContainer);
 
-                    imagesToLoad.forEach(imgPath => {
-                        const img = document.createElement('img');
-                        img.src = imgPath;
-                        // 3. 核心魔法：加上底色占位符(bg-...)和最小高度(min-h-...)，防止网页乱跳
-                        img.className = "relative z-[1] block w-full h-auto pointer-events-none bg-[var(--glass-bg)] min-h-[20vh] md:min-h-[30vh]";
-                        // 4. 开启原生懒加载：用户滑到哪里，就加载到哪里，极大地节省流量和提升速度！
-                        img.loading = "lazy"; 
+                // 统一注入顶部作品大标题
+                const titleBlock = document.createElement('h1');
+                titleBlock.className = "text-4xl md:text-5xl lg:text-6xl font-black color-main tracking-tighter mb-4 mt-8 md:mt-12 text-balance leading-tight reveal-up revealed";
+                titleBlock.innerHTML = work.title;
+                blocksContainer.appendChild(titleBlock);
+
+                // 判断新版图文流 blocks 或兼容旧版 images
+                const blocksToLoad = work.blocks && work.blocks.length > 0 ? work.blocks : 
+                                    (work.images && work.images.length > 0 ? work.images.map(img => ({type: 'image', src: img})) : []);
+
+                if (blocksToLoad.length > 0) {
+                    blocksToLoad.forEach((block, index) => {
+                        let el;
+                        const delayClass = "reveal-up revealed"; // 为了秒开，移除延迟动画，直接展示
                         
-                        modalImageContainer.appendChild(img);
+                        // 1. 高级排版：大标题 H1
+                        if (block.type === 'h1') {
+                            el = document.createElement('h2');
+                            el.className = `text-2xl md:text-4xl font-extrabold color-main tracking-tight mt-12 md:mt-16 mb-2 ${delayClass}`;
+                            el.innerHTML = block.html;
+                        } 
+                        // 2. 高级排版：中标题 H2/H3
+                        else if (block.type === 'h2') {
+                            el = document.createElement('h3');
+                            el.className = `text-xl md:text-2xl font-bold color-main opacity-90 tracking-wide mt-8 md:mt-10 mb-2 ${delayClass}`;
+                            el.innerHTML = block.html;
+                        } 
+                        // 3. 高级排版：正文段落
+                        else if (block.type === 'p') {
+                            el = document.createElement('p');
+                            el.className = `text-[15px] md:text-[17px] leading-[1.8] md:leading-[2] font-medium color-main opacity-80 tracking-wide text-justify text-balance ${delayClass}`;
+                            el.innerHTML = block.html;
+                        } 
+                        // 4. 高级排版：金句/引用区块
+                        else if (block.type === 'quote') {
+                            el = document.createElement('blockquote');
+                            el.className = `border-l-[4px] border-[var(--text-main)] pl-6 py-2 my-8 md:my-10 text-xl md:text-2xl font-serif italic color-main opacity-75 ${delayClass}`;
+                            el.innerHTML = block.html;
+                        }
+                        // 5. 高级排版：极简分割线
+                        else if (block.type === 'divider') {
+                            el = document.createElement('hr');
+                            el.className = `w-16 h-1 bg-[var(--text-main)] opacity-20 border-none mx-auto my-12 md:my-16 ${delayClass}`;
+                        }
+                        // 6. 瀑布流秒开图片
+                        else if (block.type === 'image') {
+                            el = document.createElement('div');
+                            el.className = `w-full relative rounded-xl md:rounded-[2rem] overflow-hidden bg-[var(--glass-bg)] min-h-[20vh] md:min-h-[40vh] shadow-xl my-4 ${delayClass}`;
+                            const img = document.createElement('img');
+                            img.src = block.src;
+                            img.className = "relative z-[1] block w-full h-auto pointer-events-none transform transition-transform duration-[1.5s] hover:scale-[1.02]";
+                            img.loading = "lazy"; // 性能核心：原生懒加载
+                            el.appendChild(img);
+                        }
+
+                        if (el) blocksContainer.appendChild(el);
                     });
                 } else {
-                    loadingSpinner.classList.add('hidden'); 
-                    modalImageContainer.innerHTML = '<div class="py-20 text-center color-muted tracking-widest text-sm">暂无排版切片</div>';
-                    modalImageContainer.classList.remove('opacity-0'); modalImageContainer.classList.add('opacity-100');
+                    blocksContainer.innerHTML = '<div class="py-20 text-center color-muted tracking-widest text-sm font-bold">作品排版内容加载中...</div>';
                 }
 
                 workModalScrollBox.scrollTop = 0; 
