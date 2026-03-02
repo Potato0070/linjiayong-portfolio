@@ -1,5 +1,18 @@
 let worksList = [];
 
+// 1. 极客开场白逻辑
+document.addEventListener("DOMContentLoaded", () => {
+    const loaderText = document.getElementById("loaderText");
+    const loaderBar = document.getElementById("loaderBar");
+    let progress = 0;
+    const interval = setInterval(() => {
+        progress += Math.floor(Math.random() * 15) + 5;
+        if (progress >= 100) { progress = 100; clearInterval(interval); }
+        if(loaderText) loaderText.innerText = progress + "%";
+        if(loaderBar) loaderBar.style.width = progress + "%";
+    }, 50);
+});
+
 async function fetchCMSData() {
     try {
         const response = await fetch('works.json');
@@ -8,14 +21,18 @@ async function fetchCMSData() {
             if (data.worksList && data.worksList.length > 0) worksList = data.worksList; 
         }
     } catch (error) { console.error("加载失败", error); }
-    renderWorks(); 
+    
+    // 数据加载完毕后，移除开场白，渲染内容
+    setTimeout(() => {
+        const preloader = document.getElementById('preloader');
+        if(preloader) preloader.classList.add('loaded');
+        const island = document.getElementById('islandContainer');
+        if(island) island.classList.add('reveal-up');
+        renderWorks(); 
+    }, 800); // 确保开场白至少展示0.8秒的仪式感
 }
 
-window.addEventListener('load', () => {
-    const island = document.getElementById('islandContainer');
-    if(island) island.classList.add('reveal-up');
-    fetchCMSData();
-});
+window.addEventListener('load', () => { fetchCMSData(); });
 
 let toastTimeout;
 window.showToast = function(message, isError = false) {
@@ -58,12 +75,22 @@ function bindObserver() { document.querySelectorAll('.reveal-up:not(#islandConta
 let currentPage = 1; const itemsPerPage = 6; let totalPages = 1;
 const gridElement = document.getElementById('worksGrid');
 const pageIndicator = document.getElementById('pageIndicator');
+const heroMarquee = document.getElementById('heroMarquee'); // 抓取滚动带容器
 
 function renderWorks() {
     gridElement.innerHTML = ''; 
     totalPages = Math.max(1, Math.ceil(worksList.length / itemsPerPage));
     const startIdx = (currentPage - 1) * itemsPerPage;
     const currentWorks = worksList.slice(startIdx, startIdx + itemsPerPage);
+
+    // 2. 动态生成无限滚动视觉带 (抽取所有作品封面)
+    if (heroMarquee && worksList.length > 0) {
+        let marqueeHTML = worksList.filter(w => w.cover).map(work => 
+            `<div class="marquee-item cursor-pointer" onclick="document.getElementById('works').scrollIntoView(); setTimeout(() => openWork('${work.id}'), 500);"><img src="${work.cover}" alt="cover"></div>`
+        ).join('');
+        // 核心：复制三份实现真正的无缝循环
+        heroMarquee.innerHTML = marqueeHTML + marqueeHTML + marqueeHTML;
+    }
 
     currentWorks.forEach((work, index) => {
         const delay = index * 0.1; 
@@ -102,12 +129,7 @@ function renderWorks() {
     setTimeout(bindObserver, 50);
 }
 
-if(document.getElementById('firstPageBtn')) {
-    document.getElementById('firstPageBtn').addEventListener('click', () => { if(currentPage !== 1) { currentPage = 1; renderWorks(); }});
-    document.getElementById('prevPageBtn').addEventListener('click', () => { if(currentPage > 1) { currentPage--; renderWorks(); }});
-    document.getElementById('nextPageBtn').addEventListener('click', () => { if(currentPage < totalPages) { currentPage++; renderWorks(); }});
-    document.getElementById('lastPageBtn').addEventListener('click', () => { if(currentPage !== totalPages) { currentPage = totalPages; renderWorks(); }});
-}
+if(document.getElementById('firstPageBtn')) { document.getElementById('firstPageBtn').addEventListener('click', () => { if(currentPage !== 1) { currentPage = 1; renderWorks(); }}); document.getElementById('prevPageBtn').addEventListener('click', () => { if(currentPage > 1) { currentPage--; renderWorks(); }}); document.getElementById('nextPageBtn').addEventListener('click', () => { if(currentPage < totalPages) { currentPage++; renderWorks(); }}); document.getElementById('lastPageBtn').addEventListener('click', () => { if(currentPage !== totalPages) { currentPage = totalPages; renderWorks(); }}); }
 
 const workModal = document.getElementById('workModal');
 const closeWorkModal = document.getElementById('closeWorkModal');
@@ -135,14 +157,11 @@ window.openWork = function(workId) {
         currentScale = 100; zoomText.textContent = '100%';
         scrollTopDetailBtn.classList.remove('scroll-top-enabled'); scrollTopDetailBtn.classList.add('scroll-top-disabled');
         
-        // 1. 先注入真·全屏固定水印（独立于排版容器之外）
         const watermark = document.createElement('div');
         watermark.className = 'watermark-layer';
         modalImageContainer.appendChild(watermark);
-        // 延迟0.1秒显示水印，增加高级淡入感
         setTimeout(() => watermark.classList.add('active'), 100);
 
-        // 2. 再建立排版容器
         const blocksContainer = document.createElement('div');
         blocksContainer.id = "blocksContainer"; 
         blocksContainer.className = "w-full mx-auto px-4 md:px-12 py-10 md:py-16 flex flex-col gap-8 md:gap-12 relative z-10";
@@ -154,67 +173,39 @@ window.openWork = function(workId) {
         titleBlock.innerHTML = work.title;
         blocksContainer.appendChild(titleBlock);
 
-        const blocksToLoad = work.blocks && work.blocks.length > 0 ? work.blocks : 
-                            (work.images && work.images.length > 0 ? work.images.map(img => ({type: 'image', src: img})) : []);
+        const blocksToLoad = work.blocks && work.blocks.length > 0 ? work.blocks : (work.images && work.images.length > 0 ? work.images.map(img => ({type: 'image', src: img})) : []);
 
         if (blocksToLoad.length > 0) {
             blocksToLoad.forEach((block) => {
                 let el;
                 if (block.type === 'h1') {
-                    el = document.createElement('h2');
-                    el.className = `text-3xl md:text-4xl font-extrabold color-main tracking-tight mt-12 md:mt-16 mb-4 border-b-2 border-[var(--text-main)] pb-4 opacity-90`;
-                    el.innerHTML = block.html;
-                } 
-                else if (block.type === 'h2') {
-                    el = document.createElement('h3');
-                    el.className = `text-xl md:text-2xl font-bold color-main tracking-wide mt-10 md:mt-12 mb-2 border-l-[5px] border-[var(--text-main)] pl-4 opacity-85`;
-                    el.innerHTML = block.html;
-                } 
-                else if (block.type === 'p') {
-                    el = document.createElement('p');
-                    el.className = `text-[16px] md:text-[18px] leading-[2.2] font-medium color-main opacity-80 tracking-[0.05em] text-justify text-balance`;
-                    el.innerHTML = block.html;
-                } 
-                else if (block.type === 'quote') {
-                    el = document.createElement('blockquote');
-                    el.className = `bg-[var(--glass-bg)] border-l-[4px] border-[var(--text-main)] p-6 md:p-8 my-8 md:my-10 text-xl md:text-2xl font-serif italic color-main opacity-75 rounded-r-xl shadow-sm`;
-                    el.innerHTML = block.html;
-                }
-                else if (block.type === 'divider') {
-                    el = document.createElement('div');
-                    el.className = `flex justify-center items-center my-10 opacity-30`;
-                    el.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-[var(--text-main)] mx-2"></span><span class="w-2.5 h-2.5 rounded-full bg-[var(--text-main)] mx-2"></span><span class="w-1.5 h-1.5 rounded-full bg-[var(--text-main)] mx-2"></span>`;
-                }
-                else if (block.type === 'image') {
-                    el = document.createElement('div');
-                    el.className = `w-full relative rounded-xl md:rounded-2xl overflow-hidden bg-[var(--glass-bg)] min-h-[20vh] shadow-lg my-2`;
-                    const img = document.createElement('img');
-                    img.src = block.src;
-                    img.className = "relative z-[1] block w-full h-auto pointer-events-none transform transition-transform duration-[1s] hover:scale-[1.01]";
-                    img.loading = "lazy"; 
+                    el = document.createElement('h2'); el.className = `text-3xl md:text-4xl font-extrabold color-main tracking-tight mt-12 md:mt-16 mb-4 border-b-2 border-[var(--text-main)] pb-4 opacity-90`; el.innerHTML = block.html;
+                } else if (block.type === 'h2') {
+                    el = document.createElement('h3'); el.className = `text-xl md:text-2xl font-bold color-main tracking-wide mt-10 md:mt-12 mb-2 border-l-[5px] border-[var(--text-main)] pl-4 opacity-85`; el.innerHTML = block.html;
+                } else if (block.type === 'p') {
+                    el = document.createElement('p'); el.className = `text-[16px] md:text-[18px] leading-[2.2] font-medium color-main opacity-80 tracking-[0.05em] text-justify text-balance`; el.innerHTML = block.html;
+                } else if (block.type === 'quote') {
+                    el = document.createElement('blockquote'); el.className = `bg-[var(--glass-bg)] border-l-[4px] border-[var(--text-main)] p-6 md:p-8 my-8 md:my-10 text-xl md:text-2xl font-serif italic color-main opacity-75 rounded-r-xl shadow-sm`; el.innerHTML = block.html;
+                } else if (block.type === 'divider') {
+                    el = document.createElement('div'); el.className = `flex justify-center items-center my-10 opacity-30`; el.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-[var(--text-main)] mx-2"></span><span class="w-2.5 h-2.5 rounded-full bg-[var(--text-main)] mx-2"></span><span class="w-1.5 h-1.5 rounded-full bg-[var(--text-main)] mx-2"></span>`;
+                } else if (block.type === 'image') {
+                    el = document.createElement('div'); el.className = `w-full relative rounded-xl md:rounded-2xl overflow-hidden bg-[var(--glass-bg)] min-h-[20vh] shadow-lg my-2`;
+                    const img = document.createElement('img'); img.src = block.src; img.className = "relative z-[1] block w-full h-auto pointer-events-none transform transition-transform duration-[1s] hover:scale-[1.01]"; img.loading = "lazy"; 
                     el.appendChild(img);
                 }
-
                 if (el) blocksContainer.appendChild(el);
             });
-        } else {
-            blocksContainer.innerHTML = '<div class="py-20 text-center color-muted tracking-widest text-sm font-bold">作品排版内容加载中...</div>';
-        }
+        } else { blocksContainer.innerHTML = '<div class="py-20 text-center color-muted tracking-widest text-sm font-bold">作品排版内容加载中...</div>'; }
 
         modalImageContainer.appendChild(blocksContainer);
-        workModalScrollBox.scrollTop = 0; 
-        workModal.classList.add('active'); 
-        document.body.style.overflow = 'hidden';
+        workModalScrollBox.scrollTop = 0; workModal.classList.add('active'); document.body.style.overflow = 'hidden';
     }
 };
 
 function updateZoom(newScale) {
     currentScale = Math.max(minScale, Math.min(maxScale, newScale));
     const container = document.getElementById('blocksContainer');
-    if(container) {
-        container.style.maxWidth = `${baseContainerWidth * (currentScale / 100)}px`;
-        container.style.fontSize = `${currentScale}%`;
-    }
+    if(container) { container.style.maxWidth = `${baseContainerWidth * (currentScale / 100)}px`; container.style.fontSize = `${currentScale}%`; }
     zoomText.textContent = `${currentScale}%`;
 }
 if(document.getElementById('zoomInBtn')) document.getElementById('zoomInBtn').addEventListener('click', (e) => { e.stopPropagation(); updateZoom(currentScale + zoomStep); });
@@ -238,16 +229,11 @@ function triggerCopyrightDefense(reason) {
     if (isCopyrightUnlocked) return; 
     if (workModal.classList.contains('active')) {
         modalImageContainer.classList.add('copyright-blurred');
-        document.getElementById('copyrightOverlay').classList.remove('opacity-0', 'pointer-events-none');
-        document.getElementById('copyrightOverlay').classList.add('opacity-100', 'pointer-events-auto');
-        document.getElementById('copyrightBox').classList.remove('scale-95');
-        document.getElementById('copyrightBox').classList.add('scale-100');
-        
+        document.getElementById('copyrightOverlay').classList.remove('opacity-0', 'pointer-events-none'); document.getElementById('copyrightOverlay').classList.add('opacity-100', 'pointer-events-auto');
+        document.getElementById('copyrightBox').classList.remove('scale-95'); document.getElementById('copyrightBox').classList.add('scale-100');
         setTimeout(() => document.getElementById('copyrightPassword').focus(), 100);
         showToast(`访问受限：已拦截系统级 [ ${reason} ] 指令`, true);
-    } else {
-        showToast(`私密资产：本站已限制 [ ${reason} ] 权限`, true);
-    }
+    } else { showToast(`私密资产：本站已限制 [ ${reason} ] 权限`, true); }
 }
 
 document.addEventListener('contextmenu', (e) => { if (!isCopyrightUnlocked) { e.preventDefault(); triggerCopyrightDefense("右键菜单"); } });
@@ -265,39 +251,21 @@ function verifyCopyrightUnlock() {
     const pwd = document.getElementById('copyrightPassword');
     if (pwd.value === '66668888') {
         isCopyrightUnlocked = true; 
-        document.getElementById('copyrightOverlay').classList.replace('opacity-100', 'opacity-0');
-        document.getElementById('copyrightOverlay').classList.replace('pointer-events-auto', 'pointer-events-none');
-        document.getElementById('copyrightBox').classList.replace('scale-100', 'scale-95');
-        modalImageContainer.classList.remove('copyright-blurred');
-        showToast("秘钥验证通过，已为您开放全站权限。");
-        pwd.value = '';
+        document.getElementById('copyrightOverlay').classList.replace('opacity-100', 'opacity-0'); document.getElementById('copyrightOverlay').classList.replace('pointer-events-auto', 'pointer-events-none');
+        document.getElementById('copyrightBox').classList.replace('scale-100', 'scale-95'); modalImageContainer.classList.remove('copyright-blurred');
+        showToast("秘钥验证通过，已为您开放全站权限。"); pwd.value = '';
     } else {
-        showToast("秘钥无效，访问拒绝", true);
-        pwd.value = '';
-        pwd.classList.add('shake-error');
-        setTimeout(() => pwd.classList.remove('shake-error'), 400);
+        showToast("秘钥无效，访问拒绝", true); pwd.value = ''; pwd.classList.add('shake-error'); setTimeout(() => pwd.classList.remove('shake-error'), 400);
     }
 }
-
 if(document.getElementById('unlockCopyrightBtn')) document.getElementById('unlockCopyrightBtn').addEventListener('click', verifyCopyrightUnlock);
 if(document.getElementById('copyrightPassword')) document.getElementById('copyrightPassword').addEventListener('keypress', (e) => { if(e.key === 'Enter') verifyCopyrightUnlock(); });
-if(document.getElementById('closeCopyrightBtn')) document.getElementById('closeCopyrightBtn').addEventListener('click', () => {
-    closeWork();
-    setTimeout(() => {
-        document.getElementById('copyrightOverlay').classList.replace('opacity-100', 'opacity-0');
-        document.getElementById('copyrightOverlay').classList.replace('pointer-events-auto', 'pointer-events-none');
-    }, 300);
-});
+if(document.getElementById('closeCopyrightBtn')) document.getElementById('closeCopyrightBtn').addEventListener('click', () => { closeWork(); setTimeout(() => { document.getElementById('copyrightOverlay').classList.replace('opacity-100', 'opacity-0'); document.getElementById('copyrightOverlay').classList.replace('pointer-events-auto', 'pointer-events-none'); }, 300); });
 
-const resumeModal = document.getElementById('resumeModal');
-const openResumeBtn = document.getElementById('openResumeBtn');
-const closeResumeModal = document.getElementById('closeResumeModal');
+const resumeModal = document.getElementById('resumeModal'); const openResumeBtn = document.getElementById('openResumeBtn'); const closeResumeModal = document.getElementById('closeResumeModal');
 if(openResumeBtn) openResumeBtn.addEventListener('click', () => { resumeModal.classList.add('active'); document.body.style.overflow = 'hidden'; });
 const closeResume = () => { resumeModal.classList.remove('active'); document.body.style.overflow = ''; };
 if(closeResumeModal) closeResumeModal.addEventListener('click', closeResume);
 if(resumeModal) resumeModal.addEventListener('click', (e) => { if (e.target === resumeModal) closeResume(); });
 
-window.copyTextToClipboard = function(text, type) {
-    navigator.clipboard.writeText(text).then(() => { showToast(`已成功复制${type}: ${text}`); })
-    .catch(err => { showToast('复制失败，请手动选择复制', true); });
-}
+window.copyTextToClipboard = function(text, type) { navigator.clipboard.writeText(text).then(() => { showToast(`已成功复制${type}: ${text}`); }).catch(err => { showToast('复制失败，请手动选择复制', true); }); }
