@@ -1,12 +1,12 @@
 name: Notion to GitHub Sync
+
 on:
-  workflow_dispatch: # 允许你在网页上手动点击运行
-  schedule:
-    - cron: '0 * * * *' # 每小时系统自动帮你搬运一次
+  workflow_dispatch:
 
 jobs:
   sync:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -14,21 +14,25 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          python-version: '3.x'
 
       - name: Install Dependencies
-        run: pip install requests
+        # 这里多安装了一个 tinify 引擎
+        run: |
+          pip install requests tinify 
 
       - name: Run Sync Script
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
-        run: python sync_notion.py 
-
-      - name: Commit and Push
+          TINYPNG_API_KEY: ${{ secrets.TINYPNG_API_KEY }} # 插入 TinyPNG 钥匙
         run: |
-          git config --global user.name "Potato0070" 
-          git config --global user.email "1047988911@qq.com"
-          git add .
-          git commit -m "Auto-sync Notion works" || exit 0
+          python sync_notion.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add works.json images/uploads/
+          git commit -m "Auto-sync and compress images from Notion" || echo "No changes to commit"
           git push
