@@ -4,56 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>林嘉雍 | 品牌策划作品集</title>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    
     <script>
-        tailwind.config = {
-            darkMode: 'class', 
-            theme: {
-                extend: {
-                    fontFamily: {
-                        /* 将全局字体替换为高级感拉满的 Noto Sans SC */
-                        sans: ['"Noto Sans SC"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-                        serif: ['"Noto Serif SC"', 'serif'],
-                    },
-                }
-            }
-        }
+        tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['"Noto Sans SC"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'], serif: ['"Noto Serif SC"', 'serif'], }, } } }
     </script>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="antialiased">
-    <div id="preloader">
-        <div class="loader-text" id="loaderText">0%</div>
-        <div class="loader-bar-wrap"><div class="loader-bar" id="loaderBar"></div></div>
-    </div>
+    <div id="preloader"></div>
 
-    <div class="global-fluid-bg">
-        <div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div>
-    </div>
+    <div class="global-fluid-bg"><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div></div>
 
-    <div id="toast" class="fixed top-24 left-1/2 transform -translate-x-1/2 bg-inverted px-8 py-3.5 rounded-full shadow-2xl opacity-0 z-[300] flex items-center gap-4 transition-opacity duration-400 pointer-events-none">
-        <i id="toastIcon" class="fa fa-info-circle text-xl opacity-80"></i>
-        <span id="toastMessage" class="font-bold text-white dark:text-dark tracking-widest text-[13px]">系统提示</span>
-    </div>
+    <div id="toast" class="fixed top-24 left-1/2 transform -translate-x-1/2 bg-inverted px-8 py-3.5 rounded-full shadow-2xl opacity-0 z-[300] flex items-center gap-4 transition-opacity duration-400 pointer-events-none"><i id="toastIcon" class="fa fa-info-circle text-xl opacity-80"></i><span id="toastMessage" class="font-bold text-white dark:text-dark tracking-widest text-[13px]">系统提示</span></div>
 
     <div class="fixed top-6 left-1/2 z-50 w-[92%] max-w-5xl hidden md:flex justify-center" id="islandContainer">
         <nav class="nav-island flex items-center justify-between px-3 py-2 w-full shadow-2xl">
-            <a href="#home" class="pl-5 text-lg font-black tracking-tight color-main btn-elastic flex-shrink-0">
-                林嘉雍<span class="opacity-30 mx-1">·</span>品牌策划
-            </a>
+            <a href="#home" class="pl-5 text-lg font-black tracking-tight color-main btn-elastic flex-shrink-0">林嘉雍<span class="opacity-30 mx-1">·</span>品牌策划</a>
             <div class="flex items-center gap-1">
-                <a href="#home" class="nav-link btn-light-beam cursor-pointer">首页</a>
-                <a href="#works" class="nav-link btn-light-beam cursor-pointer">作品</a>
-                <a href="#about" class="nav-link btn-light-beam cursor-pointer">关于</a>
-                <a href="#contact" class="nav-link btn-light-beam cursor-pointer">联系</a>
+                <a href="#home" class="nav-link btn-light-beam cursor-pointer">首页</a><a href="#works" class="nav-link btn-light-beam cursor-pointer">作品</a><a href="#about" class="nav-link btn-light-beam cursor-pointer">关于</a><a href="#contact" class="nav-link btn-light-beam cursor-pointer">联系</a>
                 <div class="w-px h-4 bg-[var(--text-muted)] opacity-30 mx-2"></div>
                 <a href="https://m.zcool.com.cn/u/27721906" target="_blank" class="nav-link btn-light-beam cursor-pointer">站酷主页 <i class="fa fa-external-link opacity-40 text-[10px]"></i></a>
                 <button id="themeToggleBtn" class="w-10 h-10 rounded-full flex items-center justify-center color-main text-lg hover:bg-[var(--text-main)] hover:text-[var(--bg-base)] transition-all ml-1 cursor-pointer btn-light-beam"><i id="themeIcon" class="fa fa-moon-o"></i></button>
@@ -64,37 +37,26 @@
     <nav class="glass-nav fixed top-0 left-0 w-full z-50 py-3 px-6 md:hidden">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <a href="#home" class="text-[17px] font-black tracking-tight color-main btn-elastic">林嘉雍<span class="opacity-40 mx-1">·</span>品牌策划</a>
-            <div class="flex items-center gap-4">
-                <button id="themeToggleBtnMobile" class="w-8 h-8 flex items-center justify-center color-main text-xl btn-elastic"><i id="themeIconMobile" class="fa fa-moon-o"></i></button>
-                <button id="menuBtn" class="text-2xl color-main btn-elastic"><i class="fa fa-bars"></i></button>
-            </div>
+            <div class="flex items-center gap-4"><button id="themeToggleBtnMobile" class="w-8 h-8 flex items-center justify-center color-main text-xl btn-elastic"><i id="themeIconMobile" class="fa fa-moon-o"></i></button><button id="menuBtn" class="text-2xl color-main btn-elastic"><i class="fa fa-bars"></i></button></div>
         </div>
         <div id="mobileMenu" class="md:hidden hidden absolute top-full left-0 w-full liquid-glass shadow-2xl py-6 px-6 flex flex-col gap-4 text-center border-t-0 rounded-b-[2rem]">
-            <a href="#home" class="text-[15px] font-bold py-2 color-main cursor-pointer tracking-wide">首页</a>
-            <a href="#works" class="text-[15px] font-bold py-2 color-main cursor-pointer tracking-wide">作品</a>
-            <a href="#about" class="text-[15px] font-bold py-2 color-main cursor-pointer tracking-wide">关于</a>
-            <a href="#contact" class="text-[15px] font-bold py-2 color-main cursor-pointer tracking-wide">联系</a>
+            <a href="#home" class="text-[15px] font-bold py-2 color-main cursor-pointer tracking-wide">首页</a><a href="#works" class="text-[15px] font-bold py-2 color-main cursor-pointer tracking-wide">作品</a><a href="#about" class="text-[15px] font-bold py-2 color-main cursor-pointer tracking-wide">关于</a><a href="#contact" class="text-[15px] font-bold py-2 color-main cursor-pointer tracking-wide">联系</a>
         </div>
     </nav>
 
     <section id="home" class="relative min-h-screen flex flex-col items-center justify-center px-6 md:px-12 pt-20 overflow-hidden">
         <div class="max-w-5xl mx-auto text-center relative z-10 mt-[-10vh] reveal-up w-full">
             <h1 class="text-[clamp(3rem,8vw,6.5rem)] font-black tracking-tighter leading-[1.05] mb-8 drop-shadow-sm flex flex-col items-center">
-                <span class="overflow-hidden-wrap"><span class="animate-slide-down-text text-gradient-premium" style="animation-delay: 0.1s">用策略与设计</span></span>
-                <span class="overflow-hidden-wrap"><span class="animate-slide-down-text text-gradient-premium" style="animation-delay: 0.3s">为品牌赋予商业灵魂。</span></span>
+                <span class="overflow-hidden-wrap"><span class="animate-slide-up-text text-gradient-premium" style="animation-delay: 0.8s">用策略与设计</span></span>
+                <span class="overflow-hidden-wrap"><span class="animate-slide-up-text text-gradient-premium" style="animation-delay: 1.0s">为品牌赋予商业灵魂。</span></span>
             </h1>
-            <p class="color-muted text-[clamp(1.1rem,2vw,1.4rem)] max-w-2xl mx-auto mb-14 text-balance font-medium leading-relaxed opacity-90 tracking-wide">
+            <p class="color-muted text-[clamp(1.1rem,2vw,1.4rem)] max-w-2xl mx-auto mb-14 text-balance font-medium leading-relaxed opacity-90 tracking-wide intro-fade-in">
                 专注餐饮品牌全案策划与统筹设计团队<br>从0到1搭建体系，端到端覆盖策略到落地全闭环。
             </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 relative z-20">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 relative z-20 intro-fade-in">
                 <a href="#works" class="bg-inverted btn-elastic btn-light-beam px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto shadow-2xl inline-block cursor-pointer tracking-widest">浏览作品集</a>
                 <a href="#contact" class="liquid-glass hover-elastic btn-light-beam color-main px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto inline-block cursor-pointer tracking-widest">联系合作</a>
             </div>
-        </div>
-
-        <div class="marquee-wrapper">
-            <div class="marquee-track" id="heroMarquee">
-                </div>
         </div>
     </section>
 
@@ -107,11 +69,11 @@
             <div id="worksGrid" class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-10 min-h-[400px]"></div>
             <div class="mt-16 flex flex-col md:flex-row items-center justify-center gap-4 reveal-up">
                 <div class="liquid-glass-controls flex items-center px-5 py-2.5">
-                    <button id="firstPageBtn" title="最前页" class="btn-elastic w-10 h-10 flex items-center justify-center rounded-full color-main cursor-pointer"><i class="fa fa-angle-double-left text-lg"></i></button>
-                    <button id="prevPageBtn" title="上一页" class="btn-elastic w-10 h-10 flex items-center justify-center rounded-full color-main cursor-pointer"><i class="fa fa-angle-left text-lg"></i></button>
+                    <button id="firstPageBtn" class="btn-elastic w-10 h-10 flex items-center justify-center rounded-full color-main cursor-pointer"><i class="fa fa-angle-double-left text-lg"></i></button>
+                    <button id="prevPageBtn" class="btn-elastic w-10 h-10 flex items-center justify-center rounded-full color-main cursor-pointer"><i class="fa fa-angle-left text-lg"></i></button>
                     <span id="pageIndicator" class="text-sm font-bold color-main px-4 cursor-default select-none w-20 text-center tracking-widest">1 / 1</span>
-                    <button id="nextPageBtn" title="下一页" class="btn-elastic w-10 h-10 flex items-center justify-center rounded-full color-main cursor-pointer"><i class="fa fa-angle-right text-lg"></i></button>
-                    <button id="lastPageBtn" title="最后页" class="btn-elastic w-10 h-10 flex items-center justify-center rounded-full color-main cursor-pointer"><i class="fa fa-angle-double-right text-lg"></i></button>
+                    <button id="nextPageBtn" class="btn-elastic w-10 h-10 flex items-center justify-center rounded-full color-main cursor-pointer"><i class="fa fa-angle-right text-lg"></i></button>
+                    <button id="lastPageBtn" class="btn-elastic w-10 h-10 flex items-center justify-center rounded-full color-main cursor-pointer"><i class="fa fa-angle-double-right text-lg"></i></button>
                 </div>
             </div>
         </div>
