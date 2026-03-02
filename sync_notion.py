@@ -24,11 +24,27 @@ def download_image(url, filename):
     os.makedirs("images/uploads", exist_ok=True)
     filepath = os.path.join("images/uploads", filename)
     
+    # ==========================================
+    # 🧹 核心升级：历史大图“清洗补压”机制
+    # ==========================================
     if os.path.exists(filepath) and os.path.getsize(filepath) > 2048:
-        print(f"⏩ [缓存跳过] 图片完整无损: {filename}")
+        original_size = os.path.getsize(filepath)
+        # 智能判定：如果发现历史遗留图大于 300KB，不管三七二十一，直接拉去补压！
+        if TINYPNG_API_KEY and original_size > 300 * 1024:
+            print(f"🗜️ [缓存清洗] 揪出历史遗留大图: {filename}，原大小: {original_size / 1024:.1f} KB")
+            try:
+                source = tinify.from_file(filepath)
+                source.to_file(filepath)
+                new_size = os.path.getsize(filepath)
+                print(f"✅ [补压成功] 历史大图完美瘦身！现大小: {new_size / 1024:.1f} KB (减重 {100 - (new_size/original_size)*100:.1f}%)")
+            except Exception as e:
+                print(f"⚠️ [补压异常] 压缩服务连接失败，安全保留原图: {e}")
+        else:
+            print(f"⏩ [缓存跳过] 图片完整且体积极其健康: {filename}")
+            
         return filepath.replace("\\", "/")
         
-    print(f"⬇️ [抓取] 正在下载: {filename}")
+    print(f"⬇️ [抓取] 正在下载新图: {filename}")
     max_retries = 3
     
     download_headers = {
