@@ -165,9 +165,9 @@
         .liquid-glass-dark:hover { background: rgba(0, 0, 0, 1); transform: scale(1.05); }
         .dark-mode .liquid-glass-dark { background: rgba(255, 255, 255, 0.9); color: #000; border: 1px solid rgba(255, 255, 255, 1); }
         
-        /* 修复4：导航栏安全入场动画 */
+        /* 修复4：导航栏安全入场动画 (已修正中心偏移) */
         .nav-drop-in { animation: navDrop 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        @keyframes navDrop { 0% { transform: translateY(-100%); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+        @keyframes navDrop { 0% { transform: translate(-50%, -100%); opacity: 0; } 100% { transform: translate(-50%, 0); opacity: 1; } }
     </style>
 </head>
 
