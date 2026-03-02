@@ -1,43 +1,107 @@
-/* ========================================== */
-/* 6. 高奢拉幕与阻尼滑出动画 (重构版) */
-/* ========================================== */
+:root {
+    --bg-base: #f4f4f6; --text-main: #111111; --text-muted: #888888;
+    --glass-bg: rgba(255, 255, 255, 0.6); --nav-glass-bg: rgba(255, 255, 255, 0.85); 
+    --glass-bg-hover: rgba(255, 255, 255, 0.95); --glass-border: rgba(255, 255, 255, 0.9);
+    --glass-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05); --glass-inset: inset 0 1px 1px rgba(255, 255, 255, 1);
+    --btn-bg: #111111; --btn-text: #ffffff;
+    --blob-1: #eaeaea; --blob-2: #e0e0e0; --blob-3: #f9f9f9;
+    --modal-overlay: rgba(244, 244, 246, 0.95); 
+}
+.dark-mode {
+    --bg-base: #0a0a0a; --text-main: #f5f5f7; --text-muted: #777777;
+    --glass-bg: rgba(25, 25, 25, 0.6); --nav-glass-bg: rgba(15, 15, 15, 0.85);
+    --glass-bg-hover: rgba(35, 35, 35, 0.95); --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8); --glass-inset: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    --btn-bg: #ffffff; --btn-text: #000000;
+    --blob-1: #151515; --blob-2: #0d0d0d; --blob-3: #1a1a1a;
+    --modal-overlay: rgba(10, 10, 10, 0.95);
+}
+html { scroll-behavior: smooth; }
+body { 
+    background-color: var(--bg-base); color: var(--text-main);
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.8s ease, color 0.8s ease;
+    user-select: none; -webkit-touch-callout: none;
+}
+img { pointer-events: none; }
+body::after {
+    content: ""; position: fixed; inset: 0; width: 100vw; height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.04; z-index: 9999; pointer-events: none; mix-blend-mode: overlay;
+}
+.dark-mode::after { opacity: 0.06; }
+.color-main { color: var(--text-main); }
+.color-muted { color: var(--text-muted); }
+.bg-inverted { background-color: var(--btn-bg); color: var(--btn-text); transition: all 0.4s ease; }
 
-/* 纯粹的纯色帷幕 */
-#preloader {
-    position: fixed; inset: 0; z-index: 99999;
-    background: var(--text-main); /* 黑色幕布 */
-    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1); /* 苹果级缓动曲线 */
-}
-#preloader.loaded { transform: translateY(-100%); }
-.dark-mode #preloader { background: var(--bg-base); }
+.liquid-glass { background: var(--glass-bg); backdrop-filter: blur(40px) saturate(200%); border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow), var(--glass-inset); border-radius: 24px; transition: all 0.6s ease; }
+.hover-elastic { will-change: transform, box-shadow; }
+.hover-elastic:hover { transform: scale(1.02) translateY(-4px); background: var(--glass-bg-hover); box-shadow: 0 30px 60px -15px rgba(0,0,0,0.1), var(--glass-inset); }
+.dark-mode .hover-elastic:hover { box-shadow: 0 30px 60px -15px rgba(0,0,0,0.8), var(--glass-inset); }
+.hover-elastic:active { transform: scale(0.98); }
+.btn-elastic { transition: transform 0.4s ease; will-change: transform; }
+.btn-elastic:hover { transform: scale(1.05); opacity: 0.9; }
 
-/* 文字 Clip-path 高级揭示动画 (像从水里浮出来) */
-.overflow-hidden-wrap { 
-    overflow: hidden; 
-    display: block; 
-    line-height: 1.1; 
-    padding-bottom: 0.1em; /* 防止字体底部被裁切 */
+.btn-light-beam { position: relative; z-index: 1; }
+.btn-light-beam::before {
+    content: ""; position: absolute; inset: -2px; border-radius: inherit; padding: 2px;
+    background: linear-gradient(90deg, transparent, var(--text-main), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    background-size: 200% 100%; animation: beamMove 2s linear infinite; opacity: 0; transition: opacity 0.4s ease; pointer-events: none;
 }
-.animate-slide-up-text {
-    display: block;
-    transform: translateY(110%);
-    opacity: 0;
-    animation: revealText 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
+.btn-light-beam:hover::before { opacity: 0.8; }
+.bg-inverted.btn-light-beam::before { background: linear-gradient(90deg, transparent, var(--bg-base), transparent); }
+@keyframes beamMove { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
 
-@keyframes revealText {
-    0% { transform: translateY(110%); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-}
+.nav-island { background: var(--nav-glass-bg); backdrop-filter: blur(30px) saturate(250%); border: 1px solid var(--glass-border); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.08), inset 0 1px 1px rgba(255,255,255,0.8); border-radius: 100px; transition: all 0.5s ease; }
+.dark-mode .nav-island { box-shadow: 0 20px 40px -10px rgba(0,0,0,0.8), inset 0 1px 1px rgba(255,255,255,0.1); }
+.nav-link { padding: 0.5rem 1.2rem; border-radius: 100px; font-weight: 800; font-size: 13px; letter-spacing: 0.05em; transition: all 0.4s ease; display: flex; align-items: center; gap: 6px; }
+.nav-link:hover { background: var(--text-main); color: var(--bg-base) !important; }
+.glass-nav { background: var(--nav-glass-bg); backdrop-filter: blur(30px) saturate(250%); border-bottom: 1px solid var(--glass-border); box-shadow: 0 4px 30px rgba(0,0,0,0.03); }
 
-/* 副标题和按钮的柔和淡入 */
-.intro-fade-in {
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 1s ease, transform 1s ease;
-    transition-delay: 1.2s; /* 等大字浮出后再淡入 */
+.global-fluid-bg { position: fixed; inset: 0; overflow: hidden; z-index: -1; pointer-events: none; }
+.blob { position: absolute; filter: blur(140px); border-radius: 50%; opacity: 0.8; animation: floatBlob 30s infinite ease-in-out alternate; }
+.blob-1 { width: 70vw; height: 70vw; background: var(--blob-1); top: -20%; left: -10%; animation-duration: 28s; }
+.blob-2 { width: 60vw; height: 60vw; background: var(--blob-2); bottom: -30%; right: -10%; animation-duration: 25s; animation-direction: alternate-reverse; }
+.blob-3 { width: 50vw; height: 50vw; background: var(--blob-3); top: 40%; left: 40%; animation-duration: 32s; }
+@keyframes floatBlob { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(4vw, -4vh) scale(1.05); } 100% { transform: translate(-4vw, 4vh) scale(0.95); } }
+
+.watermark-layer {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 40; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='380' height='380' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(190,190) rotate(-25) translate(-190,-190)'%3E%3Ctext x='190' y='180' font-size='18' fill='rgba(140,140,140,0.16)' font-family='sans-serif' font-weight='900' letter-spacing='5' text-anchor='middle'%3E版权作品 · 禁止盗用%3C/text%3E%3Ctext x='190' y='205' font-size='10' fill='rgba(140,140,140,0.14)' font-family='sans-serif' font-weight='bold' letter-spacing='2' text-anchor='middle'%3ESTRICTLY CONFIDENTIAL%3C/text%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: repeat; opacity: 0; transition: opacity 0.8s ease;
 }
-.intro-fade-in.active {
-    opacity: 0.9;
-    transform: translateY(0);
-}
+.dark-mode .watermark-layer { background-image: url("data:image/svg+xml,%3Csvg width='380' height='380' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(190,190) rotate(-25) translate(-190,-190)'%3E%3Ctext x='190' y='180' font-size='18' fill='rgba(180,180,180,0.12)' font-family='sans-serif' font-weight='900' letter-spacing='5' text-anchor='middle'%3E版权作品 · 禁止盗用%3C/text%3E%3Ctext x='190' y='205' font-size='10' fill='rgba(180,180,180,0.1)' font-family='sans-serif' font-weight='bold' letter-spacing='2' text-anchor='middle'%3ESTRICTLY CONFIDENTIAL%3C/text%3E%3C/g%3E%3C/svg%3E"); }
+.watermark-layer.active { opacity: 1; }
+
+.text-gradient-premium { background-clip: text; -webkit-background-clip: text; color: transparent; background-image: linear-gradient(135deg, #111 0%, #666 100%); }
+.dark-mode .text-gradient-premium { background-image: linear-gradient(135deg, #fff 0%, #999 100%); }
+.glass-card-img { transition: transform 0.8s ease; }
+.hover-elastic:hover .glass-card-img { transform: scale(1.06); }
+
+.modal { opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s ease; background: var(--modal-overlay); backdrop-filter: blur(25px); }
+.modal.active { opacity: 1; visibility: visible; }
+.modal-content { transition: all 0.4s ease; transform: scale(0.96) translateY(20px); opacity: 0; }
+.modal.active .modal-content { transform: scale(1) translateY(0); opacity: 1; }
+.modal-scroll-box { overflow: auto; -webkit-overflow-scrolling: touch; padding-bottom: env(safe-area-inset-bottom, 40px); }
+.modal-scroll-box::-webkit-scrollbar { width: 0px; height: 0px; } 
+
+/* 真·光学无损变焦基底 */
+#blocksContainer { transition: transform 0.3s ease; transform-origin: top center; margin: 0 auto; position: relative; }
+
+.copyright-blurred { filter: blur(40px) brightness(0.8) saturate(120%) !important; pointer-events: none; transition: filter 0.8s ease; }
+.dark-mode .copyright-blurred { filter: blur(40px) brightness(0.5) saturate(120%) !important; }
+.shake-error { animation: subtleShakeError 0.4s ease both; }
+@keyframes subtleShakeError { 0%, 100% { transform: translateX(0); } 20%, 60% { transform: translateX(-4px); color: #ef4444; } 40%, 80% { transform: translateX(4px); color: #ef4444; } }
+.liquid-glass-controls { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(30px); border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-radius: 40px; }
+.dark-mode .liquid-glass-controls { background: rgba(25, 25, 25, 0.85); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+.scroll-top-disabled { opacity: 0.3; cursor: not-allowed; pointer-events: none; }
+.reveal-up { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
+.reveal-up.revealed { opacity: 1; transform: translateY(0); }
+
+.overflow-hidden-wrap { overflow: hidden; display: block; line-height: 1.1; padding-bottom: 0.1em; }
+.animate-slide-up-text { display: block; transform: translateY(110%); opacity: 0; animation: revealText 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+@keyframes revealText { 0% { transform: translateY(110%); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+.intro-fade-in { opacity: 0; transform: translateY(10px); transition: all 1s ease; }
+.intro-fade-in.active { opacity: 0.9; transform: translateY(0); }
