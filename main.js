@@ -1,26 +1,15 @@
 let worksList = [];
 
-window.addEventListener('load', () => {
+document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
-        const preloader = document.getElementById('preloader');
-        if(preloader) preloader.classList.add('loaded');
-    }, 400);
-
-    setTimeout(() => {
-        const island = document.getElementById('islandContainer');
-        if(island) island.classList.add('reveal-up');
-        
-        document.querySelectorAll('.intro-fade-in').forEach(el => {
-            el.classList.add('active');
-        });
-    }, 800);
-
+        document.querySelectorAll('.intro-fade-in').forEach(el => el.classList.add('active'));
+    }, 100);
     fetchCMSData();
 });
 
 async function fetchCMSData() {
     try {
-        // 核心修复1：强制打破死缓存！确保每次都能拉取到最新的作品列表
+        // 核心：强制打破一切浏览器死缓存，绝不白屏
         const response = await fetch('works.json?t=' + new Date().getTime());
         if (response.ok) {
             const data = await response.json();
@@ -66,7 +55,7 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) { entry.target.classList.add('revealed'); observer.unobserve(entry.target); }
     });
 }, observerOptions);
-function bindObserver() { document.querySelectorAll('.reveal-up:not(#islandContainer)').forEach(el => observer.observe(el)); }
+function bindObserver() { document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el)); }
 
 let currentPage = 1; const itemsPerPage = 6; let totalPages = 1;
 const gridElement = document.getElementById('worksGrid');
@@ -122,7 +111,6 @@ const workModal = document.getElementById('workModal');
 const closeWorkModal = document.getElementById('closeWorkModal');
 const modalImageContainer = document.getElementById('modalImageContainer');
 const workModalScrollBox = document.getElementById('workModalScrollBox');
-const loadingSpinner = document.getElementById('loadingSpinner');
 const zoomText = document.getElementById('zoomText');
 const scrollTopDetailBtn = document.getElementById('scrollTopDetailBtn');
 
@@ -137,7 +125,6 @@ window.openWork = function(workId) {
         document.getElementById('copyrightOverlay').classList.replace('opacity-100', 'opacity-0');
         document.getElementById('copyrightOverlay').classList.replace('pointer-events-auto', 'pointer-events-none');
         
-        loadingSpinner.classList.add('hidden'); 
         modalImageContainer.classList.remove('opacity-0'); 
         modalImageContainer.classList.add('opacity-100');
         
@@ -151,10 +138,8 @@ window.openWork = function(workId) {
 
         const blocksContainer = document.createElement('div');
         blocksContainer.id = "blocksContainer"; 
-        // 核心修复2：重置排版容器样式，准备迎接无损光学缩放
-        blocksContainer.className = "w-full mx-auto px-4 md:px-12 py-10 md:py-16 flex flex-col gap-8 md:gap-12 relative z-10 transition-transform duration-300";
+        blocksContainer.className = "w-full mx-auto px-4 md:px-12 py-10 md:py-16 flex flex-col gap-8 md:gap-12 relative z-10";
         blocksContainer.style.maxWidth = `${baseContainerWidth}px`;
-        blocksContainer.style.transformOrigin = "top center";
 
         const titleBlock = document.createElement('h1');
         titleBlock.className = "text-4xl md:text-5xl lg:text-6xl font-black color-main tracking-tighter mb-8 mt-8 md:mt-12 text-balance leading-tight text-center md:text-left";
@@ -166,17 +151,12 @@ window.openWork = function(workId) {
         if (blocksToLoad.length > 0) {
             blocksToLoad.forEach((block) => {
                 let el;
-                if (block.type === 'h1') {
-                    el = document.createElement('h2'); el.className = `text-3xl md:text-4xl font-extrabold color-main tracking-tight mt-12 md:mt-16 mb-4 border-b-2 border-[var(--text-main)] pb-4 opacity-90`; el.innerHTML = block.html;
-                } else if (block.type === 'h2') {
-                    el = document.createElement('h3'); el.className = `text-xl md:text-2xl font-bold color-main tracking-wide mt-10 md:mt-12 mb-2 border-l-[5px] border-[var(--text-main)] pl-4 opacity-85`; el.innerHTML = block.html;
-                } else if (block.type === 'p') {
-                    el = document.createElement('p'); el.className = `text-[16px] md:text-[18px] leading-[2.2] font-medium color-main opacity-80 tracking-[0.05em] text-justify text-balance`; el.innerHTML = block.html;
-                } else if (block.type === 'quote') {
-                    el = document.createElement('blockquote'); el.className = `bg-[var(--glass-bg)] border-l-[4px] border-[var(--text-main)] p-6 md:p-8 my-8 md:my-10 text-xl md:text-2xl font-serif italic color-main opacity-75 rounded-r-xl shadow-sm`; el.innerHTML = block.html;
-                } else if (block.type === 'divider') {
-                    el = document.createElement('div'); el.className = `flex justify-center items-center my-10 opacity-30`; el.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-[var(--text-main)] mx-2"></span><span class="w-2.5 h-2.5 rounded-full bg-[var(--text-main)] mx-2"></span><span class="w-1.5 h-1.5 rounded-full bg-[var(--text-main)] mx-2"></span>`;
-                } else if (block.type === 'image') {
+                if (block.type === 'h1') { el = document.createElement('h2'); el.className = `text-3xl md:text-4xl font-extrabold color-main tracking-tight mt-12 md:mt-16 mb-4 border-b-2 border-[var(--text-main)] pb-4 opacity-90`; el.innerHTML = block.html; } 
+                else if (block.type === 'h2') { el = document.createElement('h3'); el.className = `text-xl md:text-2xl font-bold color-main tracking-wide mt-10 md:mt-12 mb-2 border-l-[5px] border-[var(--text-main)] pl-4 opacity-85`; el.innerHTML = block.html; } 
+                else if (block.type === 'p') { el = document.createElement('p'); el.className = `text-[16px] md:text-[18px] leading-[2.2] font-medium color-main opacity-80 tracking-[0.05em] text-justify text-balance`; el.innerHTML = block.html; } 
+                else if (block.type === 'quote') { el = document.createElement('blockquote'); el.className = `bg-[var(--glass-bg)] border-l-[4px] border-[var(--text-main)] p-6 md:p-8 my-8 md:my-10 text-xl md:text-2xl font-serif italic color-main opacity-75 rounded-r-xl shadow-sm`; el.innerHTML = block.html; } 
+                else if (block.type === 'divider') { el = document.createElement('div'); el.className = `flex justify-center items-center my-10 opacity-30`; el.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-[var(--text-main)] mx-2"></span><span class="w-2.5 h-2.5 rounded-full bg-[var(--text-main)] mx-2"></span><span class="w-1.5 h-1.5 rounded-full bg-[var(--text-main)] mx-2"></span>`; } 
+                else if (block.type === 'image') {
                     el = document.createElement('div'); el.className = `w-full relative rounded-xl md:rounded-2xl overflow-hidden bg-[var(--glass-bg)] min-h-[20vh] shadow-lg my-2`;
                     const img = document.createElement('img'); img.src = block.src; img.className = "relative z-[1] block w-full h-auto pointer-events-none transform transition-transform duration-[1s] hover:scale-[1.01]"; img.loading = "lazy"; 
                     el.appendChild(img);
@@ -190,13 +170,11 @@ window.openWork = function(workId) {
     }
 };
 
+// 核心：无损光学缩放，绝对不撑爆排版！
 function updateZoom(newScale) {
     currentScale = Math.max(minScale, Math.min(maxScale, newScale));
     const container = document.getElementById('blocksContainer');
-    if(container) {
-        // 核心修复3：使用真正的无损光学缩放，绝对不改变字号和宽度，防止排版崩塌！
-        container.style.transform = `scale(${currentScale / 100})`;
-    }
+    if(container) { container.style.transform = `scale(${currentScale / 100})`; }
     zoomText.textContent = `${currentScale}%`;
 }
 if(document.getElementById('zoomInBtn')) document.getElementById('zoomInBtn').addEventListener('click', (e) => { e.stopPropagation(); updateZoom(currentScale + zoomStep); });
