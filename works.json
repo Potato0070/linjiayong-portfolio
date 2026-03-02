@@ -1,147 +1,1007 @@
 {
   "worksList": [
     {
-      "id": "work0",
+      "id": "work_3179e0b6b52d801a90b4c7951e2c0dc1",
       "title": "黔三烙 | 黔山寻野,百味入锅",
       "desc": "贵州烙锅品牌全案策划设计",
       "cover": "images/uploads/cover_3179e0b6-b52d-801a-90b4-c7951e2c0dc1.jpg",
-      "images": [
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_1.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_2.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_3.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_4.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_5.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_6.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_7.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_8.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_9.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_10.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_11.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_12.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_13.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_14.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_15.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_16.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_17.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_18.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_19.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_20.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_21.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_22.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_23.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_24.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_25.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_26.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_27.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_28.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_29.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_30.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_31.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_32.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_33.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_34.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_35.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_36.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_37.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_38.jpg",
-        "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_39.jpg"
+      "blocks": [
+        {
+          "type": "h2",
+          "html": "服务客户：黔三烙"
+        },
+        {
+          "type": "h2",
+          "html": "项目类型：餐饮品牌从 0 到 1 全案"
+        },
+        {
+          "type": "h2",
+          "html": "服务内容：品牌策略定位 | 视觉系统设计 | 空间落地统筹 | 物料全链设计"
+        },
+        {
+          "type": "h2",
+          "html": "全案统筹：林嘉雍"
+        },
+        {
+          "type": "h2",
+          "html": "创作时间：2025 年"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_1.jpg"
+        },
+        {
+          "type": "p",
+          "html": "黔三烙是全新打造的贵州非遗烙锅餐饮品牌，落地广西市场，锁定 70-100 元人均消费带，主打年轻社交群体、朋友家庭聚餐及旅游体验人群。核心差异化优势为「生烙 + 熟烙」双模式吃法，以百年非遗烙锅技艺为根基，融合贵州多民族文化与山野食材本味，打造兼具烟火气与精致感的烙锅 BISTRO 新体验。"
+        },
+        {
+          "type": "p",
+          "html": "贵州风味早已成为全国餐饮赛道的顶流品类，而烙锅更是凭借强社交属性与高性价比实现突围："
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_2.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_3.jpg"
+        },
+        {
+          "type": "p",
+          "html": "赛道火热的背后，是多数品牌陷入的两大核心困境："
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_4.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_5.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_6.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_7.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_8.jpg"
+        },
+        {
+          "type": "h2",
+          "html": "1. 市场洞察：烙锅的底层逻辑，是「聚集」"
+        },
+        {
+          "type": "p",
+          "html": "烙锅从清代兵营的瓦片充饥，演变为如今的全民美食，核心底层逻辑从来不是「吃」本身，而是「围炉共食」的聚集属性 —— 一口圆锅，围坐众人，在滋滋作响的烙烤声中，完成社交关系的升温，这与贵州多民族「围鼓而聚」的文化内核天然契合。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_9.jpg"
+        },
+        {
+          "type": "h2",
+          "html": "2. 用户洞察：双人群决策，双需求满足"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_10.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_11.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_12.jpg"
+        },
+        {
+          "type": "h2",
+          "html": "3. 竞品洞察：同质化的核心，是「只抄形，不抓魂」"
+        },
+        {
+          "type": "p",
+          "html": "全行业都在做贵州元素的搬运工，却没人真正挖掘贵州文化的精神内核。苗银、蜡染只是贵州文化的表层符号，而覆盖黔、桂、滇三地，被苗、侗、布依族共尊的"
+        },
+        {
+          "type": "p",
+          "html": "<strong>铜鼓文化</strong>"
+        },
+        {
+          "type": "p",
+          "html": "，才是贵州文化里最具凝聚力、最具神圣感、最能代表「聚集」属性的超级母体，却从未被烙锅品类挖掘与使用。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_13.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_14.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_15.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_16.jpg"
+        },
+        {
+          "type": "h2",
+          "html": "4. 品牌自身洞察：三大不可复制的核心禀赋"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_17.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_18.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_19.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_20.jpg"
+        },
+        {
+          "type": "p",
+          "html": "我们放弃了行业通用的「苗银 + 蜡染」元素堆砌路线，锁定<strong>铜鼓</strong>为品牌唯一超级符号，构建「形 - 神 - 声」三维共鸣体系，形成竞品无法复制的品牌核心壁垒："
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_21.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_22.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_23.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_24.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_25.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_26.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_27.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_28.jpg"
+        },
+        {
+          "type": "p",
+          "html": "以「铜鼓文化」为核心锚点，以「三烙价值体系」为骨架，打通「非遗文化 - 山野产品 - 社交场景」三大维度，跳出同质化价格战与元素战，打造「有文化内核、有品质体验、有社交属性」的贵州非遗烙锅年轻品牌，让用户从「吃一顿烙锅」，变成「体验一次贵州非遗文化的欢聚之旅」。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_29.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_30.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_31.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_32.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_33.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_34.jpg"
+        },
+        {
+          "type": "p",
+          "html": "黔山雨润，青石成瓦，黔三烙的故事，从一块瓦片开始。始于清代兵营的片瓦，沉淀为穿越百年的非遗烙锅技艺，从吴三桂行军的无奈之举，到六盘水市井的烟火传承，再到黔三烙的焕新演绎，我们守住火与陶的百年默契，只为复刻那一口穿越时光的锅气。"
+        },
+        {
+          "type": "p",
+          "html": "我们扎根黔地，翻山越岭，搬运海拔 1000 米的山野鲜活，以高温生烙唤醒食材本味；我们以铜鼓为媒，串联苗、侗、布依多民族的欢聚基因，让烙锅成为聚集的信号 —— 炉火映照下，陌生变熟悉，疏离化亲密，不同的灵魂在此共鸣。"
+        },
+        {
+          "type": "p",
+          "html": "一烙古法传，二烙众生聚，三烙山野醒。黔山寻野，百味入锅，这便是黔三烙。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_35.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_36.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_37.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_38.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_39.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_40.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_41.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_42.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_43.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_44.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_45.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_46.jpg"
+        },
+        {
+          "type": "p",
+          "html": "所有视觉设计均围绕「铜鼓超级符号 + 山野非遗质感 + 年轻社交审美」三大核心展开，摒弃过度雕琢的精致感，以质朴、原生、有力量的视觉语言，传递品牌「山野而不粗糙，传统而不陈旧」的核心调性，实现策略与视觉的高度统一。"
+        },
+        {
+          "type": "h2",
+          "html": "核心 LOGO 标准组合"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_47.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_48.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_49.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_50.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_51.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_52.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_53.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_54.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_55.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_56.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_57.jpg"
+        },
+        {
+          "type": "h2",
+          "html": "门店运营物料"
+        },
+        {
+          "type": "p",
+          "html": "菜单、扫码点餐页面、取号单、代金券、桌贴、墙贴、营业时间牌、海报展架、开业物料、打卡墙设计、员工工服、工牌等"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_58.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_59.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_60.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_61.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_62.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_63.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_64.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_65.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_66.jpg"
+        },
+        {
+          "type": "h2",
+          "html": "用餐体验物料"
+        },
+        {
+          "type": "p",
+          "html": "餐具套装、纸巾盒、手套、杯套、牙签盒、湿巾、打包袋、打包盒、外卖包装等"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_67.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_68.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_69.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_70.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_71.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_72.jpg"
+        },
+        {
+          "type": "p",
+          "html": "空间是品牌体验的核心载体，我们以「铜鼓文化 + 山野非遗 + 围炉欢聚」为核心，打造了适配社区与商圈的 66㎡标准化门店模型，实现品牌定位的沉浸式落地。摒弃传统贵州餐饮的浓墨重彩，以「质朴山野 + 现代简约」为核心基调，用木饰面、艺术涂料、水泥砖、原生布艺为主要材质，营造温暖、松弛、有烟火气的欢聚氛围，既保留贵州非遗文化的厚重感，又适配年轻群体的审美与社交需求。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_73.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_74.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_75.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_76.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_77.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_78.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_79.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_80.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_81.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_82.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_83.jpg"
+        },
+        {
+          "type": "p",
+          "html": "本项目完成了黔三烙品牌从 0 到 1 的完整全案闭环，实现了从战略定位、视觉设计到空间落地、物料全链的一体化打造，核心成果包括："
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_84.jpg"
+        },
+        {
+          "type": "p",
+          "html": "本项目由本人全程主导，负责整体品牌策略定位、创意方向把控、设计团队统筹、全案落地跟进，完成了从前期市场调研、用户洞察、战略制定，到中期视觉设计、产品策划、空间设计，再到后期门店落地、物料执行的全流程统筹，实现了品牌从 0 到 1 的完整落地。"
+        },
+        {
+          "type": "h2",
+          "html": "合作联系方式：13543039487"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-801a-90b4-c7951e2c0dc1_85.jpg"
+        },
+        {
+          "type": "h2",
+          "html": "版权声明：本方案版权归黔三烙品牌与创作方所有，禁止商用盗用"
+        }
       ]
     },
     {
-      "id": "work1",
+      "id": "work_3179e0b6b52d80419734e57965e2309d",
       "title": "雨果 | 山野上桌,食得自然",
       "desc": "云南菜品牌全案策划设计",
       "cover": "images/uploads/cover_3179e0b6-b52d-8041-9734-e57965e2309d.jpg",
-      "images": [
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_1.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_2.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_3.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_4.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_5.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_6.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_7.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_8.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_9.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_10.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_11.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_12.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_13.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_14.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_15.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_16.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_17.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_18.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_19.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_20.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_21.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_22.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_23.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_24.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_25.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_26.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_27.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_28.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_29.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_30.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_31.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_32.jpg",
-        "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_33.jpg"
+      "blocks": [
+        {
+          "type": "h1",
+          "html": "<em><strong>#01 项目信息</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "项目名称丨雨果"
+        },
+        {
+          "type": "p",
+          "html": "项目类别丨云南菜"
+        },
+        {
+          "type": "p",
+          "html": "项目地址丨云南大理"
+        },
+        {
+          "type": "p",
+          "html": "项目特色丨云南菜品牌设计 山野餐饮设计 海景餐饮设计 漂亮饭设计"
+        },
+        {
+          "type": "h1",
+          "html": "<em><strong>#02 项目背景</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "近年来，云贵菜持续处于上升态势，2025 年市场规模同比增长 5.9%，门店数已突破 4.2 万家，虽仅占全国中式正餐门店总数的 3.1%，但发展潜力巨大。同时，云贵川 Bistro 餐厅持续走红，云南菜呈现精致化、融合化、酸辣风盛行等特征，年轻消费者对 “漂亮饭” 的情绪价值、出片需求与文化体验诉求日益凸显。基于以上市场洞察，结合雨果 “近洱海的海景餐厅、保留云南菜正宗做法” 的核心优势，拓维为其打造了从策略到落地的全链条餐饮设计方案，让地道滇味在文学浪漫与山野鲜韵中焕发新生。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_1.jpg"
+        },
+        {
+          "type": "h1",
+          "html": "<em><strong>#03 品牌策略</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "“雨果” 二字暗藏双重核心内涵：一是借势法国浪漫主义作家维克多・雨果的大众认知，赋予品牌文学浪漫的人文调性；二是关联 “雨（雨林）+ 果（野果）”，直指云南菜的食材根源 —— 雨林野生菌、树番茄、滇橄榄等特色野果，点明品类味觉灵魂。英文名 “Hugo” 既贴合中文名发音，又强化国际感与记忆点，短短二字串联起文学、自然、品类三大核心，形成 “差异化认知 + 强传播性” 的品牌命名优势。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_2.jpg"
+        },
+        {
+          "type": "p",
+          "html": "雨果的定位是 “雨林野果・书页式浪漫云南菜”，打破传统云南菜仅强调 “正宗” 的局限，以 “翻越页页山海，寻获浪漫雨果” 为核心理念，融合云南雨林野果鲜材、雨果文学浪漫与洱海海景体验。聚焦 20-35 岁本地 / 外来游客中的小资年轻人，满足其对情绪价值、出片需求、文化体验与地道风味的多重诉求，客单价定位 60-80 元，以 “文学 IP + 海景稀缺性 + 山野鲜材” 的差异化优势，在云南菜市场中打造 “有故事、有浪漫、有风味” 的独特品牌认知。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_3.jpg"
+        },
+        {
+          "type": "p",
+          "html": "文案突出 “四季寻鲜的食材价值、书页浪漫的体验价值、地道滇味的味道价值” 三大核心，直击消费群体对新鲜健康、情感共鸣与品质风味的核心诉求；品牌故事以 “维克多・雨果的精神与云南山海相遇” 为脉络，讲述苍山、洱海与雨林野果的邂逅，深化 “自然野趣 + 人文浪漫” 的品牌价值，传递 “让每一次用餐都成为一场可阅读的浪漫旅程” 的品牌理念与愿景，拉近与消费者的情感距离。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_4.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_5.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_6.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_7.jpg"
+        },
+        {
+          "type": "h1",
+          "html": "<em><strong>#04 品牌设计</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "雨果以 #1F4258（深蓝）、#AD8B61（暖棕）、#342624（深褐）、#F5E6CE（米白）为核心色彩体系，呼应洱海蓝、山野棕与书页米白的质感；品牌标志提供图文结合与纯文字双方案，图文款以山野风百香果为原型，搭配质朴手写字体，传递自然气息与旅行日志书写感；纯文字款采用现代弯曲精致字体，演绎云南菜的精致化发展方向。辅助图形提取野果、书形态、邮票等元素，物料设计涵盖手提袋、筷套、餐垫、打包盒等，均印有 “山野上桌，食得自然” 等核心口号与品牌故事片段，整体实现视觉、内涵与实用功能的高度统一，精准诠释 “文学浪漫 + 山野本味” 的品牌定位。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_8.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_9.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_10.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_11.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_12.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_13.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_14.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_15.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_16.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_17.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_18.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_19.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_20.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_21.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_22.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_23.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_24.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_25.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_26.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_27.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_28.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_29.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_30.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_31.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_32.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_33.jpg"
+        },
+        {
+          "type": "h1",
+          "html": "<strong>THANKS~</strong>"
+        }
       ]
     },
     {
-      "id": "work2",
+      "id": "work_3179e0b6b52d80f683dcc877a08f8feb",
       "title": "彭城李記 | 四季好虾,时时好味",
       "desc": "烧烤大排档品牌全案策划设计",
       "cover": "images/uploads/cover_3179e0b6-b52d-80f6-83dc-c877a08f8feb.jpg",
-      "images": [
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_1.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_2.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_3.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_4.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_5.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_6.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_7.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_8.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_9.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_10.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_11.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_12.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_13.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_14.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_15.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_16.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_17.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_18.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_19.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_20.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_21.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_22.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_23.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_24.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_25.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_26.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_27.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_28.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_29.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_30.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_31.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_32.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_33.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_34.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_35.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_36.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_37.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_38.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_39.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_40.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_41.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_42.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_43.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_44.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_45.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_46.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_47.jpg",
-        "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_48.jpg"
+      "blocks": [
+        {
+          "type": "h2",
+          "html": "项目类型：餐饮品牌从 0 到 1 全案"
+        },
+        {
+          "type": "h2",
+          "html": "服务内容：品牌策略定位 | 视觉系统设计 | 空间落地统筹 | 物料全链设计"
+        },
+        {
+          "type": "h2",
+          "html": "全案统筹：林嘉雍"
+        },
+        {
+          "type": "h2",
+          "html": "创作时间：2025 年"
+        },
+        {
+          "type": "p",
+          "html": "小龙虾作为国民级餐饮品类，已形成「小龙虾 +」的成熟经营模式，江苏作为全国小龙虾门店第一大省、产量 TOP5 省份，赛道竞争已进入白热化阶段。绝大多数小龙虾品牌陷入同质化困局：视觉上扎堆市井风、工业风、国潮风，千店一面；经营上受季节性限制严重，难以形成全年稳定的消费心智；体验上只聚焦「吃」的功能，忽略了当下年轻人对情绪价值、社交场景的核心需求。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_1.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_2.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_3.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_4.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_5.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_6.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_7.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_8.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_9.jpg"
+        },
+        {
+          "type": "p",
+          "html": "放弃行业通用的市井风、工业风路线，锁定 「山野聆风，空谷回响」为品牌核心主题，打造「都市山野乌托邦」的差异化定位，构建「五感沉浸式体验」品牌壁垒："
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_10.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_11.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_12.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_13.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_14.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_15.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_16.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_17.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_18.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_19.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_20.jpg"
+        },
+        {
+          "type": "p",
+          "html": "这是一场关于逃离、回归与共鸣的实践。于城市喧阗中，辟得一隅山野。风过留声，是自然在聆听；美食当前，是味蕾被治愈。我们懂都市年轻人的压力与孤独，懂他们对山野的向往、对真诚交流的渴望。于是我们把山野搬进城市，把四季好虾端上餐桌，用炭火的温热、龙虾的鲜香、自然的肌理，搭建一个能释放自我、畅所欲言的乌托邦。"
+        },
+        {
+          "type": "p",
+          "html": "在这里，你可以暂且关闭世界的杂音，侧耳倾听 —— 听风穿过空谷，听炭火亲吻食材，听好友间毫无保留的畅谈。聆听本身即是治愈，举杯碰撞便是回响。四季好虾，时时好味；山野临风，空谷回响，这便是彭城李記。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_21.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_22.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_23.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_24.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_25.jpg"
+        },
+        {
+          "type": "p",
+          "html": "围绕「山野自然 + 松弛治愈 + 年轻质感」三大核心，摒弃传统龙虾店的厚重、喧闹的视觉风格，以简约、原生、富有呼吸感的设计语言，传递品牌「都市山野乌托邦」的核心定位，实现策略与视觉的高度统一。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_26.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_27.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_28.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_29.jpg"
+        },
+        {
+          "type": "p",
+          "html": "<strong>色彩系统</strong>以自然原生的大地色系为核心，打造低饱和度、高质感的色彩体系，还原山野的松弛与治愈感："
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_30.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_31.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_32.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_33.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_34.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_35.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_36.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_37.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_38.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_39.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_40.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_41.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_42.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_43.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_44.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_45.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_46.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_47.jpg"
+        },
+        {
+          "type": "p",
+          "html": "打造徐州云龙万达广场 800㎡旗舰店标准化模型，以「山野聆风，空谷回响」为空间主题，用原生材质、松弛光影、自然肌理，还原山野的惬意与松弛，实现品牌定位的沉浸式落地。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_48.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_49.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_50.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_51.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_52.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_53.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_54.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_55.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_56.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_57.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_58.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_59.jpg"
+        },
+        {
+          "type": "p",
+          "html": "构建「龙虾 + 烧烤 + 精酿 + 小吃 + 饮品」的全时段产品矩阵，打破小龙虾品类季节性限制，实现全时段、全场景经营："
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_60.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_61.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_62.jpg"
+        },
+        {
+          "type": "h2",
+          "html": "项目落地成果"
+        },
+        {
+          "type": "p",
+          "html": "本项目完成了彭城李記品牌从 0 到 1 的完整全案闭环，实现了从战略定位、视觉设计到空间落地、物料全链的一体化打造，核心成果包括："
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_63.jpg"
+        },
+        {
+          "type": "p",
+          "html": "本项目由本人全程主导，负责整体品牌策略定位、创意方向把控、设计团队统筹、全案落地跟进，完成了从前期市场调研、用户洞察、战略制定，到中期视觉设计、产品策划、空间设计，再到后期门店落地、物料执行的全流程统筹，实现了品牌从 0 到 1 的完整落地。"
+        },
+        {
+          "type": "h2",
+          "html": "合作联系方式：13543039487"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80f6-83dc-c877a08f8feb_64.jpg"
+        },
+        {
+          "type": "h2",
+          "html": "版权声明：本方案版权归彭城李記品牌与创作方所有，禁止商用盗用"
+        }
       ]
     }
   ]
