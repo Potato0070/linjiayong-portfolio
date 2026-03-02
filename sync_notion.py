@@ -2,9 +2,17 @@ import os
 import json
 import requests
 import time
+# 引入 TinyPNG 官方引擎
+import tinify
 
+# 获取保险箱里的钥匙
 NOTION_TOKEN = os.environ.get("NOTION_TOKEN")
 DATABASE_ID = os.environ.get("NOTION_DATABASE_ID")
+TINYPNG_API_KEY = os.environ.get("TINYPNG_API_KEY")
+
+# 如果配了钥匙，就激活 TinyPNG
+if TINYPNG_API_KEY:
+    tinify.key = TINYPNG_API_KEY
 
 HEADERS = {
     "Authorization": f"Bearer {NOTION_TOKEN}",
@@ -16,15 +24,13 @@ def download_image(url, filename):
     os.makedirs("images/uploads", exist_ok=True)
     filepath = os.path.join("images/uploads", filename)
     
-    # 智能缓存：不仅检查文件存在，还严格检查文件是否完整（大于2KB）
     if os.path.exists(filepath) and os.path.getsize(filepath) > 2048:
         print(f"⏩ [缓存跳过] 图片完整无损: {filename}")
         return filepath.replace("\\", "/")
         
-    print(f"⬇️ [死磕抓取] 正在下载并核验: {filename}")
+    print(f"⬇️ [抓取] 正在下载: {filename}")
     max_retries = 3
     
-    # 【核心破壁魔法】：伪装成 Mac 电脑上的真实 Chrome 浏览器，突破 403 封锁！
     download_headers = {
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
         "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8"
@@ -32,27 +38,39 @@ def download_image(url, filename):
     
     for attempt in range(max_retries):
         try:
-            # 带上面具去请求下载
             r = requests.get(url, stream=True, timeout=30, headers=download_headers)
             if r.status_code == 200:
                 with open(filepath, 'wb') as f:
                     for chunk in r.iter_content(8192):
                         f.write(chunk)
                 
-                # 核心完整性核查：文件体积必须正常，否则视为下载碎裂
+                # ==========================================
+                # 🚀 核心：自动化 TinyPNG 压缩引擎介入
+                # ==========================================
                 if os.path.getsize(filepath) > 2048:
+                    if TINYPNG_API_KEY:
+                        original_size = os.path.getsize(filepath)
+                        # 智能阀门：只压缩大于 300KB 的大图，保护免费额度
+                        if original_size > 300 * 1024:
+                            print(f"🗜️ [TinyPNG] 触发无损压缩！原图大小: {original_size / 1024:.1f} KB")
+                            try:
+                                source = tinify.from_file(filepath)
+                                source.to_file(filepath)
+                                new_size = os.path.getsize(filepath)
+                                print(f"✅ [TinyPNG] 压缩成功！压后大小: {new_size / 1024:.1f} KB (瘦身了 {100 - (new_size/original_size)*100:.1f}%)")
+                            except Exception as e:
+                                print(f"⚠️ [TinyPNG] 压缩服务异常，安全回退至原图: {e}")
                     return filepath.replace("\\", "/")
                 else:
-                    print(f"⚠️ [核查失败] 文件体积异常，可能已损坏，准备重新下载...")
+                    print(f"⚠️ [核查失败] 文件体积异常，准备重新下载...")
             else:
                 print(f"⚠️ [网络异常] 服务器拒绝响应 {r.status_code}，准备重试...")
         except Exception as e:
             print(f"⚠️ [下载卡顿] ({attempt+1}/{max_retries}): {e}")
             
-        time.sleep(2) # 失败后冷静2秒再发起冲击
+        time.sleep(2) 
         
-    # 终极防线
-    raise Exception(f"\n❌ 【致命错误】图片 {filename} 连续3次下载失败或损坏！\n为保证作品集展示的绝对完整性，系统已强制熔断抓取任务！\n请稍后在 Actions 中重新运行 (Run workflow)。")
+    raise Exception(f"\n❌ 【致命错误】图片 {filename} 连续3次下载失败或损坏！")
 
 def get_all_blocks(block_id):
     blocks = []
@@ -88,7 +106,7 @@ def parse_rich_text(rich_text_list):
     return html_content
 
 def fetch_database():
-    print("🚀 启动中高端商业级抓取与核验引擎 (带防封锁伪装)...")
+    print("🚀 启动高端商业级抓取与核验引擎 (含 TinyPNG 自动化压缩)...")
     url = f"https://api.notion.com/v1/databases/{DATABASE_ID}/query"
     response = requests.post(url, headers=HEADERS)
     results = response.json().get("results", [])
@@ -147,7 +165,7 @@ def fetch_database():
         
     with open("works.json", "w", encoding="utf-8") as f:
         json.dump({"worksList": works_list}, f, ensure_ascii=False, indent=2)
-    print("\n✅ 所有作品数据均已100%核验通过并打包完成！")
+    print("\n✅ 所有数据已100%抓取并自动化压缩完毕！")
 
 if __name__ == "__main__":
     fetch_database()
