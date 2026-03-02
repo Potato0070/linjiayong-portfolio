@@ -1,212 +1,43 @@
 /* ========================================== */
-/* 1. 美术馆级克制配色与主题 */
-/* ========================================== */
-:root {
-    --bg-base: #f4f4f6; --text-main: #111111; --text-muted: #888888; --accent-color: #000000;
-    --glass-bg: rgba(255, 255, 255, 0.6); --nav-glass-bg: rgba(255, 255, 255, 0.85); 
-    --glass-bg-hover: rgba(255, 255, 255, 0.95); --glass-border: rgba(255, 255, 255, 0.9);
-    --glass-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05); --glass-inset: inset 0 1px 1px rgba(255, 255, 255, 1);
-    --btn-bg: #111111; --btn-text: #ffffff;
-    --blob-1: #eaeaea; --blob-2: #e0e0e0; --blob-3: #f9f9f9; --blob-4: #ededed;
-    --modal-overlay: rgba(244, 244, 246, 0.85); 
-}
-.dark-mode {
-    --bg-base: #0a0a0a; --text-main: #f5f5f7; --text-muted: #777777; --accent-color: #ffffff;
-    --glass-bg: rgba(25, 25, 25, 0.6); --nav-glass-bg: rgba(15, 15, 15, 0.85);
-    --glass-bg-hover: rgba(35, 35, 35, 0.95); --glass-border: rgba(255, 255, 255, 0.08);
-    --glass-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8); --glass-inset: inset 0 1px 1px rgba(255, 255, 255, 0.1);
-    --btn-bg: #ffffff; --btn-text: #000000;
-    --blob-1: #151515; --blob-2: #0d0d0d; --blob-3: #1a1a1a; --blob-4: #121212;
-    --modal-overlay: rgba(10, 10, 10, 0.9);
-}
-
-html { scroll-behavior: smooth; }
-body { 
-    background-color: var(--bg-base); color: var(--text-main);
-    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-    position: relative; transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1), color 0.8s ease;
-    user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
-}
-img { -webkit-user-drag: none; user-drag: none; pointer-events: none; }
-body::after {
-    content: ""; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.04; z-index: 9999; pointer-events: none; mix-blend-mode: overlay;
-}
-.dark-mode::after { opacity: 0.06; }
-.color-main { color: var(--text-main); transition: color 0.4s ease; }
-.color-muted { color: var(--text-muted); transition: color 0.4s ease; }
-.bg-inverted { background-color: var(--btn-bg); color: var(--btn-text); transition: all 0.4s ease; }
-
-/* ========================================== */
-/* 2. 液态玻璃与 2px 极客光束特效 (已升级) */
-/* ========================================== */
-.liquid-glass { background: var(--glass-bg); backdrop-filter: blur(40px) saturate(200%); -webkit-backdrop-filter: blur(40px) saturate(200%); border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow), var(--glass-inset); border-radius: 24px; transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden; }
-.hover-elastic { will-change: transform, box-shadow; }
-.hover-elastic:hover { transform: scale(1.02) translateY(-6px); background: var(--glass-bg-hover); box-shadow: 0 30px 60px -15px rgba(0,0,0,0.1), var(--glass-inset); }
-.dark-mode .hover-elastic:hover { box-shadow: 0 30px 60px -15px rgba(0,0,0,0.8), var(--glass-inset); }
-.hover-elastic:active { transform: scale(0.98); }
-.btn-elastic { transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease, opacity 0.3s ease; will-change: transform; }
-.btn-elastic:hover { transform: scale(1.05); opacity: 0.9; }
-.btn-elastic:active { transform: scale(0.95); }
-
-.btn-light-beam { position: relative; z-index: 1; }
-.btn-light-beam::before {
-    content: ""; position: absolute; inset: -2px; border-radius: inherit; padding: 2px; /* 光束加粗到2px */
-    background: linear-gradient(90deg, transparent, var(--text-main), transparent);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor; mask-composite: exclude;
-    background-size: 200% 100%; animation: beamMove 2s linear infinite;
-    opacity: 0; transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: none;
-}
-.btn-light-beam:hover::before { opacity: 0.85; } /* 增强发光感 */
-.bg-inverted.btn-light-beam::before { background: linear-gradient(90deg, transparent, var(--bg-base), transparent); }
-@keyframes beamMove { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
-
-/* ========================================== */
-/* 3. VisionOS 灵动岛导航 */
-/* ========================================== */
-#islandContainer { animation: islandDrop 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
-@keyframes islandDrop { 0% { transform: translate(-50%, -150%); opacity: 0; } 100% { transform: translate(-50%, 0); opacity: 1; } }
-.nav-island { background: var(--nav-glass-bg); backdrop-filter: blur(30px) saturate(250%); -webkit-backdrop-filter: blur(30px) saturate(250%); border: 1px solid var(--glass-border); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.08), inset 0 1px 1px rgba(255,255,255,0.8); border-radius: 100px; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
-.dark-mode .nav-island { box-shadow: 0 20px 40px -10px rgba(0,0,0,0.8), inset 0 1px 1px rgba(255,255,255,0.1); }
-.nav-link { position: relative; padding: 0.5rem 1.2rem; border-radius: 100px; font-weight: 800; font-size: 13px; letter-spacing: 0.05em; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); color: var(--text-main); display: flex; align-items: center; gap: 6px; }
-.nav-link:hover { background: var(--text-main); color: var(--bg-base) !important; transform: scale(1.05); }
-.glass-nav { background: var(--nav-glass-bg); backdrop-filter: blur(30px) saturate(250%); -webkit-backdrop-filter: blur(30px) saturate(250%); border-bottom: 1px solid var(--glass-border); box-shadow: 0 4px 30px rgba(0,0,0,0.03); transition: background 0.5s ease, border-color 0.5s ease; }
-
-/* ========================================== */
-/* 4. 环境光与动画 */
-/* ========================================== */
-.global-fluid-bg { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; z-index: -1; pointer-events: none; background-color: var(--bg-base); transition: background-color 0.8s ease; }
-.blob { position: absolute; filter: blur(140px); border-radius: 50%; opacity: 0.8; animation: floatBlob 30s infinite ease-in-out alternate; transition: background 1s ease; }
-.blob-1 { width: 70vw; height: 70vw; background: var(--blob-1); top: -20%; left: -10%; animation-duration: 28s; }
-.blob-2 { width: 60vw; height: 60vw; background: var(--blob-2); bottom: -30%; right: -10%; animation-duration: 25s; animation-direction: alternate-reverse; }
-.blob-3 { width: 50vw; height: 50vw; background: var(--blob-3); top: 40%; left: 40%; animation-duration: 32s; }
-@keyframes floatBlob { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(4vw, -4vh) scale(1.05); } 100% { transform: translate(-4vw, 4vh) scale(0.95); } }
-
-.overflow-hidden-wrap { overflow: hidden; display: block; }
-.animate-slide-down-text { display: block; animation: slideDownStagger 1.2s cubic-bezier(0.16, 1, 0.3, 1) both; }
-@keyframes slideDownStagger { 0% { transform: translateY(-110%); opacity: 0; filter: blur(10px); } 100% { transform: translateY(0); opacity: 1; filter: blur(0); } }
-
-/* ========================================== */
-/* ========================================== */
-/* 5. 核心：高定防盗水印与图层控制 (全平台兼容版) */
+/* 6. 高奢拉幕与阻尼滑出动画 (重构版) */
 /* ========================================== */
 
-/* 修复苹果 iOS 底部安全区（小黑条）遮挡内容的问题 */
-.modal-scroll-box { 
-    overflow: auto; -webkit-overflow-scrolling: touch; 
-    padding-bottom: env(safe-area-inset-bottom, 40px); /* 苹果安全区适配 */
-}
-.modal-scroll-box::-webkit-scrollbar { width: 0px; height: 0px; } 
-
-/* 真·全屏悬浮水印：抛弃不稳定的混合模式，采用中性灰固定层，确保安卓/苹果绝对一致 */
-.watermark-layer {
-    position: fixed; /* 核心：固定在屏幕上，不随内容滚动和缩放 */
-    top: 0; left: 0; width: 100vw; height: 100vh;
-    z-index: 40; /* 盖在图文之上，交互按钮之下 */
-    pointer-events: none;
-    /* 采用 16% 透明度的中性灰，在纯黑/纯白图片上均能保持高级的可见度 */
-    background-image: url("data:image/svg+xml,%3Csvg width='380' height='380' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(190,190) rotate(-25) translate(-190,-190)'%3E%3Ctext x='190' y='180' font-size='18' fill='rgba(140,140,140,0.16)' font-family='sans-serif' font-weight='900' letter-spacing='5' text-anchor='middle'%3E版权作品 · 禁止盗用%3C/text%3E%3Ctext x='190' y='205' font-size='10' fill='rgba(140,140,140,0.14)' font-family='sans-serif' font-weight='bold' letter-spacing='2' text-anchor='middle'%3ESTRICTLY CONFIDENTIAL%3C/text%3E%3C/g%3E%3C/svg%3E");
-    background-repeat: repeat;
-    opacity: 0; transition: opacity 0.8s ease; /* 淡入效果 */
-}
-/* 夜间模式微调亮度 */
-.dark-mode .watermark-layer {
-    background-image: url("data:image/svg+xml,%3Csvg width='380' height='380' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(190,190) rotate(-25) translate(-190,-190)'%3E%3Ctext x='190' y='180' font-size='18' fill='rgba(180,180,180,0.12)' font-family='sans-serif' font-weight='900' letter-spacing='5' text-anchor='middle'%3E版权作品 · 禁止盗用%3C/text%3E%3Ctext x='190' y='205' font-size='10' fill='rgba(180,180,180,0.1)' font-family='sans-serif' font-weight='bold' letter-spacing='2' text-anchor='middle'%3ESTRICTLY CONFIDENTIAL%3C/text%3E%3C/g%3E%3C/svg%3E");
-}
-.watermark-layer.active { opacity: 1; }
-
-/* 升级版极客霓虹光束 (加粗并带漫反射光晕) */
-.btn-light-beam::before {
-    content: ""; position: absolute; inset: -2px; border-radius: inherit; padding: 2px; /* 实体光线加粗到2px */
-    background: linear-gradient(90deg, transparent, var(--text-main), transparent);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor; mask-composite: exclude;
-    background-size: 200% 100%; animation: beamMove 2s linear infinite;
-    opacity: 0; transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: none;
-}
-/* 新增光晕层：打造高级的物理发光感 */
-.btn-light-beam::after {
-    content: ""; position: absolute; inset: -2px; border-radius: inherit; padding: 2px;
-    background: linear-gradient(90deg, transparent, var(--text-main), transparent);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor; mask-composite: exclude;
-    background-size: 200% 100%; animation: beamMove 2s linear infinite;
-    opacity: 0; filter: blur(6px); transition: opacity 0.4s ease; pointer-events: none; /* 6px的模糊光晕 */
-}
-.btn-light-beam:hover::before { opacity: 0.8; }
-.btn-light-beam:hover::after { opacity: 0.5; } /* 悬停时触发光晕 */
-.bg-inverted.btn-light-beam::before, .bg-inverted.btn-light-beam::after { background: linear-gradient(90deg, transparent, var(--bg-base), transparent); }
-
-/* 其他基础类 */
-@layer utilities { .text-balance { text-wrap: balance; } }
-.text-gradient-premium { background-clip: text; -webkit-background-clip: text; color: transparent; background-image: linear-gradient(135deg, #111 0%, #666 100%); }
-.dark-mode .text-gradient-premium { background-image: linear-gradient(135deg, #fff 0%, #999 100%); }
-.glass-card-img { transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-.hover-elastic:hover .glass-card-img { transform: scale(1.06); }
-
-.modal { opacity: 0; visibility: hidden; transition: opacity 0.5s ease, visibility 0.5s ease; background: var(--modal-overlay); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); }
-.modal.active { opacity: 1; visibility: visible; }
-.modal-content { transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); transform: scale(0.96) translateY(20px); opacity: 0; }
-.modal.active .modal-content { transform: scale(1) translateY(0); opacity: 1; }
-
-#blocksContainer { transition: max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1), font-size 0.4s cubic-bezier(0.16, 1, 0.3, 1); margin: 0 auto; position: relative; }
-
-.copyright-blurred { filter: blur(40px) brightness(0.8) saturate(120%) !important; transform: scale(1.02); pointer-events: none; transition: filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important; }
-.dark-mode .copyright-blurred { filter: blur(40px) brightness(0.5) saturate(120%) !important; }
-.shake-error { animation: subtleShakeError 0.4s cubic-bezier(.36,.07,.19,.97) both; }
-@keyframes subtleShakeError { 0%, 100% { transform: translateX(0); } 20%, 60% { transform: translateX(-4px); color: #ef4444; } 40%, 80% { transform: translateX(4px); color: #ef4444; } }
-
-.liquid-glass-controls { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(30px) saturate(200%); -webkit-backdrop-filter: blur(30px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: 0 20px 40px rgba(0,0,0,0.1), inset 0 1px 3px rgba(255,255,255,1); border-radius: 40px; transition: background 0.4s ease, border-color 0.4s ease; }
-.dark-mode .liquid-glass-controls { background: rgba(25, 25, 25, 0.85); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.15); }
-.scroll-top-disabled { opacity: 0.3; cursor: not-allowed; pointer-events: none; transform: scale(0.9); }
-.scroll-top-enabled { opacity: 1; cursor: pointer; pointer-events: auto; }
-.reveal-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-.reveal-up.revealed { opacity: 1; transform: translateY(0); }
-.scroll-top-enabled { opacity: 1; cursor: pointer; pointer-events: auto; }
-.reveal-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-.reveal-up.revealed { opacity: 1; transform: translateY(0); }
-/* ========================================== */
-/* 6. 极客开场白 (Preloader) */
-/* ========================================== */
+/* 纯粹的纯色帷幕 */
 #preloader {
     position: fixed; inset: 0; z-index: 99999;
-    background: var(--bg-base); color: var(--text-main);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1), opacity 0.8s ease;
+    background: var(--text-main); /* 黑色幕布 */
+    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1); /* 苹果级缓动曲线 */
 }
-#preloader.loaded { transform: translateY(-100%); opacity: 0; pointer-events: none; }
-.loader-text { font-size: 3rem; font-weight: 900; letter-spacing: 0.1em; font-variant-numeric: tabular-nums; }
-.loader-bar-wrap { width: 200px; height: 2px; background: var(--glass-border); margin-top: 20px; overflow: hidden; border-radius: 2px; }
-.loader-bar { height: 100%; width: 0%; background: var(--text-main); transition: width 0.1s linear; }
+#preloader.loaded { transform: translateY(-100%); }
+.dark-mode #preloader { background: var(--bg-base); }
 
-/* ========================================== */
-/* 7. 无限滚动视觉带 (Infinite Marquee) */
-/* ========================================== */
-.marquee-wrapper {
-    position: absolute; bottom: 2vh; left: 0; width: 100vw; overflow: hidden;
-    /* 核心审美：左右边缘极其平滑地融入背景，绝不生硬截断 */
-    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-    opacity: 0; transform: translateY(20px); transition: all 1s ease 0.5s; z-index: 5;
+/* 文字 Clip-path 高级揭示动画 (像从水里浮出来) */
+.overflow-hidden-wrap { 
+    overflow: hidden; 
+    display: block; 
+    line-height: 1.1; 
+    padding-bottom: 0.1em; /* 防止字体底部被裁切 */
 }
-.reveal-up.revealed .marquee-wrapper { opacity: 0.6; transform: translateY(0); } /* 保持60%透明度，不抢大字风头 */
-.marquee-wrapper:hover { opacity: 1; } /* 鼠标悬停时点亮 */
-.marquee-track {
-    display: flex; gap: 1.5rem; width: max-content;
-    animation: marqueeScroll 40s linear infinite; /* 40秒缓慢滚动一圈，极其优雅 */
+.animate-slide-up-text {
+    display: block;
+    transform: translateY(110%);
+    opacity: 0;
+    animation: revealText 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
-.marquee-track:hover { animation-play-state: paused; } /* 鼠标放上去暂停滚动 */
-.marquee-item {
-    height: 14vh; min-height: 100px; max-height: 160px; aspect-ratio: 4/3;
-    border-radius: 12px; overflow: hidden; box-shadow: var(--glass-shadow);
-    border: 1px solid var(--glass-border); filter: grayscale(20%); transition: all 0.4s ease;
-}
-.marquee-item:hover { filter: grayscale(0%); transform: scale(1.05); }
-.marquee-item img { width: 100%; height: 100%; object-fit: cover; }
 
-@keyframes marqueeScroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-33.333%); } /* 滚动到三分之一处完美无缝接档 */
+@keyframes revealText {
+    0% { transform: translateY(110%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* 副标题和按钮的柔和淡入 */
+.intro-fade-in {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 1s ease, transform 1s ease;
+    transition-delay: 1.2s; /* 等大字浮出后再淡入 */
+}
+.intro-fade-in.active {
+    opacity: 0.9;
+    transform: translateY(0);
 }
