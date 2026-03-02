@@ -1,0 +1,34 @@
+name: Notion to GitHub Sync
+on:
+  workflow_dispatch: # 允许你在网页上手动点击运行
+  schedule:
+    - cron: '0 * * * *' # 每小时系统自动帮你搬运一次
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Dependencies
+        run: pip install requests
+
+      - name: Run Sync Script
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        run: python sync_notion.py 
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name "Notion Bot"
+          git config --global user.email "bot@notion.com"
+          git add .
+          git commit -m "Auto-sync Notion works" || exit 0
+          git push
