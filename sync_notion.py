@@ -24,9 +24,16 @@ def download_image(url, filename):
     print(f"⬇️ [死磕抓取] 正在下载并核验: {filename}")
     max_retries = 3
     
+    # 【核心破壁魔法】：伪装成 Mac 电脑上的真实 Chrome 浏览器，突破 403 封锁！
+    download_headers = {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+        "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8"
+    }
+    
     for attempt in range(max_retries):
         try:
-            r = requests.get(url, stream=True, timeout=30)
+            # 带上面具去请求下载
+            r = requests.get(url, stream=True, timeout=30, headers=download_headers)
             if r.status_code == 200:
                 with open(filepath, 'wb') as f:
                     for chunk in r.iter_content(8192):
@@ -38,13 +45,13 @@ def download_image(url, filename):
                 else:
                     print(f"⚠️ [核查失败] 文件体积异常，可能已损坏，准备重新下载...")
             else:
-                print(f"⚠️ [网络异常] 服务器响应 {r.status_code}，准备重试...")
+                print(f"⚠️ [网络异常] 服务器拒绝响应 {r.status_code}，准备重试...")
         except Exception as e:
             print(f"⚠️ [下载卡顿] ({attempt+1}/{max_retries}): {e}")
             
         time.sleep(2) # 失败后冷静2秒再发起冲击
         
-    # 终极防线：如果真的下不下来，宁可不更新，也绝不把残缺的网页发出去！
+    # 终极防线
     raise Exception(f"\n❌ 【致命错误】图片 {filename} 连续3次下载失败或损坏！\n为保证作品集展示的绝对完整性，系统已强制熔断抓取任务！\n请稍后在 Actions 中重新运行 (Run workflow)。")
 
 def get_all_blocks(block_id):
@@ -81,7 +88,7 @@ def parse_rich_text(rich_text_list):
     return html_content
 
 def fetch_database():
-    print("🚀 启动中高端商业级抓取与核验引擎...")
+    print("🚀 启动中高端商业级抓取与核验引擎 (带防封锁伪装)...")
     url = f"https://api.notion.com/v1/databases/{DATABASE_ID}/query"
     response = requests.post(url, headers=HEADERS)
     results = response.json().get("results", [])
