@@ -19,7 +19,6 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        /* 恢复最干净的苹果系统原生字体，拒绝臃肿 */
                         sans: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Text', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
                         serif: ['"Songti SC"', '"Noto Serif CJK SC"', 'STSong', 'serif'],
                     },
@@ -30,7 +29,7 @@
 
     <style>
         /* ========================================== */
-        /* 核心视觉：克制的高级感 */
+        /* 核心视觉与颜色 */
         /* ========================================== */
         :root {
             --bg-base: #f4f4f6; --text-main: #111111; --text-muted: #888888;
@@ -60,7 +59,6 @@
         }
         img { pointer-events: none; -webkit-user-drag: none; }
 
-        /* 环境光背景 */
         body::after {
             content: ""; position: fixed; inset: 0; width: 100vw; height: 100vh;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
@@ -72,7 +70,6 @@
         .color-muted { color: var(--text-muted); }
         .bg-inverted { background-color: var(--btn-bg); color: var(--btn-text); transition: all 0.4s ease; }
 
-        /* 基础组件与玻璃拟态 */
         .liquid-glass { background: var(--glass-bg); backdrop-filter: blur(40px) saturate(200%); border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow), var(--glass-inset); border-radius: 24px; transition: all 0.6s ease; }
         .hover-elastic { will-change: transform, box-shadow; }
         .hover-elastic:hover { transform: scale(1.02) translateY(-4px); background: var(--glass-bg-hover); box-shadow: 0 30px 60px -15px rgba(0,0,0,0.1), var(--glass-inset); }
@@ -81,7 +78,6 @@
         .btn-elastic { transition: transform 0.4s ease; will-change: transform; }
         .btn-elastic:hover { transform: scale(1.05); opacity: 0.9; }
 
-        /* 光束仅保留给必要的主按钮，绝不污染导航文本 */
         .btn-light-beam { position: relative; z-index: 1; }
         .btn-light-beam::before {
             content: ""; position: absolute; inset: -3px; border-radius: inherit; padding: 3px;
@@ -94,14 +90,16 @@
         .bg-inverted.btn-light-beam::before { background: linear-gradient(90deg, transparent, var(--bg-base), transparent); }
         @keyframes beamMove { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
 
-        /* 导航栏 */
+        /* 导航与动画 */
         .nav-island { background: var(--nav-glass-bg); backdrop-filter: blur(30px) saturate(250%); border: 1px solid var(--glass-border); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.08), inset 0 1px 1px rgba(255,255,255,0.8); border-radius: 100px; transition: all 0.5s ease; }
         .dark-mode .nav-island { box-shadow: 0 20px 40px -10px rgba(0,0,0,0.8), inset 0 1px 1px rgba(255,255,255,0.1); }
         .nav-link { padding: 0.5rem 1.2rem; border-radius: 100px; font-weight: 800; font-size: 13px; letter-spacing: 0.05em; transition: all 0.4s ease; display: flex; align-items: center; gap: 6px; }
         .nav-link:hover { background: var(--text-main); color: var(--bg-base) !important; transform: scale(1.05); }
         .glass-nav { background: var(--nav-glass-bg); backdrop-filter: blur(30px) saturate(250%); border-bottom: 1px solid var(--glass-border); box-shadow: 0 4px 30px rgba(0,0,0,0.03); }
+        .nav-drop-in { animation: navDrop 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes navDrop { 0% { transform: translate(-50%, -100%); opacity: 0; } 100% { transform: translate(-50%, 0); opacity: 1; } }
 
-        /* 环境光块 */
+        /* 环境光 */
         .global-fluid-bg { position: fixed; inset: 0; overflow: hidden; z-index: -1; pointer-events: none; }
         .blob { position: absolute; filter: blur(140px); border-radius: 50%; opacity: 0.8; animation: floatBlob 30s infinite ease-in-out alternate; }
         .blob-1 { width: 70vw; height: 70vw; background: var(--blob-1); top: -20%; left: -10%; animation-duration: 28s; }
@@ -109,7 +107,7 @@
         .blob-3 { width: 50vw; height: 50vw; background: var(--blob-3); top: 40%; left: 40%; animation-duration: 32s; }
         @keyframes floatBlob { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(4vw, -4vh) scale(1.05); } 100% { transform: translate(-4vw, 4vh) scale(0.95); } }
 
-        /* 全平台兼容的稳定防盗水印 */
+        /* 防盗水印 */
         .watermark-layer {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 40; pointer-events: none;
             background-image: url("data:image/svg+xml,%3Csvg width='380' height='380' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(190,190) rotate(-25) translate(-190,-190)'%3E%3Ctext x='190' y='180' font-size='18' fill='rgba(140,140,140,0.16)' font-family='sans-serif' font-weight='900' letter-spacing='5' text-anchor='middle'%3E版权作品 · 禁止盗用%3C/text%3E%3Ctext x='190' y='205' font-size='10' fill='rgba(140,140,140,0.14)' font-family='sans-serif' font-weight='bold' letter-spacing='2' text-anchor='middle'%3ESTRICTLY CONFIDENTIAL%3C/text%3E%3C/g%3E%3C/svg%3E");
@@ -130,7 +128,6 @@
         .modal-scroll-box { overflow: auto; -webkit-overflow-scrolling: touch; padding-bottom: env(safe-area-inset-bottom, 40px); }
         .modal-scroll-box::-webkit-scrollbar { width: 0px; height: 0px; } 
 
-        /* 核心修复：真·无损光学变焦，绝不撑爆排版 */
         #blocksContainer { transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); transform-origin: top center; margin: 0 auto; position: relative; }
 
         .copyright-blurred { filter: blur(40px) brightness(0.8) saturate(120%) !important; pointer-events: none; transition: filter 0.8s ease; }
@@ -142,32 +139,36 @@
         .dark-mode .liquid-glass-controls { background: rgba(25, 25, 25, 0.85); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
         .scroll-top-disabled { opacity: 0.3; cursor: not-allowed; pointer-events: none; }
         
-        /* 简单的上浮入场动画，告别复杂的裁剪 */
         .reveal-up { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal-up.revealed { opacity: 1; transform: translateY(0); }
         .text-balance { text-wrap: balance; }
 
-        /* 修复1：确保首页巨字在手机端完美单行显示，绝不把“灵魂”切断 */
         .hero-title-line { display: block; white-space: nowrap; font-size: clamp(1.6rem, 6.5vw, 6.5rem); }
         
-        /* 修复2：详情页标题智能断行。电脑端一行，手机端自动折行并隐藏竖线 */
-        .work-title-main { display: block; font-size: clamp(1.8rem, 6vw, 3rem); margin-bottom: 0.3rem; }
-        .work-title-sep { display: none; }
-        .work-title-sub { display: block; font-size: clamp(1.2rem, 4vw, 1.5rem); opacity: 0.7; font-weight: normal; }
-        @media (min-width: 768px) {
-            .work-title-main { display: inline-block; margin-bottom: 0; }
-            .work-title-sep { display: inline-block; margin: 0 1rem; opacity: 0.5; font-size: 1.5rem; }
-            .work-title-sub { display: inline-block; }
-        }
+        /* 详情页居中叠排版标题样式 */
+        .work-title-main { display: block; font-size: clamp(2rem, 5vw, 4rem); margin-bottom: 0.5rem; text-align: center; font-weight: 900; }
+        .work-title-sub { display: block; font-size: clamp(1.1rem, 2.5vw, 1.8rem); opacity: 0.7; font-weight: normal; text-align: center; }
 
-        /* 修复3：暗黑专属液态玻璃按钮（解决按钮变白隐形的问题） */
         .liquid-glass-dark { background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(30px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 10px 30px rgba(0,0,0,0.2); color: #fff; border-radius: 100px; transition: all 0.4s ease; }
         .liquid-glass-dark:hover { background: rgba(0, 0, 0, 1); transform: scale(1.05); }
         .dark-mode .liquid-glass-dark { background: rgba(255, 255, 255, 0.9); color: #000; border: 1px solid rgba(255, 255, 255, 1); }
+
+        /* 高级骨架屏与图片加载动画 */
+        .image-wrapper { position: relative; overflow: hidden; background: var(--glass-bg); border-radius: 1rem; margin-top: 0.5rem; margin-bottom: 0.5rem; min-height: 200px;}
+        .image-wrapper::before {
+            content: ""; position: absolute; inset: 0; 
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            background-size: 200% 100%; animation: shimmer 1.5s infinite; z-index: 1; pointer-events: none;
+        }
+        .dark-mode .image-wrapper::before { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent); }
+        .image-wrapper.loaded::before { display: none; }
+        @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+        /* 加载中的克制小圈 */
+        .img-loader { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; color: var(--text-muted); opacity: 0.5; font-size: 1.5rem; }
+        .image-wrapper.loaded .img-loader { display: none; }
         
-        /* 修复4：导航栏安全入场动画 (已修正中心偏移) */
-        .nav-drop-in { animation: navDrop 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        @keyframes navDrop { 0% { transform: translate(-50%, -100%); opacity: 0; } 100% { transform: translate(-50%, 0); opacity: 1; } }
+        .fade-img { opacity: 0; transition: opacity 0.8s ease; position: relative; z-index: 3; width: 100%; height: auto; display: block; }
+        .fade-img.loaded { opacity: 1; }
     </style>
 </head>
 
@@ -191,14 +192,15 @@
         </nav>
     </div>
 
-<nav class="glass-nav fixed top-0 left-0 w-full z-50 py-3 px-6 md:hidden">
+    <nav class="glass-nav fixed top-0 left-0 w-full z-50 py-3 px-6 md:hidden">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <a href="#home" class="text-[17px] font-black tracking-tight color-main btn-elastic">林嘉雍<span class="opacity-40 mx-1">·</span>品牌策划</a>
             <div class="flex items-center gap-3">
                 <button id="themeToggleBtnMobile" class="h-8 px-3 rounded-full flex items-center justify-center color-main text-[15px] btn-elastic liquid-glass shadow-sm"><i id="themeIconMobile" class="fa fa-moon-o"></i><span class="text-[10px] font-bold ml-1.5">模式</span></button>
                 <button id="menuBtn" class="text-2xl color-main btn-elastic px-2"><i class="fa fa-bars"></i></button>
             </div>
-        </div> <div id="mobileMenu" class="md:hidden hidden absolute top-full left-0 w-full liquid-glass shadow-2xl py-6 px-6 flex flex-col gap-4 text-center border-t-0 rounded-b-[2rem]">
+        </div> 
+        <div id="mobileMenu" class="md:hidden hidden absolute top-full left-0 w-full liquid-glass shadow-2xl py-6 px-6 flex flex-col gap-4 text-center border-t-0 rounded-b-[2rem]">
             <a href="#home" class="text-[15px] font-bold py-2 color-main cursor-pointer tracking-wide">首页</a><a href="#works" class="text-[15px] font-bold py-2 color-main cursor-pointer tracking-wide">作品</a><a href="#about" class="text-[15px] font-bold py-2 color-main cursor-pointer tracking-wide">关于</a><a href="#contact" class="text-[15px] font-bold py-2 color-main cursor-pointer tracking-wide">联系</a>
         </div>
     </nav>
@@ -263,6 +265,7 @@
                 <span id="zoomText" class="text-[12px] md:text-sm font-bold color-main w-14 md:w-16 text-center select-none cursor-default tracking-wider">100%</span>
                 <button id="zoomInBtn" title="放大排版" class="btn-elastic flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full text-lg md:text-xl color-main cursor-pointer"><i class="fa fa-search-plus"></i></button>
             </div>
+            
             <div class="modal-scroll-box flex-1 w-full h-full bg-[var(--bg-base)] relative pb-40" id="workModalScrollBox">
                 <div id="loadingSpinner" class="absolute inset-0 flex flex-col items-center justify-center z-10 hidden"><i class="fa fa-circle-o-notch fa-spin text-4xl text-[var(--text-main)] mb-4"></i><p class="color-muted font-bold text-sm tracking-widest mt-4">正在加载高级排版...</p></div>
                 <div class="relative w-full mx-auto overflow-hidden">
@@ -293,16 +296,12 @@
     </div>
 
     <script>
-        /* ========================================== */
-        /* 极其稳定的单文件核心逻辑 */
-        /* ========================================== */
         let worksList = [];
 
         window.addEventListener('load', () => {
             const island = document.getElementById('islandContainer');
             if(island) island.classList.add('reveal-up');
             
-            // 修复：移动端导航栏右上角下拉菜单点击响应
             const menuBtn = document.getElementById('menuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
             if (menuBtn && mobileMenu) {
@@ -316,7 +315,6 @@
 
         async function fetchCMSData() {
             try {
-                // 强制刷新防白屏
                 const response = await fetch('works.json?t=' + new Date().getTime());
                 if (response.ok) {
                     const data = await response.json();
@@ -418,7 +416,6 @@
         const closeWorkModal = document.getElementById('closeWorkModal');
         const modalImageContainer = document.getElementById('modalImageContainer');
         const workModalScrollBox = document.getElementById('workModalScrollBox');
-        const loadingSpinner = document.getElementById('loadingSpinner');
         const zoomText = document.getElementById('zoomText');
         const scrollTopDetailBtn = document.getElementById('scrollTopDetailBtn');
 
@@ -433,7 +430,6 @@
                 document.getElementById('copyrightOverlay').classList.replace('opacity-100', 'opacity-0');
                 document.getElementById('copyrightOverlay').classList.replace('pointer-events-auto', 'pointer-events-none');
                 
-                loadingSpinner.classList.add('hidden'); 
                 modalImageContainer.classList.remove('opacity-0'); 
                 modalImageContainer.classList.add('opacity-100');
                 
@@ -447,62 +443,101 @@
 
                 const blocksContainer = document.createElement('div');
                 blocksContainer.id = "blocksContainer"; 
-                // 修复：改用响应式底座，允许移动端原生重新排版换行
-                blocksContainer.className = "w-full mx-auto px-4 md:px-12 py-8 md:py-16 flex flex-col gap-6 md:gap-12 relative z-10 transition-all duration-300";
+                // 核心：无上下外边距，允许内容顶天立地
+                blocksContainer.className = "w-full mx-auto pb-16 flex flex-col gap-6 md:gap-12 relative z-10 transition-all duration-300";
                 blocksContainer.style.maxWidth = window.innerWidth < 768 ? '100%' : `${baseContainerWidth}px`;
 
-                const titleBlock = document.createElement('h1');
-                titleBlock.className = "font-black color-main tracking-tighter mb-6 mt-6 md:mb-10 md:mt-12 leading-snug text-left";
+                // 核心：顶部的满宽头图 (Hero Image)
+                if (work.cover) {
+                    const heroImageContainer = document.createElement('div');
+                    heroImageContainer.className = "w-full relative shadow-sm image-wrapper";
+                    const heroLoader = document.createElement('i');
+                    heroLoader.className = "fa fa-circle-o-notch fa-spin img-loader";
+                    heroImageContainer.appendChild(heroLoader);
+                    
+                    const heroImg = document.createElement('img');
+                    heroImg.src = work.cover;
+                    heroImg.className = "fade-img w-full h-auto object-cover max-h-[60vh]"; // 限制最大高度，防止头图过长
+                    
+                    heroImg.onload = function() {
+                        this.classList.add('loaded');
+                        this.parentElement.classList.add('loaded');
+                    };
+                    heroImageContainer.appendChild(heroImg);
+                    blocksContainer.appendChild(heroImageContainer);
+                }
+
+                // 核心：居中叠排的标题容器，带有适当的内边距防止贴边
+                const titleBlock = document.createElement('div');
+                titleBlock.className = "w-full text-center px-6 md:px-12 mt-6 md:mt-8 mb-4";
                 
-                // 核心修复：优雅处理 “|” 或 “｜”。电脑端放同行，手机端完美断行并隐藏竖线
-                let formattedTitle = work.title;
+                // 彻底取消竖线，全平台统一为高级的“主标上、副标下”居中叠排
+                let formattedTitle = '';
                 if (work.title.includes('|') || work.title.includes('｜')) {
                     const parts = work.title.split(/\||｜/);
                     formattedTitle = `
-                        <span class="block text-[clamp(1.5rem,4vw,3rem)] mb-2">${parts[0].trim()}</span>
-                        <span class="hidden md:inline text-[clamp(1rem,2vw,1.5rem)] opacity-60 font-medium mx-3">|</span>
-                        <span class="block md:inline text-[clamp(1.1rem,2vw,1.5rem)] opacity-60 font-medium mt-1 md:mt-0">${parts[1].trim()}</span>
+                        <h1 class="work-title-main color-main">${parts[0].trim()}</h1>
+                        <h2 class="work-title-sub color-main">${parts[1].trim()}</h2>
                     `;
                 } else {
-                    formattedTitle = `<span class="text-[clamp(1.5rem,4vw,3rem)]">${work.title}</span>`;
+                    formattedTitle = `<h1 class="work-title-main color-main">${work.title}</h1>`;
                 }
                 titleBlock.innerHTML = formattedTitle;
                 blocksContainer.appendChild(titleBlock);
+
+                // 内容区：带有左右内边距
+                const contentWrapper = document.createElement('div');
+                contentWrapper.className = "px-4 md:px-12 flex flex-col gap-6 md:gap-10";
 
                 const blocksToLoad = work.blocks && work.blocks.length > 0 ? work.blocks : (work.images && work.images.length > 0 ? work.images.map(img => ({type: 'image', src: img})) : []);
 
                 if (blocksToLoad.length > 0) {
                     blocksToLoad.forEach((block) => {
                         let el;
-                        if (block.type === 'h1') { el = document.createElement('h2'); el.className = `text-3xl md:text-4xl font-extrabold color-main tracking-tight mt-12 md:mt-16 mb-4 border-b-2 border-[var(--text-main)] pb-4 opacity-90`; el.innerHTML = block.html; } 
-                        else if (block.type === 'h2') { el = document.createElement('h3'); el.className = `text-xl md:text-2xl font-bold color-main tracking-wide mt-10 md:mt-12 mb-2 border-l-[5px] border-[var(--text-main)] pl-4 opacity-85`; el.innerHTML = block.html; } 
+                        if (block.type === 'h1') { el = document.createElement('h2'); el.className = `text-3xl md:text-4xl font-extrabold color-main tracking-tight mt-10 md:mt-16 mb-2 border-b-2 border-[var(--text-main)] pb-4 opacity-90`; el.innerHTML = block.html; } 
+                        else if (block.type === 'h2') { el = document.createElement('h3'); el.className = `text-xl md:text-2xl font-bold color-main tracking-wide mt-8 md:mt-12 mb-1 border-l-[5px] border-[var(--text-main)] pl-4 opacity-85`; el.innerHTML = block.html; } 
                         else if (block.type === 'p') { el = document.createElement('p'); el.className = `text-[16px] md:text-[18px] leading-[2.2] font-medium color-main opacity-80 tracking-[0.05em] text-justify text-balance`; el.innerHTML = block.html; } 
-                        else if (block.type === 'quote') { el = document.createElement('blockquote'); el.className = `bg-[var(--glass-bg)] border-l-[4px] border-[var(--text-main)] p-6 md:p-8 my-8 md:my-10 text-xl md:text-2xl font-serif italic color-main opacity-75 rounded-r-xl shadow-sm`; el.innerHTML = block.html; } 
-                        else if (block.type === 'divider') { el = document.createElement('div'); el.className = `flex justify-center items-center my-10 opacity-30`; el.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-[var(--text-main)] mx-2"></span><span class="w-2.5 h-2.5 rounded-full bg-[var(--text-main)] mx-2"></span><span class="w-1.5 h-1.5 rounded-full bg-[var(--text-main)] mx-2"></span>`; } 
+                        else if (block.type === 'quote') { el = document.createElement('blockquote'); el.className = `bg-[var(--glass-bg)] border-l-[4px] border-[var(--text-main)] p-6 md:p-8 my-6 md:my-10 text-xl md:text-2xl font-serif italic color-main opacity-75 rounded-r-xl shadow-sm`; el.innerHTML = block.html; } 
+                        else if (block.type === 'divider') { el = document.createElement('div'); el.className = `flex justify-center items-center my-8 opacity-30`; el.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-[var(--text-main)] mx-2"></span><span class="w-2.5 h-2.5 rounded-full bg-[var(--text-main)] mx-2"></span><span class="w-1.5 h-1.5 rounded-full bg-[var(--text-main)] mx-2"></span>`; } 
                         else if (block.type === 'image') {
-                            el = document.createElement('div'); el.className = `w-full relative rounded-xl md:rounded-2xl overflow-hidden bg-[var(--glass-bg)] min-h-[20vh] shadow-lg my-2`;
-                            const img = document.createElement('img'); img.src = block.src; img.className = "relative z-[1] block w-full h-auto pointer-events-none transform transition-transform duration-[1s] hover:scale-[1.01]"; img.loading = "lazy"; 
+                            // 核心：带有骨架屏脉冲动画和加载转圈的图片容器
+                            el = document.createElement('div'); 
+                            el.className = `w-full relative shadow-lg image-wrapper`;
+                            
+                            const loader = document.createElement('i');
+                            loader.className = "fa fa-circle-o-notch fa-spin img-loader";
+                            el.appendChild(loader);
+
+                            const img = document.createElement('img'); 
+                            img.src = block.src; 
+                            img.className = "fade-img pointer-events-none rounded-xl md:rounded-2xl transform transition-transform duration-[1s] hover:scale-[1.01]"; 
+                            img.loading = "lazy"; 
+                            
+                            // 图片加载完成后，隐去骨架屏和转圈，图片淡入
+                            img.onload = function() {
+                                this.classList.add('loaded');
+                                this.parentElement.classList.add('loaded');
+                            };
                             el.appendChild(img);
                         }
-                        if (el) blocksContainer.appendChild(el);
+                        if (el) contentWrapper.appendChild(el);
                     });
-                } else { blocksContainer.innerHTML = '<div class="py-20 text-center color-muted tracking-widest text-sm font-bold">作品排版内容加载中...</div>'; }
+                } else { contentWrapper.innerHTML = '<div class="py-20 text-center color-muted tracking-widest text-sm font-bold">作品排版内容加载中...</div>'; }
 
+                blocksContainer.appendChild(contentWrapper);
                 modalImageContainer.appendChild(blocksContainer);
                 workModalScrollBox.scrollTop = 0; workModal.classList.add('active'); document.body.style.overflow = 'hidden';
             }
         };
 
-        // 核心修复：真·移动端可用的光学缩放（改变容器字号和最大宽度，让文字自动优雅换行，绝不破坏图片）
-        // 核心修复：唤醒手机端缩放。电脑端用 scale 防错位，手机端用原生 zoom 放大文字
         function updateZoom(newScale) {
             currentScale = Math.max(minScale, Math.min(maxScale, newScale));
             const container = document.getElementById('blocksContainer');
             if(container) { 
                 if (window.innerWidth < 768) {
-                    container.style.zoom = currentScale / 100; // 手机端原生缩放
+                    container.style.zoom = currentScale / 100;
                 } else {
-                    container.style.transform = `scale(${currentScale / 100})`; // 电脑端无损缩放
+                    container.style.transform = `scale(${currentScale / 100})`;
                 }
             }
             zoomText.textContent = `${currentScale}%`;
