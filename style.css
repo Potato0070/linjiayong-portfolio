@@ -167,3 +167,46 @@ body::after {
 .scroll-top-enabled { opacity: 1; cursor: pointer; pointer-events: auto; }
 .reveal-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
 .reveal-up.revealed { opacity: 1; transform: translateY(0); }
+/* ========================================== */
+/* 6. 极客开场白 (Preloader) */
+/* ========================================== */
+#preloader {
+    position: fixed; inset: 0; z-index: 99999;
+    background: var(--bg-base); color: var(--text-main);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1), opacity 0.8s ease;
+}
+#preloader.loaded { transform: translateY(-100%); opacity: 0; pointer-events: none; }
+.loader-text { font-size: 3rem; font-weight: 900; letter-spacing: 0.1em; font-variant-numeric: tabular-nums; }
+.loader-bar-wrap { width: 200px; height: 2px; background: var(--glass-border); margin-top: 20px; overflow: hidden; border-radius: 2px; }
+.loader-bar { height: 100%; width: 0%; background: var(--text-main); transition: width 0.1s linear; }
+
+/* ========================================== */
+/* 7. 无限滚动视觉带 (Infinite Marquee) */
+/* ========================================== */
+.marquee-wrapper {
+    position: absolute; bottom: 2vh; left: 0; width: 100vw; overflow: hidden;
+    /* 核心审美：左右边缘极其平滑地融入背景，绝不生硬截断 */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    opacity: 0; transform: translateY(20px); transition: all 1s ease 0.5s; z-index: 5;
+}
+.reveal-up.revealed .marquee-wrapper { opacity: 0.6; transform: translateY(0); } /* 保持60%透明度，不抢大字风头 */
+.marquee-wrapper:hover { opacity: 1; } /* 鼠标悬停时点亮 */
+.marquee-track {
+    display: flex; gap: 1.5rem; width: max-content;
+    animation: marqueeScroll 40s linear infinite; /* 40秒缓慢滚动一圈，极其优雅 */
+}
+.marquee-track:hover { animation-play-state: paused; } /* 鼠标放上去暂停滚动 */
+.marquee-item {
+    height: 14vh; min-height: 100px; max-height: 160px; aspect-ratio: 4/3;
+    border-radius: 12px; overflow: hidden; box-shadow: var(--glass-shadow);
+    border: 1px solid var(--glass-border); filter: grayscale(20%); transition: all 0.4s ease;
+}
+.marquee-item:hover { filter: grayscale(0%); transform: scale(1.05); }
+.marquee-item img { width: 100%; height: 100%; object-fit: cover; }
+
+@keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-33.333%); } /* 滚动到三分之一处完美无缝接档 */
+}
