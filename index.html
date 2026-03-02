@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>林嘉雍 | 品牌策划作品集</title>
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     
@@ -14,22 +18,25 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Text', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
-                        serif: ['"Songti SC"', '"Noto Serif CJK SC"', 'STSong', 'serif'],
+                        /* 将全局字体替换为高级感拉满的 Noto Sans SC */
+                        sans: ['"Noto Sans SC"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                        serif: ['"Noto Serif SC"', 'serif'],
                     },
                 }
             }
         }
     </script>
-    
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="antialiased">
+    <div id="preloader">
+        <div class="loader-text" id="loaderText">0%</div>
+        <div class="loader-bar-wrap"><div class="loader-bar" id="loaderBar"></div></div>
+    </div>
+
     <div class="global-fluid-bg">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
+        <div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div>
     </div>
 
     <div id="toast" class="fixed top-24 left-1/2 transform -translate-x-1/2 bg-inverted px-8 py-3.5 rounded-full shadow-2xl opacity-0 z-[300] flex items-center gap-4 transition-opacity duration-400 pointer-events-none">
@@ -48,28 +55,18 @@
                 <a href="#about" class="nav-link btn-light-beam cursor-pointer">关于</a>
                 <a href="#contact" class="nav-link btn-light-beam cursor-pointer">联系</a>
                 <div class="w-px h-4 bg-[var(--text-muted)] opacity-30 mx-2"></div>
-                <a href="https://m.zcool.com.cn/u/27721906" target="_blank" class="nav-link btn-light-beam cursor-pointer">
-                    站酷主页 <i class="fa fa-external-link opacity-40 text-[10px]"></i>
-                </a>
-                <button id="themeToggleBtn" class="w-10 h-10 rounded-full flex items-center justify-center color-main text-lg hover:bg-[var(--text-main)] hover:text-[var(--bg-base)] transition-all ml-1 cursor-pointer btn-light-beam">
-                    <i id="themeIcon" class="fa fa-moon-o"></i>
-                </button>
+                <a href="https://m.zcool.com.cn/u/27721906" target="_blank" class="nav-link btn-light-beam cursor-pointer">站酷主页 <i class="fa fa-external-link opacity-40 text-[10px]"></i></a>
+                <button id="themeToggleBtn" class="w-10 h-10 rounded-full flex items-center justify-center color-main text-lg hover:bg-[var(--text-main)] hover:text-[var(--bg-base)] transition-all ml-1 cursor-pointer btn-light-beam"><i id="themeIcon" class="fa fa-moon-o"></i></button>
             </div>
         </nav>
     </div>
 
     <nav class="glass-nav fixed top-0 left-0 w-full z-50 py-3 px-6 md:hidden">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <a href="#home" class="text-[17px] font-black tracking-tight color-main btn-elastic">
-                林嘉雍<span class="opacity-40 mx-1">·</span>品牌策划
-            </a>
+            <a href="#home" class="text-[17px] font-black tracking-tight color-main btn-elastic">林嘉雍<span class="opacity-40 mx-1">·</span>品牌策划</a>
             <div class="flex items-center gap-4">
-                <button id="themeToggleBtnMobile" class="w-8 h-8 flex items-center justify-center color-main text-xl btn-elastic">
-                    <i id="themeIconMobile" class="fa fa-moon-o"></i>
-                </button>
-                <button id="menuBtn" class="text-2xl color-main btn-elastic">
-                    <i class="fa fa-bars"></i>
-                </button>
+                <button id="themeToggleBtnMobile" class="w-8 h-8 flex items-center justify-center color-main text-xl btn-elastic"><i id="themeIconMobile" class="fa fa-moon-o"></i></button>
+                <button id="menuBtn" class="text-2xl color-main btn-elastic"><i class="fa fa-bars"></i></button>
             </div>
         </div>
         <div id="mobileMenu" class="md:hidden hidden absolute top-full left-0 w-full liquid-glass shadow-2xl py-6 px-6 flex flex-col gap-4 text-center border-t-0 rounded-b-[2rem]">
@@ -80,8 +77,8 @@
         </div>
     </nav>
 
-    <section id="home" class="relative min-h-screen flex items-center justify-center px-6 md:px-12 pt-20">
-        <div class="max-w-5xl mx-auto text-center relative z-10 mt-[-8vh] reveal-up">
+    <section id="home" class="relative min-h-screen flex flex-col items-center justify-center px-6 md:px-12 pt-20 overflow-hidden">
+        <div class="max-w-5xl mx-auto text-center relative z-10 mt-[-10vh] reveal-up w-full">
             <h1 class="text-[clamp(3rem,8vw,6.5rem)] font-black tracking-tighter leading-[1.05] mb-8 drop-shadow-sm flex flex-col items-center">
                 <span class="overflow-hidden-wrap"><span class="animate-slide-down-text text-gradient-premium" style="animation-delay: 0.1s">用策略与设计</span></span>
                 <span class="overflow-hidden-wrap"><span class="animate-slide-down-text text-gradient-premium" style="animation-delay: 0.3s">为品牌赋予商业灵魂。</span></span>
@@ -89,14 +86,15 @@
             <p class="color-muted text-[clamp(1.1rem,2vw,1.4rem)] max-w-2xl mx-auto mb-14 text-balance font-medium leading-relaxed opacity-90 tracking-wide">
                 专注餐饮品牌全案策划与统筹设计团队<br>从0到1搭建体系，端到端覆盖策略到落地全闭环。
             </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
-                <a href="#works" class="bg-inverted btn-elastic btn-light-beam px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto shadow-2xl inline-block cursor-pointer tracking-widest">
-                    浏览作品集
-                </a>
-                <a href="#contact" class="liquid-glass hover-elastic btn-light-beam color-main px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto inline-block cursor-pointer tracking-widest">
-                    联系合作
-                </a>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 relative z-20">
+                <a href="#works" class="bg-inverted btn-elastic btn-light-beam px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto shadow-2xl inline-block cursor-pointer tracking-widest">浏览作品集</a>
+                <a href="#contact" class="liquid-glass hover-elastic btn-light-beam color-main px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto inline-block cursor-pointer tracking-widest">联系合作</a>
             </div>
+        </div>
+
+        <div class="marquee-wrapper">
+            <div class="marquee-track" id="heroMarquee">
+                </div>
         </div>
     </section>
 
@@ -106,9 +104,7 @@
                 <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-3 md:mb-4 color-main">精选品牌案例</h2>
                 <p class="color-muted text-[13px] md:text-xl font-medium tracking-wide">点击探索从策略定位到视觉落地的完整流程</p>
             </div>
-            
             <div id="worksGrid" class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-10 min-h-[400px]"></div>
-
             <div class="mt-16 flex flex-col md:flex-row items-center justify-center gap-4 reveal-up">
                 <div class="liquid-glass-controls flex items-center px-5 py-2.5">
                     <button id="firstPageBtn" title="最前页" class="btn-elastic w-10 h-10 flex items-center justify-center rounded-full color-main cursor-pointer"><i class="fa fa-angle-double-left text-lg"></i></button>
@@ -133,15 +129,12 @@
                             <p>熟悉各类主流AI软件，可快速适配多行业品牌策划需求，坚持用策略驱动设计，用设计落地商业价值。</p>
                         </div>
                     </div>
-                    
                     <div class="flex flex-col gap-6 md:gap-8">
                         <div class="liquid-glass overflow-hidden flex items-center justify-center p-8 shadow-sm border-none bg-inverted relative group">
-                            <img src="images/avatar.png" alt="个人介绍图片/二维码" class="w-full max-h-[300px] object-contain relative z-10" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <img src="images/avatar.png" alt="个人介绍图片" class="w-full max-h-[300px] object-contain relative z-10" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                             <span class="color-muted font-bold tracking-widest hidden relative z-10">等待上传个人图片</span>
                         </div>
-                        <button id="openResumeBtn" class="bg-inverted btn-elastic btn-light-beam w-full py-4 rounded-full font-bold text-[15px] md:text-lg shadow-2xl flex items-center justify-center gap-3 cursor-pointer tracking-widest">
-                            <i class="fa fa-file-text-o text-xl"></i> 查看个人简历
-                        </button>
+                        <button id="openResumeBtn" class="bg-inverted btn-elastic btn-light-beam w-full py-4 rounded-full font-bold text-[15px] md:text-lg shadow-2xl flex items-center justify-center gap-3 cursor-pointer tracking-widest"><i class="fa fa-file-text-o text-xl"></i> 查看个人简历</button>
                     </div>
                 </div>
             </div>
@@ -154,7 +147,6 @@
                 <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-3 md:mb-4 color-main">随时沟通合作</h2>
                 <p class="color-muted text-[13px] md:text-xl font-medium truncate tracking-wide">探讨品牌策略与设计的更多可能</p>
             </div>
-            
             <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-10">
                 <div onclick="copyTextToClipboard('liangjinyanbb', '微信号')" class="group liquid-glass hover-elastic p-6 md:p-8 flex flex-col justify-between relative overflow-hidden min-h-[160px] md:min-h-[180px] reveal-up cursor-pointer">
                     <i class="fa fa-weixin absolute -right-6 -bottom-6 text-9xl opacity-[0.03] group-hover:scale-110 group-hover:opacity-[0.06] transition-all duration-700 color-main"></i>
@@ -162,34 +154,23 @@
                         <div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#34c759]/10 flex items-center justify-center text-2xl md:text-3xl text-[#34c759] shadow-sm"><i class="fa fa-weixin"></i></div>
                         <div class="text-left"><p class="text-[9px] md:text-[10px] font-black color-muted uppercase tracking-[0.2em] mb-1 opacity-70">WeChat</p><h3 class="text-lg md:text-xl font-bold color-main tracking-wide">微信沟通</h3></div>
                     </div>
-                    <div class="flex items-end justify-between w-full relative z-10 mt-6 gap-2 pointer-events-none">
-                        <p class="text-[15px] md:text-lg font-medium color-main truncate tracking-wide">liangjinyanbb</p>
-                        <div class="bg-inverted text-[10px] md:text-[11px] px-3 md:px-4 py-2 rounded-full font-bold opacity-0 group-hover:opacity-100 transition-all transform translate-x-4 group-hover:translate-x-0 flex items-center gap-2 flex-shrink-0 shadow-md"><span>复制</span> <i class="fa fa-clone"></i></div>
-                    </div>
+                    <div class="flex items-end justify-between w-full relative z-10 mt-6 gap-2 pointer-events-none"><p class="text-[15px] md:text-lg font-medium color-main truncate tracking-wide">liangjinyanbb</p><div class="bg-inverted text-[10px] md:text-[11px] px-3 md:px-4 py-2 rounded-full font-bold opacity-0 group-hover:opacity-100 transition-all transform translate-x-4 group-hover:translate-x-0 flex items-center gap-2 flex-shrink-0 shadow-md"><span>复制</span> <i class="fa fa-clone"></i></div></div>
                 </div>
-
                 <div onclick="copyTextToClipboard('13543039487', '手机号')" class="group liquid-glass hover-elastic p-6 md:p-8 flex flex-col justify-between relative overflow-hidden min-h-[160px] md:min-h-[180px] reveal-up cursor-pointer" style="transition-delay: 0.1s;">
                     <i class="fa fa-phone absolute -right-6 -bottom-6 text-9xl opacity-[0.03] group-hover:scale-110 group-hover:opacity-[0.06] transition-all duration-700 color-main"></i>
                     <div class="flex items-center gap-4 md:gap-5 relative z-10 pointer-events-none">
                         <div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-blue-500/10 flex items-center justify-center text-2xl md:text-3xl text-blue-500 shadow-sm"><i class="fa fa-phone"></i></div>
                         <div class="text-left"><p class="text-[9px] md:text-[10px] font-black color-muted uppercase tracking-[0.2em] mb-1 opacity-70">Phone</p><h3 class="text-lg md:text-xl font-bold color-main tracking-wide">电话联系</h3></div>
                     </div>
-                    <div class="flex items-end justify-between w-full relative z-10 mt-6 gap-2 pointer-events-none">
-                        <p class="text-[15px] md:text-lg font-medium color-main truncate tracking-wide">13543039487</p>
-                        <div class="bg-inverted text-[10px] md:text-[11px] px-3 md:px-4 py-2 rounded-full font-bold opacity-0 group-hover:opacity-100 transition-all transform translate-x-4 group-hover:translate-x-0 flex items-center gap-2 flex-shrink-0 shadow-md"><span>复制</span> <i class="fa fa-clone"></i></div>
-                    </div>
+                    <div class="flex items-end justify-between w-full relative z-10 mt-6 gap-2 pointer-events-none"><p class="text-[15px] md:text-lg font-medium color-main truncate tracking-wide">13543039487</p><div class="bg-inverted text-[10px] md:text-[11px] px-3 md:px-4 py-2 rounded-full font-bold opacity-0 group-hover:opacity-100 transition-all transform translate-x-4 group-hover:translate-x-0 flex items-center gap-2 flex-shrink-0 shadow-md"><span>复制</span> <i class="fa fa-clone"></i></div></div>
                 </div>
-
                 <div onclick="copyTextToClipboard('linjiayong99@163.com', '邮箱')" class="group liquid-glass hover-elastic p-6 md:p-8 flex flex-col justify-between relative overflow-hidden min-h-[160px] md:min-h-[180px] reveal-up cursor-pointer" style="transition-delay: 0.2s;">
                     <i class="fa fa-envelope absolute -right-6 -bottom-6 text-9xl opacity-[0.03] group-hover:scale-110 group-hover:opacity-[0.06] transition-all duration-700 color-main"></i>
                     <div class="flex items-center gap-4 md:gap-5 relative z-10 pointer-events-none">
                         <div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-purple-500/10 flex items-center justify-center text-2xl md:text-3xl text-purple-500 shadow-sm"><i class="fa fa-envelope"></i></div>
                         <div class="text-left"><p class="text-[9px] md:text-[10px] font-black color-muted uppercase tracking-[0.2em] mb-1 opacity-70">Email</p><h3 class="text-lg md:text-xl font-bold color-main tracking-wide">邮件沟通</h3></div>
                     </div>
-                    <div class="flex items-end justify-between w-full relative z-10 mt-6 gap-2 pointer-events-none">
-                        <p class="text-[15px] md:text-lg font-medium color-main truncate tracking-wide">linjiayong99@163.com</p>
-                        <div class="bg-inverted text-[10px] md:text-[11px] px-3 md:px-4 py-2 rounded-full font-bold opacity-0 group-hover:opacity-100 transition-all transform translate-x-4 group-hover:translate-x-0 flex items-center gap-2 flex-shrink-0 shadow-md"><span>复制</span> <i class="fa fa-clone"></i></div>
-                    </div>
+                    <div class="flex items-end justify-between w-full relative z-10 mt-6 gap-2 pointer-events-none"><p class="text-[15px] md:text-lg font-medium color-main truncate tracking-wide">linjiayong99@163.com</p><div class="bg-inverted text-[10px] md:text-[11px] px-3 md:px-4 py-2 rounded-full font-bold opacity-0 group-hover:opacity-100 transition-all transform translate-x-4 group-hover:translate-x-0 flex items-center gap-2 flex-shrink-0 shadow-md"><span>复制</span> <i class="fa fa-clone"></i></div></div>
                 </div>
             </div>
         </div>
@@ -197,44 +178,27 @@
 
     <div id="workModal" class="modal fixed inset-0 z-[100] flex items-center justify-center md:p-8">
         <div class="modal-content w-full h-full md:h-[95vh] md:max-w-[1200px] flex flex-col relative overflow-hidden bg-[var(--bg-base)] md:bg-transparent md:rounded-[2rem]">
-            <button id="closeWorkModal" class="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 md:w-12 h-12 liquid-glass !rounded-full flex items-center justify-center color-main z-[200] btn-elastic hover:!bg-white dark:hover:!bg-[#1d1d1f] !shadow-2xl cursor-pointer">
-                <i class="fa fa-times text-lg md:text-xl"></i>
-            </button>
+            <button id="closeWorkModal" class="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 md:w-12 h-12 liquid-glass !rounded-full flex items-center justify-center color-main z-[200] btn-elastic hover:!bg-white dark:hover:!bg-[#1d1d1f] !shadow-2xl cursor-pointer"><i class="fa fa-times text-lg md:text-xl"></i></button>
             <div class="absolute bottom-6 md:bottom-10 left-1/2 transform -translate-x-1/2 z-[150] flex items-center liquid-glass-controls px-4 py-2.5 md:px-5 md:py-3 !rounded-full shadow-2xl">
-                <button id="scrollTopDetailBtn" title="回到顶部" class="btn-elastic flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full text-lg md:text-xl scroll-top-disabled color-main cursor-pointer">
-                    <i class="fa fa-arrow-up"></i>
-                </button>
+                <button id="scrollTopDetailBtn" title="回到顶部" class="btn-elastic flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full text-lg md:text-xl scroll-top-disabled color-main cursor-pointer"><i class="fa fa-arrow-up"></i></button>
                 <div class="w-px h-6 bg-[var(--text-muted)] opacity-30 mx-3 md:mx-4"></div>
-                <button id="zoomOutBtn" title="缩小排版" class="btn-elastic flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full text-lg md:text-xl color-main cursor-pointer">
-                    <i class="fa fa-search-minus"></i>
-                </button>
+                <button id="zoomOutBtn" title="缩小排版" class="btn-elastic flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full text-lg md:text-xl color-main cursor-pointer"><i class="fa fa-search-minus"></i></button>
                 <span id="zoomText" class="text-[12px] md:text-sm font-bold color-main w-14 md:w-16 text-center select-none cursor-default tracking-wider">100%</span>
-                <button id="zoomInBtn" title="放大排版" class="btn-elastic flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full text-lg md:text-xl color-main cursor-pointer">
-                    <i class="fa fa-search-plus"></i>
-                </button>
+                <button id="zoomInBtn" title="放大排版" class="btn-elastic flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full text-lg md:text-xl color-main cursor-pointer"><i class="fa fa-search-plus"></i></button>
             </div>
-            
             <div class="modal-scroll-box flex-1 w-full h-full bg-[var(--bg-base)] relative pb-40" id="workModalScrollBox">
-                <div id="loadingSpinner" class="absolute inset-0 flex flex-col items-center justify-center z-10 hidden">
-                    <i class="fa fa-circle-o-notch fa-spin text-4xl text-[var(--text-main)] mb-4"></i>
-                    <p class="color-muted font-bold text-sm tracking-widest mt-4">正在加载高级排版...</p>
-                </div>
-                
+                <div id="loadingSpinner" class="absolute inset-0 flex flex-col items-center justify-center z-10 hidden"><i class="fa fa-circle-o-notch fa-spin text-4xl text-[var(--text-main)] mb-4"></i><p class="color-muted font-bold text-sm tracking-widest mt-4">正在加载高级排版...</p></div>
                 <div class="relative w-full mx-auto md:rounded-2xl overflow-hidden shadow-2xl">
                     <div class="absolute inset-0 z-[5] bg-transparent w-full h-full" oncontextmenu="return false;" style="-webkit-touch-callout: none; pointer-events: auto;"></div>
-                    <div id="modalImageContainer" class="w-full flex flex-col items-center opacity-0 transition-opacity duration-500 origin-top">
-                        </div>
+                    <div id="modalImageContainer" class="w-full flex flex-col items-center opacity-0 transition-opacity duration-500 origin-top"></div>
                 </div>
             </div>
-
             <div id="copyrightOverlay" class="absolute inset-0 z-[250] flex flex-col items-center justify-center bg-[var(--bg-base)]/85 backdrop-blur-3xl opacity-0 pointer-events-none transition-opacity duration-500">
                 <div class="p-8 md:p-16 flex flex-col items-center max-w-sm md:max-w-md text-center transform scale-95 transition-transform duration-500" id="copyrightBox">
                     <div class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-[var(--glass-border)] bg-[var(--glass-bg)] flex items-center justify-center mb-5 md:mb-6 shadow-sm"><i class="fa fa-lock text-lg md:text-xl color-main opacity-70"></i></div>
                     <p class="text-[9px] md:text-[10px] font-black uppercase tracking-[0.5em] color-muted mb-2 md:mb-3 opacity-80 pl-[0.5em]">Restricted Asset</p>
                     <h3 class="text-[18px] md:text-[22px] font-black color-main mb-4 md:mb-5 tracking-widest">私密版权资产</h3>
-                    <div class="relative w-full mb-5 md:mb-6">
-                        <input type="password" id="copyrightPassword" class="w-full bg-transparent border border-[var(--glass-border)] rounded-full px-5 md:px-6 py-3 md:py-4 text-center tracking-[0.5em] font-black color-main placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--text-main)] transition-all shadow-sm text-[13px] md:text-[16px]" placeholder="ENTER KEY">
-                    </div>
+                    <div class="relative w-full mb-5 md:mb-6"><input type="password" id="copyrightPassword" class="w-full bg-transparent border border-[var(--glass-border)] rounded-full px-5 md:px-6 py-3 md:py-4 text-center tracking-[0.5em] font-black color-main placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--text-main)] transition-all shadow-sm text-[13px] md:text-[16px]" placeholder="ENTER KEY"></div>
                     <button id="unlockCopyrightBtn" class="bg-inverted btn-elastic w-full py-3.5 md:py-4 rounded-full font-bold tracking-[0.2em] text-[12px] md:text-[13px] shadow-xl uppercase transition-all flex justify-center items-center gap-2"><i class="fa fa-unlock-alt text-[15px] md:text-lg"></i> 核验并解锁</button>
                     <button id="closeCopyrightBtn" class="mt-6 md:mt-8 text-[10px] md:text-[11px] font-bold color-muted hover:text-[var(--text-main)] transition-colors tracking-[0.2em] uppercase cursor-pointer flex items-center justify-center gap-1.5 opacity-70 hover:opacity-100"><i class="fa fa-angle-left text-xs md:text-sm"></i> 返回安全区域</button>
                 </div>
