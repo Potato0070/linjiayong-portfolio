@@ -154,8 +154,28 @@
         .blob-3 { width: 50vw; height: 50vw; background: var(--blob-3); top: 40%; left: 40%; animation-duration: 32s; }
         @keyframes floatBlob { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(4vw, -4vh) scale(1.05); } 100% { transform: translate(-4vw, 4vh) scale(0.95); } }
 
-        .text-gradient-premium { background-clip: text; -webkit-background-clip: text; color: transparent; background-image: linear-gradient(135deg, #111 0%, #666 100%); }
-        .dark-mode .text-gradient-premium { background-image: linear-gradient(135deg, #fff 0%, #999 100%); }
+        /* 🚀 方案三：流体透蔽遮罩 (Liquid Mercury Masking) */
+        .text-fluid-mask {
+            /* 核心：用极其克制的高级灰度，模拟水银或流体钛金属在字体内部流动 */
+            background: linear-gradient(
+                110deg, 
+                var(--text-main) 15%, 
+                var(--text-muted) 40%, 
+                var(--bg-base) 50%, 
+                var(--text-muted) 60%, 
+                var(--text-main) 85%
+            );
+            background-size: 250% 250%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            animation: fluidMaskMove 10s ease-in-out infinite alternate;
+        }
+        @keyframes fluidMaskMove {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
         .reveal-up { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal-up.revealed { opacity: 1; transform: translateY(0); }
         .text-balance { text-wrap: balance; }
@@ -238,8 +258,8 @@
     <section id="home" class="relative min-h-screen flex flex-col items-center justify-center px-4 md:px-12 pt-20 overflow-hidden">
         <div class="max-w-5xl mx-auto text-center relative z-10 mt-[-10vh] reveal-up w-full">
             <h1 class="font-black tracking-tighter leading-[1.1] mb-8 drop-shadow-sm flex flex-col items-center">
-                <span class="overflow-hidden-wrap"><span class="animate-slide-up-text text-gradient-premium hero-title-line" style="animation-delay: 0.1s">用策略与设计</span></span>
-                <span class="overflow-hidden-wrap mt-2"><span class="animate-slide-up-text text-gradient-premium hero-title-line" style="animation-delay: 0.3s">为品牌赋予商业灵魂。</span></span>
+                <span class="overflow-hidden-wrap"><span class="animate-slide-up-text text-fluid-mask hero-title-line" style="animation-delay: 0.1s">用策略与设计</span></span>
+                <span class="overflow-hidden-wrap mt-2"><span class="animate-slide-up-text text-fluid-mask hero-title-line" style="animation-delay: 0.3s">为品牌赋予商业灵魂。</span></span>
             </h1>
             <p class="color-muted text-[clamp(1.05rem,2vw,1.4rem)] max-w-2xl mx-auto mb-12 text-balance font-medium leading-relaxed opacity-90 tracking-wide intro-fade-in">
                 专注餐饮品牌全案策划与统筹设计团队<br>从0到1搭建体系，端到端覆盖策略到落地全闭环。
