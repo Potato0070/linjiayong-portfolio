@@ -1,19 +1,15 @@
 let worksList = [];
 
-// 极奢开场逻辑：抛弃数字，仅用时间控制幕布
 window.addEventListener('load', () => {
-    // 拉开黑色幕布
     setTimeout(() => {
         const preloader = document.getElementById('preloader');
         if(preloader) preloader.classList.add('loaded');
-    }, 400); // 极短的黑屏，营造深邃感
+    }, 400);
 
-    // 让首屏元素依次入场
     setTimeout(() => {
         const island = document.getElementById('islandContainer');
         if(island) island.classList.add('reveal-up');
         
-        // 激活底部的文字和按钮渐显
         document.querySelectorAll('.intro-fade-in').forEach(el => {
             el.classList.add('active');
         });
@@ -24,7 +20,8 @@ window.addEventListener('load', () => {
 
 async function fetchCMSData() {
     try {
-        const response = await fetch('works.json');
+        // 核心修复1：强制打破死缓存！确保每次都能拉取到最新的作品列表
+        const response = await fetch('works.json?t=' + new Date().getTime());
         if (response.ok) {
             const data = await response.json();
             if (data.worksList && data.worksList.length > 0) worksList = data.worksList; 
@@ -76,6 +73,7 @@ const gridElement = document.getElementById('worksGrid');
 const pageIndicator = document.getElementById('pageIndicator');
 
 function renderWorks() {
+    if(!gridElement) return;
     gridElement.innerHTML = ''; 
     totalPages = Math.max(1, Math.ceil(worksList.length / itemsPerPage));
     const startIdx = (currentPage - 1) * itemsPerPage;
@@ -153,9 +151,10 @@ window.openWork = function(workId) {
 
         const blocksContainer = document.createElement('div');
         blocksContainer.id = "blocksContainer"; 
-        blocksContainer.className = "w-full mx-auto px-4 md:px-12 py-10 md:py-16 flex flex-col gap-8 md:gap-12 relative z-10";
+        // 核心修复2：重置排版容器样式，准备迎接无损光学缩放
+        blocksContainer.className = "w-full mx-auto px-4 md:px-12 py-10 md:py-16 flex flex-col gap-8 md:gap-12 relative z-10 transition-transform duration-300";
         blocksContainer.style.maxWidth = `${baseContainerWidth}px`;
-        blocksContainer.style.fontSize = `100%`; 
+        blocksContainer.style.transformOrigin = "top center";
 
         const titleBlock = document.createElement('h1');
         titleBlock.className = "text-4xl md:text-5xl lg:text-6xl font-black color-main tracking-tighter mb-8 mt-8 md:mt-12 text-balance leading-tight text-center md:text-left";
@@ -194,7 +193,10 @@ window.openWork = function(workId) {
 function updateZoom(newScale) {
     currentScale = Math.max(minScale, Math.min(maxScale, newScale));
     const container = document.getElementById('blocksContainer');
-    if(container) { container.style.maxWidth = `${baseContainerWidth * (currentScale / 100)}px`; container.style.fontSize = `${currentScale}%`; }
+    if(container) {
+        // 核心修复3：使用真正的无损光学缩放，绝对不改变字号和宽度，防止排版崩塌！
+        container.style.transform = `scale(${currentScale / 100})`;
+    }
     zoomText.textContent = `${currentScale}%`;
 }
 if(document.getElementById('zoomInBtn')) document.getElementById('zoomInBtn').addEventListener('click', (e) => { e.stopPropagation(); updateZoom(currentScale + zoomStep); });
