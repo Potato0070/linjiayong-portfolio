@@ -27,8 +27,8 @@ jobs:
 
       - name: Commit and Push
         run: |
-          git config --global user.name "Notion Bot"
-          git config --global user.email "bot@notion.com"
+          git config --global user.name "Potato0070" 
+          git config --global user.email "1047988911@qq.com"
           git add .
           git commit -m "Auto-sync Notion works" || exit 0
           git push
