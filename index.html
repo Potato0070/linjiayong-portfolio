@@ -594,7 +594,7 @@
         }
 
         /* ========================================== */
-        /* 作品详情：动态加载多张排版切片 */
+        /* 作品详情：瀑布流渐进式秒加载 */
         /* ========================================== */
         const workModal = document.getElementById('workModal');
         const closeWorkModal = document.getElementById('closeWorkModal');
@@ -615,7 +615,6 @@
                 document.getElementById('copyrightOverlay').classList.replace('opacity-100', 'opacity-0');
                 document.getElementById('copyrightOverlay').classList.replace('pointer-events-auto', 'pointer-events-none');
                 
-                loadingSpinner.classList.remove('hidden'); 
                 modalImageContainer.classList.remove('opacity-100'); 
                 modalImageContainer.classList.add('opacity-0');
                 
@@ -626,19 +625,20 @@
                 const imagesToLoad = work.images && work.images.length > 0 ? work.images : (work.longImg ? [work.longImg] : []);
                 
                 if (imagesToLoad.length > 0) {
-                    let loadedCount = 0;
+                    // 1. 砸掉枷锁：不等了！瞬间关掉全屏转圈圈的动画
+                    loadingSpinner.classList.add('hidden'); 
+                    // 2. 瞬间把容器显现出来，给用户秒开的爽快感
+                    modalImageContainer.classList.remove('opacity-0'); 
+                    modalImageContainer.classList.add('opacity-100');
+
                     imagesToLoad.forEach(imgPath => {
                         const img = document.createElement('img');
                         img.src = imgPath;
-                        img.className = "relative z-[1] block w-full h-auto pointer-events-none";
-                        img.onload = () => {
-                            loadedCount++;
-                            if (loadedCount === imagesToLoad.length) {
-                                loadingSpinner.classList.add('hidden'); 
-                                modalImageContainer.classList.remove('opacity-0'); 
-                                modalImageContainer.classList.add('opacity-100');
-                            }
-                        };
+                        // 3. 核心魔法：加上底色占位符(bg-...)和最小高度(min-h-...)，防止网页乱跳
+                        img.className = "relative z-[1] block w-full h-auto pointer-events-none bg-[var(--glass-bg)] min-h-[20vh] md:min-h-[30vh]";
+                        // 4. 开启原生懒加载：用户滑到哪里，就加载到哪里，极大地节省流量和提升速度！
+                        img.loading = "lazy"; 
+                        
                         modalImageContainer.appendChild(img);
                     });
                 } else {
