@@ -1,16 +1,25 @@
 let worksList = [];
 
-// 1. 极客开场白逻辑
-document.addEventListener("DOMContentLoaded", () => {
-    const loaderText = document.getElementById("loaderText");
-    const loaderBar = document.getElementById("loaderBar");
-    let progress = 0;
-    const interval = setInterval(() => {
-        progress += Math.floor(Math.random() * 15) + 5;
-        if (progress >= 100) { progress = 100; clearInterval(interval); }
-        if(loaderText) loaderText.innerText = progress + "%";
-        if(loaderBar) loaderBar.style.width = progress + "%";
-    }, 50);
+// 极奢开场逻辑：抛弃数字，仅用时间控制幕布
+window.addEventListener('load', () => {
+    // 拉开黑色幕布
+    setTimeout(() => {
+        const preloader = document.getElementById('preloader');
+        if(preloader) preloader.classList.add('loaded');
+    }, 400); // 极短的黑屏，营造深邃感
+
+    // 让首屏元素依次入场
+    setTimeout(() => {
+        const island = document.getElementById('islandContainer');
+        if(island) island.classList.add('reveal-up');
+        
+        // 激活底部的文字和按钮渐显
+        document.querySelectorAll('.intro-fade-in').forEach(el => {
+            el.classList.add('active');
+        });
+    }, 800);
+
+    fetchCMSData();
 });
 
 async function fetchCMSData() {
@@ -21,18 +30,8 @@ async function fetchCMSData() {
             if (data.worksList && data.worksList.length > 0) worksList = data.worksList; 
         }
     } catch (error) { console.error("加载失败", error); }
-    
-    // 数据加载完毕后，移除开场白，渲染内容
-    setTimeout(() => {
-        const preloader = document.getElementById('preloader');
-        if(preloader) preloader.classList.add('loaded');
-        const island = document.getElementById('islandContainer');
-        if(island) island.classList.add('reveal-up');
-        renderWorks(); 
-    }, 800); // 确保开场白至少展示0.8秒的仪式感
+    renderWorks(); 
 }
-
-window.addEventListener('load', () => { fetchCMSData(); });
 
 let toastTimeout;
 window.showToast = function(message, isError = false) {
@@ -75,22 +74,12 @@ function bindObserver() { document.querySelectorAll('.reveal-up:not(#islandConta
 let currentPage = 1; const itemsPerPage = 6; let totalPages = 1;
 const gridElement = document.getElementById('worksGrid');
 const pageIndicator = document.getElementById('pageIndicator');
-const heroMarquee = document.getElementById('heroMarquee'); // 抓取滚动带容器
 
 function renderWorks() {
     gridElement.innerHTML = ''; 
     totalPages = Math.max(1, Math.ceil(worksList.length / itemsPerPage));
     const startIdx = (currentPage - 1) * itemsPerPage;
     const currentWorks = worksList.slice(startIdx, startIdx + itemsPerPage);
-
-    // 2. 动态生成无限滚动视觉带 (抽取所有作品封面)
-    if (heroMarquee && worksList.length > 0) {
-        let marqueeHTML = worksList.filter(w => w.cover).map(work => 
-            `<div class="marquee-item cursor-pointer" onclick="document.getElementById('works').scrollIntoView(); setTimeout(() => openWork('${work.id}'), 500);"><img src="${work.cover}" alt="cover"></div>`
-        ).join('');
-        // 核心：复制三份实现真正的无缝循环
-        heroMarquee.innerHTML = marqueeHTML + marqueeHTML + marqueeHTML;
-    }
 
     currentWorks.forEach((work, index) => {
         const delay = index * 0.1; 
