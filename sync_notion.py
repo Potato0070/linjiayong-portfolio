@@ -14,6 +14,14 @@ HEADERS = {
 def download_image(url, filename):
     os.makedirs("images/uploads", exist_ok=True)
     filepath = os.path.join("images/uploads", filename)
+    
+    # 【核心升级：增量更新记忆机制】
+    # 如果文件已经存在，直接返回路径，绝不重复下载！
+    if os.path.exists(filepath):
+        print(f"⏩ [缓存跳过] 图片已存在，免下载: {filename}")
+        return filepath.replace("\\", "/")
+        
+    print(f"⬇️ [全新抓取] 发现新图片，正在下载: {filename}")
     try:
         r = requests.get(url, stream=True)
         if r.status_code == 200:
@@ -22,7 +30,7 @@ def download_image(url, filename):
                     f.write(chunk)
         return filepath.replace("\\", "/")
     except Exception as e:
-        print(f"下载失败 {url}: {e}")
+        print(f"❌ [报错] 下载失败 {url}: {e}")
         return ""
 
 def get_blocks(block_id):
