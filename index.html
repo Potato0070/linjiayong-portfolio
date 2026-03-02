@@ -4,31 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>林嘉雍 | 品牌策划作品集</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    
+    <meta name="description" content="林嘉雍 | 专注餐饮品牌全案策划与统筹设计团队。用策略与设计，为品牌赋予商业灵魂。">
+    <meta property="og:title" content="林嘉雍 | 高端品牌策划作品集">
+    <meta property="og:description" content="专注餐饮品牌全案策划与统筹设计团队。从0到1搭建体系，用策略驱动设计，落地商业价值。">
+    <meta property="og:image" content="https://www.linjiayong.cn/images/share-cover.jpg">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
     <script>
-        tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['"Noto Sans SC"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'], serif: ['"Noto Serif SC"', 'serif'], }, } } }
+        tailwind.config = {
+            darkMode: 'class', 
+            theme: {
+                extend: {
+                    fontFamily: {
+                        /* 核心修复：滚回最干净、最高级的苹果系统原生字体，拒绝臃肿 */
+                        sans: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Text', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                        serif: ['"Songti SC"', '"Noto Serif CJK SC"', 'STSong', 'serif'],
+                    },
+                }
+            }
+        }
     </script>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="antialiased">
     <div id="preloader"></div>
-
     <div class="global-fluid-bg"><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div></div>
-
     <div id="toast" class="fixed top-24 left-1/2 transform -translate-x-1/2 bg-inverted px-8 py-3.5 rounded-full shadow-2xl opacity-0 z-[300] flex items-center gap-4 transition-opacity duration-400 pointer-events-none"><i id="toastIcon" class="fa fa-info-circle text-xl opacity-80"></i><span id="toastMessage" class="font-bold text-white dark:text-dark tracking-widest text-[13px]">系统提示</span></div>
 
     <div class="fixed top-6 left-1/2 z-50 w-[92%] max-w-5xl hidden md:flex justify-center" id="islandContainer">
         <nav class="nav-island flex items-center justify-between px-3 py-2 w-full shadow-2xl">
             <a href="#home" class="pl-5 text-lg font-black tracking-tight color-main btn-elastic flex-shrink-0">林嘉雍<span class="opacity-30 mx-1">·</span>品牌策划</a>
             <div class="flex items-center gap-1">
-                <a href="#home" class="nav-link btn-light-beam cursor-pointer">首页</a><a href="#works" class="nav-link btn-light-beam cursor-pointer">作品</a><a href="#about" class="nav-link btn-light-beam cursor-pointer">关于</a><a href="#contact" class="nav-link btn-light-beam cursor-pointer">联系</a>
+                <a href="#home" class="nav-link cursor-pointer">首页</a>
+                <a href="#works" class="nav-link cursor-pointer">作品</a>
+                <a href="#about" class="nav-link cursor-pointer">关于</a>
+                <a href="#contact" class="nav-link cursor-pointer">联系</a>
                 <div class="w-px h-4 bg-[var(--text-muted)] opacity-30 mx-2"></div>
-                <a href="https://m.zcool.com.cn/u/27721906" target="_blank" class="nav-link btn-light-beam cursor-pointer">站酷主页 <i class="fa fa-external-link opacity-40 text-[10px]"></i></a>
+                <a href="https://m.zcool.com.cn/u/27721906" target="_blank" class="nav-link cursor-pointer">站酷主页 <i class="fa fa-external-link opacity-40 text-[10px]"></i></a>
                 <button id="themeToggleBtn" class="w-10 h-10 rounded-full flex items-center justify-center color-main text-lg hover:bg-[var(--text-main)] hover:text-[var(--bg-base)] transition-all ml-1 cursor-pointer btn-light-beam"><i id="themeIcon" class="fa fa-moon-o"></i></button>
             </div>
         </nav>
@@ -138,9 +154,9 @@
         </div>
     </section>
 
-    <div id="workModal" class="modal fixed inset-0 z-[100] flex items-center justify-center md:p-8">
-        <div class="modal-content w-full h-full md:h-[95vh] md:max-w-[1200px] flex flex-col relative overflow-hidden bg-[var(--bg-base)] md:bg-transparent md:rounded-[2rem]">
-            <button id="closeWorkModal" class="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 md:w-12 h-12 liquid-glass !rounded-full flex items-center justify-center color-main z-[200] btn-elastic hover:!bg-white dark:hover:!bg-[#1d1d1f] !shadow-2xl cursor-pointer"><i class="fa fa-times text-lg md:text-xl"></i></button>
+    <div id="workModal" class="modal fixed inset-0 z-[100] flex items-center justify-center">
+        <div class="modal-content w-full h-full flex flex-col relative overflow-hidden bg-[var(--bg-base)]">
+            <button id="closeWorkModal" class="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 md:w-12 md:h-12 liquid-glass !rounded-full flex items-center justify-center color-main z-[200] btn-elastic hover:!bg-white dark:hover:!bg-[#1d1d1f] !shadow-2xl cursor-pointer"><i class="fa fa-times text-lg md:text-xl"></i></button>
             <div class="absolute bottom-6 md:bottom-10 left-1/2 transform -translate-x-1/2 z-[150] flex items-center liquid-glass-controls px-4 py-2.5 md:px-5 md:py-3 !rounded-full shadow-2xl">
                 <button id="scrollTopDetailBtn" title="回到顶部" class="btn-elastic flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full text-lg md:text-xl scroll-top-disabled color-main cursor-pointer"><i class="fa fa-arrow-up"></i></button>
                 <div class="w-px h-6 bg-[var(--text-muted)] opacity-30 mx-3 md:mx-4"></div>
@@ -150,7 +166,7 @@
             </div>
             <div class="modal-scroll-box flex-1 w-full h-full bg-[var(--bg-base)] relative pb-40" id="workModalScrollBox">
                 <div id="loadingSpinner" class="absolute inset-0 flex flex-col items-center justify-center z-10 hidden"><i class="fa fa-circle-o-notch fa-spin text-4xl text-[var(--text-main)] mb-4"></i><p class="color-muted font-bold text-sm tracking-widest mt-4">正在加载高级排版...</p></div>
-                <div class="relative w-full mx-auto md:rounded-2xl overflow-hidden shadow-2xl">
+                <div class="relative w-full mx-auto overflow-hidden">
                     <div class="absolute inset-0 z-[5] bg-transparent w-full h-full" oncontextmenu="return false;" style="-webkit-touch-callout: none; pointer-events: auto;"></div>
                     <div id="modalImageContainer" class="w-full flex flex-col items-center opacity-0 transition-opacity duration-500 origin-top"></div>
                 </div>
@@ -168,11 +184,11 @@
         </div>
     </div>
 
-    <div id="resumeModal" class="modal fixed inset-0 z-[100] flex items-center justify-center md:p-8">
-        <div class="modal-content w-full h-full md:h-[95vh] md:max-w-[1000px] flex flex-col relative overflow-hidden bg-transparent md:rounded-[2rem]">
+    <div id="resumeModal" class="modal fixed inset-0 z-[100] flex items-center justify-center">
+        <div class="modal-content w-full h-full flex flex-col relative overflow-hidden bg-[var(--bg-base)]">
             <button id="closeResumeModal" class="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 md:w-12 md:h-12 liquid-glass !rounded-full flex items-center justify-center color-main z-[200] btn-elastic hover:!bg-white dark:hover:!bg-[#1d1d1f] !shadow-2xl cursor-pointer"><i class="fa fa-times text-lg md:text-xl"></i></button>
             <div class="modal-scroll-box flex-1 w-full h-full bg-transparent relative pt-24 pb-40 md:pt-12" id="resumeModalScrollBox">
-                <img id="modalResumeImg" src="images/resume.jpg" alt="林嘉雍个人简历" class="zoomable-img relative z-[1] block w-full h-auto">
+                <img id="modalResumeImg" src="images/resume.jpg" alt="林嘉雍个人简历" class="zoomable-img relative z-[1] block w-full h-auto mx-auto max-w-[1000px]">
             </div>
         </div>
     </div>
