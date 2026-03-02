@@ -84,7 +84,7 @@
         /* 光束仅保留给必要的主按钮，绝不污染导航文本 */
         .btn-light-beam { position: relative; z-index: 1; }
         .btn-light-beam::before {
-            content: ""; position: absolute; inset: -1px; border-radius: inherit; padding: 1px;
+            content: ""; position: absolute; inset: -3px; border-radius: inherit; padding: 3px;
             background: linear-gradient(90deg, transparent, var(--text-main), transparent);
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor; mask-composite: exclude;
@@ -164,7 +164,7 @@
                 <a href="#contact" class="nav-link cursor-pointer">联系</a>
                 <div class="w-px h-4 bg-[var(--text-muted)] opacity-30 mx-2"></div>
                 <a href="https://m.zcool.com.cn/u/27721906" target="_blank" class="nav-link cursor-pointer">站酷主页 <i class="fa fa-external-link opacity-40 text-[10px]"></i></a>
-                <button id="themeToggleBtn" class="w-10 h-10 rounded-full flex items-center justify-center color-main text-lg hover:bg-[var(--text-main)] hover:text-[var(--bg-base)] transition-all ml-1 cursor-pointer btn-light-beam"><i id="themeIcon" class="fa fa-moon-o"></i></button>
+                <button id="themeToggleBtn" class="h-10 px-4 rounded-full flex items-center justify-center color-main text-lg hover:bg-[var(--text-main)] hover:text-[var(--bg-base)] transition-all ml-1 cursor-pointer btn-light-beam liquid-glass"><i id="themeIcon" class="fa fa-moon-o"></i><span class="text-[12px] font-bold ml-2">切换模式</span></button>
             </div>
         </nav>
     </div>
@@ -172,25 +172,27 @@
     <nav class="glass-nav fixed top-0 left-0 w-full z-50 py-3 px-6 md:hidden">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <a href="#home" class="text-[17px] font-black tracking-tight color-main btn-elastic">林嘉雍<span class="opacity-40 mx-1">·</span>品牌策划</a>
-            <div class="flex items-center gap-4"><button id="themeToggleBtnMobile" class="w-8 h-8 flex items-center justify-center color-main text-xl btn-elastic"><i id="themeIconMobile" class="fa fa-moon-o"></i></button><button id="menuBtn" class="text-2xl color-main btn-elastic"><i class="fa fa-bars"></i></button></div>
-        </div>
+           <div class="flex items-center gap-3">
+                <button id="themeToggleBtnMobile" class="h-8 px-3 rounded-full flex items-center justify-center color-main text-[15px] btn-elastic liquid-glass shadow-sm"><i id="themeIconMobile" class="fa fa-moon-o"></i><span class="text-[10px] font-bold ml-1.5">模式</span></button>
+                <button id="menuBtn" class="text-2xl color-main btn-elastic px-2"><i class="fa fa-bars"></i></button>
+            </div>
         <div id="mobileMenu" class="md:hidden hidden absolute top-full left-0 w-full liquid-glass shadow-2xl py-6 px-6 flex flex-col gap-4 text-center border-t-0 rounded-b-[2rem]">
             <a href="#home" class="text-[15px] font-bold py-2 color-main cursor-pointer tracking-wide">首页</a><a href="#works" class="text-[15px] font-bold py-2 color-main cursor-pointer tracking-wide">作品</a><a href="#about" class="text-[15px] font-bold py-2 color-main cursor-pointer tracking-wide">关于</a><a href="#contact" class="text-[15px] font-bold py-2 color-main cursor-pointer tracking-wide">联系</a>
         </div>
     </nav>
 
-    <section id="home" class="relative min-h-screen flex items-center justify-center px-6 md:px-12 pt-20">
-        <div class="max-w-5xl mx-auto text-center relative z-10 mt-[-8vh] reveal-up">
-            <h1 class="text-[clamp(3rem,8vw,6.5rem)] font-black tracking-tighter leading-[1.05] mb-8 drop-shadow-sm flex flex-col items-center">
-                <span class="text-gradient-premium">用策略与设计</span>
-                <span class="text-gradient-premium">为品牌赋予商业灵魂。</span>
+<section id="home" class="relative min-h-screen flex flex-col items-center justify-center px-6 md:px-12 pt-20 overflow-hidden">
+        <div class="max-w-5xl mx-auto text-center relative z-10 mt-[-10vh] reveal-up w-full">
+            <h1 class="text-[clamp(2.2rem,7vw,6.5rem)] font-black tracking-tighter leading-[1.1] mb-8 drop-shadow-sm flex flex-col items-center">
+                <span class="overflow-hidden-wrap whitespace-nowrap"><span class="animate-slide-up-text text-gradient-premium" style="animation-delay: 0.1s">用策略与设计</span></span>
+                <span class="overflow-hidden-wrap whitespace-nowrap mt-2"><span class="animate-slide-up-text text-gradient-premium" style="animation-delay: 0.3s">为品牌赋予商业灵魂。</span></span>
             </h1>
-            <p class="color-muted text-[clamp(1.1rem,2vw,1.4rem)] max-w-2xl mx-auto mb-14 text-balance font-medium leading-relaxed opacity-90 tracking-wide">
+            <p class="color-muted text-[clamp(1rem,2vw,1.4rem)] max-w-2xl mx-auto mb-14 text-balance font-medium leading-relaxed opacity-90 tracking-wide intro-fade-in px-4">
                 专注餐饮品牌全案策划与统筹设计团队<br>从0到1搭建体系，端到端覆盖策略到落地全闭环。
             </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
-                <a href="#works" class="bg-inverted btn-elastic btn-light-beam px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto shadow-2xl inline-block cursor-pointer tracking-widest">浏览作品集</a>
-                <a href="#contact" class="liquid-glass hover-elastic btn-light-beam color-main px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto inline-block cursor-pointer tracking-widest">联系合作</a>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 relative z-20 intro-fade-in px-6">
+                <a href="#works" class="bg-inverted liquid-glass btn-elastic btn-light-beam px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto shadow-2xl inline-block cursor-pointer tracking-widest text-center">浏览作品集</a>
+                <a href="#contact" class="liquid-glass hover-elastic btn-light-beam color-main px-10 py-4 rounded-full font-bold text-lg w-full sm:w-auto inline-block cursor-pointer tracking-widest text-center">联系合作</a>
             </div>
         </div>
     </section>
@@ -277,6 +279,16 @@
         window.addEventListener('load', () => {
             const island = document.getElementById('islandContainer');
             if(island) island.classList.add('reveal-up');
+            
+            // 修复：移动端导航栏右上角下拉菜单点击响应
+            const menuBtn = document.getElementById('menuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+                });
+            }
             fetchCMSData();
         });
 
@@ -413,13 +425,26 @@
 
                 const blocksContainer = document.createElement('div');
                 blocksContainer.id = "blocksContainer"; 
-                // 真·无损缩放设置，不再挤爆排版
-                blocksContainer.className = "w-full mx-auto px-4 md:px-12 py-10 md:py-16 flex flex-col gap-8 md:gap-12 relative z-10";
-                blocksContainer.style.maxWidth = `${baseContainerWidth}px`;
+                // 修复：改用响应式底座，允许移动端原生重新排版换行
+                blocksContainer.className = "w-full mx-auto px-4 md:px-12 py-8 md:py-16 flex flex-col gap-6 md:gap-12 relative z-10 transition-all duration-300";
+                blocksContainer.style.maxWidth = window.innerWidth < 768 ? '100%' : `${baseContainerWidth}px`;
 
                 const titleBlock = document.createElement('h1');
-                titleBlock.className = "text-4xl md:text-5xl lg:text-6xl font-black color-main tracking-tighter mb-8 mt-8 md:mt-12 text-balance leading-tight text-center md:text-left";
-                titleBlock.innerHTML = work.title;
+                titleBlock.className = "font-black color-main tracking-tighter mb-6 mt-6 md:mb-10 md:mt-12 leading-snug text-left";
+                
+                // 核心修复：优雅处理 “|” 或 “｜”。电脑端放同行，手机端完美断行并隐藏竖线
+                let formattedTitle = work.title;
+                if (work.title.includes('|') || work.title.includes('｜')) {
+                    const parts = work.title.split(/\||｜/);
+                    formattedTitle = `
+                        <span class="block text-[clamp(1.5rem,4vw,3rem)] mb-2">${parts[0].trim()}</span>
+                        <span class="hidden md:inline text-[clamp(1rem,2vw,1.5rem)] opacity-60 font-medium mx-3">|</span>
+                        <span class="block md:inline text-[clamp(1.1rem,2vw,1.5rem)] opacity-60 font-medium mt-1 md:mt-0">${parts[1].trim()}</span>
+                    `;
+                } else {
+                    formattedTitle = `<span class="text-[clamp(1.5rem,4vw,3rem)]">${work.title}</span>`;
+                }
+                titleBlock.innerHTML = formattedTitle;
                 blocksContainer.appendChild(titleBlock);
 
                 const blocksToLoad = work.blocks && work.blocks.length > 0 ? work.blocks : (work.images && work.images.length > 0 ? work.images.map(img => ({type: 'image', src: img})) : []);
@@ -446,11 +471,14 @@
             }
         };
 
-        // 无损缩放，完全不影响字号与图片比例
+        // 核心修复：真·移动端可用的光学缩放（改变容器字号和最大宽度，让文字自动优雅换行，绝不破坏图片）
         function updateZoom(newScale) {
             currentScale = Math.max(minScale, Math.min(maxScale, newScale));
             const container = document.getElementById('blocksContainer');
-            if(container) { container.style.transform = `scale(${currentScale / 100})`; }
+            if(container) { 
+                container.style.fontSize = `${currentScale}%`;
+                container.style.maxWidth = window.innerWidth < 768 ? '100%' : `${baseContainerWidth * (currentScale / 100)}px`;
+            }
             zoomText.textContent = `${currentScale}%`;
         }
         if(document.getElementById('zoomInBtn')) document.getElementById('zoomInBtn').addEventListener('click', (e) => { e.stopPropagation(); updateZoom(currentScale + zoomStep); });
