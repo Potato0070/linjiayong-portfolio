@@ -12,6 +12,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
@@ -20,7 +21,10 @@
     </script>
 
     <style>
+        /* 🚀 物理级抹杀移动端点击灰块 */
         * { -webkit-tap-highlight-color: transparent !important; outline: none !important; }
+        a, button, div { -webkit-tap-highlight-color: rgba(0,0,0,0) !important; }
+
         :root { --bg-base: #f4f4f6; --text-main: #111111; --text-muted: #888888; --btn-bg: #111111; --btn-text: #ffffff; --blob-1: #eaeaea; --blob-2: #e0e0e0; --blob-3: #f9f9f9; }
         .dark-mode { --bg-base: #0a0a0a; --text-main: #f5f5f7; --text-muted: #777777; --btn-bg: #ffffff; --btn-text: #000000; --blob-1: #151515; --blob-2: #0d0d0d; --blob-3: #1a1a1a; }
         html { scroll-behavior: smooth; }
@@ -30,30 +34,32 @@
         .dark-mode::after { opacity: 0.06; }
         .color-main { color: var(--text-main); } .color-muted { color: var(--text-muted); } .bg-inverted { background-color: var(--btn-bg); color: var(--btn-text); transition: all 0.4s ease; }
 
+        /* Liquid Glass 统一材质 */
         .liquid-glass { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(48px) saturate(200%); -webkit-backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.4); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05), inset 0 1.5px 2px rgba(255, 255, 255, 0.9), inset 0 -1.5px 2px rgba(255, 255, 255, 0.15); border-radius: 24px; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
         .dark-mode .liquid-glass { background: rgba(20, 20, 20, 0.35); border-color: rgba(255, 255, 255, 0.15); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), inset 0 1.5px 2px rgba(255, 255, 255, 0.2), inset 0 -1.5px 2px rgba(0, 0, 0, 0.5); }
-        .liquid-glass-dark { background: rgba(20, 20, 20, 0.5); backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 12px 32px rgba(0,0,0,0.2), inset 0 1.5px 2px rgba(255, 255, 255, 0.3), inset 0 -1.5px 2px rgba(0, 0, 0, 0.4); color: #fff; border-radius: 100px; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        .liquid-glass-dark { background: rgba(20, 20, 20, 0.5); backdrop-filter: blur(48px) saturate(200%); -webkit-backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 12px 32px rgba(0,0,0,0.2), inset 0 1.5px 2px rgba(255, 255, 255, 0.3), inset 0 -1.5px 2px rgba(0, 0, 0, 0.4); color: #fff; border-radius: 100px; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
         .liquid-glass-dark:hover { background: rgba(10, 10, 10, 0.7); transform: scale(1.04) translateY(-2px); box-shadow: 0 16px 40px rgba(0,0,0,0.3), inset 0 2px 3px rgba(255, 255, 255, 0.4); }
         .dark-mode .liquid-glass-dark { background: rgba(240, 240, 240, 0.7); color: #000; border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: 0 12px 32px rgba(0,0,0,0.1), inset 0 1.5px 2px #fff, inset 0 -1.5px 2px rgba(0,0,0,0.1); }
         .dark-mode .liquid-glass-dark:hover { background: rgba(255, 255, 255, 0.9); box-shadow: 0 16px 40px rgba(0,0,0,0.15), inset 0 2px 3px #fff; }
         
-        .nav-island { position: relative; background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(48px) saturate(250%); border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 16px 32px rgba(0,0,0,0.06), inset 0 1.5px 2px rgba(255,255,255,0.9), inset 0 -1px 1px rgba(255,255,255,0.2); border-radius: 100px; transition: all 0.5s ease; }
+        .nav-island { position: relative; background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(48px) saturate(250%); -webkit-backdrop-filter: blur(48px) saturate(250%); border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 16px 32px rgba(0,0,0,0.06), inset 0 1.5px 2px rgba(255,255,255,0.9), inset 0 -1px 1px rgba(255,255,255,0.2); border-radius: 100px; transition: all 0.5s ease; }
         .dark-mode .nav-island { background: rgba(30, 30, 30, 0.4); border-color: rgba(255, 255, 255, 0.15); box-shadow: 0 16px 32px rgba(0,0,0,0.4), inset 0 1.5px 2px rgba(255,255,255,0.2), inset 0 -1px 1px rgba(0,0,0,0.5); }
         .nav-indicator { position: absolute; bottom: 8px; height: 32px; background: rgba(0,0,0,0.06); border-radius: 100px; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); z-index: 0; pointer-events: none; opacity: 0; }
         .dark-mode .nav-indicator { background: rgba(255,255,255,0.12); }
         
-        .liquid-glass-controls { background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.6); box-shadow: 0 20px 40px rgba(0,0,0,0.1), inset 0 1.5px 2px rgba(255,255,255,0.9); border-radius: 40px; }
+        .liquid-glass-controls { background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(48px) saturate(200%); -webkit-backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.6); box-shadow: 0 20px 40px rgba(0,0,0,0.1), inset 0 1.5px 2px rgba(255,255,255,0.9); border-radius: 40px; }
         .dark-mode .liquid-glass-controls { background: rgba(30, 30, 30, 0.6); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 1.5px 2px rgba(255,255,255,0.2); }
         
         .hover-elastic { will-change: transform, box-shadow; transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
         .hover-elastic:hover { transform: scale(1.02) translateY(-4px); background: rgba(255, 255, 255, 0.25); box-shadow: 0 24px 50px rgba(0,0,0,0.08), inset 0 2px 3px rgba(255, 255, 255, 1), inset 0 -1px 2px rgba(255, 255, 255, 0.2); }
         .dark-mode .hover-elastic:hover { background: rgba(30, 30, 30, 0.45); box-shadow: 0 24px 50px rgba(0,0,0,0.5), inset 0 1.5px 2px rgba(255, 255, 255, 0.3); }
-        .hover-elastic:active { transform: scale(0.98); transition: all 0.2s ease; }
+        .hover-elastic:active { transform: scale(0.96); transition: all 0.2s ease; }
         .btn-elastic { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform; }
         .btn-elastic:active { transform: scale(0.92); opacity: 0.8; }
         .glass-card-img { transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .hover-elastic:hover .glass-card-img { transform: scale(1.05); }
 
+        /* 排版与动画 */
         #blocksContainer { --font-multiplier: 1; transition: background-color 0.4s ease; margin: 0 auto; position: relative; }
         .work-text-main { font-size: calc(clamp(1.8rem, 5vw, 3.5rem) * var(--font-multiplier)); line-height: 1.2; font-weight: 900; letter-spacing: -0.02em; transition: font-size 0.3s ease; }
         .work-text-sub { font-size: calc(clamp(1rem, 2.5vw, 1.6rem) * var(--font-multiplier)); font-weight: 500; opacity: 0.6; transition: font-size 0.3s ease; }
@@ -90,11 +96,12 @@
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .mask-linear-fade { mask-image: linear-gradient(to right, black 85%, transparent 100%); -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%); }
 
+        /* 🚀 严格 Z-index 规范：模版必须高于导航栏 */
         .modal { opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s ease; background: var(--bg-base); z-index: 9999; }
         .modal.active { opacity: 1; visibility: visible; }
         .modal-content { transition: all 0.4s ease; transform: scale(0.98) translateY(20px); opacity: 0; }
         .modal.active .modal-content { transform: scale(1) translateY(0); opacity: 1; }
-        .modal-scroll-box { overflow: auto; -webkit-overflow-scrolling: touch; padding-bottom: env(safe-area-inset-bottom, 60px); }
+        .modal-scroll-box { overflow: auto; -webkit-overflow-scrolling: touch; padding-bottom: env(safe-area-inset-bottom, 80px); }
         .modal-scroll-box::-webkit-scrollbar { width: 0px; height: 0px; } 
         .scroll-top-disabled { opacity: 0.3; cursor: not-allowed; pointer-events: none; }
 
@@ -112,25 +119,18 @@
         .fade-img { opacity: 0; transition: opacity 0.8s ease; position: relative; z-index: 3; width: 100%; height: auto; display: block; }
         .fade-img.loaded { opacity: 1; }
 
-        /* 🚀 终极防护：高密度双层交叉老花水印 */
-        .watermark-layer { 
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 40; pointer-events: none; 
-            background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(100,100) rotate(-30) translate(-100,-100)'%3E%3Ctext x='100' y='90' font-size='22' fill='rgba(140,140,140,0.06)' font-family='sans-serif' font-weight='900' text-anchor='middle'%3ELINJIAYONG%3C/text%3E%3Ctext x='100' y='115' font-size='14' fill='rgba(140,140,140,0.08)' font-family='sans-serif' font-weight='bold' letter-spacing='4' text-anchor='middle'%3E版权作品 · 禁止盗用%3C/text%3E%3C/g%3E%3C/svg%3E"); 
-            background-repeat: repeat; opacity: 0; transition: opacity 0.8s ease; 
-        }
-        .dark-mode .watermark-layer { 
-            background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(100,100) rotate(-30) translate(-100,-100)'%3E%3Ctext x='100' y='90' font-size='22' fill='rgba(200,200,200,0.03)' font-family='sans-serif' font-weight='900' text-anchor='middle'%3ELINJIAYONG%3C/text%3E%3Ctext x='100' y='115' font-size='14' fill='rgba(200,200,200,0.06)' font-family='sans-serif' font-weight='bold' letter-spacing='4' text-anchor='middle'%3E版权作品 · 禁止盗用%3C/text%3E%3C/g%3E%3C/svg%3E"); 
-        }
+        .watermark-layer { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 40; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(100,100) rotate(-30) translate(-100,-100)'%3E%3Ctext x='100' y='90' font-size='22' fill='rgba(140,140,140,0.06)' font-family='sans-serif' font-weight='900' text-anchor='middle'%3ELINJIAYONG%3C/text%3E%3Ctext x='100' y='115' font-size='14' fill='rgba(140,140,140,0.08)' font-family='sans-serif' font-weight='bold' letter-spacing='4' text-anchor='middle'%3E版权作品 · 禁止盗用%3C/text%3E%3C/g%3E%3C/svg%3E"); background-repeat: repeat; opacity: 0; transition: opacity 0.8s ease; }
+        .dark-mode .watermark-layer { background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(100,100) rotate(-30) translate(-100,-100)'%3E%3Ctext x='100' y='90' font-size='22' fill='rgba(200,200,200,0.03)' font-family='sans-serif' font-weight='900' text-anchor='middle'%3ELINJIAYONG%3C/text%3E%3Ctext x='100' y='115' font-size='14' fill='rgba(200,200,200,0.06)' font-family='sans-serif' font-weight='bold' letter-spacing='4' text-anchor='middle'%3E版权作品 · 禁止盗用%3C/text%3E%3C/g%3E%3C/svg%3E"); }
         .watermark-layer.active { opacity: 1; }
-        
-        /* 触发防御机制时，不仅模糊而且加黑变暗 */
         .copyright-blurred { filter: blur(30px) brightness(0.5) !important; pointer-events: none; transition: filter 0.2s ease; }
         .dark-mode .copyright-blurred { filter: blur(30px) brightness(0.2) !important; }
 
         #globalBackToTop { opacity: 0; pointer-events: none; transform: translateY(20px); transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); z-index: 90; }
         #globalBackToTop.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 
-        #posterTemplateWrapper { position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none; z-index: -100; top: 0; left: 0; }
+        /* 🚀 终极截图层修复：iOS 绝不渲染隐藏或移出屏幕的元素！
+           对策：放在视口顶端，设置极低透明度，放置于最底层。截完图再隐藏。 */
+        #posterTemplateWrapper { position: fixed; top: 0; left: 0; z-index: -1000; opacity: 0.01; pointer-events: none; overflow: hidden; }
         #posterTemplate { width: 750px; background-color: #ffffff; color: #111; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; padding-bottom: 40px; box-sizing: border-box; }
         .poster-cover { width: 100%; height: 500px; object-fit: cover; object-position: center; border-radius: 0 0 40px 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
         .poster-content { padding: 50px 60px 20px 60px; }
@@ -152,45 +152,44 @@
 <body class="antialiased flex flex-col min-h-screen">
     <div class="global-fluid-bg"><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div></div>
     
-    <div id="toast" class="fixed top-24 left-1/2 transform -translate-x-1/2 bg-[var(--text-main)] text-[var(--bg-base)] px-6 py-3 md:px-8 md:py-3.5 rounded-full shadow-2xl opacity-0 z-[99999] flex items-center gap-3 transition-opacity duration-400 pointer-events-none whitespace-nowrap"><i id="toastIcon" class="fa fa-info-circle text-lg opacity-80"></i><span id="toastMessage" class="font-bold tracking-widest text-[12px] md:text-[13px]">系统提示</span></div>
+    <div id="toast" class="fixed top-24 left-1/2 transform -translate-x-1/2 bg-[var(--text-main)] text-[var(--bg-base)] px-6 py-3 md:px-8 md:py-3.5 rounded-full shadow-2xl opacity-0 z-[999999] flex items-center gap-3 transition-opacity duration-400 pointer-events-none whitespace-nowrap"><i id="toastIcon" class="fa fa-info-circle text-lg opacity-80"></i><span id="toastMessage" class="font-bold tracking-widest text-[12px] md:text-[13px]">系统提示</span></div>
 
     <button id="globalBackToTop" class="fixed bottom-8 right-6 md:right-8 w-12 h-12 liquid-glass flex items-center justify-center color-main shadow-2xl btn-elastic">
         <i class="fa fa-arrow-up text-lg"></i>
     </button>
 
-    <div class="fixed top-6 left-1/2 z-50 w-[92%] max-w-5xl hidden md:flex justify-center nav-drop-in" id="islandContainer">
-        <nav class="nav-island flex items-center justify-between px-3 py-2 w-full shadow-2xl relative">
-            <a href="#home" class="pl-5 text-lg font-black tracking-tight color-main btn-elastic flex-shrink-0 relative z-10">林嘉雍<span class="opacity-30 mx-1">·</span>品牌策划</a>
-            <div class="flex items-center gap-1 relative z-10 px-2" id="navLinksContainer">
-                <div id="navIndicator" class="absolute h-8 bg-black/10 dark:bg-white/15 rounded-full transition-all duration-300 z-[-1]" style="left: 0; width: 0; opacity: 0;"></div>
+    <div class="fixed top-4 md:top-6 left-1/2 transform -translate-x-1/2 z-[100] w-[92%] max-w-5xl nav-drop-in" id="islandContainer">
+        <nav class="nav-island flex items-center justify-between px-4 py-2.5 md:px-3 md:py-2 w-full shadow-2xl relative">
+            <div id="navIndicator" class="nav-indicator hidden md:block"></div>
+            
+            <a href="#home" class="text-[16px] md:text-lg font-black tracking-tight color-main btn-elastic flex-shrink-0 relative z-10 pl-2 md:pl-5">林嘉雍<span class="opacity-30 mx-1">·</span>品牌策划</a>
+            
+            <div class="hidden md:flex items-center gap-1 relative z-10 px-2" id="navLinksContainer">
                 <a href="#home" class="nav-link cursor-pointer nav-item" data-target="home">首页</a>
                 <a href="#works" class="nav-link cursor-pointer nav-item" data-target="works">作品</a>
                 <a href="#about" class="nav-link cursor-pointer nav-item" data-target="about">关于</a>
                 <a href="#contact" class="nav-link cursor-pointer nav-item" data-target="contact">联系</a>
             </div>
-            <div class="flex items-center gap-1 relative z-10">
+
+            <div class="hidden md:flex items-center gap-1 relative z-10">
                 <div class="w-px h-4 bg-[var(--text-muted)] opacity-30 mx-2"></div>
                 <a href="https://m.zcool.com.cn/u/27721906" target="_blank" class="nav-link cursor-pointer">站酷主页 <i class="fa fa-external-link opacity-40 text-[10px]"></i></a>
-                <button id="themeToggleBtn" class="h-10 px-4 rounded-full flex items-center justify-center color-main text-lg hover:bg-[var(--text-main)] hover:text-[var(--bg-base)] transition-all ml-1 cursor-pointer liquid-glass"><i id="themeIcon" class="fa fa-moon-o"></i><span class="text-[12px] font-bold ml-2">切换模式</span></button>
+                <button id="themeToggleBtn" class="h-10 px-4 rounded-full flex items-center justify-center color-main text-lg hover:bg-[var(--text-main)] hover:text-[var(--bg-base)] transition-all ml-1 cursor-pointer liquid-glass btn-elastic"><i id="themeIcon" class="fa fa-moon-o"></i><span class="text-[12px] font-bold ml-2">切换模式</span></button>
+            </div>
+
+            <div class="md:hidden flex items-center gap-2 relative z-10 pr-1">
+                <button id="themeToggleBtnMobile" class="w-8 h-8 rounded-full flex items-center justify-center color-main text-[13px] btn-elastic liquid-glass shadow-sm"><i id="themeIconMobile" class="fa fa-moon-o"></i></button>
+                <button id="menuBtn" class="text-xl color-main btn-elastic px-2"><i class="fa fa-bars"></i></button>
+            </div>
+            
+            <div id="mobileMenu" class="absolute top-[110%] left-0 w-full liquid-glass flex flex-col text-center shadow-2xl p-2 z-[140] rounded-[1.5rem] transition-all duration-400 transform origin-top opacity-0 pointer-events-none scale-95 md:hidden">
+                <a href="#home" class="text-[15px] font-bold py-3.5 mx-2 my-1 rounded-xl color-main cursor-pointer tracking-widest nav-item hover:bg-black/5 dark:hover:bg-white/10 transition-colors" data-target="home">首页</a>
+                <a href="#works" class="text-[15px] font-bold py-3.5 mx-2 my-1 rounded-xl color-main cursor-pointer tracking-widest nav-item hover:bg-black/5 dark:hover:bg-white/10 transition-colors" data-target="works">作品</a>
+                <a href="#about" class="text-[15px] font-bold py-3.5 mx-2 my-1 rounded-xl color-main cursor-pointer tracking-widest nav-item hover:bg-black/5 dark:hover:bg-white/10 transition-colors" data-target="about">关于</a>
+                <a href="#contact" class="text-[15px] font-bold py-3.5 mx-2 my-1 rounded-xl color-main cursor-pointer tracking-widest nav-item hover:bg-black/5 dark:hover:bg-white/10 transition-colors" data-target="contact">联系</a>
             </div>
         </nav>
     </div>
-
-    <nav class="fixed top-0 left-0 w-full z-[150] md:hidden bg-[var(--bg-base)]/60 backdrop-blur-3xl border-b border-[var(--glass-border)]">
-        <div class="w-full px-5 py-4 flex items-center justify-between">
-            <a href="#home" class="text-[17px] font-black tracking-tight color-main btn-elastic">林嘉雍<span class="opacity-40 mx-1">·</span>品牌策划</a>
-            <div class="flex items-center gap-3">
-                <button id="themeToggleBtnMobile" class="h-8 px-3 rounded-full flex items-center justify-center color-main text-[14px] btn-elastic liquid-glass shadow-sm"><i id="themeIconMobile" class="fa fa-moon-o"></i><span class="text-[10px] font-bold ml-1.5">模式</span></button>
-                <button id="menuBtn" class="text-2xl color-main btn-elastic px-2"><i class="fa fa-bars"></i></button>
-            </div>
-        </div> 
-        <div id="mobileMenu" class="absolute top-[70px] left-4 right-4 liquid-glass flex flex-col text-center shadow-2xl p-2 z-[160] rounded-[1.5rem] transition-all duration-400 transform origin-top opacity-0 pointer-events-none scale-95">
-            <a href="#home" class="text-[15px] font-bold py-3.5 mx-2 my-1 rounded-xl color-main cursor-pointer tracking-widest nav-item hover:bg-black/5 dark:hover:bg-white/10 active:bg-black/10 dark:active:bg-white/20 transition-colors" data-target="home">首页</a>
-            <a href="#works" class="text-[15px] font-bold py-3.5 mx-2 my-1 rounded-xl color-main cursor-pointer tracking-widest nav-item hover:bg-black/5 dark:hover:bg-white/10 active:bg-black/10 dark:active:bg-white/20 transition-colors" data-target="works">作品</a>
-            <a href="#about" class="text-[15px] font-bold py-3.5 mx-2 my-1 rounded-xl color-main cursor-pointer tracking-widest nav-item hover:bg-black/5 dark:hover:bg-white/10 active:bg-black/10 dark:active:bg-white/20 transition-colors" data-target="about">关于</a>
-            <a href="#contact" class="text-[15px] font-bold py-3.5 mx-2 my-1 rounded-xl color-main cursor-pointer tracking-widest nav-item hover:bg-black/5 dark:hover:bg-white/10 active:bg-black/10 dark:active:bg-white/20 transition-colors" data-target="contact">联系</a>
-        </div>
-    </nav>
 
     <main class="flex-1 w-full relative z-10">
         <section id="home" class="scroll-section relative min-h-screen flex flex-col items-center justify-center px-4 md:px-12 pt-20 overflow-hidden">
@@ -203,8 +202,8 @@
                     专注餐饮品牌全案策划与统筹设计团队<br>从0到1搭建体系，端到端覆盖策略到落地全闭环。
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-5 relative z-20 intro-fade-in px-4">
-                    <a href="#works" class="liquid-glass-dark px-10 py-4 font-bold text-[16px] md:text-lg w-full sm:w-auto text-center tracking-widest relative z-10">浏览作品集</a>
-                    <a href="#contact" class="liquid-glass hover-elastic color-main px-10 py-4 rounded-full font-bold text-[16px] md:text-lg w-full sm:w-auto inline-block cursor-pointer tracking-widest text-center">联系合作</a>
+                    <a href="#works" class="liquid-glass-dark btn-elastic px-10 py-4 font-bold text-[16px] md:text-lg w-full sm:w-auto text-center tracking-widest relative z-10">浏览作品集</a>
+                    <a href="#contact" class="liquid-glass btn-elastic color-main px-10 py-4 rounded-full font-bold text-[16px] md:text-lg w-full sm:w-auto inline-block cursor-pointer tracking-widest text-center">联系合作</a>
                 </div>
             </div>
         </section>
@@ -220,7 +219,7 @@
                     <div class="liquid-glass flex items-center px-4 py-1.5 rounded-full relative z-10 hover-elastic">
                         <i class="fa fa-search text-[var(--text-muted)] ml-2 text-sm opacity-80"></i>
                         <input type="text" id="gallerySearchInput" placeholder="全局搜索案例名或关键词..." class="w-full bg-transparent border-none outline-none px-4 py-2.5 text-[14px] color-main placeholder-[var(--text-muted)] font-medium tracking-wide">
-                        <button id="clearSearchBtn" class="hidden text-[var(--text-muted)] hover:text-black dark:hover:text-white px-2 transition-colors"><i class="fa fa-times-circle text-lg"></i></button>
+                        <button id="clearSearchBtn" class="hidden text-[var(--text-muted)] hover:text-black dark:hover:text-white px-2 transition-colors btn-elastic"><i class="fa fa-times-circle text-lg"></i></button>
                     </div>
                 </div>
 
@@ -247,7 +246,7 @@
         <section id="about" class="scroll-section py-24 md:py-32 px-6 md:px-12 relative z-20">
             <div class="max-w-5xl mx-auto"><div class="liquid-glass hover-elastic !rounded-[2rem] md:!rounded-[3rem] p-8 md:p-20 reveal-up"><div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
                 <div><h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-6 md:mb-8 color-main">关于我</h2><div class="space-y-4 md:space-y-6 color-main opacity-90 text-[14px] md:text-lg leading-relaxed font-medium tracking-wide text-justify text-balance"><p>5年餐饮品牌相关工作经验，2年+品牌全案策划与团队管理经验，累计主导多个品牌从0到1搭建与战略升维全案。</p><p>端到端覆盖市场洞察、定位策略、IP打造、品牌文案体系、落地运营全闭环，具备成熟的跨团队统筹、多项目管控能力。</p><p>熟悉各类主流AI软件，可快速适配多行业品牌策划需求，坚持用策略驱动设计，用设计落地商业价值。</p></div></div>
-                <div class="flex flex-col gap-6 md:gap-8"><div class="liquid-glass overflow-hidden flex items-center justify-center p-8 shadow-sm border-none bg-inverted relative group"><img src="images/avatar.png" id="authorAvatar" alt="个人图片" class="w-full max-h-[300px] object-contain relative z-10" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="color-muted font-bold tracking-widest hidden relative z-10">等待上传个人图片</span></div><button id="openResumeBtn" class="liquid-glass-dark w-full py-4 rounded-full font-bold text-[15px] md:text-lg shadow-2xl flex items-center justify-center gap-3 cursor-pointer tracking-widest"><i class="fa fa-file-text-o text-xl"></i> 查看个人简历</button></div>
+                <div class="flex flex-col gap-6 md:gap-8"><div class="liquid-glass overflow-hidden flex items-center justify-center p-8 shadow-sm border-none bg-inverted relative group"><img src="images/avatar.png" id="authorAvatar" alt="个人图片" class="w-full max-h-[300px] object-contain relative z-10" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="color-muted font-bold tracking-widest hidden relative z-10">等待上传个人图片</span></div><button id="openResumeBtn" class="liquid-glass-dark w-full py-4 rounded-full font-bold text-[15px] md:text-lg shadow-2xl flex items-center justify-center gap-3 cursor-pointer tracking-widest btn-elastic"><i class="fa fa-file-text-o text-xl"></i> 查看个人简历</button></div>
             </div></div></div>
         </section>
 
@@ -267,9 +266,10 @@
         <p class="text-[10px] font-black tracking-[0.25em] color-muted opacity-40 uppercase">© 2026 LINJIAYONG. ALL RIGHTS RESERVED.</p>
     </footer>
 
-    <div id="workModal" class="modal fixed inset-0 z-[100] flex items-center justify-center">
+    <div id="workModal" class="modal fixed inset-0 z-[9999] flex items-center justify-center">
         <div class="modal-content w-full h-full flex flex-col relative overflow-hidden bg-[var(--bg-base)]">
-            <button id="closeWorkModal" class="fixed top-4 right-4 md:top-6 md:right-6 w-11 h-11 bg-black/40 dark:bg-white/20 backdrop-blur-2xl border border-white/10 rounded-full flex items-center justify-center text-white z-[9999] shadow-2xl btn-elastic">
+            
+            <button id="closeWorkModal" class="fixed top-4 right-4 md:top-6 md:right-6 w-11 h-11 bg-black/40 dark:bg-white/20 backdrop-blur-2xl border border-white/10 rounded-full flex items-center justify-center text-white z-[99999] shadow-2xl btn-elastic">
                 <i class="fa fa-times text-lg"></i>
             </button>
             
@@ -278,10 +278,10 @@
                 <input type="text" id="inPageSearchInput" placeholder="查找文本" class="bg-transparent border-none outline-none w-24 md:w-40 text-[13px] font-bold color-main placeholder-[var(--text-muted)] tracking-wide">
                 <span id="inPageSearchCount" class="text-[11px] color-muted font-black w-8 text-center select-none tracking-widest">0/0</span>
                 <div class="flex items-center bg-[var(--glass-bg)] rounded-full px-1.5 py-0.5 border border-[var(--glass-border)] ml-1 shadow-sm">
-                    <button id="inPageSearchPrev" class="w-6 h-6 flex items-center justify-center rounded-full color-muted hover:color-main transition-colors"><i class="fa fa-chevron-up text-[9px]"></i></button>
-                    <button id="inPageSearchNext" class="w-6 h-6 flex items-center justify-center rounded-full color-muted hover:color-main transition-colors"><i class="fa fa-chevron-down text-[9px]"></i></button>
+                    <button id="inPageSearchPrev" class="w-6 h-6 flex items-center justify-center rounded-full color-muted hover:color-main transition-colors btn-elastic"><i class="fa fa-chevron-up text-[9px]"></i></button>
+                    <button id="inPageSearchNext" class="w-6 h-6 flex items-center justify-center rounded-full color-muted hover:color-main transition-colors btn-elastic"><i class="fa fa-chevron-down text-[9px]"></i></button>
                 </div>
-                <button id="inPageSearchCloseBtn" class="w-7 h-7 ml-1 flex items-center justify-center rounded-full color-main hover:bg-[#ef4444] hover:text-white transition-colors"><i class="fa fa-times text-sm"></i></button>
+                <button id="inPageSearchCloseBtn" class="w-7 h-7 ml-1 flex items-center justify-center rounded-full color-main hover:bg-[#ef4444] hover:text-white transition-colors btn-elastic"><i class="fa fa-times text-sm"></i></button>
             </div>
 
             <div class="absolute bottom-6 md:bottom-10 left-1/2 transform -translate-x-1/2 z-[150] flex items-center liquid-glass-controls px-3 py-2 md:px-4 md:py-2.5 !rounded-full shadow-2xl gap-1 md:gap-2">
@@ -295,7 +295,7 @@
                 <button id="scrollTopDetailBtn" title="回到顶部" class="btn-elastic flex items-center justify-center w-10 h-10 md:w-11 md:h-11 rounded-full text-md md:text-lg scroll-top-disabled color-main cursor-pointer"><i class="fa fa-arrow-up"></i></button>
             </div>
             
-            <div class="modal-scroll-box flex-1 w-full h-full relative pb-40" id="workModalScrollBox">
+            <div class="modal-scroll-box flex-1 w-full h-full relative pb-40 pt-10 md:pt-0" id="workModalScrollBox">
                 <div id="loadingSpinner" class="absolute inset-0 flex flex-col items-center justify-center z-10 hidden"><i class="fa fa-circle-o-notch fa-spin text-4xl text-[var(--text-main)] mb-4"></i><p class="color-muted font-bold text-sm tracking-widest mt-4">提取排版中...</p></div>
                 <div class="relative w-full mx-auto overflow-hidden">
                     <div class="absolute inset-0 z-[5] bg-transparent w-full h-full" oncontextmenu="return false;" style="-webkit-touch-callout: none; pointer-events: auto;"></div>
@@ -309,7 +309,7 @@
                     <p class="text-[9px] md:text-[10px] font-black uppercase tracking-[0.5em] text-red-500 mb-2 opacity-80 pl-[0.5em]">Security Alert</p>
                     <h3 class="text-[18px] md:text-[22px] font-black color-main mb-4 tracking-widest">核心资产保护已触发</h3>
                     <p class="text-[12px] color-muted font-medium mb-6 leading-relaxed">系统侦测到违规获取行为<br>为保护创作者心血，排版内容已锁定</p>
-                    <button id="closeCopyrightBtn" class="liquid-glass-dark w-full py-3.5 rounded-full font-bold tracking-[0.2em] text-[12px] shadow-xl uppercase transition-all flex justify-center items-center gap-2"><i class="fa fa-check-circle-o text-[15px]"></i> 明白并返回</button>
+                    <button id="closeCopyrightBtn" class="liquid-glass-dark w-full py-3.5 rounded-full font-bold tracking-[0.2em] text-[12px] shadow-xl uppercase transition-all flex justify-center items-center gap-2 btn-elastic"><i class="fa fa-check-circle-o text-[15px]"></i> 明白并返回</button>
                     <input type="password" id="copyrightPassword" class="opacity-0 absolute pointer-events-none" style="width: 1px; height: 1px;">
                     <button id="unlockCopyrightBtn" class="hidden"></button>
                 </div>
@@ -317,9 +317,9 @@
         </div>
     </div>
 
-    <div id="resumeModal" class="modal fixed inset-0 z-[100] flex items-center justify-center">
+    <div id="resumeModal" class="modal fixed inset-0 z-[9999] flex items-center justify-center">
         <div class="modal-content w-full h-full flex flex-col relative overflow-hidden bg-transparent">
-            <button id="closeResumeModal" class="fixed top-4 right-4 md:top-6 md:right-6 w-11 h-11 bg-black/40 dark:bg-white/20 backdrop-blur-2xl border border-white/10 rounded-full flex items-center justify-center text-white z-[9999] shadow-2xl btn-elastic">
+            <button id="closeResumeModal" class="fixed top-4 right-4 md:top-6 md:right-6 w-11 h-11 bg-black/40 dark:bg-white/20 backdrop-blur-2xl border border-white/10 rounded-full flex items-center justify-center text-white z-[99999] shadow-2xl btn-elastic">
                 <i class="fa fa-times text-lg"></i>
             </button>
             <div class="modal-scroll-box flex-1 w-full h-full bg-black/40 backdrop-blur-md relative pt-20 pb-40 md:pt-16" id="resumeModalScrollBox">
@@ -359,13 +359,13 @@
         </div>
     </div>
 
-    <div id="posterModal" class="modal fixed inset-0 z-[9999] flex items-center justify-center bg-black/85 backdrop-blur-md">
+    <div id="posterModal" class="modal fixed inset-0 z-[99999] flex items-center justify-center bg-black/85 backdrop-blur-md">
         <div class="modal-content w-full max-w-[340px] md:max-w-[380px] flex flex-col relative items-center p-4">
             <button id="closePosterModal" class="absolute -top-14 right-0 w-11 h-11 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/40 transition-colors btn-elastic border border-white/30"><i class="fa fa-times text-xl"></i></button>
             <div id="posterResult" class="w-full rounded-[1.5rem] overflow-hidden shadow-2xl bg-white mb-6 min-h-[400px] flex items-center justify-center relative">
                 <div class="py-20 text-center text-gray-500 flex flex-col items-center justify-center w-full h-full">
                     <i class="fa fa-circle-o-notch fa-spin text-4xl mb-4"></i>
-                    <p class="text-sm tracking-widest font-bold mt-3">排版合成中...</p>
+                    <p class="text-sm tracking-widest font-bold mt-3">引擎渲染中...</p>
                 </div>
             </div>
             <button id="downloadPosterBtn" class="liquid-glass-dark w-full py-4 rounded-full font-bold text-[16px] shadow-2xl flex items-center justify-center gap-2 cursor-pointer tracking-widest hidden btn-elastic border border-white/20"><i class="fa fa-download text-lg"></i> 存至本地相册</button>
@@ -531,7 +531,6 @@
                     tags.map(t => `<span class="flex-shrink-0 px-2 py-1 text-[10px] font-bold rounded bg-black/50 text-white backdrop-blur-md shadow-sm border border-white/10 tracking-widest leading-none"># ${t}</span>`).join('') + 
                     `</div>`;
 
-                // 🚀 精选徽章渲染逻辑
                 let featuredHTML = '';
                 if (work.featured) {
                     featuredHTML = `
@@ -705,8 +704,7 @@
 
         const closeWork = () => { currentOpenWorkId = null; workModal.classList.remove('active'); document.body.style.overflow = ''; setTimeout(() => { modalImageContainer.innerHTML = ''; modalImageContainer.classList.remove('opacity-100'); modalImageContainer.classList.add('opacity-0'); closeInPageSearch(); }, 400); };
         if(closeWorkModal) closeWorkModal.addEventListener('click', closeWork);
-        if(workModal) workModal.addEventListener('click', (e) => { if (e.target === workModal) closeWork(); });
-
+        
         let isCopyrightUnlocked = false;
         function triggerCopyrightDefense(reason) {
             if (isCopyrightUnlocked) return; 
@@ -723,7 +721,6 @@
             if (e.metaKey && e.shiftKey && (e.key === '3' || e.key === '4' || e.key === '5' || e.key === 's' || e.key === 'S')) { triggerCopyrightDefense("快捷截屏"); }
             if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S')) { e.preventDefault(); triggerCopyrightDefense("网页另存为"); }
             if ((e.ctrlKey || e.metaKey) && (e.key === 'p' || e.key === 'P')) { e.preventDefault(); triggerCopyrightDefense("网页打印"); }
-            if (e.key === 'F12' || ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'i'))) { e.preventDefault(); triggerCopyrightDefense("开发者工具"); }
         });
 
         function verifyCopyrightUnlock() {
@@ -740,9 +737,11 @@
         if(openResumeBtn) openResumeBtn.addEventListener('click', () => { resumeModal.classList.add('active'); document.body.style.overflow = 'hidden'; });
         const closeResume = () => { resumeModal.classList.remove('active'); document.body.style.overflow = ''; };
         if(closeResumeModal) closeResumeModal.addEventListener('click', closeResume);
-        if(resumeModal) resumeModal.addEventListener('click', (e) => { if (e.target === resumeModal) closeResume(); });
         window.copyTextToClipboard = function(text, type) { navigator.clipboard.writeText(text).then(() => { showToast(`已复制${type}: ${text}`); }).catch(err => { showToast('复制失败', true); }); }
 
+        // ==========================================
+        // 🚀 引擎核心重构：防 iOS 内存白屏渲染技术
+        // ==========================================
         const generatePosterBtn = document.getElementById('generatePosterBtn');
         const posterModal = document.getElementById('posterModal');
         const closePosterModal = document.getElementById('closePosterModal');
@@ -750,14 +749,24 @@
         const downloadPosterBtn = document.getElementById('downloadPosterBtn');
         let generatedCanvas = null;
 
-        generatePosterBtn.addEventListener('click', () => {
+        // 加载图片的 Promise 封装，强制等图片读进内存
+        const loadImgAsync = (imgElement, src) => {
+            return new Promise((resolve) => {
+                imgElement.onload = () => resolve(true);
+                imgElement.onerror = () => resolve(false);
+                imgElement.src = src;
+                setTimeout(() => resolve(false), 2000); // 绝对防卡死：2秒超时强制放行
+            });
+        };
+
+        generatePosterBtn.addEventListener('click', async () => {
             if(!currentOpenWorkId) return;
             const work = worksList.find(w => String(w.id) === String(currentOpenWorkId));
             if(!work) return;
 
             showToast('提取排版与数据中...');
 
-            posterResult.innerHTML = '<div class="py-20 text-center text-gray-500 flex flex-col items-center"><i class="fa fa-circle-o-notch fa-spin text-4xl mb-4"></i><p class="text-sm tracking-widest font-bold mt-2">引擎渲染中...</p></div>';
+            posterResult.innerHTML = '<div class="py-20 text-center text-gray-500 flex flex-col items-center"><i class="fa fa-circle-o-notch fa-spin text-4xl mb-4"></i><p class="text-sm tracking-widest font-bold mt-2">绘制海报中...</p></div>';
             downloadPosterBtn.classList.add('hidden'); 
             posterModal.classList.add('active');
 
@@ -769,42 +778,30 @@
 
             const shareUrl = window.location.origin + window.location.pathname + '?work=' + work.id;
             
-            const qr = new QRious({
-                value: shareUrl,
-                size: 300,
-                level: 'H',
-                background: 'white',
-                foreground: 'black'
-            });
+            const qr = new QRious({ value: shareUrl, size: 300, level: 'H', background: 'white', foreground: 'black' });
             document.getElementById('p-qrcode').src = qr.toDataURL();
 
-            let renderTriggered = false;
-            const triggerRender = () => {
-                if(renderTriggered) return;
-                renderTriggered = true;
-                
-                setTimeout(() => {
-                    const posterDOM = document.getElementById('posterTemplate');
-                    html2canvas(posterDOM, { 
-                        scale: 2, 
-                        allowTaint: false, 
-                        useCORS: true,
-                        backgroundColor: '#ffffff' 
-                    }).then(canvas => {
-                        generatedCanvas = canvas;
-                        const img = document.createElement('img'); img.src = canvas.toDataURL('image/jpeg', 0.9); img.className = 'w-full h-auto block';
-                        posterResult.innerHTML = ''; posterResult.appendChild(img); downloadPosterBtn.classList.remove('hidden');
-                    }).catch(err => {
-                        console.error('渲染失败:', err);
-                        posterResult.innerHTML = '<div class="py-20 text-center text-red-500"><i class="fa fa-exclamation-triangle text-4xl mb-4"></i><p class="text-sm tracking-widest font-bold">渲染失败，请重试</p></div>';
-                    });
-                }, 100); 
-            };
+            // 🚀 强制等待封面图加载入 iOS 内存
+            await loadImgAsync(pCover, work.cover || 'images/placeholder.jpg');
 
-            pCover.onload = triggerRender;
-            pCover.onerror = triggerRender;
-            pCover.src = work.cover || 'images/placeholder.jpg';
-            setTimeout(triggerRender, 1500); 
+            // 留出 100ms 让浏览器重新排版 DOM
+            setTimeout(() => {
+                const posterDOM = document.getElementById('posterTemplate');
+                // 取消跨域污染限制，直接在本地环境抓取
+                html2canvas(posterDOM, { 
+                    scale: window.devicePixelRatio > 1 ? 2 : 1.5, // 智能高清适配
+                    allowTaint: false, 
+                    useCORS: true,
+                    backgroundColor: '#ffffff' 
+                }).then(canvas => {
+                    generatedCanvas = canvas;
+                    const img = document.createElement('img'); img.src = canvas.toDataURL('image/jpeg', 0.9); img.className = 'w-full h-auto block';
+                    posterResult.innerHTML = ''; posterResult.appendChild(img); downloadPosterBtn.classList.remove('hidden');
+                }).catch(err => {
+                    console.error('渲染失败:', err);
+                    posterResult.innerHTML = '<div class="py-20 text-center text-red-500"><i class="fa fa-exclamation-triangle text-4xl mb-4"></i><p class="text-sm tracking-widest font-bold">渲染失败，请重试</p></div>';
+                });
+            }, 100); 
         });
 
         downloadPosterBtn.addEventListener('click', () => {
@@ -815,7 +812,6 @@
         });
         
         closePosterModal.addEventListener('click', () => { posterModal.classList.remove('active'); });
-        posterModal.addEventListener('click', (e) => { if(e.target === posterModal) posterModal.classList.remove('active'); });
 
     </script>
 </body>
