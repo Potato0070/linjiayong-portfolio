@@ -2,17 +2,20 @@ import os
 import json
 import requests
 import time
-# 引入 TinyPNG 官方引擎
 import tinify
+import google.generativeai as genai
 
-# 获取保险箱里的钥匙
 NOTION_TOKEN = os.environ.get("NOTION_TOKEN")
 DATABASE_ID = os.environ.get("NOTION_DATABASE_ID")
 TINYPNG_API_KEY = os.environ.get("TINYPNG_API_KEY")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 
-# 如果配了钥匙，就激活 TinyPNG
 if TINYPNG_API_KEY:
     tinify.key = TINYPNG_API_KEY
+
+if GEMINI_API_KEY:
+    genai.configure(api_key=GEMINI_API_KEY)
+    ai_model = genai.GenerativeModel('gemini-1.5-flash')
 
 HEADERS = {
     "Authorization": f"Bearer {NOTION_TOKEN}",
@@ -20,16 +23,33 @@ HEADERS = {
     "Notion-Version": "2022-06-28"
 }
 
+def generate_smart_tags(title, desc):
+    if not GEMINI_API_KEY or not title:
+        return ["品牌全案", "视觉设计", "商业落地"]
+    
+    prompt = f"""
+    你是一个资深的餐饮品牌策划总监。
+    请分析以下作品的标题和简介，为其提取最核心、最具商业价值的 3 个标签。
+    例如：空间设计, 老字号年轻化, 云南菜, 包装升级, IP打造 等。
+    【规则】：只返回 3 个词，用英文逗号分隔，不要有任何多余的废话。
+    标题：{title}
+    简介：{desc}
+    """
+    try:
+        response = ai_model.generate_content(prompt)
+        tags_text = response.text.strip().replace('，', ',')
+        tags = [t.strip() for t in tags_text.split(',') if t.strip()]
+        return tags[:3]
+    except Exception as e:
+        print(f"⚠️ [AI 大脑罢工]: {e}")
+        return ["品牌策划", "视觉统筹", "商业设计"]
+
 def download_image(url, filename):
     os.makedirs("images/uploads", exist_ok=True)
     filepath = os.path.join("images/uploads", filename)
     
-    # ==========================================
-    # 🧹 核心升级：历史大图“清洗补压”机制
-    # ==========================================
     if os.path.exists(filepath) and os.path.getsize(filepath) > 2048:
         original_size = os.path.getsize(filepath)
-        # 智能判定：如果发现历史遗留图大于 300KB，不管三七二十一，直接拉去补压！
         if TINYPNG_API_KEY and original_size > 300 * 1024:
             print(f"🗜️ [缓存清洗] 揪出历史遗留大图: {filename}，原大小: {original_size / 1024:.1f} KB")
             try:
@@ -41,7 +61,6 @@ def download_image(url, filename):
                 print(f"⚠️ [补压异常] 压缩服务连接失败，安全保留原图: {e}")
         else:
             print(f"⏩ [缓存跳过] 图片完整且体积极其健康: {filename}")
-            
         return filepath.replace("\\", "/")
         
     print(f"⬇️ [抓取] 正在下载新图: {filename}")
@@ -60,13 +79,9 @@ def download_image(url, filename):
                     for chunk in r.iter_content(8192):
                         f.write(chunk)
                 
-                # ==========================================
-                # 🚀 核心：自动化 TinyPNG 压缩引擎介入
-                # ==========================================
                 if os.path.getsize(filepath) > 2048:
                     if TINYPNG_API_KEY:
                         original_size = os.path.getsize(filepath)
-                        # 智能阀门：只压缩大于 300KB 的大图，保护免费额度
                         if original_size > 300 * 1024:
                             print(f"🗜️ [TinyPNG] 触发无损压缩！原图大小: {original_size / 1024:.1f} KB")
                             try:
@@ -122,7 +137,7 @@ def parse_rich_text(rich_text_list):
     return html_content
 
 def fetch_database():
-    print("🚀 启动高端商业级抓取与核验引擎 (含 TinyPNG 自动化压缩)...")
+    print("🚀 启动高端商业级抓取与核验引擎 (含 TinyPNG & Gemini AI)...")
     url = f"https://api.notion.com/v1/databases/{DATABASE_ID}/query"
     response = requests.post(url, headers=HEADERS)
     results = response.json().get("results", [])
@@ -142,7 +157,12 @@ def fetch_database():
             file_obj = cover_files[0]
             cover_url = file_obj.get("file", {}).get("url") or file_obj.get("external", {}).get("url")
             if cover_url: cover_path = download_image(cover_url, f"cover_{page_id}.jpg")
-                
+        
+        # 🤖 召唤 Gemini 进行深度语义分析打标
+        print(f"🧠 [AI 分析] 正在为《{title}》提炼商业标签...")
+        smart_tags = generate_smart_tags(title, desc)
+        print(f"🏷️ [AI 标签] 提炼完成: {smart_tags}")
+
         all_blocks = get_all_blocks(page_id)
         content_blocks = []
         img_counter = 1
@@ -175,13 +195,14 @@ def fetch_database():
             "id": f"work_{page_id.replace('-', '')}",
             "title": title,
             "desc": desc,
+            "tags": smart_tags,
             "cover": cover_path,
             "blocks": content_blocks
         })
         
     with open("works.json", "w", encoding="utf-8") as f:
         json.dump({"worksList": works_list}, f, ensure_ascii=False, indent=2)
-    print("\n✅ 所有数据已100%抓取并自动化压缩完毕！")
+    print("\n✅ 所有数据已100%抓取并自动化处理完毕！")
 
 if __name__ == "__main__":
     fetch_database()
