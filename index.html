@@ -13,52 +13,35 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     
-    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <script>
-        tailwind.config = {
-            darkMode: 'class', 
-            theme: { extend: { fontFamily: { sans: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Text', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'], serif: ['"Songti SC"', '"Noto Serif CJK SC"', 'STSong', 'serif'], }, } }
-        }
+        tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Text', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'], serif: ['"Songti SC"', '"Noto Serif CJK SC"', 'STSong', 'serif'], }, } } }
     </script>
 
     <style>
-        /* ========================================== */
-        /* 1. 全局色彩与环境光 */
-        /* ========================================== */
         :root { --bg-base: #f4f4f6; --text-main: #111111; --text-muted: #888888; --btn-bg: #111111; --btn-text: #ffffff; --blob-1: #eaeaea; --blob-2: #e0e0e0; --blob-3: #f9f9f9; }
         .dark-mode { --bg-base: #0a0a0a; --text-main: #f5f5f7; --text-muted: #777777; --btn-bg: #ffffff; --btn-text: #000000; --blob-1: #151515; --blob-2: #0d0d0d; --blob-3: #1a1a1a; }
-
         html { scroll-behavior: smooth; }
         body { background-color: var(--bg-base); color: var(--text-main); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; transition: background-color 0.8s ease, color 0.8s ease; user-select: none; -webkit-touch-callout: none; }
         img { pointer-events: none; -webkit-user-drag: none; }
-
         body::after { content: ""; position: fixed; inset: 0; width: 100vw; height: 100vh; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); opacity: 0.04; z-index: 9999; pointer-events: none; mix-blend-mode: overlay; }
         .dark-mode::after { opacity: 0.06; }
         .color-main { color: var(--text-main); } .color-muted { color: var(--text-muted); } .bg-inverted { background-color: var(--btn-bg); color: var(--btn-text); transition: all 0.4s ease; }
 
-        /* ========================================== */
-        /* 2. iOS 26 Liquid Glass 材质库 */
-        /* ========================================== */
         .liquid-glass { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(48px) saturate(200%); -webkit-backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.4); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05), inset 0 1.5px 2px rgba(255, 255, 255, 0.9), inset 0 -1.5px 2px rgba(255, 255, 255, 0.15); border-radius: 24px; transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); }
         .dark-mode .liquid-glass { background: rgba(20, 20, 20, 0.35); border-color: rgba(255, 255, 255, 0.15); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), inset 0 1.5px 2px rgba(255, 255, 255, 0.2), inset 0 -1.5px 2px rgba(0, 0, 0, 0.5); }
-        
         .liquid-glass-dark { background: rgba(20, 20, 20, 0.5); backdrop-filter: blur(48px) saturate(200%); -webkit-backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 12px 32px rgba(0,0,0,0.2), inset 0 1.5px 2px rgba(255, 255, 255, 0.3), inset 0 -1.5px 2px rgba(0, 0, 0, 0.4); color: #fff; border-radius: 100px; transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); }
         .liquid-glass-dark:hover { background: rgba(10, 10, 10, 0.7); transform: scale(1.04) translateY(-2px); box-shadow: 0 16px 40px rgba(0,0,0,0.3), inset 0 2px 3px rgba(255, 255, 255, 0.4); }
         .dark-mode .liquid-glass-dark { background: rgba(240, 240, 240, 0.7); color: #000; border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: 0 12px 32px rgba(0,0,0,0.1), inset 0 1.5px 2px #fff, inset 0 -1.5px 2px rgba(0,0,0,0.1); }
         .dark-mode .liquid-glass-dark:hover { background: rgba(255, 255, 255, 0.9); box-shadow: 0 16px 40px rgba(0,0,0,0.15), inset 0 2px 3px #fff; }
-
         .nav-island { position: relative; background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(48px) saturate(250%); -webkit-backdrop-filter: blur(48px) saturate(250%); border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 16px 32px rgba(0,0,0,0.06), inset 0 1.5px 2px rgba(255,255,255,0.9), inset 0 -1px 1px rgba(255,255,255,0.2); border-radius: 100px; transition: all 0.5s ease; }
         .dark-mode .nav-island { background: rgba(30, 30, 30, 0.4); border-color: rgba(255, 255, 255, 0.15); box-shadow: 0 16px 32px rgba(0,0,0,0.4), inset 0 1.5px 2px rgba(255,255,255,0.2), inset 0 -1px 1px rgba(0,0,0,0.5); }
-        
-        /* 🚀 动态跟随胶囊 (Scroll Spy Indicator) */
         .nav-indicator { position: absolute; bottom: 8px; height: 32px; background: rgba(0,0,0,0.06); border-radius: 100px; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); z-index: 0; pointer-events: none; opacity: 0; }
         .dark-mode .nav-indicator { background: rgba(255,255,255,0.12); }
-
-        .liquid-glass-controls { background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(48px) saturate(200%); -webkit-backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.6); box-shadow: 0 20px 40px rgba(0,0,0,0.1), inset 0 1.5px 2px rgba(255,255,255,0.9); border-radius: 40px; }
+        .liquid-glass-controls { background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.6); box-shadow: 0 20px 40px rgba(0,0,0,0.1), inset 0 1.5px 2px rgba(255,255,255,0.9); border-radius: 40px; }
         .dark-mode .liquid-glass-controls { background: rgba(30, 30, 30, 0.6); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 1.5px 2px rgba(255,255,255,0.2); }
-
         .hover-elastic { will-change: transform, box-shadow; }
         .hover-elastic:hover { transform: scale(1.02) translateY(-4px); background: rgba(255, 255, 255, 0.25); box-shadow: 0 24px 50px rgba(0,0,0,0.08), inset 0 2px 3px rgba(255, 255, 255, 1), inset 0 -1px 2px rgba(255, 255, 255, 0.2); }
         .dark-mode .hover-elastic:hover { background: rgba(30, 30, 30, 0.45); box-shadow: 0 24px 50px rgba(0,0,0,0.5), inset 0 1.5px 2px rgba(255, 255, 255, 0.3); }
@@ -69,9 +52,6 @@
         .glass-card-img { transition: transform 0.8s ease; }
         .hover-elastic:hover .glass-card-img { transform: scale(1.06); }
 
-        /* ========================================== */
-        /* 3. 动画、排版与流体遮罩 */
-        /* ========================================== */
         #blocksContainer { --font-multiplier: 1; transition: background-color 0.4s ease; margin: 0 auto; position: relative; }
         .work-text-main { font-size: calc(clamp(2rem, 5vw, 3.5rem) * var(--font-multiplier)); line-height: 1.2; font-weight: 900; letter-spacing: -0.02em; transition: font-size 0.3s ease; }
         .work-text-sub { font-size: calc(clamp(1.1rem, 2.5vw, 1.6rem) * var(--font-multiplier)); font-weight: 500; opacity: 0.6; transition: font-size 0.3s ease; }
@@ -93,12 +73,7 @@
         .blob-3 { width: 50vw; height: 50vw; background: var(--blob-3); top: 40%; left: 40%; animation-duration: 32s; }
         @keyframes floatBlob { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(4vw, -4vh) scale(1.05); } 100% { transform: translate(-4vw, 4vh) scale(0.95); } }
 
-        /* 🚀 流体透蔽遮罩 (Liquid Mercury Masking) */
-        .text-fluid-mask {
-            background: linear-gradient(110deg, var(--text-main) 15%, var(--text-muted) 40%, var(--bg-base) 50%, var(--text-muted) 60%, var(--text-main) 85%);
-            background-size: 250% 250%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
-            animation: fluidMaskMove 10s ease-in-out infinite alternate;
-        }
+        .text-fluid-mask { background: linear-gradient(110deg, var(--text-main) 15%, var(--text-muted) 40%, var(--bg-base) 50%, var(--text-muted) 60%, var(--text-main) 85%); background-size: 250% 250%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; animation: fluidMaskMove 10s ease-in-out infinite alternate; }
         @keyframes fluidMaskMove { 0% { background-position: 0% 0%; } 100% { background-position: 100% 100%; } }
         
         .reveal-up { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -111,9 +86,6 @@
         .intro-fade-in { opacity: 0; transform: translateY(10px); transition: all 1s ease; }
         .intro-fade-in.active { opacity: 0.9; transform: translateY(0); }
 
-        /* ========================================== */
-        /* 4. 详情画廊、搜索与加载动画 */
-        /* ========================================== */
         .modal { opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s ease; background: var(--bg-base); }
         .modal.active { opacity: 1; visibility: visible; }
         .modal-content { transition: all 0.4s ease; transform: scale(0.98) translateY(20px); opacity: 0; }
@@ -136,19 +108,17 @@
         .fade-img { opacity: 0; transition: opacity 0.8s ease; position: relative; z-index: 3; width: 100%; height: auto; display: block; }
         .fade-img.loaded { opacity: 1; }
 
-        /* 防盗 */
         .watermark-layer { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 40; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg width='380' height='380' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(190,190) rotate(-25) translate(-190,-190)'%3E%3Ctext x='190' y='180' font-size='18' fill='rgba(140,140,140,0.12)' font-family='sans-serif' font-weight='900' letter-spacing='5' text-anchor='middle'%3E版权作品 · 禁止盗用%3C/text%3E%3Ctext x='190' y='205' font-size='10' fill='rgba(140,140,140,0.1)' font-family='sans-serif' font-weight='bold' letter-spacing='2' text-anchor='middle'%3ESTRICTLY CONFIDENTIAL%3C/text%3E%3C/g%3E%3C/svg%3E"); background-repeat: repeat; opacity: 0; transition: opacity 0.8s ease; }
         .dark-mode .watermark-layer { background-image: url("data:image/svg+xml,%3Csvg width='380' height='380' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(190,190) rotate(-25) translate(-190,-190)'%3E%3Ctext x='190' y='180' font-size='18' fill='rgba(180,180,180,0.08)' font-family='sans-serif' font-weight='900' letter-spacing='5' text-anchor='middle'%3E版权作品 · 禁止盗用%3C/text%3E%3Ctext x='190' y='205' font-size='10' fill='rgba(180,180,180,0.06)' font-family='sans-serif' font-weight='bold' letter-spacing='2' text-anchor='middle'%3ESTRICTLY CONFIDENTIAL%3C/text%3E%3C/g%3E%3C/svg%3E"); }
         .watermark-layer.active { opacity: 1; }
         .copyright-blurred { filter: blur(40px) brightness(0.8) saturate(120%) !important; pointer-events: none; transition: filter 0.8s ease; }
         .dark-mode .copyright-blurred { filter: blur(40px) brightness(0.5) saturate(120%) !important; }
 
-        /* 🚀 全局返回顶部浮窗 */
         #globalBackToTop { opacity: 0; pointer-events: none; transform: translateY(20px); transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); z-index: 90; }
         #globalBackToTop.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 
-        /* 🚀 海报生成区样式 (不可见，仅用于截图) */
-        #posterTemplate { position: fixed; top: -9999px; left: -9999px; width: 750px; background-color: #ffffff; color: #111; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; padding-bottom: 40px; box-sizing: border-box; overflow: hidden; }
+        /* 🚀 修复截图引擎隐形 Bug */
+        #posterTemplate { position: absolute; top: 0; left: 0; z-index: -100; opacity: 0; pointer-events: none; width: 750px; background-color: #ffffff; color: #111; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; padding-bottom: 40px; box-sizing: border-box; overflow: hidden; }
         .poster-cover { width: 100%; height: 500px; object-fit: cover; object-position: center; border-radius: 0 0 40px 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
         .poster-content { padding: 50px 60px 20px 60px; }
         .poster-title { font-size: 52px; font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 15px; color: #000; }
@@ -176,7 +146,6 @@
     <div class="fixed top-6 left-1/2 z-50 w-[92%] max-w-5xl hidden md:flex justify-center nav-drop-in" id="islandContainer">
         <nav class="nav-island flex items-center justify-between px-3 py-2 w-full shadow-2xl relative">
             <div id="navIndicator" class="nav-indicator"></div>
-            
             <a href="#home" class="pl-5 text-lg font-black tracking-tight color-main btn-elastic flex-shrink-0 relative z-10">林嘉雍<span class="opacity-30 mx-1">·</span>品牌策划</a>
             <div class="flex items-center gap-1 relative z-10">
                 <a href="#home" class="nav-link cursor-pointer nav-item" data-target="home">首页</a>
@@ -368,16 +337,6 @@
         let filteredWorksList = [];
         let currentOpenWorkId = null;
 
-        // 🚀 核心：本地 AI 智能标签提取器 (根据标题和描述提取关键词)
-        function extractAITags(title, desc) {
-            const text = (title + " " + desc).toLowerCase();
-            const tagPool = ['品牌全案', '视觉升级', '空间设计', 'IP打造', '商业策略', '包装设计', '老字号年轻化', '菜单规划', '连锁体系', '文化挖掘', '餐饮策划'];
-            let found = tagPool.filter(t => text.includes(t.toLowerCase()));
-            if(found.length === 0) found = ['品牌定位', '视觉统筹', '商业落地'];
-            // 随机打乱并取前3个，增加高级感
-            return found.sort(() => 0.5 - Math.random()).slice(0, 3);
-        }
-
         window.addEventListener('load', () => {
             const island = document.getElementById('islandContainer');
             if(island) island.classList.add('reveal-up');
@@ -408,19 +367,15 @@
                 }
             } catch (error) { console.error("加载失败", error); }
             renderWorks(); 
-            checkDeepLink(); // 检查是否有专属分享链接
+            checkDeepLink();
         }
 
-        // 🚀 深度链接解析 (打开分享链接时自动弹开作品)
         function checkDeepLink() {
             const urlParams = new URLSearchParams(window.location.search);
             const workId = urlParams.get('work');
-            if (workId) {
-                setTimeout(() => openWork(workId), 500);
-            }
+            if (workId) { setTimeout(() => openWork(workId), 500); }
         }
 
-        // 🚀 Scroll Spy (导航栏胶囊滚动监听)
         function initScrollSpy() {
             const sections = document.querySelectorAll('.scroll-section');
             const navItemsDesktop = document.querySelectorAll('#islandContainer .nav-item');
@@ -431,9 +386,7 @@
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
                     const sectionHeight = section.clientHeight;
-                    if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
-                        current = section.getAttribute('id');
-                    }
+                    if (pageYOffset >= (sectionTop - sectionHeight / 3)) { current = section.getAttribute('id'); }
                 });
 
                 navItemsDesktop.forEach(item => {
@@ -444,15 +397,12 @@
                     }
                 });
 
-                // 全局返回顶部按钮逻辑
                 const globalBtt = document.getElementById('globalBackToTop');
                 if (window.scrollY > 500) { globalBtt.classList.add('visible'); } 
                 else { globalBtt.classList.remove('visible'); }
             });
 
-            document.getElementById('globalBackToTop').addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
+            document.getElementById('globalBackToTop').addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
         }
 
         const gallerySearchInput = document.getElementById('gallerySearchInput');
@@ -470,16 +420,13 @@
             currentPage = 1; renderWorks();
         });
 
-        clearSearchBtn.addEventListener('click', () => {
-            gallerySearchInput.value = ''; filteredWorksList = [...worksList]; clearSearchBtn.classList.add('hidden'); currentPage = 1; renderWorks();
-        });
+        clearSearchBtn.addEventListener('click', () => { gallerySearchInput.value = ''; filteredWorksList = [...worksList]; clearSearchBtn.classList.add('hidden'); currentPage = 1; renderWorks(); });
 
         let toastTimeout;
         window.showToast = function(message, isError = false) {
             const toast = document.getElementById('toast'); const toastMessage = document.getElementById('toastMessage');
             if(toast) {
-                toastMessage.textContent = message;
-                toast.classList.remove('opacity-0'); toast.classList.add('opacity-100');
+                toastMessage.textContent = message; toast.classList.remove('opacity-0'); toast.classList.add('opacity-100');
                 clearTimeout(toastTimeout);
                 toastTimeout = setTimeout(() => { toast.classList.remove('opacity-100'); toast.classList.add('opacity-0'); }, 2500);
             }
@@ -487,26 +434,17 @@
 
         const themeToggleBtns = [document.getElementById('themeToggleBtn'), document.getElementById('themeToggleBtnMobile')];
         const themeIcons = [document.getElementById('themeIcon'), document.getElementById('themeIconMobile')];
-        if (localStorage.getItem('theme') === 'dark') {
-            document.body.classList.add('dark-mode');
-            themeIcons.forEach(icon => { icon.classList.remove('fa-moon-o'); icon.classList.add('fa-sun-o'); });
-        }
+        if (localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark-mode'); themeIcons.forEach(icon => { icon.classList.remove('fa-moon-o'); icon.classList.add('fa-sun-o'); }); }
         themeToggleBtns.forEach(btn => {
             if(btn) btn.addEventListener('click', (e) => {
-                e.preventDefault(); document.body.classList.toggle('dark-mode');
-                const isDark = document.body.classList.contains('dark-mode');
-                themeIcons.forEach(icon => {
-                    if (isDark) { icon.classList.remove('fa-moon-o'); icon.classList.add('fa-sun-o'); } 
-                    else { icon.classList.remove('fa-sun-o'); icon.classList.add('fa-moon-o'); }
-                });
+                e.preventDefault(); document.body.classList.toggle('dark-mode'); const isDark = document.body.classList.contains('dark-mode');
+                themeIcons.forEach(icon => { if (isDark) { icon.classList.remove('fa-moon-o'); icon.classList.add('fa-sun-o'); } else { icon.classList.remove('fa-sun-o'); icon.classList.add('fa-moon-o'); } });
                 localStorage.setItem('theme', isDark ? 'dark' : 'light');
             });
         });
 
         const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('revealed'); observer.unobserve(entry.target); } });
-        }, observerOptions);
+        const observer = new IntersectionObserver((entries) => { entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('revealed'); observer.unobserve(entry.target); } }); }, observerOptions);
         function bindObserver() { document.querySelectorAll('.reveal-up:not(#islandContainer)').forEach(el => observer.observe(el)); }
 
         let currentPage = 1; const itemsPerPage = 6; let totalPages = 1;
@@ -516,11 +454,8 @@
         function renderWorks() {
             if(!gridElement) return;
             gridElement.innerHTML = ''; 
-            
-            if(filteredWorksList.length === 0) {
-                noWorksFound.classList.remove('hidden'); noWorksFound.classList.add('flex');
-                if(pageIndicator) pageIndicator.textContent = `0 / 0`; return;
-            } else { noWorksFound.classList.add('hidden'); noWorksFound.classList.remove('flex'); }
+            if(filteredWorksList.length === 0) { noWorksFound.classList.remove('hidden'); noWorksFound.classList.add('flex'); if(pageIndicator) pageIndicator.textContent = `0 / 0`; return; } 
+            else { noWorksFound.classList.add('hidden'); noWorksFound.classList.remove('flex'); }
 
             totalPages = Math.max(1, Math.ceil(filteredWorksList.length / itemsPerPage));
             const startIdx = (currentPage - 1) * itemsPerPage;
@@ -530,9 +465,9 @@
                 const delay = index * 0.1; 
                 const coverUrl = work.cover ? work.cover : 'images/placeholder.jpg';
                 
-                // 🚀 获取 AI 智能标签
-                const tags = extractAITags(work.title, work.desc);
-                const tagsHTML = `<div class="absolute bottom-3 left-3 flex gap-1.5 z-10">` + 
+                // 🚀 读取后端机器人的真·AI标签 (如果没有就显示占位符等待机器人处理)
+                const tags = (work.tags && work.tags.length > 0) ? work.tags : ['品牌策略', '视觉统筹', '商业落地'];
+                const tagsHTML = `<div class="absolute bottom-3 left-3 flex gap-1.5 z-10 flex-wrap max-w-[90%]">` + 
                     tags.map(t => `<span class="px-2 py-1 text-[9px] font-bold rounded-md bg-black/60 text-white backdrop-blur-md border border-white/20 shadow-md tracking-wider"># ${t}</span>`).join('') + 
                     `</div>`;
 
@@ -575,35 +510,21 @@
 
         if(document.getElementById('firstPageBtn')) { document.getElementById('firstPageBtn').addEventListener('click', () => { if(currentPage !== 1) { currentPage = 1; renderWorks(); }}); document.getElementById('prevPageBtn').addEventListener('click', () => { if(currentPage > 1) { currentPage--; renderWorks(); }}); document.getElementById('nextPageBtn').addEventListener('click', () => { if(currentPage < totalPages) { currentPage++; renderWorks(); }}); document.getElementById('lastPageBtn').addEventListener('click', () => { if(currentPage !== totalPages) { currentPage = totalPages; renderWorks(); }}); }
 
-        const workModal = document.getElementById('workModal');
-        const closeWorkModal = document.getElementById('closeWorkModal');
-        const modalImageContainer = document.getElementById('modalImageContainer');
-        const workModalScrollBox = document.getElementById('workModalScrollBox');
-        const loadingSpinner = document.getElementById('loadingSpinner');
-        const scrollTopDetailBtn = document.getElementById('scrollTopDetailBtn');
-        
+        const workModal = document.getElementById('workModal'); const closeWorkModal = document.getElementById('closeWorkModal'); const modalImageContainer = document.getElementById('modalImageContainer'); const workModalScrollBox = document.getElementById('workModalScrollBox'); const loadingSpinner = document.getElementById('loadingSpinner'); const scrollTopDetailBtn = document.getElementById('scrollTopDetailBtn');
         let currentTextScale = 1; const textZoomStep = 0.15; const maxTextScale = 1.8; const minTextScale = 0.7; const baseContainerWidth = 900; 
 
         window.openWork = function(workId) {
             const work = worksList.find(w => String(w.id) === String(workId));
             if (work) {
-                currentOpenWorkId = work.id; // 记录当前打开的作品，为海报生成做准备
-                modalImageContainer.innerHTML = ''; 
-                modalImageContainer.classList.remove('copyright-blurred');
-                document.getElementById('copyrightOverlay').classList.replace('opacity-100', 'opacity-0');
-                document.getElementById('copyrightOverlay').classList.replace('pointer-events-auto', 'pointer-events-none');
-                
+                currentOpenWorkId = work.id;
+                modalImageContainer.innerHTML = ''; modalImageContainer.classList.remove('copyright-blurred'); document.getElementById('copyrightOverlay').classList.replace('opacity-100', 'opacity-0'); document.getElementById('copyrightOverlay').classList.replace('pointer-events-auto', 'pointer-events-none');
                 loadingSpinner.classList.add('hidden'); modalImageContainer.classList.remove('opacity-0'); modalImageContainer.classList.add('opacity-100');
                 closeInPageSearch(); currentTextScale = 1; scrollTopDetailBtn.classList.remove('scroll-top-enabled'); scrollTopDetailBtn.classList.add('scroll-top-disabled');
                 
                 const watermark = document.createElement('div'); watermark.className = 'watermark-layer'; modalImageContainer.appendChild(watermark);
                 setTimeout(() => watermark.classList.add('active'), 100);
 
-                const blocksContainer = document.createElement('div');
-                blocksContainer.id = "blocksContainer"; 
-                blocksContainer.className = "w-full mx-auto pb-20 flex flex-col gap-6 md:gap-10 relative z-10 transition-colors duration-300";
-                blocksContainer.style.maxWidth = window.innerWidth < 768 ? '100%' : `${baseContainerWidth}px`;
-                blocksContainer.style.setProperty('--font-multiplier', currentTextScale);
+                const blocksContainer = document.createElement('div'); blocksContainer.id = "blocksContainer"; blocksContainer.className = "w-full mx-auto pb-20 flex flex-col gap-6 md:gap-10 relative z-10 transition-colors duration-300"; blocksContainer.style.maxWidth = window.innerWidth < 768 ? '100%' : `${baseContainerWidth}px`; blocksContainer.style.setProperty('--font-multiplier', currentTextScale);
 
                 if (work.cover) {
                     const heroImageContainer = document.createElement('div'); heroImageContainer.className = "w-full relative shadow-sm image-wrapper !rounded-none !mt-0 !mb-0";
@@ -616,8 +537,7 @@
                 const titleBlock = document.createElement('div'); titleBlock.className = "w-full text-center px-6 md:px-12 mt-6 md:mt-8 mb-2 flex flex-col items-center justify-center";
                 let formattedTitle = '';
                 if (work.title.includes('|') || work.title.includes('｜')) {
-                    const parts = work.title.split(/\||｜/);
-                    formattedTitle = `<h1 class="work-text-main color-main">${parts[0].trim()}</h1><h2 class="work-text-sub color-main">${parts[1].trim()}</h2>`;
+                    const parts = work.title.split(/\||｜/); formattedTitle = `<h1 class="work-text-main color-main">${parts[0].trim()}</h1><h2 class="work-text-sub color-main">${parts[1].trim()}</h2>`;
                 } else { formattedTitle = `<h1 class="work-text-main color-main">${work.title}</h1>`; }
                 titleBlock.innerHTML = formattedTitle; blocksContainer.appendChild(titleBlock);
 
@@ -658,14 +578,8 @@
         const inPageSearchUI = document.getElementById('inPageSearchUI'); const inPageSearchInput = document.getElementById('inPageSearchInput'); const inPageSearchCount = document.getElementById('inPageSearchCount');
         let searchMatches = []; let currentMatchIdx = -1;
 
-        document.getElementById('openInPageSearchBtn').addEventListener('click', () => {
-            inPageSearchUI.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-[-20px]'); inPageSearchUI.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0'); inPageSearchInput.focus();
-        });
-
-        function closeInPageSearch() {
-            inPageSearchUI.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-20px]'); inPageSearchUI.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
-            inPageSearchInput.value = ''; clearHighlights();
-        }
+        document.getElementById('openInPageSearchBtn').addEventListener('click', () => { inPageSearchUI.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-[-20px]'); inPageSearchUI.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0'); inPageSearchInput.focus(); });
+        function closeInPageSearch() { inPageSearchUI.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-20px]'); inPageSearchUI.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0'); inPageSearchInput.value = ''; clearHighlights(); }
         document.getElementById('inPageSearchCloseBtn').addEventListener('click', closeInPageSearch);
 
         function clearHighlights() {
@@ -674,7 +588,6 @@
             marks.forEach(mark => { const parent = mark.parentNode; parent.replaceChild(document.createTextNode(mark.textContent), mark); parent.normalize(); });
             searchMatches = []; currentMatchIdx = -1; inPageSearchCount.textContent = '0/0';
         }
-
         function highlightText(query) {
             clearHighlights(); if (!query) return;
             const container = document.getElementById('blocksContainer'); if(!container) return;
@@ -682,22 +595,17 @@
             let node; const nodesToProcess = [];
             while(node = walker.nextNode()) { if(node.parentNode.nodeName !== 'SCRIPT' && node.parentNode.nodeName !== 'STYLE' && node.nodeValue.toLowerCase().includes(query.toLowerCase())) { nodesToProcess.push(node); } }
             nodesToProcess.forEach(textNode => {
-                const safeText = textNode.nodeValue.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-                const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+                const safeText = textNode.nodeValue.replace(/</g, '&lt;').replace(/>/g, '&gt;'); const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
                 const span = document.createElement('span'); span.innerHTML = safeText.replace(regex, '<mark class="search-highlight">$1</mark>');
                 while (span.firstChild) { const child = span.firstChild; textNode.parentNode.insertBefore(child, textNode); if (child.nodeName === 'MARK') searchMatches.push(child); }
                 textNode.parentNode.removeChild(textNode);
             });
             if(searchMatches.length > 0) { currentMatchIdx = 0; scrollToMatch(); } else { inPageSearchCount.textContent = '0/0'; }
         }
-
         function scrollToMatch() {
             searchMatches.forEach(m => m.classList.remove('active-match'));
-            if(currentMatchIdx >= 0 && currentMatchIdx < searchMatches.length) {
-                const match = searchMatches[currentMatchIdx]; match.classList.add('active-match'); match.scrollIntoView({behavior: 'smooth', block: 'center'}); inPageSearchCount.textContent = `${currentMatchIdx + 1}/${searchMatches.length}`;
-            }
+            if(currentMatchIdx >= 0 && currentMatchIdx < searchMatches.length) { const match = searchMatches[currentMatchIdx]; match.classList.add('active-match'); match.scrollIntoView({behavior: 'smooth', block: 'center'}); inPageSearchCount.textContent = `${currentMatchIdx + 1}/${searchMatches.length}`; }
         }
-
         inPageSearchInput.addEventListener('input', (e) => { highlightText(e.target.value.trim()); });
         inPageSearchInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') { if(searchMatches.length > 0) { currentMatchIdx = (currentMatchIdx + 1) % searchMatches.length; scrollToMatch(); } } });
         document.getElementById('inPageSearchNext').addEventListener('click', () => { if(searchMatches.length > 0) { currentMatchIdx = (currentMatchIdx + 1) % searchMatches.length; scrollToMatch(); } });
@@ -709,11 +617,7 @@
         });
         if(scrollTopDetailBtn) scrollTopDetailBtn.addEventListener('click', (e) => { e.stopPropagation(); workModalScrollBox.scrollTo({ top: 0, behavior: 'smooth' }); });
 
-        const closeWork = () => {
-            currentOpenWorkId = null;
-            workModal.classList.remove('active'); document.body.style.overflow = '';
-            setTimeout(() => { modalImageContainer.innerHTML = ''; modalImageContainer.classList.remove('opacity-100'); modalImageContainer.classList.add('opacity-0'); closeInPageSearch(); }, 400); 
-        };
+        const closeWork = () => { currentOpenWorkId = null; workModal.classList.remove('active'); document.body.style.overflow = ''; setTimeout(() => { modalImageContainer.innerHTML = ''; modalImageContainer.classList.remove('opacity-100'); modalImageContainer.classList.add('opacity-0'); closeInPageSearch(); }, 400); };
         if(closeWorkModal) closeWorkModal.addEventListener('click', closeWork);
         if(workModal) workModal.addEventListener('click', (e) => { if (e.target === workModal) closeWork(); });
 
@@ -721,14 +625,10 @@
         function triggerCopyrightDefense(reason) {
             if (isCopyrightUnlocked) return; 
             if (workModal.classList.contains('active')) {
-                modalImageContainer.classList.add('copyright-blurred');
-                document.getElementById('copyrightOverlay').classList.remove('opacity-0', 'pointer-events-none'); document.getElementById('copyrightOverlay').classList.add('opacity-100', 'pointer-events-auto');
-                document.getElementById('copyrightBox').classList.remove('scale-95'); document.getElementById('copyrightBox').classList.add('scale-100');
-                setTimeout(() => document.getElementById('copyrightPassword').focus(), 100);
-                showToast(`访问受限：已拦截系统级 [ ${reason} ] 指令`, true);
+                modalImageContainer.classList.add('copyright-blurred'); document.getElementById('copyrightOverlay').classList.remove('opacity-0', 'pointer-events-none'); document.getElementById('copyrightOverlay').classList.add('opacity-100', 'pointer-events-auto'); document.getElementById('copyrightBox').classList.remove('scale-95'); document.getElementById('copyrightBox').classList.add('scale-100');
+                setTimeout(() => document.getElementById('copyrightPassword').focus(), 100); showToast(`访问受限：已拦截系统级 [ ${reason} ] 指令`, true);
             } else { showToast(`私密资产：本站已限制 [ ${reason} ] 权限`, true); }
         }
-
         document.addEventListener('contextmenu', (e) => { if (!isCopyrightUnlocked) { e.preventDefault(); triggerCopyrightDefense("右键菜单"); } });
         document.addEventListener('copy', (e) => { if (!isCopyrightUnlocked) { e.preventDefault(); triggerCopyrightDefense("内容复制"); } });
         document.addEventListener('keydown', (e) => {
@@ -742,13 +642,8 @@
         function verifyCopyrightUnlock() {
             const pwd = document.getElementById('copyrightPassword');
             if (pwd.value === '66668888') {
-                isCopyrightUnlocked = true; 
-                document.getElementById('copyrightOverlay').classList.replace('opacity-100', 'opacity-0'); document.getElementById('copyrightOverlay').classList.replace('pointer-events-auto', 'pointer-events-none');
-                document.getElementById('copyrightBox').classList.replace('scale-100', 'scale-95'); modalImageContainer.classList.remove('copyright-blurred');
-                showToast("秘钥验证通过，已为您开放全站权限。"); pwd.value = '';
-            } else {
-                showToast("秘钥无效，访问拒绝", true); pwd.value = ''; pwd.classList.add('shake-error'); setTimeout(() => pwd.classList.remove('shake-error'), 400);
-            }
+                isCopyrightUnlocked = true; document.getElementById('copyrightOverlay').classList.replace('opacity-100', 'opacity-0'); document.getElementById('copyrightOverlay').classList.replace('pointer-events-auto', 'pointer-events-none'); document.getElementById('copyrightBox').classList.replace('scale-100', 'scale-95'); modalImageContainer.classList.remove('copyright-blurred'); showToast("秘钥验证通过，已为您开放全站权限。"); pwd.value = '';
+            } else { showToast("秘钥无效，访问拒绝", true); pwd.value = ''; pwd.classList.add('shake-error'); setTimeout(() => pwd.classList.remove('shake-error'), 400); }
         }
         if(document.getElementById('unlockCopyrightBtn')) document.getElementById('unlockCopyrightBtn').addEventListener('click', verifyCopyrightUnlock);
         if(document.getElementById('copyrightPassword')) document.getElementById('copyrightPassword').addEventListener('keypress', (e) => { if(e.key === 'Enter') verifyCopyrightUnlock(); });
@@ -759,7 +654,6 @@
         const closeResume = () => { resumeModal.classList.remove('active'); document.body.style.overflow = ''; };
         if(closeResumeModal) closeResumeModal.addEventListener('click', closeResume);
         if(resumeModal) resumeModal.addEventListener('click', (e) => { if (e.target === resumeModal) closeResume(); });
-
         window.copyTextToClipboard = function(text, type) { navigator.clipboard.writeText(text).then(() => { showToast(`已成功复制${type}: ${text}`); }).catch(err => { showToast('复制失败，请手动选择复制', true); }); }
 
         // ==========================================
@@ -770,7 +664,6 @@
         const closePosterModal = document.getElementById('closePosterModal');
         const posterResult = document.getElementById('posterResult');
         const downloadPosterBtn = document.getElementById('downloadPosterBtn');
-
         let generatedCanvas = null;
 
         generatePosterBtn.addEventListener('click', () => {
@@ -778,79 +671,43 @@
             const work = worksList.find(w => String(w.id) === String(currentOpenWorkId));
             if(!work) return;
 
-            // 打开海报弹窗显示 Loading
             posterResult.innerHTML = '<div class="py-20 text-center text-gray-500"><i class="fa fa-circle-o-notch fa-spin text-4xl mb-4"></i><p class="text-sm tracking-widest font-bold">正在合成专属海报...</p></div>';
-            downloadPosterBtn.classList.add('hidden');
-            posterModal.classList.remove('hidden');
+            downloadPosterBtn.classList.add('hidden'); posterModal.classList.remove('hidden');
 
-            // 1. 填充隐藏的 Poster DOM
             const pCover = document.getElementById('p-cover');
             pCover.src = work.cover || 'images/placeholder.jpg';
             
-            let mainTitle = work.title;
-            let subTitle = '';
-            if (work.title.includes('|') || work.title.includes('｜')) {
-                const parts = work.title.split(/\||｜/);
-                mainTitle = parts[0].trim();
-                subTitle = parts[1].trim();
-            }
-            document.getElementById('p-title').textContent = mainTitle;
-            document.getElementById('p-sub').textContent = subTitle;
-            document.getElementById('p-sub').style.display = subTitle ? 'block' : 'none';
-            document.getElementById('p-desc').textContent = work.desc || '专注餐饮品牌全案策划与统筹设计。';
+            let mainTitle = work.title; let subTitle = '';
+            if (work.title.includes('|') || work.title.includes('｜')) { const parts = work.title.split(/\||｜/); mainTitle = parts[0].trim(); subTitle = parts[1].trim(); }
+            document.getElementById('p-title').textContent = mainTitle; document.getElementById('p-sub').textContent = subTitle; document.getElementById('p-sub').style.display = subTitle ? 'block' : 'none'; document.getElementById('p-desc').textContent = work.desc || '专注餐饮品牌全案策划与统筹设计。';
 
-            // 2. 生成带特定参数的专属分享链接二维码
             const qrContainer = document.getElementById('p-qrcode');
-            qrContainer.innerHTML = ''; // 清空旧二维码
+            qrContainer.innerHTML = ''; 
             const shareUrl = window.location.origin + window.location.pathname + '?work=' + work.id;
             
-            new QRCode(qrContainer, {
-                text: shareUrl,
-                width: 80,
-                height: 80,
-                colorDark : "#000000",
-                colorLight : "#ffffff",
-                correctLevel : QRCode.CorrectLevel.H
-            });
+            new QRCode(qrContainer, { text: shareUrl, width: 80, height: 80, colorDark : "#000000", colorLight : "#ffffff", correctLevel : QRCode.CorrectLevel.H });
 
-            // 3. 等待图片加载后触发截图
             pCover.onload = () => {
                 setTimeout(() => {
                     const posterDOM = document.getElementById('posterTemplate');
-                    // html2canvas 渲染
-                    html2canvas(posterDOM, {
-                        scale: 2, // 视网膜级高清
-                        useCORS: true,
-                        allowTaint: true,
-                        backgroundColor: '#ffffff'
-                    }).then(canvas => {
+                    html2canvas(posterDOM, { scale: 2, useCORS: true, allowTaint: true, backgroundColor: '#ffffff' }).then(canvas => {
                         generatedCanvas = canvas;
-                        // 将生成的图片塞进弹窗展示
-                        const img = document.createElement('img');
-                        img.src = canvas.toDataURL('image/jpeg', 0.9);
-                        img.className = 'w-full h-auto block';
-                        posterResult.innerHTML = '';
-                        posterResult.appendChild(img);
-                        downloadPosterBtn.classList.remove('hidden');
+                        const img = document.createElement('img'); img.src = canvas.toDataURL('image/jpeg', 0.9); img.className = 'w-full h-auto block';
+                        posterResult.innerHTML = ''; posterResult.appendChild(img); downloadPosterBtn.classList.remove('hidden');
                     }).catch(err => {
                         console.error('海报生成失败:', err);
                         posterResult.innerHTML = '<div class="py-20 text-center text-red-500"><i class="fa fa-exclamation-triangle text-4xl mb-4"></i><p class="text-sm tracking-widest font-bold">海报生成失败，请重试</p></div>';
                     });
-                }, 500); // 留点时间给字体和二维码渲染
+                }, 500); 
             };
         });
 
-        // 下载海报逻辑
         downloadPosterBtn.addEventListener('click', () => {
             if(generatedCanvas) {
-                const link = document.createElement('a');
-                const work = worksList.find(w => String(w.id) === String(currentOpenWorkId));
-                link.download = `林嘉雍作品分享-${work ? work.title.split('|')[0].trim() : '海报'}.jpg`;
-                link.href = generatedCanvas.toDataURL('image/jpeg', 0.9);
-                link.click();
+                const link = document.createElement('a'); const work = worksList.find(w => String(w.id) === String(currentOpenWorkId));
+                link.download = `林嘉雍作品分享-${work ? work.title.split('|')[0].trim() : '海报'}.jpg`; link.href = generatedCanvas.toDataURL('image/jpeg', 0.9); link.click();
             }
         });
-
         closePosterModal.addEventListener('click', () => { posterModal.classList.add('hidden'); });
         posterModal.addEventListener('click', (e) => { if(e.target === posterModal) posterModal.classList.add('hidden'); });
 
