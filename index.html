@@ -13,7 +13,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     
-    <script src="https://cdn.bootcdn.net/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <script>
@@ -30,18 +29,12 @@
         .dark-mode::after { opacity: 0.06; }
         .color-main { color: var(--text-main); } .color-muted { color: var(--text-muted); } .bg-inverted { background-color: var(--btn-bg); color: var(--btn-text); transition: all 0.4s ease; }
 
-        /* 🚀 修复标签排版：隐藏横向滚动条的法宝 */
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
         .liquid-glass { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(48px) saturate(200%); -webkit-backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.4); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05), inset 0 1.5px 2px rgba(255, 255, 255, 0.9), inset 0 -1.5px 2px rgba(255, 255, 255, 0.15); border-radius: 24px; transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); }
         .dark-mode .liquid-glass { background: rgba(20, 20, 20, 0.35); border-color: rgba(255, 255, 255, 0.15); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), inset 0 1.5px 2px rgba(255, 255, 255, 0.2), inset 0 -1.5px 2px rgba(0, 0, 0, 0.5); }
-        
         .liquid-glass-dark { background: rgba(20, 20, 20, 0.5); backdrop-filter: blur(48px) saturate(200%); -webkit-backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 12px 32px rgba(0,0,0,0.2), inset 0 1.5px 2px rgba(255, 255, 255, 0.3), inset 0 -1.5px 2px rgba(0, 0, 0, 0.4); color: #fff; border-radius: 100px; transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); }
         .liquid-glass-dark:hover { background: rgba(10, 10, 10, 0.7); transform: scale(1.04) translateY(-2px); box-shadow: 0 16px 40px rgba(0,0,0,0.3), inset 0 2px 3px rgba(255, 255, 255, 0.4); }
         .dark-mode .liquid-glass-dark { background: rgba(240, 240, 240, 0.7); color: #000; border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: 0 12px 32px rgba(0,0,0,0.1), inset 0 1.5px 2px #fff, inset 0 -1.5px 2px rgba(0,0,0,0.1); }
         .dark-mode .liquid-glass-dark:hover { background: rgba(255, 255, 255, 0.9); box-shadow: 0 16px 40px rgba(0,0,0,0.15), inset 0 2px 3px #fff; }
-
         .nav-island { position: relative; background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(48px) saturate(250%); border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 16px 32px rgba(0,0,0,0.06), inset 0 1.5px 2px rgba(255,255,255,0.9), inset 0 -1px 1px rgba(255,255,255,0.2); border-radius: 100px; transition: all 0.5s ease; }
         .dark-mode .nav-island { background: rgba(30, 30, 30, 0.4); border-color: rgba(255, 255, 255, 0.15); box-shadow: 0 16px 32px rgba(0,0,0,0.4), inset 0 1.5px 2px rgba(255,255,255,0.2), inset 0 -1px 1px rgba(0,0,0,0.5); }
         .nav-indicator { position: absolute; bottom: 8px; height: 32px; background: rgba(0,0,0,0.06); border-radius: 100px; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); z-index: 0; pointer-events: none; opacity: 0; }
@@ -123,8 +116,8 @@
         #globalBackToTop { opacity: 0; pointer-events: none; transform: translateY(20px); transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); z-index: 90; }
         #globalBackToTop.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 
-        /* 🚀 修复截图引擎白板Bug：放弃透明度，采用坐标飞地强行渲染法 */
-        #posterTemplate { position: fixed; top: 0; left: -9999px; z-index: -100; width: 750px; background-color: #ffffff; color: #111; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; padding-bottom: 40px; box-sizing: border-box; }
+        /* 🚀 终极海报截图模板 */
+        #posterTemplate { position: absolute; top: -9999px; left: -9999px; z-index: -100; opacity: 0; width: 750px; background-color: #ffffff; color: #111; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; padding-bottom: 40px; box-sizing: border-box; overflow: hidden; }
         .poster-cover { width: 100%; height: 500px; object-fit: cover; object-position: center; border-radius: 0 0 40px 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
         .poster-content { padding: 50px 60px 20px 60px; }
         .poster-title { font-size: 52px; font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 15px; color: #000; }
@@ -132,12 +125,17 @@
         .poster-desc { font-size: 18px; color: #888; line-height: 1.8; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; font-weight: 500; }
         .poster-footer { display: flex; justify-content: space-between; align-items: flex-end; padding: 40px 60px 0 60px; border-top: 1px solid #eee; margin-top: 40px; }
         .poster-author { display: flex; align-items: center; gap: 15px; }
-        .poster-logo-container { width: 80px; height: 80px; border-radius: 12px; background: #ffffff; border: 1px solid #eee; display: flex; align-items: center; justify-content: center; padding: 10px; box-sizing: border-box; overflow: hidden;}
+        
+        /* 🚀 品牌 Logo 容器样式调整 */
+        .poster-logo-container { width: 80px; height: 80px; border-radius: 16px; background: #ffffff; border: 1px solid #eaeaea; display: flex; align-items: center; justify-content: center; padding: 6px; box-sizing: border-box; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         .poster-logo { width: 100%; height: 100%; object-fit: contain; }
+        
         .poster-author-info h4 { font-size: 22px; font-weight: 800; margin: 0 0 5px 0; color: #111; }
         .poster-author-info p { font-size: 14px; font-weight: bold; color: #888; letter-spacing: 0.1em; margin: 0; text-transform: uppercase; }
         .poster-qr-container { text-align: right; }
-        .poster-qr { width: 90px; height: 90px; background: #fff; padding: 5px; border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; display: inline-block; }
+        
+        /* 🚀 真实 API 图片生成的二维码样式 */
+        .poster-qr { width: 90px; height: 90px; background: #fff; padding: 4px; border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; display: inline-block; object-fit: contain; }
         .poster-qr-text { font-size: 12px; font-weight: bold; color: #aaa; letter-spacing: 0.1em; }
     </style>
 </head>
@@ -153,6 +151,7 @@
     <div class="fixed top-6 left-1/2 z-50 w-[92%] max-w-5xl hidden md:flex justify-center nav-drop-in" id="islandContainer">
         <nav class="nav-island flex items-center justify-between px-3 py-2 w-full shadow-2xl relative">
             <a href="#home" class="pl-5 text-lg font-black tracking-tight color-main btn-elastic flex-shrink-0 relative z-10">林嘉雍<span class="opacity-30 mx-1">·</span>品牌策划</a>
+            
             <div class="flex items-center gap-1 relative z-10 px-2" id="navLinksContainer">
                 <div id="navIndicator" class="absolute h-8 bg-black/10 dark:bg-white/15 rounded-full transition-all duration-300 z-[-1]" style="left: 0; width: 0; opacity: 0;"></div>
                 <a href="#home" class="nav-link cursor-pointer nav-item" data-target="home">首页</a>
@@ -160,6 +159,7 @@
                 <a href="#about" class="nav-link cursor-pointer nav-item" data-target="about">关于</a>
                 <a href="#contact" class="nav-link cursor-pointer nav-item" data-target="contact">联系</a>
             </div>
+
             <div class="flex items-center gap-1 relative z-10">
                 <div class="w-px h-4 bg-[var(--text-muted)] opacity-30 mx-2"></div>
                 <a href="https://m.zcool.com.cn/u/27721906" target="_blank" class="nav-link cursor-pointer">站酷主页 <i class="fa fa-external-link opacity-40 text-[10px]"></i></a>
@@ -176,7 +176,7 @@
                 <button id="menuBtn" class="text-2xl color-main btn-elastic px-2"><i class="fa fa-bars"></i></button>
             </div>
         </div> 
-        <div id="mobileMenu" class="md:hidden hidden absolute top-full left-0 w-full bg-[var(--bg-base)]/95 backdrop-blur-3xl shadow-2xl py-8 px-6 flex flex-col gap-5 text-center border-b border-[var(--glass-border)] rounded-b-[2rem] z-50">
+        <div id="mobileMenu" class="md:hidden hidden absolute top-full left-0 w-full liquid-glass shadow-2xl py-6 px-6 flex flex-col gap-4 text-center border-t-0 rounded-b-[2rem]">
             <a href="#home" class="text-[15px] font-bold py-2 color-main cursor-pointer tracking-wide nav-item" data-target="home">首页</a>
             <a href="#works" class="text-[15px] font-bold py-2 color-main cursor-pointer tracking-wide nav-item" data-target="works">作品</a>
             <a href="#about" class="text-[15px] font-bold py-2 color-main cursor-pointer tracking-wide nav-item" data-target="about">关于</a>
@@ -323,7 +323,7 @@
         <div class="poster-footer">
             <div class="poster-author">
                 <div class="poster-logo-container">
-                    <img id="p-logo" src="images/logo.png" class="poster-logo" crossorigin="anonymous" onerror="this.style.display='none'">
+                    <img id="p-logo" src="images/logo.png" class="poster-logo" crossorigin="anonymous" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
                 </div>
                 <div class="poster-author-info">
                     <h4>林嘉雍</h4>
@@ -331,7 +331,7 @@
                 </div>
             </div>
             <div class="poster-qr-container">
-                <div id="p-qrcode" class="poster-qr"></div>
+                <img id="p-qrcode" class="poster-qr" crossorigin="anonymous" src="">
                 <div class="poster-qr-text">扫码查看全案</div>
             </div>
         </div>
@@ -478,23 +478,13 @@
                 const delay = index * 0.1; 
                 const coverUrl = work.cover ? work.cover : 'images/placeholder.jpg';
                 
-                // 🚀 终极双保险机制：优先使用机器人的真AI标签，空的话启用高智商原生截取器
-                let tags = (work.tags && work.tags.length > 0) ? work.tags : [];
-                if (tags.length === 0) {
-                    const text = (work.title + " " + work.desc).toLowerCase();
-                    if(text.includes('烙') || text.includes('黔')) tags = ['贵州烙锅', '文化餐饮', '地方特色'];
-                    else if(text.includes('雨果') || text.includes('自然')) tags = ['云南菜', '自然生态', '漂亮饭'];
-                    else if(text.includes('馄饨') || text.includes('饺') || text.includes('仁宝')) tags = ['社区餐饮', '手工现包', '品牌全案'];
-                    else if(text.includes('川') || text.includes('晓棠') || text.includes('辣')) tags = ['高端川菜', '东方美学', '空间设计'];
-                    else if(text.includes('日料') || text.includes('寿司')) tags = ['日式料理', '极简美学', '品牌升级'];
-                    else if(text.includes('老字号') || text.includes('百年') || text.includes('同盛生')) tags = ['老字号焕新', '非遗传承', '视觉重塑'];
-                    else tags = ['品牌全案', '商业策略', '视觉统筹']; 
+                const tags = (work.tags && work.tags.length > 0) ? work.tags : [];
+                let tagsHTML = '';
+                if(tags.length > 0) {
+                    tagsHTML = `<div class="absolute bottom-3 left-3 flex gap-1.5 z-10 flex-wrap max-w-[90%]">` + 
+                        tags.map(t => `<span class="px-2 py-1 text-[9px] font-bold rounded-md bg-black/60 text-white backdrop-blur-md border border-white/20 shadow-md tracking-wider"># ${t}</span>`).join('') + 
+                        `</div>`;
                 }
-
-                // 🚀 修复手机排版挡脸 Bug：用横向滑动取代自动换行
-                const tagsHTML = `<div class="absolute bottom-2.5 left-2.5 right-2.5 flex gap-1.5 z-10 overflow-x-auto hide-scrollbar items-center">` + 
-                    tags.map(t => `<span class="whitespace-nowrap px-1.5 py-0.5 text-[9px] md:text-[10px] font-bold rounded bg-black/60 text-white backdrop-blur-md border border-white/20 shadow-sm tracking-wide flex-shrink-0"># ${t}</span>`).join('') + 
-                    `</div>`;
 
                 const cardHTML = `
                     <div class="liquid-glass hover-elastic flex flex-col cursor-pointer reveal-up" style="transition-delay: ${delay}s;" onclick="openWork('${work.id}')">
@@ -682,7 +672,7 @@
         window.copyTextToClipboard = function(text, type) { navigator.clipboard.writeText(text).then(() => { showToast(`已成功复制${type}: ${text}`); }).catch(err => { showToast('复制失败，请手动选择复制', true); }); }
 
         // ==========================================
-        // 🚀 核心：分享海报生成引擎 (彻底修复 iOS 白图 Bug)
+        // 🚀 核心：分享海报生成引擎 (API 真实图片渲染，彻底告别二维码丢失)
         // ==========================================
         const generatePosterBtn = document.getElementById('generatePosterBtn');
         const posterModal = document.getElementById('posterModal');
@@ -700,45 +690,48 @@
 
             posterResult.innerHTML = '<div class="py-20 text-center text-gray-500"><i class="fa fa-circle-o-notch fa-spin text-4xl mb-4"></i><p class="text-sm tracking-widest font-bold mt-2">正在合成专属海报...</p></div>';
             downloadPosterBtn.classList.add('hidden'); 
-            
             posterModal.classList.add('active');
 
+            // 1. 获取核心图片节点
             const pCover = document.getElementById('p-cover');
-            pCover.src = work.cover || 'images/placeholder.jpg';
+            const pQr = document.getElementById('p-qrcode');
             
+            // 2. 填充文字内容
             let mainTitle = work.title; let subTitle = '';
             if (work.title.includes('|') || work.title.includes('｜')) { const parts = work.title.split(/\||｜/); mainTitle = parts[0].trim(); subTitle = parts[1].trim(); }
             document.getElementById('p-title').textContent = mainTitle; document.getElementById('p-sub').textContent = subTitle; document.getElementById('p-sub').style.display = subTitle ? 'block' : 'none'; document.getElementById('p-desc').textContent = work.desc || '专注餐饮品牌全案策划与统筹设计。';
 
-            const qrContainer = document.getElementById('p-qrcode');
-            qrContainer.innerHTML = ''; 
-            const shareUrl = window.location.origin + window.location.pathname + '?work=' + work.id;
-            new QRCode(qrContainer, { text: shareUrl, width: 80, height: 80, colorDark : "#000000", colorLight : "#ffffff", correctLevel : QRCode.CorrectLevel.H });
+            // 3. 设置双重加载门门闩 (确保图片全加载完再截图)
+            let coverLoaded = false;
+            let qrLoaded = false;
 
-            // 🚀 彻底放弃 opacity 透明度，改用 left: -9999px 强行渲染！
-            const executeScreenshot = () => {
-                setTimeout(() => {
-                    const posterDOM = document.getElementById('posterTemplate');
-                    html2canvas(posterDOM, { 
-                        // 缩小 scale 避免苹果手机因内存不足引发奔溃或截出白板
-                        scale: window.devicePixelRatio || 1.5, 
-                        useCORS: true, 
-                        allowTaint: true, 
-                        backgroundColor: '#ffffff',
-                        logging: false
-                    }).then(canvas => {
-                        generatedCanvas = canvas;
-                        const img = document.createElement('img'); img.src = canvas.toDataURL('image/jpeg', 0.9); img.className = 'w-full h-auto block';
-                        posterResult.innerHTML = ''; posterResult.appendChild(img); downloadPosterBtn.classList.remove('hidden');
-                    }).catch(err => {
-                        console.error('海报生成失败:', err);
-                        posterResult.innerHTML = '<div class="py-20 text-center text-red-500"><i class="fa fa-exclamation-triangle text-4xl mb-4"></i><p class="text-sm tracking-widest font-bold">海报生成受阻，请重试</p></div>';
-                    });
-                }, 1000); // 强行拉长等待时间，确保二维码和封面图100%着色完毕
+            const tryRenderCanvas = () => {
+                if (coverLoaded && qrLoaded) {
+                    setTimeout(() => {
+                        const posterDOM = document.getElementById('posterTemplate');
+                        html2canvas(posterDOM, { scale: 2, useCORS: true, allowTaint: true, backgroundColor: '#ffffff' }).then(canvas => {
+                            generatedCanvas = canvas;
+                            const img = document.createElement('img'); img.src = canvas.toDataURL('image/jpeg', 0.9); img.className = 'w-full h-auto block';
+                            posterResult.innerHTML = ''; posterResult.appendChild(img); downloadPosterBtn.classList.remove('hidden');
+                        }).catch(err => {
+                            console.error('海报生成失败:', err);
+                            posterResult.innerHTML = '<div class="py-20 text-center text-red-500"><i class="fa fa-exclamation-triangle text-4xl mb-4"></i><p class="text-sm tracking-widest font-bold">海报生成失败，请重试</p></div>';
+                        });
+                    }, 300); // 极小缓冲期即可，因为图片必定已经 load 完了
+                }
             };
 
-            if (pCover.complete) { executeScreenshot(); } 
-            else { pCover.onload = executeScreenshot; pCover.onerror = executeScreenshot; }
+            // 监听图片加载完成
+            pCover.onload = () => { coverLoaded = true; tryRenderCanvas(); };
+            pCover.onerror = () => { coverLoaded = true; tryRenderCanvas(); }; // 容错处理
+            pQr.onload = () => { qrLoaded = true; tryRenderCanvas(); };
+            pQr.onerror = () => { qrLoaded = true; tryRenderCanvas(); }; // 容错处理
+
+            // 4. 触发图片请求 (这一步会开始加载图片)
+            pCover.src = work.cover || 'images/placeholder.jpg';
+            const shareUrl = window.location.origin + window.location.pathname + '?work=' + work.id;
+            // 🚀 调用极速 API，直接生成二维码图片 (margin=1 保证边距极度干净)
+            pQr.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&margin=1&data=${encodeURIComponent(shareUrl)}`;
         });
 
         downloadPosterBtn.addEventListener('click', () => {
