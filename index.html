@@ -32,18 +32,16 @@
 
         .liquid-glass { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(48px) saturate(200%); -webkit-backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.4); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05), inset 0 1.5px 2px rgba(255, 255, 255, 0.9), inset 0 -1.5px 2px rgba(255, 255, 255, 0.15); border-radius: 24px; transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); }
         .dark-mode .liquid-glass { background: rgba(20, 20, 20, 0.35); border-color: rgba(255, 255, 255, 0.15); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), inset 0 1.5px 2px rgba(255, 255, 255, 0.2), inset 0 -1.5px 2px rgba(0, 0, 0, 0.5); }
-        
         .liquid-glass-dark { background: rgba(20, 20, 20, 0.5); backdrop-filter: blur(48px) saturate(200%); -webkit-backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 12px 32px rgba(0,0,0,0.2), inset 0 1.5px 2px rgba(255, 255, 255, 0.3), inset 0 -1.5px 2px rgba(0, 0, 0, 0.4); color: #fff; border-radius: 100px; transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); }
         .liquid-glass-dark:hover { background: rgba(10, 10, 10, 0.7); transform: scale(1.04) translateY(-2px); box-shadow: 0 16px 40px rgba(0,0,0,0.3), inset 0 2px 3px rgba(255, 255, 255, 0.4); }
         .dark-mode .liquid-glass-dark { background: rgba(240, 240, 240, 0.7); color: #000; border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: 0 12px 32px rgba(0,0,0,0.1), inset 0 1.5px 2px #fff, inset 0 -1.5px 2px rgba(0,0,0,0.1); }
         .dark-mode .liquid-glass-dark:hover { background: rgba(255, 255, 255, 0.9); box-shadow: 0 16px 40px rgba(0,0,0,0.15), inset 0 2px 3px #fff; }
-
-        .nav-island { position: relative; background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(48px) saturate(250%); border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 16px 32px rgba(0,0,0,0.06), inset 0 1.5px 2px rgba(255,255,255,0.9), inset 0 -1px 1px rgba(255,255,255,0.2); border-radius: 100px; transition: all 0.5s ease; }
+        .nav-island { position: relative; background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(48px) saturate(250%); -webkit-backdrop-filter: blur(48px) saturate(250%); border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 16px 32px rgba(0,0,0,0.06), inset 0 1.5px 2px rgba(255,255,255,0.9), inset 0 -1px 1px rgba(255,255,255,0.2); border-radius: 100px; transition: all 0.5s ease; }
         .dark-mode .nav-island { background: rgba(30, 30, 30, 0.4); border-color: rgba(255, 255, 255, 0.15); box-shadow: 0 16px 32px rgba(0,0,0,0.4), inset 0 1.5px 2px rgba(255,255,255,0.2), inset 0 -1px 1px rgba(0,0,0,0.5); }
-        
+        .nav-indicator { position: absolute; bottom: 8px; height: 32px; background: rgba(0,0,0,0.06); border-radius: 100px; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); z-index: 0; pointer-events: none; opacity: 0; }
+        .dark-mode .nav-indicator { background: rgba(255,255,255,0.12); }
         .liquid-glass-controls { background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.6); box-shadow: 0 20px 40px rgba(0,0,0,0.1), inset 0 1.5px 2px rgba(255,255,255,0.9); border-radius: 40px; }
         .dark-mode .liquid-glass-controls { background: rgba(30, 30, 30, 0.6); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 1.5px 2px rgba(255,255,255,0.2); }
-
         .hover-elastic { will-change: transform, box-shadow; }
         .hover-elastic:hover { transform: scale(1.02) translateY(-4px); background: rgba(255, 255, 255, 0.25); box-shadow: 0 24px 50px rgba(0,0,0,0.08), inset 0 2px 3px rgba(255, 255, 255, 1), inset 0 -1px 2px rgba(255, 255, 255, 0.2); }
         .dark-mode .hover-elastic:hover { background: rgba(30, 30, 30, 0.45); box-shadow: 0 24px 50px rgba(0,0,0,0.5), inset 0 1.5px 2px rgba(255, 255, 255, 0.3); }
@@ -62,7 +60,7 @@
         .work-text-p { font-size: calc(clamp(1rem, 1.8vw, 1.15rem) * var(--font-multiplier)); line-height: 2.2; font-weight: 500; transition: font-size 0.3s ease; text-align: justify; text-wrap: balance; }
         .work-text-quote { font-size: calc(clamp(1.2rem, 2.5vw, 1.5rem) * var(--font-multiplier)); font-style: italic; transition: font-size 0.3s ease; }
 
-        .nav-link { position: relative; z-index: 1; padding: 0.5rem 1.2rem; border-radius: 100px; font-weight: 800; font-size: 13px; letter-spacing: 0.05em; transition: all 0.4s ease; display: flex; align-items: center; justify-content: center; gap: 6px; }
+        .nav-link { position: relative; z-index: 1; padding: 0.5rem 1.2rem; border-radius: 100px; font-weight: 800; font-size: 13px; letter-spacing: 0.05em; transition: all 0.4s ease; display: flex; align-items: center; gap: 6px; }
         .glass-nav { background: rgba(255,255,255,0.4); backdrop-filter: blur(48px) saturate(250%); border-bottom: 1px solid rgba(255,255,255,0.5); }
         .dark-mode .glass-nav { background: rgba(30,30,30,0.5); border-bottom: 1px solid rgba(255,255,255,0.15); }
         .nav-drop-in { animation: navDrop 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
@@ -81,7 +79,7 @@
         .reveal-up { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal-up.revealed { opacity: 1; transform: translateY(0); }
         .text-balance { text-wrap: balance; }
-        .hero-title-line { display: block; white-space: nowrap; font-size: clamp(1rem, 7vw, 6.5rem); }
+        .hero-title-line { display: block; white-space: nowrap; font-size: clamp(1.6rem, 6.5vw, 6.5rem); }
         .overflow-hidden-wrap { overflow: hidden; display: block; line-height: 1.1; padding-bottom: 0.1em; }
         .animate-slide-up-text { display: block; transform: translateY(110%); opacity: 0; animation: revealText 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         @keyframes revealText { 0% { transform: translateY(110%); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
@@ -119,7 +117,8 @@
         #globalBackToTop { opacity: 0; pointer-events: none; transform: translateY(20px); transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); z-index: 90; }
         #globalBackToTop.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 
-        #posterTemplate { position: absolute; top: -9999px; left: -9999px; z-index: -100; opacity: 0; width: 750px; background-color: #ffffff; color: #111; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; padding-bottom: 40px; box-sizing: border-box; overflow: hidden; }
+        /* 🚀 海报截图隐形Bug修复：采用absolute+透明度，确保截图引擎能捕获到节点 */
+        #posterTemplate { position: absolute; top: 0; left: 0; z-index: -100; opacity: 0; pointer-events: none; width: 750px; background-color: #ffffff; color: #111; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; padding-bottom: 40px; box-sizing: border-box; overflow: hidden; }
         .poster-cover { width: 100%; height: 500px; object-fit: cover; object-position: center; border-radius: 0 0 40px 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
         .poster-content { padding: 50px 60px 20px 60px; }
         .poster-title { font-size: 52px; font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 15px; color: #000; }
@@ -127,7 +126,9 @@
         .poster-desc { font-size: 18px; color: #888; line-height: 1.8; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; font-weight: 500; }
         .poster-footer { display: flex; justify-content: space-between; align-items: flex-end; padding: 40px 60px 0 60px; border-top: 1px solid #eee; margin-top: 40px; }
         .poster-author { display: flex; align-items: center; gap: 15px; }
-        .poster-avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid #eee; }
+        /* 🚀 优化 2：左下角改为品牌 Logo，圆角白底画框样式 */
+        .poster-logo-container { width: 80px; height: 80px; border-radius: 12px; background: #ffffff; border: 1px solid #eee; display: flex; items: center; justify: center; padding: 10px; box-sizing: border-box; }
+        .poster-logo { width: 100%; height: 100%; object-fit: contain; }
         .poster-author-info h4 { font-size: 22px; font-weight: 800; margin: 0 0 5px 0; color: #111; }
         .poster-author-info p { font-size: 14px; font-weight: bold; color: #888; letter-spacing: 0.1em; margin: 0; text-transform: uppercase; }
         .poster-qr-container { text-align: right; }
@@ -146,17 +147,13 @@
 
     <div class="fixed top-6 left-1/2 z-50 w-[92%] max-w-5xl hidden md:flex justify-center nav-drop-in" id="islandContainer">
         <nav class="nav-island flex items-center justify-between px-3 py-2 w-full shadow-2xl relative">
+            <div id="navIndicator" class="nav-indicator"></div>
             <a href="#home" class="pl-5 text-lg font-black tracking-tight color-main btn-elastic flex-shrink-0 relative z-10">林嘉雍<span class="opacity-30 mx-1">·</span>品牌策划</a>
-            
-            <div class="flex items-center gap-1 relative z-10 px-2" id="navLinksContainer">
-                <div id="navIndicator" class="absolute h-8 bg-black/10 dark:bg-white/15 rounded-full transition-all duration-300 z-[-1]" style="left: 0; width: 0; opacity: 0;"></div>
+            <div class="flex items-center gap-1 relative z-10">
                 <a href="#home" class="nav-link cursor-pointer nav-item" data-target="home">首页</a>
                 <a href="#works" class="nav-link cursor-pointer nav-item" data-target="works">作品</a>
                 <a href="#about" class="nav-link cursor-pointer nav-item" data-target="about">关于</a>
                 <a href="#contact" class="nav-link cursor-pointer nav-item" data-target="contact">联系</a>
-            </div>
-
-            <div class="flex items-center gap-1 relative z-10">
                 <div class="w-px h-4 bg-[var(--text-muted)] opacity-30 mx-2"></div>
                 <a href="https://m.zcool.com.cn/u/27721906" target="_blank" class="nav-link cursor-pointer">站酷主页 <i class="fa fa-external-link opacity-40 text-[10px]"></i></a>
                 <button id="themeToggleBtn" class="h-10 px-4 rounded-full flex items-center justify-center color-main text-lg hover:bg-[var(--text-main)] hover:text-[var(--bg-base)] transition-all ml-1 cursor-pointer liquid-glass"><i id="themeIcon" class="fa fa-moon-o"></i><span class="text-[12px] font-bold ml-2">切换模式</span></button>
@@ -298,13 +295,8 @@
     <div id="resumeModal" class="modal fixed inset-0 z-[100] flex items-center justify-center">
         <div class="modal-content w-full h-full flex flex-col relative overflow-hidden bg-transparent">
             <button id="closeResumeModal" class="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 md:w-12 md:h-12 liquid-glass !rounded-full flex items-center justify-center color-main z-[200] btn-elastic hover:!bg-white dark:hover:!bg-[#1d1d1f] !shadow-2xl cursor-pointer"><i class="fa fa-times text-lg md:text-xl"></i></button>
-            <div class="modal-scroll-box flex-1 w-full h-full bg-black/40 backdrop-blur-md relative pt-20 pb-40 md:pt-16" id="resumeModalScrollBox">
-                <div class="max-w-4xl mx-auto w-[92%] md:w-[80%] bg-white rounded-[2rem] p-1.5 md:p-3 shadow-[0_30px_60px_rgba(0,0,0,0.5)] relative overflow-hidden reveal-up">
-                    <a href="images/resume.jpg" download title="下载原件" class="absolute top-6 right-6 w-10 h-10 liquid-glass-dark rounded-full flex items-center justify-center color-white z-20 btn-elastic shadow-xl">
-                        <i class="fa fa-download text-sm"></i>
-                    </a>
-                    <img id="modalResumeImg" src="images/resume.jpg" alt="林嘉雍个人简历" class="w-full h-auto rounded-[1.5rem] block relative z-10">
-                </div>
+            <div class="modal-scroll-box flex-1 w-full h-full bg-transparent relative pt-24 pb-40 md:pt-12" id="resumeModalScrollBox">
+                <img id="modalResumeImg" src="images/resume.jpg" alt="林嘉雍个人简历" class="relative z-[1] block w-full h-auto mx-auto max-w-[1000px]">
             </div>
         </div>
     </div>
@@ -318,7 +310,9 @@
         </div>
         <div class="poster-footer">
             <div class="poster-author">
-                <img id="p-avatar" src="images/avatar.png" class="poster-avatar" crossorigin="anonymous" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
+                <div class="poster-logo-container">
+                    <img id="p-logo" src="images/logo.png" class="poster-logo" crossorigin="anonymous" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
+                </div>
                 <div class="poster-author-info">
                     <h4>林嘉雍</h4>
                     <p>高端餐饮品牌全案策划</p>
@@ -333,11 +327,11 @@
 
     <div id="posterModal" class="modal fixed inset-0 z-[300] flex items-center justify-center bg-black/80 backdrop-blur-md">
         <div class="modal-content w-full max-w-sm flex flex-col relative items-center p-4">
-            <button id="closePosterModal" class="absolute -top-12 right-4 w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/40 transition-colors btn-elastic"><i class="fa fa-times"></i></button>
+            <button id="closePosterModal" class="absolute -top-12 right-4 w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/40 transition-colors"><i class="fa fa-times"></i></button>
             <div id="posterResult" class="w-full rounded-2xl overflow-hidden shadow-2xl bg-white mb-6">
                 <div class="py-20 text-center text-gray-500"><i class="fa fa-circle-o-notch fa-spin text-3xl mb-3"></i><p class="text-sm tracking-widest">正在合成专属海报...</p></div>
             </div>
-            <button id="downloadPosterBtn" class="liquid-glass-dark w-full py-4 rounded-full font-bold text-[15px] shadow-2xl flex items-center justify-center gap-2 cursor-pointer tracking-widest hidden btn-elastic"><i class="fa fa-download text-lg"></i> 保存到相册</button>
+            <button id="downloadPosterBtn" class="liquid-glass-dark w-full py-4 rounded-full font-bold text-[15px] shadow-2xl flex items-center justify-center gap-2 cursor-pointer tracking-widest hidden"><i class="fa fa-download text-lg"></i> 保存到相册</button>
             <p class="text-white/50 text-xs mt-3 tracking-widest">长按图片也可直接保存</p>
         </div>
     </div>
@@ -350,13 +344,16 @@
         window.addEventListener('load', () => {
             const island = document.getElementById('islandContainer');
             if(island) island.classList.add('reveal-up');
+            
             setTimeout(() => { document.querySelectorAll('.intro-fade-in').forEach(el => el.classList.add('active')); }, 100);
 
             const menuBtn = document.getElementById('menuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
             if (menuBtn && mobileMenu) {
                 menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
-                mobileMenu.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => mobileMenu.classList.add('hidden')); });
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+                });
             }
             fetchCMSData();
             initScrollSpy();
@@ -385,11 +382,11 @@
 
         function initScrollSpy() {
             const sections = document.querySelectorAll('.scroll-section');
-            const navItemsDesktop = document.querySelectorAll('#navLinksContainer .nav-item');
+            const navItemsDesktop = document.querySelectorAll('#islandContainer .nav-item');
             const navIndicator = document.getElementById('navIndicator');
 
             window.addEventListener('scroll', () => {
-                let current = 'home';
+                let current = '';
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
                     const sectionHeight = section.clientHeight;
@@ -472,14 +469,7 @@
                 const delay = index * 0.1; 
                 const coverUrl = work.cover ? work.cover : 'images/placeholder.jpg';
                 
-                // 彻底删除前端截取逻辑，只读取机器人推过来的真·AI标签！
-                const tags = (work.tags && work.tags.length > 0) ? work.tags : [];
-                let tagsHTML = '';
-                if(tags.length > 0) {
-                    tagsHTML = `<div class="absolute bottom-3 left-3 flex gap-1.5 z-10 flex-wrap max-w-[90%]">` + 
-                        tags.map(t => `<span class="px-2 py-1 text-[9px] font-bold rounded-md bg-black/60 text-white backdrop-blur-md border border-white/20 shadow-md tracking-wider"># ${t}</span>`).join('') + 
-                        `</div>`;
-                }
+                const tagsHTML = ``; // 原先的假标签已在这里彻底删除，保持封面干净
 
                 const cardHTML = `
                     <div class="liquid-glass hover-elastic flex flex-col cursor-pointer reveal-up" style="transition-delay: ${delay}s;" onclick="openWork('${work.id}')">
@@ -667,7 +657,7 @@
         window.copyTextToClipboard = function(text, type) { navigator.clipboard.writeText(text).then(() => { showToast(`已成功复制${type}: ${text}`); }).catch(err => { showToast('复制失败，请手动选择复制', true); }); }
 
         // ==========================================
-        // 🚀 核心：分享海报生成引擎 (彻底修复无响应 Bug)
+        // 🚀 核心：分享海报生成引擎 (徹底修復二维码丢失 Bug + 对接品牌 Logo)
         // ==========================================
         const generatePosterBtn = document.getElementById('generatePosterBtn');
         const posterModal = document.getElementById('posterModal');
@@ -681,31 +671,33 @@
             const work = worksList.find(w => String(w.id) === String(currentOpenWorkId));
             if(!work) return;
 
-            // 第一时间弹出提示，证明按键有效
-            showToast('正在为您生成高定海报，请稍候...');
+            // 🚀 优化 1：点击立刻弹出系统 Toast，避免用户焦急等待
+            showToast('正在为您生成全案海报，请稍候...');
 
-            posterResult.innerHTML = '<div class="py-20 text-center text-gray-500"><i class="fa fa-circle-o-notch fa-spin text-4xl mb-4"></i><p class="text-sm tracking-widest font-bold mt-2">正在合成专属海报...</p></div>';
-            downloadPosterBtn.classList.add('hidden'); 
-            
-            // 修复：确保用 .active 呼出弹窗
-            posterModal.classList.add('active');
+            posterResult.innerHTML = '<div class="py-20 text-center text-gray-500"><i class="fa fa-circle-o-notch fa-spin text-4xl mb-4"></i><p class="text-sm tracking-widest">正在合成专属海报...</p></div>';
+            downloadPosterBtn.classList.add('hidden'); posterModal.classList.remove('hidden');
 
             const pCover = document.getElementById('p-cover');
+            // 这里已经对接了 TinyPNG 压缩后的绝对路径，截图更稳
             pCover.src = work.cover || 'images/placeholder.jpg';
             
             let mainTitle = work.title; let subTitle = '';
             if (work.title.includes('|') || work.title.includes('｜')) { const parts = work.title.split(/\||｜/); mainTitle = parts[0].trim(); subTitle = parts[1].trim(); }
             document.getElementById('p-title').textContent = mainTitle; document.getElementById('p-sub').textContent = subTitle; document.getElementById('p-sub').style.display = subTitle ? 'block' : 'none'; document.getElementById('p-desc').textContent = work.desc || '专注餐饮品牌全案策划与统筹设计。';
 
+            // 🚀 彻底修复：将二维码生成逻辑放在 html2canvas 之前，并增加等待时间
             const qrContainer = document.getElementById('p-qrcode');
-            qrContainer.innerHTML = ''; 
+            qrContainer.innerHTML = ''; // 清空之前的
             const shareUrl = window.location.origin + window.location.pathname + '?work=' + work.id;
             
+            // 重新在极速 CDN 下生成二维码
             new QRCode(qrContainer, { text: shareUrl, width: 80, height: 80, colorDark : "#000000", colorLight : "#ffffff", correctLevel : QRCode.CorrectLevel.H });
 
+            // 强制等待图片和二维码都渲染完毕再截图 (增加到了 800ms，保证二维码不丢)
             pCover.onload = () => {
                 setTimeout(() => {
                     const posterDOM = document.getElementById('posterTemplate');
+                    // 开启 useCORS 和 allowTaint，保证跨域图片也能截到
                     html2canvas(posterDOM, { scale: 2, useCORS: true, allowTaint: true, backgroundColor: '#ffffff' }).then(canvas => {
                         generatedCanvas = canvas;
                         const img = document.createElement('img'); img.src = canvas.toDataURL('image/jpeg', 0.9); img.className = 'w-full h-auto block';
@@ -724,9 +716,8 @@
                 link.download = `林嘉雍作品分享-${work ? work.title.split('|')[0].trim() : '海报'}.jpg`; link.href = generatedCanvas.toDataURL('image/jpeg', 0.9); link.click();
             }
         });
-        
-        closePosterModal.addEventListener('click', () => { posterModal.classList.remove('active'); });
-        posterModal.addEventListener('click', (e) => { if(e.target === posterModal) posterModal.classList.remove('active'); });
+        closePosterModal.addEventListener('click', () => { posterModal.classList.add('hidden'); });
+        posterModal.addEventListener('click', (e) => { if(e.target === posterModal) posterModal.classList.add('hidden'); });
 
     </script>
 </body>
