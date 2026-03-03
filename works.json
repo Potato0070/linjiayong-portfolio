@@ -1,272 +1,13 @@
 {
   "worksList": [
     {
-      "id": "work_3179e0b6b52d800e9027e20974fa0f80",
-      "title": "徽仨宝 |  家有仨宝,现包更好",
-      "desc": "馄饨品牌全案策划设计",
-      "tags": [],
-      "cover": "images/uploads/cover_3179e0b6-b52d-800e-9027-e20974fa0f80.jpg",
-      "blocks": [
-        {
-          "type": "h1",
-          "html": "<em><strong>#01 项目信息</strong></em>"
-        },
-        {
-          "type": "p",
-          "html": "项目名称丨徽仨宝"
-        },
-        {
-          "type": "p",
-          "html": "项目类别丨社区家庭厨房・手工现包馄饨"
-        },
-        {
-          "type": "p",
-          "html": "项目地址丨安徽宿州"
-        },
-        {
-          "type": "p",
-          "html": "项目标签丨社区餐饮设计 手工馄饨品牌设计 家庭厨房餐饮设计 全时段鲜食社区店设计"
-        },
-        {
-          "type": "h1",
-          "html": "<em><strong>#02 项目背景</strong></em>"
-        },
-        {
-          "type": "p",
-          "html": "近年来，现包现做模式推动云吞饺子赛道高速发展，2024 年中国现包云吞饺子市场规模达 1100 亿元，预计 2027 年将增长至 1466.58 亿元。预制菜信任危机下，消费者对新鲜手工、健康透明的餐饮需求持续攀升，三四线城市消费升级趋势明显，安徽宿州本地现包馄饨市场仍以个体经营为主，品牌化程度低，存在巨大的市场空白。基于以上市场洞察，结合徽仨宝扎根社区、主打手工现包馄饨的核心优势，拓维为其打造了从策略到落地的全链条餐饮设计方案，让传统手工馄饨在社区烟火中焕发品牌化新生。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_1.jpg"
-        },
-        {
-          "type": "h1",
-          "html": "<em><strong>03 品牌策略</strong></em>"
-        },
-        {
-          "type": "p",
-          "html": "“徽仨宝” 三字深度绑定品牌核心基因：“徽” 直指安徽宿州的地域属性，锚定本土饮食文化根基，快速建立地域认知；“仨宝” 形成三重价值延伸，既呼应 “家有三宝，吃好最重要” 的家庭情感内核，又对应品牌 “鲜肉馅、鲜时蔬、鲜骨汤” 的三鲜锁味核心工艺，更契合品牌覆盖三餐、满足全年龄段消费的 “三餐吃饱” 产品定位。名称朗朗上口、自带邻里亲切感，既贴合社区餐饮的温馨调性，又形成强记忆、强传播的品牌命名优势。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_2.jpg"
-        },
-        {
-          "type": "p",
-          "html": "徽仨宝的定位是 “家庭厨房 - 鲜食管家”，打破传统社区馄饨店品类单一、时段局限的固有短板，以 “邻家手作，现包传鲜” 为核心理念，以手工现包馄饨为核心产品，融合云吞、水饺、特色小吃、主食等多元品类，打造全时段覆盖的社区型鲜食服务平台。聚焦社区家庭主妇、周边上班族、银发族三大核心客群，满足消费者对新鲜健康、便捷高效、高性价比与情感归属感的多重需求，以 “明档现包全程透明、三鲜锁味匠心工艺、全品类全龄适配、家一般的温暖服务” 为四大核心优势，在宿州馄饨市场构建差异化竞争壁垒，致力于成为社区家庭的 “第二厨房”，打造宿州馄饨市场头部品牌。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_3.jpg"
-        },
-        {
-          "type": "p",
-          "html": "突出 “手工现包的品质价值、三鲜锁味的食材价值、邻里相伴的情感价值” 三大核心，直击消费群体对食品安全、新鲜健康、便捷用餐与家庭归属感的核心诉求；品牌故事以 “家有三宝，吃好最重要” 的情感脉络展开，讲述从妈妈为孩子手工包馄饨的日常，到品牌延续这份家庭守护，用明档现包、三鲜锁味的匠心，让每个人在外都能吃到家里味道的品牌历程，深化 “家庭为本，新鲜至上” 的品牌价值，传递 “成为社区家庭饮食健康守护者” 的品牌理念与愿景，拉近与消费者的情感距离。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_4.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_5.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_6.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_7.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_8.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_9.jpg"
-        },
-        {
-          "type": "h1",
-          "html": "<em><strong>04 品牌设计</strong></em>"
-        },
-        {
-          "type": "p",
-          "html": "徽仨宝以新鲜绿、饺白、木质棕为核心色彩体系，既传递食材的新鲜健康，又营造社区餐饮的温馨烟火气；品牌标志采用图文结合与纯文字双方案，图文款巧妙融合馄饨外框与品牌首字 “徽” 的元素，搭配简洁流畅的现代化字体，新增 “现包现做・手作馄饨” 字样强化核心优势，兼具地域辨识度与品类认知度；纯文字款摒弃冗余元素，以简约现代的字体设计贴合年轻审美，强化品牌时尚感。辅助图形提取馄饨、鲜肉、鲜蔬、骨汤及手工制作工艺等核心元素，物料设计全面覆盖手提袋、餐具包、菜单、打包盒、会员卡、点餐牌等，均印有 “鲜肉鲜蔬鲜骨汤，三鲜守味更健康”“爱吃仨宝，现包更好” 等核心口号，整体视觉亲切温暖、统一协调，既贴合社区家庭厨房的品牌定位，又实现视觉、内涵与实用功能的高度统一。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_10.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_11.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_12.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_13.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_14.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_15.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_16.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_17.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_18.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_19.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_20.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_21.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_22.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_23.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_24.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_25.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_26.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_27.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_28.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_29.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_30.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_31.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_32.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_33.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_34.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_35.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_36.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_37.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_38.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_39.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_40.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_41.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_42.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_43.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_44.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_45.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_46.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_47.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_48.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_49.jpg"
-        },
-        {
-          "type": "h1",
-          "html": "<strong>THANKS~</strong>"
-        }
-      ]
-    },
-    {
       "id": "work_3179e0b6b52d801a90b4c7951e2c0dc1",
       "title": "黔三烙 | 黔山寻野,百味入锅",
       "desc": "贵州烙锅品牌全案策划设计",
       "tags": [],
       "cover": "images/uploads/cover_3179e0b6-b52d-801a-90b4-c7951e2c0dc1.jpg",
+      "sort": 1,
+      "featured": true,
       "blocks": [
         {
           "type": "h2",
@@ -739,899 +480,13 @@
       ]
     },
     {
-      "id": "work_3179e0b6b52d80419734e57965e2309d",
-      "title": "雨果 | 山野上桌,食得自然",
-      "desc": "云南菜品牌全案策划设计",
-      "tags": [],
-      "cover": "images/uploads/cover_3179e0b6-b52d-8041-9734-e57965e2309d.jpg",
-      "blocks": [
-        {
-          "type": "h1",
-          "html": "<em><strong>#01 项目信息</strong></em>"
-        },
-        {
-          "type": "p",
-          "html": "项目名称丨雨果"
-        },
-        {
-          "type": "p",
-          "html": "项目类别丨云南菜"
-        },
-        {
-          "type": "p",
-          "html": "项目地址丨云南大理"
-        },
-        {
-          "type": "p",
-          "html": "项目特色丨云南菜品牌设计 山野餐饮设计 海景餐饮设计 漂亮饭设计"
-        },
-        {
-          "type": "h1",
-          "html": "<em><strong>#02 项目背景</strong></em>"
-        },
-        {
-          "type": "p",
-          "html": "近年来，云贵菜持续处于上升态势，2025 年市场规模同比增长 5.9%，门店数已突破 4.2 万家，虽仅占全国中式正餐门店总数的 3.1%，但发展潜力巨大。同时，云贵川 Bistro 餐厅持续走红，云南菜呈现精致化、融合化、酸辣风盛行等特征，年轻消费者对 “漂亮饭” 的情绪价值、出片需求与文化体验诉求日益凸显。基于以上市场洞察，结合雨果 “近洱海的海景餐厅、保留云南菜正宗做法” 的核心优势，拓维为其打造了从策略到落地的全链条餐饮设计方案，让地道滇味在文学浪漫与山野鲜韵中焕发新生。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_1.jpg"
-        },
-        {
-          "type": "h1",
-          "html": "<em><strong>#03 品牌策略</strong></em>"
-        },
-        {
-          "type": "p",
-          "html": "“雨果” 二字暗藏双重核心内涵：一是借势法国浪漫主义作家维克多・雨果的大众认知，赋予品牌文学浪漫的人文调性；二是关联 “雨（雨林）+ 果（野果）”，直指云南菜的食材根源 —— 雨林野生菌、树番茄、滇橄榄等特色野果，点明品类味觉灵魂。英文名 “Hugo” 既贴合中文名发音，又强化国际感与记忆点，短短二字串联起文学、自然、品类三大核心，形成 “差异化认知 + 强传播性” 的品牌命名优势。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_2.jpg"
-        },
-        {
-          "type": "p",
-          "html": "雨果的定位是 “雨林野果・书页式浪漫云南菜”，打破传统云南菜仅强调 “正宗” 的局限，以 “翻越页页山海，寻获浪漫雨果” 为核心理念，融合云南雨林野果鲜材、雨果文学浪漫与洱海海景体验。聚焦 20-35 岁本地 / 外来游客中的小资年轻人，满足其对情绪价值、出片需求、文化体验与地道风味的多重诉求，客单价定位 60-80 元，以 “文学 IP + 海景稀缺性 + 山野鲜材” 的差异化优势，在云南菜市场中打造 “有故事、有浪漫、有风味” 的独特品牌认知。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_3.jpg"
-        },
-        {
-          "type": "p",
-          "html": "文案突出 “四季寻鲜的食材价值、书页浪漫的体验价值、地道滇味的味道价值” 三大核心，直击消费群体对新鲜健康、情感共鸣与品质风味的核心诉求；品牌故事以 “维克多・雨果的精神与云南山海相遇” 为脉络，讲述苍山、洱海与雨林野果的邂逅，深化 “自然野趣 + 人文浪漫” 的品牌价值，传递 “让每一次用餐都成为一场可阅读的浪漫旅程” 的品牌理念与愿景，拉近与消费者的情感距离。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_4.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_5.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_6.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_7.jpg"
-        },
-        {
-          "type": "h1",
-          "html": "<em><strong>#04 品牌设计</strong></em>"
-        },
-        {
-          "type": "p",
-          "html": "雨果以 #1F4258（深蓝）、#AD8B61（暖棕）、#342624（深褐）、#F5E6CE（米白）为核心色彩体系，呼应洱海蓝、山野棕与书页米白的质感；品牌标志提供图文结合与纯文字双方案，图文款以山野风百香果为原型，搭配质朴手写字体，传递自然气息与旅行日志书写感；纯文字款采用现代弯曲精致字体，演绎云南菜的精致化发展方向。辅助图形提取野果、书形态、邮票等元素，物料设计涵盖手提袋、筷套、餐垫、打包盒等，均印有 “山野上桌，食得自然” 等核心口号与品牌故事片段，整体实现视觉、内涵与实用功能的高度统一，精准诠释 “文学浪漫 + 山野本味” 的品牌定位。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_8.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_9.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_10.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_11.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_12.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_13.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_14.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_15.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_16.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_17.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_18.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_19.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_20.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_21.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_22.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_23.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_24.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_25.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_26.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_27.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_28.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_29.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_30.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_31.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_32.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_33.jpg"
-        },
-        {
-          "type": "h1",
-          "html": "<strong>THANKS~</strong>"
-        }
-      ]
-    },
-    {
-      "id": "work_3179e0b6b52d808b95a0e76f3da8ac35",
-      "title": "厚厨 | 鱼,是用泉水养的",
-      "desc": "湖南菜品牌全案策划设计",
-      "tags": [],
-      "cover": "images/uploads/cover_3179e0b6-b52d-808b-95a0-e76f3da8ac35.jpg",
-      "blocks": [
-        {
-          "type": "h1",
-          "html": "<em><strong>#01 项目信息</strong></em>"
-        },
-        {
-          "type": "p",
-          "html": "项目名称丨厚厨"
-        },
-        {
-          "type": "p",
-          "html": "项目类别丨湖南乡土菜·衡阳小炒"
-        },
-        {
-          "type": "p",
-          "html": "项目地址丨湖南衡阳"
-        },
-        {
-          "type": "p",
-          "html": "项目标签丨乡土菜餐饮设计 衡阳小炒设计 湘菜全案设计 原生态餐饮设计"
-        },
-        {
-          "type": "h1",
-          "html": "<em><strong>#02 项目背景</strong></em>"
-        },
-        {
-          "type": "p",
-          "html": "2024年中式正餐门店数量达139.5万家，过去五年以每年2.8%的速度稳步增长，其中湘菜凭借鲜、香、辣、现炒的核心特点，成为全国增速第二快的地方菜系，2024年湘菜市场规模约1100亿元，同比增长8.9%，远超中式正餐整体增速。同时，“反预制”情绪持续高涨，抖音平台“现炒”关键词热度环比增长219.8%，衡阳小炒作为湘菜细分热门赛道，市场关注度与消费者讨论度持续攀升，食客对原生态土食材、地道烟火气、乡土情怀的用餐需求愈发强烈。厚厨深耕衡阳小炒赛道多年，拥有自有鱼场与农场的供应链优势，主打泉水养殖瘦身鱼、农场散养土鸡土鸭等原生态食材，但存在品牌核心卖点不突出、乡土文化内核挖掘不足、差异化竞争壁垒薄弱的问题，基于以上市场洞察，为厚厨打造了从策略到落地的全链条餐饮设计方案，让地道衡阳乡土菜在原生烟火气中焕发新的生命力。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_1.jpg"
-        },
-        {
-          "type": "h1",
-          "html": "<em><strong>#03 品牌策略</strong></em>"
-        },
-        {
-          "type": "p",
-          "html": "品牌名字——“厚厨”二字深度绑定品牌核心基因：“厚”取自“厚道做人，匠心厨艺”的品牌初心，自带憨厚朴实、踏实靠谱的人格化特质，既传递出品牌对食材甄选、手艺传承的厚道坚守，也暗含食材醇厚本味、菜品口味厚重地道的产品属性，与品牌扎根乡土、实在待客的性格完美契合；“厨”字精准锚定餐饮品类属性，名称简短有力、记忆点强，与湖南乡土菜的品牌定位高度契合，极易引发消费者的情感共鸣与消费信任。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_2.jpg"
-        },
-        {
-          "type": "p",
-          "html": "厚厨的定位是“湖南乡土菜”，打破传统湘菜馆同质化的市井刻板印象，以“下乡寻好味，厚道做湘菜”为核心理念，将山泉直采的原生态食材与地道衡阳小炒工艺相结合。聚焦家庭聚餐、朋友小聚、商务宴请、小型宴席等多元消费场景，核心客群覆盖全年龄段湘菜爱好者，客单价定位50-80元，在大众正餐消费市场中打造兼具原生态品质、地道口味与乡土情怀的湖南乡土菜标杆，构建“食材够土、味道够正、体验够暖”的差异化竞争壁垒。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_3.jpg"
-        },
-        {
-          "type": "p",
-          "html": "突出 “原生态直采的食材价值、地道衡阳小炒的口味价值、湘南乡土的文化价值” 三大核心，直击消费者对新鲜品质、正宗口味与情感体验的核心诉求；品牌故事以“下乡寻味”为脉络，讲述品牌深耕衡阳小炒赛道多年，坚守地道手艺与厚道初心，每日奔赴田间地头、山泉鱼塘严选原生态土食材，坚持现点现炒还原湖南乡土本味，以厚道之心做地道好菜，把衡阳乡村的烟火气与人情味化作餐桌上的每一道菜，为食客打造如同回家吃饭般温暖自在的用餐体验。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_4.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_5.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_6.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_7.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_8.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_9.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_10.jpg"
-        },
-        {
-          "type": "h1",
-          "html": "<em><strong>#04 品牌设计</strong></em>"
-        },
-        {
-          "type": "p",
-          "html": "厚厨以专属定制湘西红（C:31 M:95 Y:89 K:0，R:193 G:45 B:45）为品牌主色，融合湘菜的热烈烟火气与乡土菜的质朴质感，辅助图形提取泉水鱼、散养土鸡、田间蔬菜、衡阳方言、田园风物等核心元素，搭配口语化、接地气的风格文案；物料设计全面贯穿品牌基因，从餐具包、纸巾盒、菜单到打包袋、优惠券、工作服，均印有品牌标志、核心口号与食材溯源信息，让每一份物料都成为品牌故事的载体，整体实现视觉、内涵与实用功能的高度统一。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_11.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_12.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_13.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_14.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_15.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_16.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_17.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_18.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_19.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_20.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_21.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_22.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_23.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_24.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_25.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_26.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_27.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_28.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_29.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_30.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_31.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_32.jpg"
-        },
-        {
-          "type": "h1",
-          "html": "<strong>THANKS~</strong>"
-        }
-      ]
-    },
-    {
-      "id": "work_3179e0b6b52d808d80affbf789bb4735",
-      "title": "晓棠 | 晓拾川野,棠下百味",
-      "desc": "四川菜品牌全案策划设计",
-      "tags": [],
-      "cover": "images/uploads/cover_3179e0b6-b52d-808d-80af-fbf789bb4735.jpg",
-      "blocks": [
-        {
-          "type": "h1",
-          "html": "<em><strong>#01 项目信息</strong></em>"
-        },
-        {
-          "type": "p",
-          "html": "项目名称丨晓棠"
-        },
-        {
-          "type": "p",
-          "html": "项目类别丨山野川菜"
-        },
-        {
-          "type": "p",
-          "html": "项目地址丨四川成都"
-        },
-        {
-          "type": "p",
-          "html": "项目标签丨高端川菜设计 山野风餐饮设计 川菜设计 漂亮饭设计"
-        },
-        {
-          "type": "h1",
-          "html": "<em><strong>#02 项目背景</strong></em>"
-        },
-        {
-          "type": "p",
-          "html": "2024年，川菜以15.2万家门店数位居全国地方菜系第一，麻辣风味的独特魅力让辣味菜品持续占据餐饮市场主流，79%的全国餐饮门店含辣菜，48%的外卖订单涉及辣菜。同时，云贵川Bistro概念兴起，传统川菜的现代演绎成为行业新趋势，年轻消费群体对“漂亮饭”的社交打卡需求日益凸显。基于以上市场洞察，结合晓棠地处成都双流机场、棠湖公园附近的地理优势，拓维为晓棠打造了从策略到落地的全链条餐饮设计方案，让地道川菜在山野鲜韵中焕发新生。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_1.jpg"
-        },
-        {
-          "type": "h1",
-          "html": "<em><strong>#03 品牌策略</strong></em>"
-        },
-        {
-          "type": "p",
-          "html": "品牌名字——“晓棠”二字暗藏品牌核心密码：“晓”既指向清晨鲜采的食材本味，呼应“好食材在早晨”的品质承诺，又寓意破晓新生的品牌活力；“棠”既关联成都棠湖公园的地域属性，又以海棠花为文化载体——四川作为海棠花主要发源地，为品牌注入川蜀文化正统性。名称谐音“小棠”，暗含菜品小巧精致的特点，契合年轻人社交打卡的消费诉求，短短二字串联起时间、地域、文化与消费需求，形成独特的品牌记忆点。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_2.jpg"
-        },
-        {
-          "type": "p",
-          "html": "晓棠的定位是“山野间川菜馆”，打破传统川菜“重口味、大分量”的固有印象，以“晓见本味，棠香依旧”为核心理念，将晨采的山野鲜材与地道川菜工艺相结合。聚焦以年轻人为主的消费群体，满足其对性价比、社交属性与正宗口味的多重需求，客单价定位100元上下，在大众化消费市场中打造兼具品质感与文化感的高端山野川菜体验，构建差异化竞争优势。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_3.jpg"
-        },
-        {
-          "type": "p",
-          "html": "文化端突出 “晨采鲜材的食材价值、麻辣地道的味道价值、川蜀棠韵的文化价值” 三大核心，直击年轻群体对新鲜品质、正宗口味与社交体验的核心诉求；品牌故事以古蜀太阳神鸟与海棠花的神话为脉络，深化 “自然本味、匠心传承、文化正统” 的品牌价值，传递 “让山野鲜韵融入都市烟火” 的品牌理念与愿景，拉近与消费者的情感距离。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_4.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_5.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_6.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_7.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_8.jpg"
-        },
-        {
-          "type": "h1",
-          "html": "<em><strong>#04 品牌设计</strong></em>"
-        },
-        {
-          "type": "p",
-          "html": "晓棠以专属定制色（C:42M:15Y:73K:0，R:170G:193B:97）为品牌主色，融合山野自然的清新与川菜的温润质感，辅助图形提取花椒、海棠花、山野食材等元素，搭配多元风格文案；物料设计全面贯穿品牌基因，从餐具包、纸巾盒到打包盒、会员卡，均印有品牌标志、核心口号与食材溯源信息，让每一份物料都成为品牌故事的载体，整体实现视觉、内涵与实用功能的高度统一。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_9.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_10.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_11.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_12.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_13.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_14.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_15.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_16.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_17.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_18.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_19.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_20.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_21.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_22.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_23.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_24.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_25.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_26.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_27.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_28.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_29.jpg"
-        },
-        {
-          "type": "p",
-          "html": "晓棠门店以 “本土、静谧、自然野趣” 为设计目标，门头传递 “山野间川菜馆” 定位，等候区营造舒适氛围，公共区域采用开放式布局并设置明档展示区，后厨细节融入自然元素，包厢以多元主题满足不同场景需求，整体空间从硬件到软装全方位诠释“晓”的核心概念，打造兼具味觉、视觉与情感体验的用餐场景。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_30.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_31.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_32.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_33.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_34.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_35.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_36.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_37.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_38.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_39.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_40.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_41.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_42.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_43.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_44.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_45.jpg"
-        },
-        {
-          "type": "h1",
-          "html": "<strong>THANKS~</strong>"
-        }
-      ]
-    },
-    {
-      "id": "work_3179e0b6b52d80a89828f93a1cd4fc73",
-      "title": "BOBO | 你的口味,自由掌握",
-      "desc": "煎饼果子品牌全案策划设计",
-      "tags": [],
-      "cover": "images/uploads/cover_3179e0b6-b52d-80a8-9828-f93a1cd4fc73.jpg",
-      "blocks": [
-        {
-          "type": "h1",
-          "html": "<em><strong>#01 项目信息</strong></em>"
-        },
-        {
-          "type": "p",
-          "html": "项目名称丨BOBO"
-        },
-        {
-          "type": "p",
-          "html": "项目类别丨亚洲融合快餐"
-        },
-        {
-          "type": "p",
-          "html": "项目地址丨美国"
-        },
-        {
-          "type": "p",
-          "html": "项目特色丨跨境餐饮设计融合快餐设计定制化餐饮设计IP赋能快餐品牌设计"
-        },
-        {
-          "type": "h1",
-          "html": "<em><strong>#02 项目背景</strong></em>"
-        },
-        {
-          "type": "p",
-          "html": "近年来，亚洲风味在全球餐饮市场持续升温，融合快餐凭借“文化碰撞+便捷体验”成为美国主流市场新增长点，年轻消费者对个性化定制、健康食材与高效用餐的需求日益凸显。基于此，BOBO以中国传统煎饼果子为灵感，打造“亚洲融合+美式快餐”的创新模式，拓维为其量身定制从策略到落地的全链条餐饮设计方案，让传统街头风味在异国市场焕发年轻活力。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_1.jpg"
-        },
-        {
-          "type": "h1",
-          "html": "<em><strong>#03 品牌策略</strong></em>"
-        },
-        {
-          "type": "p",
-          "html": "“BOBO”一名简洁易记，契合美国市场对快餐品牌的命名偏好，发音轻快且无文化壁垒；字母“B”呼应“煎饼（Bing）”的品类根源，双“O”自然衔接为“无限符号”，暗合“风味无限融合、定制无限可能”的品牌核心；同时，名称自带年轻活力调性，精准传递“自由、趣味、无拘无束”的品牌态度，为跨文化传播奠定基础。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_2.jpg"
-        },
-        {
-          "type": "p",
-          "html": "BOBO打破传统煎饼的地域局限与美式快餐的标准化束缚，以“YourTaste.YourTempo.（你的口味你做主）”为核心理念，融合中国煎饼的rustic魅力与美式快餐的便捷高效。聚焦美国年轻消费群体及追求新鲜体验的大众食客，满足其对个性化定制、健康食材与高效用餐的多重需求，以“五色植物基饼皮、明火炙烤高蛋白、鲜果气泡水自由”为核心卖点，打造可大规模复制的现代化快餐连锁品牌，构建“融合+定制+健康”的差异化竞争优势。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_3.jpg"
-        },
-        {
-          "type": "p",
-          "html": "文化端突出“原生健康的食材价值、无限定制的选择价值、东西融合的风味价值”三大核心，直击美国消费者对健康安全、个性表达与新鲜体验的核心诉求，传递“让每一口都贴合心意，让快餐也有仪式感”的品牌理念，拉近与消费者的情感距离。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_4.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_5.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_6.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_7.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_8.jpg"
-        },
-        {
-          "type": "h1",
-          "html": "<em><strong>#04 品牌设计</strong></em>"
-        },
-        {
-          "type": "p",
-          "html": "BOBO以现代简约为设计基调，品牌标志采用圆润微斜的现代黑体，字母“B”曲线变形呼应卷饼质感，双“O”暗含无限符号寓意，注入动态活力与年轻趣味；超级符号以“B”“O”为基底，浓缩“融合+定制”核心价值。物料设计涵盖手提袋、饮品杯、打包盒、贴纸等，均印有“YourTaste.YourTempo.”等核心口号，搭配四重“声调”图形延展元素，整体视觉简洁高效，既契合美国主流市场对“精致快餐”的审美趋势，又精准传递品牌自由、融合的核心调性。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_9.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_10.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_11.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_12.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_13.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_14.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_15.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_16.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_17.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_18.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_19.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_20.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_21.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_22.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_23.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_24.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_25.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_26.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_27.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_28.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_29.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_30.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_31.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_32.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_33.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_34.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_35.jpg"
-        },
-        {
-          "type": "p",
-          "html": "BOBO门店以“灰色不锈钢、金属喷漆、水泥地砖、木纹、涂料”为主要材质，打造现代简约且高效实用的快餐空间。门头突出“BOBO”品牌标识与“MADEFRESH・YOURWAY”核心主张，吸引路人关注；店内设置开放式厨房（OPENKITCHEN），直观呈现食材处理与制作过程，强化“极致透明”的品牌承诺；点餐区与取餐区动线清晰，搭配“ORDER”“PICKUP”等醒目标识，满足快节奏用餐需求；墙面点缀品牌超级符号与核心文案，整体空间从硬件到软装全方位诠释“高效、透明、自由定制”的核心定位，打造兼具视觉吸引力与实用功能的美式快餐体验场景。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_36.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_37.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_38.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_39.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_40.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_41.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_42.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_43.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_44.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_45.jpg"
-        },
-        {
-          "type": "h1",
-          "html": "<strong>THANKS~</strong>"
-        }
-      ]
-    },
-    {
       "id": "work_3179e0b6b52d80f683dcc877a08f8feb",
       "title": "彭城李記 | 四季好虾,时时好味",
       "desc": "烧烤大排档品牌全案策划设计",
       "tags": [],
       "cover": "images/uploads/cover_3179e0b6-b52d-80f6-83dc-c877a08f8feb.jpg",
+      "sort": 2,
+      "featured": true,
       "blocks": [
         {
           "type": "h2",
@@ -1956,6 +811,1424 @@
         {
           "type": "h2",
           "html": "版权声明：本方案版权归彭城李記品牌与创作方所有，禁止商用盗用"
+        }
+      ]
+    },
+    {
+      "id": "work_3179e0b6b52d80419734e57965e2309d",
+      "title": "雨果 | 山野上桌,食得自然",
+      "desc": "云南菜品牌全案策划设计",
+      "tags": [],
+      "cover": "images/uploads/cover_3179e0b6-b52d-8041-9734-e57965e2309d.jpg",
+      "sort": 3,
+      "featured": false,
+      "blocks": [
+        {
+          "type": "h1",
+          "html": "<em><strong>#01 项目信息</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "项目名称丨雨果"
+        },
+        {
+          "type": "p",
+          "html": "项目类别丨云南菜"
+        },
+        {
+          "type": "p",
+          "html": "项目地址丨云南大理"
+        },
+        {
+          "type": "p",
+          "html": "项目特色丨云南菜品牌设计 山野餐饮设计 海景餐饮设计 漂亮饭设计"
+        },
+        {
+          "type": "h1",
+          "html": "<em><strong>#02 项目背景</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "近年来，云贵菜持续处于上升态势，2025 年市场规模同比增长 5.9%，门店数已突破 4.2 万家，虽仅占全国中式正餐门店总数的 3.1%，但发展潜力巨大。同时，云贵川 Bistro 餐厅持续走红，云南菜呈现精致化、融合化、酸辣风盛行等特征，年轻消费者对 “漂亮饭” 的情绪价值、出片需求与文化体验诉求日益凸显。基于以上市场洞察，结合雨果 “近洱海的海景餐厅、保留云南菜正宗做法” 的核心优势，拓维为其打造了从策略到落地的全链条餐饮设计方案，让地道滇味在文学浪漫与山野鲜韵中焕发新生。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_1.jpg"
+        },
+        {
+          "type": "h1",
+          "html": "<em><strong>#03 品牌策略</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "“雨果” 二字暗藏双重核心内涵：一是借势法国浪漫主义作家维克多・雨果的大众认知，赋予品牌文学浪漫的人文调性；二是关联 “雨（雨林）+ 果（野果）”，直指云南菜的食材根源 —— 雨林野生菌、树番茄、滇橄榄等特色野果，点明品类味觉灵魂。英文名 “Hugo” 既贴合中文名发音，又强化国际感与记忆点，短短二字串联起文学、自然、品类三大核心，形成 “差异化认知 + 强传播性” 的品牌命名优势。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_2.jpg"
+        },
+        {
+          "type": "p",
+          "html": "雨果的定位是 “雨林野果・书页式浪漫云南菜”，打破传统云南菜仅强调 “正宗” 的局限，以 “翻越页页山海，寻获浪漫雨果” 为核心理念，融合云南雨林野果鲜材、雨果文学浪漫与洱海海景体验。聚焦 20-35 岁本地 / 外来游客中的小资年轻人，满足其对情绪价值、出片需求、文化体验与地道风味的多重诉求，客单价定位 60-80 元，以 “文学 IP + 海景稀缺性 + 山野鲜材” 的差异化优势，在云南菜市场中打造 “有故事、有浪漫、有风味” 的独特品牌认知。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_3.jpg"
+        },
+        {
+          "type": "p",
+          "html": "文案突出 “四季寻鲜的食材价值、书页浪漫的体验价值、地道滇味的味道价值” 三大核心，直击消费群体对新鲜健康、情感共鸣与品质风味的核心诉求；品牌故事以 “维克多・雨果的精神与云南山海相遇” 为脉络，讲述苍山、洱海与雨林野果的邂逅，深化 “自然野趣 + 人文浪漫” 的品牌价值，传递 “让每一次用餐都成为一场可阅读的浪漫旅程” 的品牌理念与愿景，拉近与消费者的情感距离。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_4.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_5.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_6.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_7.jpg"
+        },
+        {
+          "type": "h1",
+          "html": "<em><strong>#04 品牌设计</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "雨果以 #1F4258（深蓝）、#AD8B61（暖棕）、#342624（深褐）、#F5E6CE（米白）为核心色彩体系，呼应洱海蓝、山野棕与书页米白的质感；品牌标志提供图文结合与纯文字双方案，图文款以山野风百香果为原型，搭配质朴手写字体，传递自然气息与旅行日志书写感；纯文字款采用现代弯曲精致字体，演绎云南菜的精致化发展方向。辅助图形提取野果、书形态、邮票等元素，物料设计涵盖手提袋、筷套、餐垫、打包盒等，均印有 “山野上桌，食得自然” 等核心口号与品牌故事片段，整体实现视觉、内涵与实用功能的高度统一，精准诠释 “文学浪漫 + 山野本味” 的品牌定位。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_8.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_9.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_10.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_11.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_12.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_13.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_14.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_15.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_16.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_17.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_18.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_19.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_20.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_21.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_22.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_23.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_24.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_25.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_26.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_27.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_28.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_29.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_30.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_31.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_32.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_33.jpg"
+        },
+        {
+          "type": "h1",
+          "html": "<strong>THANKS~</strong>"
+        }
+      ]
+    },
+    {
+      "id": "work_3179e0b6b52d808b95a0e76f3da8ac35",
+      "title": "厚厨 | 鱼,是用泉水养的",
+      "desc": "湖南菜品牌全案策划设计",
+      "tags": [],
+      "cover": "images/uploads/cover_3179e0b6-b52d-808b-95a0-e76f3da8ac35.jpg",
+      "sort": 4,
+      "featured": true,
+      "blocks": [
+        {
+          "type": "h1",
+          "html": "<em><strong>#01 项目信息</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "项目名称丨厚厨"
+        },
+        {
+          "type": "p",
+          "html": "项目类别丨湖南乡土菜·衡阳小炒"
+        },
+        {
+          "type": "p",
+          "html": "项目地址丨湖南衡阳"
+        },
+        {
+          "type": "p",
+          "html": "项目标签丨乡土菜餐饮设计 衡阳小炒设计 湘菜全案设计 原生态餐饮设计"
+        },
+        {
+          "type": "h1",
+          "html": "<em><strong>#02 项目背景</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "2024年中式正餐门店数量达139.5万家，过去五年以每年2.8%的速度稳步增长，其中湘菜凭借鲜、香、辣、现炒的核心特点，成为全国增速第二快的地方菜系，2024年湘菜市场规模约1100亿元，同比增长8.9%，远超中式正餐整体增速。同时，“反预制”情绪持续高涨，抖音平台“现炒”关键词热度环比增长219.8%，衡阳小炒作为湘菜细分热门赛道，市场关注度与消费者讨论度持续攀升，食客对原生态土食材、地道烟火气、乡土情怀的用餐需求愈发强烈。厚厨深耕衡阳小炒赛道多年，拥有自有鱼场与农场的供应链优势，主打泉水养殖瘦身鱼、农场散养土鸡土鸭等原生态食材，但存在品牌核心卖点不突出、乡土文化内核挖掘不足、差异化竞争壁垒薄弱的问题，基于以上市场洞察，为厚厨打造了从策略到落地的全链条餐饮设计方案，让地道衡阳乡土菜在原生烟火气中焕发新的生命力。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_1.jpg"
+        },
+        {
+          "type": "h1",
+          "html": "<em><strong>#03 品牌策略</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "品牌名字——“厚厨”二字深度绑定品牌核心基因：“厚”取自“厚道做人，匠心厨艺”的品牌初心，自带憨厚朴实、踏实靠谱的人格化特质，既传递出品牌对食材甄选、手艺传承的厚道坚守，也暗含食材醇厚本味、菜品口味厚重地道的产品属性，与品牌扎根乡土、实在待客的性格完美契合；“厨”字精准锚定餐饮品类属性，名称简短有力、记忆点强，与湖南乡土菜的品牌定位高度契合，极易引发消费者的情感共鸣与消费信任。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_2.jpg"
+        },
+        {
+          "type": "p",
+          "html": "厚厨的定位是“湖南乡土菜”，打破传统湘菜馆同质化的市井刻板印象，以“下乡寻好味，厚道做湘菜”为核心理念，将山泉直采的原生态食材与地道衡阳小炒工艺相结合。聚焦家庭聚餐、朋友小聚、商务宴请、小型宴席等多元消费场景，核心客群覆盖全年龄段湘菜爱好者，客单价定位50-80元，在大众正餐消费市场中打造兼具原生态品质、地道口味与乡土情怀的湖南乡土菜标杆，构建“食材够土、味道够正、体验够暖”的差异化竞争壁垒。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_3.jpg"
+        },
+        {
+          "type": "p",
+          "html": "突出 “原生态直采的食材价值、地道衡阳小炒的口味价值、湘南乡土的文化价值” 三大核心，直击消费者对新鲜品质、正宗口味与情感体验的核心诉求；品牌故事以“下乡寻味”为脉络，讲述品牌深耕衡阳小炒赛道多年，坚守地道手艺与厚道初心，每日奔赴田间地头、山泉鱼塘严选原生态土食材，坚持现点现炒还原湖南乡土本味，以厚道之心做地道好菜，把衡阳乡村的烟火气与人情味化作餐桌上的每一道菜，为食客打造如同回家吃饭般温暖自在的用餐体验。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_4.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_5.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_6.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_7.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_8.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_9.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_10.jpg"
+        },
+        {
+          "type": "h1",
+          "html": "<em><strong>#04 品牌设计</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "厚厨以专属定制湘西红（C:31 M:95 Y:89 K:0，R:193 G:45 B:45）为品牌主色，融合湘菜的热烈烟火气与乡土菜的质朴质感，辅助图形提取泉水鱼、散养土鸡、田间蔬菜、衡阳方言、田园风物等核心元素，搭配口语化、接地气的风格文案；物料设计全面贯穿品牌基因，从餐具包、纸巾盒、菜单到打包袋、优惠券、工作服，均印有品牌标志、核心口号与食材溯源信息，让每一份物料都成为品牌故事的载体，整体实现视觉、内涵与实用功能的高度统一。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_11.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_12.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_13.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_14.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_15.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_16.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_17.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_18.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_19.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_20.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_21.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_22.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_23.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_24.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_25.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_26.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_27.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_28.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_29.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_30.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_31.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808b-95a0-e76f3da8ac35_32.jpg"
+        },
+        {
+          "type": "h1",
+          "html": "<strong>THANKS~</strong>"
+        }
+      ]
+    },
+    {
+      "id": "work_3179e0b6b52d80a89828f93a1cd4fc73",
+      "title": "BOBO | 你的口味,自由掌握",
+      "desc": "煎饼果子品牌全案策划设计",
+      "tags": [],
+      "cover": "images/uploads/cover_3179e0b6-b52d-80a8-9828-f93a1cd4fc73.jpg",
+      "sort": 5,
+      "featured": true,
+      "blocks": [
+        {
+          "type": "h1",
+          "html": "<em><strong>#01 项目信息</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "项目名称丨BOBO"
+        },
+        {
+          "type": "p",
+          "html": "项目类别丨亚洲融合快餐"
+        },
+        {
+          "type": "p",
+          "html": "项目地址丨美国"
+        },
+        {
+          "type": "p",
+          "html": "项目特色丨跨境餐饮设计融合快餐设计定制化餐饮设计IP赋能快餐品牌设计"
+        },
+        {
+          "type": "h1",
+          "html": "<em><strong>#02 项目背景</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "近年来，亚洲风味在全球餐饮市场持续升温，融合快餐凭借“文化碰撞+便捷体验”成为美国主流市场新增长点，年轻消费者对个性化定制、健康食材与高效用餐的需求日益凸显。基于此，BOBO以中国传统煎饼果子为灵感，打造“亚洲融合+美式快餐”的创新模式，拓维为其量身定制从策略到落地的全链条餐饮设计方案，让传统街头风味在异国市场焕发年轻活力。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_1.jpg"
+        },
+        {
+          "type": "h1",
+          "html": "<em><strong>#03 品牌策略</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "“BOBO”一名简洁易记，契合美国市场对快餐品牌的命名偏好，发音轻快且无文化壁垒；字母“B”呼应“煎饼（Bing）”的品类根源，双“O”自然衔接为“无限符号”，暗合“风味无限融合、定制无限可能”的品牌核心；同时，名称自带年轻活力调性，精准传递“自由、趣味、无拘无束”的品牌态度，为跨文化传播奠定基础。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_2.jpg"
+        },
+        {
+          "type": "p",
+          "html": "BOBO打破传统煎饼的地域局限与美式快餐的标准化束缚，以“YourTaste.YourTempo.（你的口味你做主）”为核心理念，融合中国煎饼的rustic魅力与美式快餐的便捷高效。聚焦美国年轻消费群体及追求新鲜体验的大众食客，满足其对个性化定制、健康食材与高效用餐的多重需求，以“五色植物基饼皮、明火炙烤高蛋白、鲜果气泡水自由”为核心卖点，打造可大规模复制的现代化快餐连锁品牌，构建“融合+定制+健康”的差异化竞争优势。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_3.jpg"
+        },
+        {
+          "type": "p",
+          "html": "文化端突出“原生健康的食材价值、无限定制的选择价值、东西融合的风味价值”三大核心，直击美国消费者对健康安全、个性表达与新鲜体验的核心诉求，传递“让每一口都贴合心意，让快餐也有仪式感”的品牌理念，拉近与消费者的情感距离。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_4.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_5.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_6.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_7.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_8.jpg"
+        },
+        {
+          "type": "h1",
+          "html": "<em><strong>#04 品牌设计</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "BOBO以现代简约为设计基调，品牌标志采用圆润微斜的现代黑体，字母“B”曲线变形呼应卷饼质感，双“O”暗含无限符号寓意，注入动态活力与年轻趣味；超级符号以“B”“O”为基底，浓缩“融合+定制”核心价值。物料设计涵盖手提袋、饮品杯、打包盒、贴纸等，均印有“YourTaste.YourTempo.”等核心口号，搭配四重“声调”图形延展元素，整体视觉简洁高效，既契合美国主流市场对“精致快餐”的审美趋势，又精准传递品牌自由、融合的核心调性。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_9.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_10.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_11.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_12.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_13.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_14.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_15.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_16.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_17.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_18.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_19.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_20.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_21.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_22.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_23.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_24.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_25.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_26.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_27.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_28.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_29.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_30.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_31.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_32.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_33.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_34.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_35.jpg"
+        },
+        {
+          "type": "p",
+          "html": "BOBO门店以“灰色不锈钢、金属喷漆、水泥地砖、木纹、涂料”为主要材质，打造现代简约且高效实用的快餐空间。门头突出“BOBO”品牌标识与“MADEFRESH・YOURWAY”核心主张，吸引路人关注；店内设置开放式厨房（OPENKITCHEN），直观呈现食材处理与制作过程，强化“极致透明”的品牌承诺；点餐区与取餐区动线清晰，搭配“ORDER”“PICKUP”等醒目标识，满足快节奏用餐需求；墙面点缀品牌超级符号与核心文案，整体空间从硬件到软装全方位诠释“高效、透明、自由定制”的核心定位，打造兼具视觉吸引力与实用功能的美式快餐体验场景。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_36.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_37.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_38.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_39.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_40.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_41.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_42.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_43.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_44.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-80a8-9828-f93a1cd4fc73_45.jpg"
+        },
+        {
+          "type": "h1",
+          "html": "<strong>THANKS~</strong>"
+        }
+      ]
+    },
+    {
+      "id": "work_3179e0b6b52d800e9027e20974fa0f80",
+      "title": "徽仨宝 |  家有仨宝,现包更好",
+      "desc": "馄饨品牌全案策划设计",
+      "tags": [],
+      "cover": "images/uploads/cover_3179e0b6-b52d-800e-9027-e20974fa0f80.jpg",
+      "sort": 6,
+      "featured": false,
+      "blocks": [
+        {
+          "type": "h1",
+          "html": "<em><strong>#01 项目信息</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "项目名称丨徽仨宝"
+        },
+        {
+          "type": "p",
+          "html": "项目类别丨社区家庭厨房・手工现包馄饨"
+        },
+        {
+          "type": "p",
+          "html": "项目地址丨安徽宿州"
+        },
+        {
+          "type": "p",
+          "html": "项目标签丨社区餐饮设计 手工馄饨品牌设计 家庭厨房餐饮设计 全时段鲜食社区店设计"
+        },
+        {
+          "type": "h1",
+          "html": "<em><strong>#02 项目背景</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "近年来，现包现做模式推动云吞饺子赛道高速发展，2024 年中国现包云吞饺子市场规模达 1100 亿元，预计 2027 年将增长至 1466.58 亿元。预制菜信任危机下，消费者对新鲜手工、健康透明的餐饮需求持续攀升，三四线城市消费升级趋势明显，安徽宿州本地现包馄饨市场仍以个体经营为主，品牌化程度低，存在巨大的市场空白。基于以上市场洞察，结合徽仨宝扎根社区、主打手工现包馄饨的核心优势，拓维为其打造了从策略到落地的全链条餐饮设计方案，让传统手工馄饨在社区烟火中焕发品牌化新生。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_1.jpg"
+        },
+        {
+          "type": "h1",
+          "html": "<em><strong>03 品牌策略</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "“徽仨宝” 三字深度绑定品牌核心基因：“徽” 直指安徽宿州的地域属性，锚定本土饮食文化根基，快速建立地域认知；“仨宝” 形成三重价值延伸，既呼应 “家有三宝，吃好最重要” 的家庭情感内核，又对应品牌 “鲜肉馅、鲜时蔬、鲜骨汤” 的三鲜锁味核心工艺，更契合品牌覆盖三餐、满足全年龄段消费的 “三餐吃饱” 产品定位。名称朗朗上口、自带邻里亲切感，既贴合社区餐饮的温馨调性，又形成强记忆、强传播的品牌命名优势。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_2.jpg"
+        },
+        {
+          "type": "p",
+          "html": "徽仨宝的定位是 “家庭厨房 - 鲜食管家”，打破传统社区馄饨店品类单一、时段局限的固有短板，以 “邻家手作，现包传鲜” 为核心理念，以手工现包馄饨为核心产品，融合云吞、水饺、特色小吃、主食等多元品类，打造全时段覆盖的社区型鲜食服务平台。聚焦社区家庭主妇、周边上班族、银发族三大核心客群，满足消费者对新鲜健康、便捷高效、高性价比与情感归属感的多重需求，以 “明档现包全程透明、三鲜锁味匠心工艺、全品类全龄适配、家一般的温暖服务” 为四大核心优势，在宿州馄饨市场构建差异化竞争壁垒，致力于成为社区家庭的 “第二厨房”，打造宿州馄饨市场头部品牌。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_3.jpg"
+        },
+        {
+          "type": "p",
+          "html": "突出 “手工现包的品质价值、三鲜锁味的食材价值、邻里相伴的情感价值” 三大核心，直击消费群体对食品安全、新鲜健康、便捷用餐与家庭归属感的核心诉求；品牌故事以 “家有三宝，吃好最重要” 的情感脉络展开，讲述从妈妈为孩子手工包馄饨的日常，到品牌延续这份家庭守护，用明档现包、三鲜锁味的匠心，让每个人在外都能吃到家里味道的品牌历程，深化 “家庭为本，新鲜至上” 的品牌价值，传递 “成为社区家庭饮食健康守护者” 的品牌理念与愿景，拉近与消费者的情感距离。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_4.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_5.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_6.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_7.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_8.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_9.jpg"
+        },
+        {
+          "type": "h1",
+          "html": "<em><strong>04 品牌设计</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "徽仨宝以新鲜绿、饺白、木质棕为核心色彩体系，既传递食材的新鲜健康，又营造社区餐饮的温馨烟火气；品牌标志采用图文结合与纯文字双方案，图文款巧妙融合馄饨外框与品牌首字 “徽” 的元素，搭配简洁流畅的现代化字体，新增 “现包现做・手作馄饨” 字样强化核心优势，兼具地域辨识度与品类认知度；纯文字款摒弃冗余元素，以简约现代的字体设计贴合年轻审美，强化品牌时尚感。辅助图形提取馄饨、鲜肉、鲜蔬、骨汤及手工制作工艺等核心元素，物料设计全面覆盖手提袋、餐具包、菜单、打包盒、会员卡、点餐牌等，均印有 “鲜肉鲜蔬鲜骨汤，三鲜守味更健康”“爱吃仨宝，现包更好” 等核心口号，整体视觉亲切温暖、统一协调，既贴合社区家庭厨房的品牌定位，又实现视觉、内涵与实用功能的高度统一。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_10.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_11.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_12.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_13.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_14.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_15.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_16.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_17.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_18.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_19.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_20.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_21.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_22.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_23.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_24.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_25.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_26.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_27.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_28.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_29.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_30.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_31.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_32.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_33.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_34.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_35.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_36.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_37.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_38.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_39.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_40.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_41.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_42.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_43.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_44.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_45.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_46.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_47.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_48.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_49.jpg"
+        },
+        {
+          "type": "h1",
+          "html": "<strong>THANKS~</strong>"
+        }
+      ]
+    },
+    {
+      "id": "work_3189e0b6b52d808a980cc792dabf734d",
+      "title": "银记 | 传承好味道,广东老字号",
+      "desc": "广东老字号快餐品牌全案设计",
+      "tags": [],
+      "cover": "images/uploads/cover_3189e0b6-b52d-808a-980c-c792dabf734d.jpg",
+      "sort": 7,
+      "featured": true,
+      "blocks": [
+        {
+          "type": "h1",
+          "html": "<em><strong>#01 项目信息</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "项目名称丨银记肠粉"
+        },
+        {
+          "type": "p",
+          "html": "项目类别丨广式布拉肠·粤式老字号小吃"
+        },
+        {
+          "type": "p",
+          "html": "项目地址丨广东广州"
+        },
+        {
+          "type": "p",
+          "html": "项目标签丨广州老字号餐饮设计 广式肠粉全案设计 非遗小吃餐饮设计 全时段快餐设计"
+        },
+        {
+          "type": "h1",
+          "html": "<em><strong>#02 项目背景</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "早餐市场规模接近2万亿元，刚需属性强、消费频次高的小吃快餐赛道，已成为餐饮行业发展的中坚力量。肠粉作为广府饮食文化的经典符号，是广州人一日三餐的核心选择之一，赛道市场需求旺盛，但同时行业竞争日趋激烈，红荔村、华辉拉肠等新兴品牌快速崛起，对老字号品牌形成冲击。银记肠粉作为1958年创立的广式肠粉老字号，拥有60余年品牌积淀与非遗布拉肠工艺传承，但面临着品牌形象传统、年轻客群吸引力不足、差异化卖点不突出的发展痛点，基于以上市场洞察，为银记肠粉打造了从策略到落地的全链条餐饮设计方案，让广式布拉肠老字号在坚守传统中焕发全新品牌生命力。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_1.jpg"
+        },
+        {
+          "type": "h1",
+          "html": "<em><strong>#03 品牌策略</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "品牌名字——“银记肠粉”四字深度绑定品牌根源与广府老字号基因：“银”取自品牌创始人吴银（银姐）的名字，是品牌从西关街头小摊起步，60余年发展历程的根源印记，承载着几代老广人的味觉记忆与情感联结；“记”是岭南老字号品牌的经典标识，自带匠心传承、街坊信赖的品牌质感，与广州本土饮食文化深度绑定。名称简短有力、朗朗上口，既彰显了品牌“始于1958，坚守布拉肠古法工艺”的核心定位，也形成了独一无二的品牌辨识度，成为广府肠粉品类的标志性符号。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_2.jpg"
+        },
+        {
+          "type": "p",
+          "html": "银记肠粉的定位是“始于1958的广式布拉肠老字号”，以“传匠心，承地道”为核心理念，坚守传统布拉肠十一道古法工序，主打石磨现磨米浆、即点即蒸的地道广式肠粉，搭配荔湾艇仔粥等经典粤式小吃。锁定全年龄段消费客群，覆盖早餐、午餐、下午茶、晚餐全时段运营场景，客单价定位20-30元，在大众快餐消费市场中，打造兼具非遗工艺传承、地道广府风味与年轻化品牌体验的肠粉标杆品牌，构建“老字号、真工艺、鲜食材”的差异化竞争优势。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_3.jpg"
+        },
+        {
+          "type": "p",
+          "html": "突出 “始于1958的非遗工艺价值、石磨现蒸的食材本味价值、广府西关的文化底蕴价值” 三大核心，既直击老广街坊对地道风味的情怀需求，也契合年轻群体对新鲜品质、文化体验的核心诉求；品牌故事以品牌60余年的发展历程为脉络，从西关街头小摊到享誉中外的广式小吃标杆，深化 “匠心传承、地道本味、广府情怀” 的品牌价值，传递 “布拉肠，还是银记好” 的品牌核心理念，拉近与不同年龄段消费者的情感距离。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_4.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_5.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_6.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_7.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_8.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_9.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_10.jpg"
+        },
+        {
+          "type": "h1",
+          "html": "<em><strong>04 品牌设计</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "银记以岭南绿、银记红为品牌双主色，搭配米黄、土木棕为辅助色，既融合了广府文化的传统底蕴，又兼具餐饮品牌的食欲感与视觉辨识度；辅助图形提取布拉肠制作工序、石磨、蒸笼等工艺元素，与趟栊门、粤海关、陈家祠等广府文化元素，搭配“始于一九五八”“以肠为王”等品牌核心标语；物料设计全面贯穿品牌基因，从餐具包、纸巾盒到外卖打包袋、菜单灯箱，均印有品牌标志与核心工艺理念，让每一份物料都成为品牌传承故事的载体，整体实现视觉、文化内涵与实用功能的高度统一。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_11.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_12.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_13.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_14.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_15.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_16.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_17.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_18.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_19.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_20.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_21.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_22.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_23.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_24.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_25.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_26.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_27.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_28.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_29.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_30.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_31.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_32.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_33.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_34.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_35.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_36.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_37.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_38.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_39.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_40.jpg"
+        },
+        {
+          "type": "p",
+          "html": "银记肠粉门店以 “西关老字号，广府烟火气” 为设计目标，门头强化“始于1958年”的老字号定位与品牌核心标识，等候区营造亲切的街坊式休闲氛围，公共区域采用开放式布局并设置明档制作区，全程可视化展示布拉肠古法制作工艺，后厨动线科学规划适配全时段高效运营，空间细节融入荔枝湾、趟栊门、西关民居等本土文化元素，整体空间从硬件到软装全方位诠释“传承不守旧，创新不忘本”的品牌理念，打造兼具味觉、视觉与广府情怀体验的沉浸式用餐场景。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_41.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_42.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_43.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_44.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_45.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_46.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3189e0b6-b52d-808a-980c-c792dabf734d_47.jpg"
+        },
+        {
+          "type": "h1",
+          "html": "<strong>HANKS~</strong>"
+        }
+      ]
+    },
+    {
+      "id": "work_3179e0b6b52d808d80affbf789bb4735",
+      "title": "晓棠 | 晓拾川野,棠下百味",
+      "desc": "四川菜品牌全案策划设计",
+      "tags": [],
+      "cover": "images/uploads/cover_3179e0b6-b52d-808d-80af-fbf789bb4735.jpg",
+      "sort": 8,
+      "featured": false,
+      "blocks": [
+        {
+          "type": "h1",
+          "html": "<em><strong>#01 项目信息</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "项目名称丨晓棠"
+        },
+        {
+          "type": "p",
+          "html": "项目类别丨山野川菜"
+        },
+        {
+          "type": "p",
+          "html": "项目地址丨四川成都"
+        },
+        {
+          "type": "p",
+          "html": "项目标签丨高端川菜设计 山野风餐饮设计 川菜设计 漂亮饭设计"
+        },
+        {
+          "type": "h1",
+          "html": "<em><strong>#02 项目背景</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "2024年，川菜以15.2万家门店数位居全国地方菜系第一，麻辣风味的独特魅力让辣味菜品持续占据餐饮市场主流，79%的全国餐饮门店含辣菜，48%的外卖订单涉及辣菜。同时，云贵川Bistro概念兴起，传统川菜的现代演绎成为行业新趋势，年轻消费群体对“漂亮饭”的社交打卡需求日益凸显。基于以上市场洞察，结合晓棠地处成都双流机场、棠湖公园附近的地理优势，拓维为晓棠打造了从策略到落地的全链条餐饮设计方案，让地道川菜在山野鲜韵中焕发新生。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_1.jpg"
+        },
+        {
+          "type": "h1",
+          "html": "<em><strong>#03 品牌策略</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "品牌名字——“晓棠”二字暗藏品牌核心密码：“晓”既指向清晨鲜采的食材本味，呼应“好食材在早晨”的品质承诺，又寓意破晓新生的品牌活力；“棠”既关联成都棠湖公园的地域属性，又以海棠花为文化载体——四川作为海棠花主要发源地，为品牌注入川蜀文化正统性。名称谐音“小棠”，暗含菜品小巧精致的特点，契合年轻人社交打卡的消费诉求，短短二字串联起时间、地域、文化与消费需求，形成独特的品牌记忆点。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_2.jpg"
+        },
+        {
+          "type": "p",
+          "html": "晓棠的定位是“山野间川菜馆”，打破传统川菜“重口味、大分量”的固有印象，以“晓见本味，棠香依旧”为核心理念，将晨采的山野鲜材与地道川菜工艺相结合。聚焦以年轻人为主的消费群体，满足其对性价比、社交属性与正宗口味的多重需求，客单价定位100元上下，在大众化消费市场中打造兼具品质感与文化感的高端山野川菜体验，构建差异化竞争优势。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_3.jpg"
+        },
+        {
+          "type": "p",
+          "html": "文化端突出 “晨采鲜材的食材价值、麻辣地道的味道价值、川蜀棠韵的文化价值” 三大核心，直击年轻群体对新鲜品质、正宗口味与社交体验的核心诉求；品牌故事以古蜀太阳神鸟与海棠花的神话为脉络，深化 “自然本味、匠心传承、文化正统” 的品牌价值，传递 “让山野鲜韵融入都市烟火” 的品牌理念与愿景，拉近与消费者的情感距离。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_4.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_5.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_6.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_7.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_8.jpg"
+        },
+        {
+          "type": "h1",
+          "html": "<em><strong>#04 品牌设计</strong></em>"
+        },
+        {
+          "type": "p",
+          "html": "晓棠以专属定制色（C:42M:15Y:73K:0，R:170G:193B:97）为品牌主色，融合山野自然的清新与川菜的温润质感，辅助图形提取花椒、海棠花、山野食材等元素，搭配多元风格文案；物料设计全面贯穿品牌基因，从餐具包、纸巾盒到打包盒、会员卡，均印有品牌标志、核心口号与食材溯源信息，让每一份物料都成为品牌故事的载体，整体实现视觉、内涵与实用功能的高度统一。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_9.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_10.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_11.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_12.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_13.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_14.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_15.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_16.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_17.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_18.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_19.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_20.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_21.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_22.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_23.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_24.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_25.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_26.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_27.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_28.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_29.jpg"
+        },
+        {
+          "type": "p",
+          "html": "晓棠门店以 “本土、静谧、自然野趣” 为设计目标，门头传递 “山野间川菜馆” 定位，等候区营造舒适氛围，公共区域采用开放式布局并设置明档展示区，后厨细节融入自然元素，包厢以多元主题满足不同场景需求，整体空间从硬件到软装全方位诠释“晓”的核心概念，打造兼具味觉、视觉与情感体验的用餐场景。"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_30.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_31.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_32.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_33.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_34.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_35.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_36.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_37.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_38.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_39.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_40.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_41.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_42.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_43.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_44.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-808d-80af-fbf789bb4735_45.jpg"
+        },
+        {
+          "type": "h1",
+          "html": "<strong>THANKS~</strong>"
         }
       ]
     }
