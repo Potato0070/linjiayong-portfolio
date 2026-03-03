@@ -343,8 +343,7 @@
 
     <div id="posterModal" class="modal fixed inset-0 z-[99999] flex items-center justify-center bg-black/85 backdrop-blur-md">
         <div class="modal-content w-full max-w-[340px] md:max-w-[380px] flex flex-col relative items-center p-4">
-            <button id="closePosterModal" class="absolute -top-14 right-0 w-11 h-11 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/40 transition-colors btn-elastic border border-white/30"><i class="fa fa-times text-xl"></i></button>
-            <div id="posterResult" class="w-full rounded-[1.5rem] overflow-hidden shadow-2xl bg-white mb-6 min-h-[400px] flex items-center justify-center relative bg-white">
+<button id="closePosterModal" class="fixed top-6 right-6 z-[999999] w-11 h-11 rounded-full bg-black/50 backdrop-blur-2xl border border-white/20 text-white flex items-center justify-center transition-colors btn-elastic shadow-[0_10px_40px_rgba(0,0,0,0.5)]"><i class="fa fa-times text-xl"></i></button>            <div id="posterResult" class="w-full rounded-[1.5rem] overflow-hidden shadow-2xl bg-white mb-6 min-h-[400px] flex items-center justify-center relative bg-white">
                 <div class="py-20 text-center text-gray-500 flex flex-col items-center justify-center w-full h-full">
                     <i class="fa fa-circle-o-notch fa-spin text-4xl mb-4"></i>
                     <p class="text-sm tracking-widest font-bold mt-3">排版合成中...</p>
@@ -549,7 +548,7 @@
                     const heroImageContainer = document.createElement('div'); heroImageContainer.className = "w-full relative shadow-sm image-wrapper !rounded-none !mt-0 !mb-0";
                     const heroLoader = document.createElement('i'); heroLoader.className = "fa fa-circle-o-notch fa-spin img-loader"; heroImageContainer.appendChild(heroLoader);
                     // 封面图也增加版本号
-                    const heroImg = document.createElement('img'); heroImg.src = work.cover + '?v=3.1'; heroImg.className = "fade-img w-full h-auto object-cover max-h-[55vh]"; heroImg.onload = function() { this.classList.add('loaded'); this.parentElement.classList.add('loaded'); };heroImageContainer.appendChild(heroImg); blocksContainer.appendChild(heroImageContainer);
+const heroImg = document.createElement('img'); heroImg.src = work.cover; heroImg.className = "fade-img w-full h-auto object-cover max-h-[55vh]";
                 }
 
                 const titleBlock = document.createElement('div'); titleBlock.className = "w-full text-center px-6 md:px-12 mt-6 md:mt-8 mb-2 flex flex-col items-center justify-center";
@@ -567,7 +566,7 @@
                         else if (block.type === 'p') { el = document.createElement('p'); el.className = `work-text-p color-main opacity-80`; el.innerHTML = block.html; } 
                         else if (block.type === 'quote') { el = document.createElement('blockquote'); el.className = `work-text-quote bg-[var(--glass-bg)] border-l-[4px] border-[var(--text-main)] p-6 md:p-8 my-4 md:my-8 color-main opacity-75 rounded-r-xl shadow-sm`; el.innerHTML = block.html; } 
                         else if (block.type === 'divider') { el = document.createElement('div'); el.className = `flex justify-center items-center my-6 opacity-30`; el.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-[var(--text-main)] mx-2"></span><span class="w-2.5 h-2.5 rounded-full bg-[var(--text-main)] mx-2"></span><span class="w-1.5 h-1.5 rounded-full bg-[var(--text-main)] mx-2"></span>`; } 
-                        else if (block.type === 'image') {el = document.createElement('div'); el.className = `w-full relative shadow-lg image-wrapper my-2`;const loader = document.createElement('i'); loader.className = "fa fa-circle-o-notch fa-spin img-loader"; el.appendChild(loader);const img = document.createElement('img'); img.src = block.src + '?v=3.1'; img.className = "fade-img pointer-events-none rounded-xl md:rounded-2xl"; img.loading = "lazy"; img.onload = function() { this.classList.add('loaded'); this.parentElement.classList.add('loaded'); }; el.appendChild(img);}
+                        else if (block.type === 'image') {el = document.createElement('div'); el.className = `w-full relative shadow-lg image-wrapper my-2`;const loader = document.createElement('i'); loader.className = "fa fa-circle-o-notch fa-spin img-loader"; el.appendChild(loader);const img = document.createElement('img'); img.src = block.src; img.className = "fade-img pointer-events-none rounded-xl md:rounded-2xl"; img.loading = "lazy"; img.onload = function() { this.classList.add('loaded'); this.parentElement.classList.add('loaded'); }; el.appendChild(img);}
                         if (el) contentWrapper.appendChild(el);
                     });
                 } else { contentWrapper.innerHTML = '<div class="py-20 text-center color-muted text-sm font-bold">复盘完善中...</div>'; }
@@ -627,94 +626,89 @@
         const downloadPosterBtn = document.getElementById('downloadPosterBtn');
         let generatedPosterDataB64 = null;
 
-        generatePosterBtn.addEventListener('click', async () => {
+generatePosterBtn.addEventListener('click', async () => {
             if(!currentOpenWorkId) return;
             const work = worksList.find(w => String(w.id) === String(currentOpenWorkId));
             if(!work) return;
 
-            showToast('数据合成中...');
-            posterResult.innerHTML = '<div class="py-20 text-center text-gray-500 flex flex-col items-center"><i class="fa fa-circle-o-notch fa-spin text-4xl mb-4"></i><p class="text-sm font-bold mt-3">像素级排版中...</p></div>';
+            showToast('提取排版与数据中...');
+            posterResult.innerHTML = '<div class="py-20 text-center text-gray-500 flex flex-col items-center"><i class="fa fa-circle-o-notch fa-spin text-4xl mb-4"></i><p class="text-sm font-bold mt-3">印花级排版中...</p></div>';
             downloadPosterBtn.classList.add('hidden'); 
             posterModal.classList.add('active');
 
-            // 1. 创建内存 Canvas (750x1200 高清标准)
+            // 1. 创建加长版 Canvas 画板 (拉长到底部1350，彻底解决挤压)
             const cvs = document.createElement('canvas');
             const ctx = cvs.getContext('2d');
             cvs.width = 750;
-            cvs.height = 1250; 
+            cvs.height = 1350; 
 
-            // 🌟 绘制 0：背景涂白
+            // 2. 涂白背景
             ctx.fillStyle = '#FFFFFF';
             ctx.fillRect(0, 0, cvs.width, cvs.height);
 
-            // 🌟 绘制 1：加载封面图 (并发等待)
-            const coverImg = new Image();
-            coverImg.crossOrigin = 'Anonymous'; // 必须允许跨域
-
-            // 🌟 绘制 2：生成二维码 (无需外部库，QRious本身就是Canvas)
+            const coverImg = new Image(); coverImg.crossOrigin = 'Anonymous';
+            const logoImg = new Image(); logoImg.crossOrigin = 'Anonymous';
             const shareUrl = window.location.origin + window.location.pathname + '?work=' + work.id;
             const qr = new QRious({ value: shareUrl, size: 200, level: 'H' });
-            const qrImgData = qr.toDataURL(); // 拿到B64
+            const qrImgData = qr.toDataURL();
 
-            // 🌟 绘制 3：加载 Logo
-            const logoImg = new Image();
-            logoImg.crossOrigin = 'Anonymous';
-
-            // 图片加载 Promise 化
+            // 为了强制避开缓存并获取到图，在 Canvas 绘制层偷偷加时间戳
             const loadImage = (img, src) => new Promise((resolve) => {
                 img.onload = () => resolve(true);
-                img.onerror = () => resolve(false); // 失败也放行，防卡死
-                img.src = src + '?v=3.1'; // 增加版本号
+                img.onerror = () => resolve(false);
+                img.src = src + '?t=' + new Date().getTime(); 
             });
 
-            // 并发拉取资源
             await Promise.all([
                 loadImage(coverImg, work.cover || 'images/placeholder.jpg'),
                 loadImage(logoImg, 'images/logo.png')
             ]);
 
-            // === 🌟 开始 Native Canvas 像素级排版 ===
-
-            // 1. 绘制封面 (贴顶)
+            // === 🎨 开始绘制画面 ===
+            
+            // A. 顶部封面图
             if(coverImg.complete && coverImg.width > 0) {
-                // 简单的 aspect fill 逻辑
+                const targetH = 550; 
                 const imgRatio = coverImg.width / coverImg.height;
-                const targetW = 750;
-                const targetH = 550; // 固定高度
-                const targetRatio = targetW / targetH;
-                
+                const targetRatio = 750 / targetH;
                 let dw, dh, dx, dy;
-                if(imgRatio > targetRatio) { dh = targetH; dw = targetH * imgRatio; dx = -(dw - targetW) / 2; dy = 0; } 
-                else { dw = targetW; dh = targetW / imgRatio; dx = 0; dy = -(dh - targetH) / 2; }
+                if(imgRatio > targetRatio) { dh = targetH; dw = targetH * imgRatio; dx = -(dw - 750) / 2; dy = 0; } 
+                else { dw = 750; dh = 750 / imgRatio; dx = 0; dy = -(dh - targetH) / 2; }
                 
-                // 剪裁绘制
                 ctx.save();
                 ctx.beginPath();
                 ctx.moveTo(0, 0); ctx.lineTo(750, 0); ctx.lineTo(750, targetH - 40);
                 ctx.quadraticCurveTo(750, targetH, 710, targetH); ctx.lineTo(40, targetH);
                 ctx.quadraticCurveTo(0, targetH, 0, targetH - 40); ctx.closePath();
-                ctx.clip(); // 圆角剪裁
+                ctx.clip();
                 ctx.drawImage(coverImg, dx, dy, dw, dh);
                 ctx.restore();
             }
 
-            // 2. 绘制标题与文本
-            let currentY = 630; // 文本起始高度
-            
-            // 处理标题
+            // B. 👑 绝美暗纹印花 (巨大化，放置在画面右侧白底区域)
+            if(logoImg.complete && logoImg.width > 0) {
+                ctx.save();
+                ctx.globalAlpha = 0.04; // 极其克制的 4% 透明度，像特种纸底纹
+                const wmSize = 480; // 巨大尺寸
+                const wmX = cvs.width - wmSize + 80; // 偏右侧切边
+                const wmY = 620; 
+                ctx.drawImage(logoImg, wmX, wmY, wmSize, wmSize * (logoImg.height/logoImg.width));
+                ctx.restore();
+            }
+
+            // C. 文本排版
+            let currentY = 630;
             let mainTitle = work.title; let subTitle = '';
             if (work.title.includes('|') || work.title.includes('｜')) {
                 const parts = work.title.split(/\||｜/); mainTitle = parts[0].trim(); subTitle = parts[1].trim();
             }
 
-            // 主标题
             ctx.fillStyle = '#000000';
-            ctx.font = '900 56px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif';
+            ctx.font = '900 56px -apple-system, sans-serif';
             ctx.textBaseline = 'top';
             ctx.fillText(mainTitle, 60, currentY);
             currentY += 75;
 
-            // 副标题
             if(subTitle) {
                 ctx.fillStyle = '#666666';
                 ctx.font = '500 30px -apple-system, sans-serif';
@@ -722,91 +716,62 @@
                 currentY += 60;
             } else { currentY += 10; }
 
-            // 描述文本 (自动换行逻辑)
             ctx.fillStyle = '#888888';
             ctx.font = '500 22px/1.8 -apple-system, sans-serif';
             const desc = work.desc || '专注餐饮品牌全案策划。';
-            const textX = 60;
-            const textW = 630;
-            const lineHeight = 40;
-            
-            // 简单的换行算法
-            let line = '';
-            let descY = currentY;
+            let line = ''; let descY = currentY;
             for(let n = 0; n < desc.length; n++) {
                 let testLine = line + desc[n];
-                let metrics = ctx.measureText(testLine);
-                if(metrics.width > textW && n > 0) {
-                    ctx.fillText(line, textX, descY);
-                    line = desc[n];
-                    descY += lineHeight;
-                    if(descY > currentY + 120) break; // 最多画4行
+                if(ctx.measureText(testLine).width > 630 && n > 0) {
+                    ctx.fillText(line, 60, descY);
+                    line = desc[n]; descY += 40;
+                    if(descY > currentY + 120) break; 
                 } else { line = testLine; }
             }
-            ctx.fillText(line, textX, descY); // 画最后一行
+            ctx.fillText(line, 60, descY);
 
-            // 3. 绘制底部 Footer (绝对定位在底部)
-            const footerY = 1030;
+            // D. 底部 Footer 重构 (左侧文字，右侧二维码，空间拉长)
+            const footerY = 1120; // 坐标大幅下移，留出呼吸感
             
-            // 分割线
-            ctx.strokeStyle = '#EEEEEE';
-            ctx.lineWidth = 1;
+            ctx.strokeStyle = '#EEEEEE'; ctx.lineWidth = 1;
             ctx.beginPath(); ctx.moveTo(60, footerY); ctx.lineTo(690, footerY); ctx.stroke();
 
-            // 作者信息组
             const authorY = footerY + 50;
-            
-            // Logo 容器 (圆角方块)
-            ctx.fillStyle = '#FFFFFF';
-            ctx.strokeStyle = '#EAEAEA';
-            ctx.lineWidth = 2;
-            const logoBoxX = 60, logoBoxY = authorY, logoBoxS = 100, logoBoxR = 20;
-            ctx.beginPath(); ctx.moveTo(logoBoxX+logoBoxR, logoBoxY); ctx.lineTo(logoBoxX+logoBoxS-logoBoxR, logoBoxY); ctx.quadraticCurveTo(logoBoxX+logoBoxS, logoBoxY, logoBoxX+logoBoxS, logoBoxY+logoBoxR); ctx.lineTo(logoBoxX+logoBoxS, logoBoxY+logoBoxS-logoBoxR); ctx.quadraticCurveTo(logoBoxX+logoBoxS, logoBoxY+logoBoxS, logoBoxX+logoBoxS-logoBoxR, logoBoxY+logoBoxS); ctx.lineTo(logoBoxX+logoBoxR, logoBoxY+logoBoxS); ctx.quadraticCurveTo(logoBoxX, logoBoxY+logoBoxS, logoBoxX, logoBoxY+logoBoxS-logoBoxR); ctx.lineTo(logoBoxX, logoBoxY+logoBoxR); ctx.quadraticCurveTo(logoBoxX, logoBoxY, logoBoxX+logoBoxR, logoBoxY); ctx.closePath();
-            ctx.fill(); ctx.stroke();
 
-            // 绘制 Logo 
-            if(logoImg.complete && logoImg.width > 0) {
-                const padding = 15;
-                const drawS = logoBoxS - padding * 2;
-                const imgRatio = logoImg.width / logoImg.height;
-                let dw, dh, dx, dy;
-                if(imgRatio > 1) { dw = drawS; dh = drawS / imgRatio; dx = logoBoxX + padding; dy = logoBoxY + padding + (drawS - dh)/2; } 
-                else { dh = drawS; dw = drawS * imgRatio; dx = logoBoxX + padding + (drawS - dw)/2; dy = logoBoxY + padding; }
-                ctx.drawImage(logoImg, dx, dy, dw, dh);
-            }
-
-            // 文字信息
+            // 左侧：身份落款
             ctx.fillStyle = '#111111';
-            ctx.font = 'bold 28px -apple-system, sans-serif';
-            ctx.fillText('林嘉雍', 180, authorY + 15);
+            ctx.font = '900 34px -apple-system, sans-serif';
+            ctx.fillText('林嘉雍', 60, authorY);
             ctx.fillStyle = '#999999';
             ctx.font = 'bold 18px -apple-system, sans-serif';
-            ctx.fillText('品牌全案策划', 180, authorY + 60);
+            ctx.fillText('品牌全案策划与统筹设计', 60, authorY + 50);
 
-            // 二维码组
-            const qrX = 530, qrY = authorY - 10, qrS = 160;
+            // 右侧：二维码及引导文字
+            const qrS = 130; 
+            const qrX = 560;
+            const qrY = authorY - 15;
             
-            // 绘制二维码B64图
             const qrieImg = new Image();
             await new Promise(r => { qrieImg.onload = r; qrieImg.src = qrImgData; });
             ctx.drawImage(qrieImg, qrX, qrY, qrS, qrS);
 
             ctx.fillStyle = '#AAAAAA';
-            ctx.font = 'bold 16px -apple-system, sans-serif';
-            ctx.fillText('扫码查看详情', 555, qrY + qrS + 15);
+            ctx.font = 'bold 14px -apple-system, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('扫码查看全案', qrX + qrS/2, qrY + qrS + 25);
+            ctx.textAlign = 'left';
 
-
-            // === 🌟 终点：输出结果 ===
+            // E. 输出图片
             setTimeout(() => {
                 try {
                     generatedPosterDataB64 = cvs.toDataURL('image/jpeg', 0.9);
                     const finalImg = document.createElement('img');
                     finalImg.src = generatedPosterDataB64;
-                    finalImg.className = 'w-full h-auto block rounded-[1rem]';
+                    finalImg.className = 'w-full h-auto block rounded-[1rem] shadow-sm';
                     posterResult.innerHTML = '';
                     posterResult.appendChild(finalImg);
                     downloadPosterBtn.classList.remove('hidden');
-                    showToast('海报合成成功');
+                    showToast('排版合成成功');
                 } catch(e) {
                     console.error(e);
                     posterResult.innerHTML = '<div class="py-20 text-center text-red-500"><i class="fa fa-exclamation-triangle text-4xl mb-4"></i><p class="text-sm font-bold">合成失败，请重试</p></div>';
