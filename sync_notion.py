@@ -13,6 +13,7 @@ GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 if TINYPNG_API_KEY:
     tinify.key = TINYPNG_API_KEY
 
+# 🚀 激活真正的 Gemini 大脑
 if GEMINI_API_KEY:
     genai.configure(api_key=GEMINI_API_KEY)
     ai_model = genai.GenerativeModel('gemini-1.5-flash')
@@ -23,17 +24,23 @@ HEADERS = {
     "Notion-Version": "2022-06-28"
 }
 
-def generate_smart_tags(title, desc):
-    if not GEMINI_API_KEY or not title:
-        return ["品牌全案", "视觉设计", "商业落地"]
+# 🚀 真·AI语义提取引擎 (阅读你的全文)
+def generate_smart_tags(title, desc, content_text):
+    if not GEMINI_API_KEY:
+        return []
     
     prompt = f"""
-    你是一个资深的餐饮品牌策划总监。
-    请分析以下作品的标题和简介，为其提取最核心、最具商业价值的 3 个标签。
-    例如：空间设计, 老字号年轻化, 云南菜, 包装升级, IP打造 等。
-    【规则】：只返回 3 个词，用英文逗号分隔，不要有任何多余的废话。
+    你是一个顶级的餐饮品牌策划总监。
+    请深入阅读以下作品的【标题】、【简介】以及【详情页正文】，为其提炼出最核心、最具商业价值的 3 个标签。
+    标签必须高度具体、有锐度，例如：贵州烙锅, 云南菜, 空间设计, 老字号年轻化, 包装升级, 手工现包, 漂亮饭 等。
+    绝对不要生成“品牌策划”、“商业设计”这种泛泛而谈的废话。
+    
+    【规则】：只返回 3 个标签，用英文逗号分隔，不要带有 # 号，绝对不要有任何废话。
+    
+    【作品信息】：
     标题：{title}
     简介：{desc}
+    正文：{content_text[:1500]} 
     """
     try:
         response = ai_model.generate_content(prompt)
@@ -42,7 +49,7 @@ def generate_smart_tags(title, desc):
         return tags[:3]
     except Exception as e:
         print(f"⚠️ [AI 大脑罢工]: {e}")
-        return ["品牌策划", "视觉统筹", "商业设计"]
+        return []
 
 def download_image(url, filename):
     os.makedirs("images/uploads", exist_ok=True)
@@ -56,20 +63,16 @@ def download_image(url, filename):
                 source = tinify.from_file(filepath)
                 source.to_file(filepath)
                 new_size = os.path.getsize(filepath)
-                print(f"✅ [补压成功] 历史大图完美瘦身！现大小: {new_size / 1024:.1f} KB (减重 {100 - (new_size/original_size)*100:.1f}%)")
+                print(f"✅ [补压成功] 历史大图完美瘦身！现大小: {new_size / 1024:.1f} KB")
             except Exception as e:
-                print(f"⚠️ [补压异常] 压缩服务连接失败，安全保留原图: {e}")
+                print(f"⚠️ [补压异常] 压缩服务连接失败: {e}")
         else:
             print(f"⏩ [缓存跳过] 图片完整且体积极其健康: {filename}")
         return filepath.replace("\\", "/")
         
     print(f"⬇️ [抓取] 正在下载新图: {filename}")
     max_retries = 3
-    
-    download_headers = {
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
-        "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8"
-    }
+    download_headers = { "User-Agent": "Mozilla/5.0", "Accept": "image/avif,image/webp,image/*,*/*;q=0.8" }
     
     for attempt in range(max_retries):
         try:
@@ -78,30 +81,22 @@ def download_image(url, filename):
                 with open(filepath, 'wb') as f:
                     for chunk in r.iter_content(8192):
                         f.write(chunk)
-                
                 if os.path.getsize(filepath) > 2048:
                     if TINYPNG_API_KEY:
                         original_size = os.path.getsize(filepath)
                         if original_size > 300 * 1024:
-                            print(f"🗜️ [TinyPNG] 触发无损压缩！原图大小: {original_size / 1024:.1f} KB")
+                            print(f"🗜️ [TinyPNG] 触发无损压缩！")
                             try:
                                 source = tinify.from_file(filepath)
                                 source.to_file(filepath)
-                                new_size = os.path.getsize(filepath)
-                                print(f"✅ [TinyPNG] 压缩成功！压后大小: {new_size / 1024:.1f} KB (瘦身了 {100 - (new_size/original_size)*100:.1f}%)")
+                                print(f"✅ [TinyPNG] 压缩成功！")
                             except Exception as e:
-                                print(f"⚠️ [TinyPNG] 压缩服务异常，安全回退至原图: {e}")
+                                print(f"⚠️ [TinyPNG] 压缩服务异常: {e}")
                     return filepath.replace("\\", "/")
-                else:
-                    print(f"⚠️ [核查失败] 文件体积异常，准备重新下载...")
-            else:
-                print(f"⚠️ [网络异常] 服务器拒绝响应 {r.status_code}，准备重试...")
         except Exception as e:
             print(f"⚠️ [下载卡顿] ({attempt+1}/{max_retries}): {e}")
-            
         time.sleep(2) 
-        
-    raise Exception(f"\n❌ 【致命错误】图片 {filename} 连续3次下载失败或损坏！")
+    raise Exception(f"\n❌ 【致命错误】图片 {filename} 连续3次下载失败！")
 
 def get_all_blocks(block_id):
     blocks = []
@@ -121,6 +116,17 @@ def get_all_blocks(block_id):
             break
     return blocks
 
+# 🚀 提取 Notion 纯文本喂给 AI
+def extract_text_for_ai(blocks):
+    text = ""
+    for block in blocks:
+        b_type = block["type"]
+        if b_type in ["heading_1", "heading_2", "heading_3", "paragraph", "quote"]:
+            rich_text = block[b_type].get("rich_text", [])
+            for rt in rich_text: text += rt.get("plain_text", "")
+            text += "\n"
+    return text
+
 def parse_rich_text(rich_text_list):
     if not rich_text_list: return ""
     html_content = ""
@@ -137,7 +143,7 @@ def parse_rich_text(rich_text_list):
     return html_content
 
 def fetch_database():
-    print("🚀 启动高端商业级抓取与核验引擎 (含 TinyPNG & Gemini AI)...")
+    print("🚀 启动高端商业级抓取与核验引擎 (含 TinyPNG & Gemini 语义阅读)...")
     url = f"https://api.notion.com/v1/databases/{DATABASE_ID}/query"
     response = requests.post(url, headers=HEADERS)
     results = response.json().get("results", [])
@@ -158,12 +164,14 @@ def fetch_database():
             cover_url = file_obj.get("file", {}).get("url") or file_obj.get("external", {}).get("url")
             if cover_url: cover_path = download_image(cover_url, f"cover_{page_id}.jpg")
         
-        # 🤖 召唤 Gemini 进行深度语义分析打标
-        print(f"🧠 [AI 分析] 正在为《{title}》提炼商业标签...")
-        smart_tags = generate_smart_tags(title, desc)
-        print(f"🏷️ [AI 标签] 提炼完成: {smart_tags}")
-
+        # 🤖 先抓取内容，提取文字，喂给 AI 阅读
         all_blocks = get_all_blocks(page_id)
+        content_text_for_ai = extract_text_for_ai(all_blocks)
+        
+        print(f"🧠 [AI 分析] 正在阅读十万字正文，提炼商业核心...")
+        smart_tags = generate_smart_tags(title, desc, content_text_for_ai)
+        print(f"🏷️ [极客标签] 提炼完成: {smart_tags}")
+
         content_blocks = []
         img_counter = 1
         
