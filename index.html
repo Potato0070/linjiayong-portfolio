@@ -13,17 +13,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <script>
         tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Text', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'], serif: ['"Songti SC"', '"Noto Serif CJK SC"', 'STSong', 'serif'], }, } } }
     </script>
 
     <style>
-        /* ========================================== */
-        /* 1. 全局色彩与环境光 */
-        /* ========================================== */
         :root { --bg-base: #f4f4f6; --text-main: #111111; --text-muted: #888888; --btn-bg: #111111; --btn-text: #ffffff; --blob-1: #eaeaea; --blob-2: #e0e0e0; --blob-3: #f9f9f9; }
         .dark-mode { --bg-base: #0a0a0a; --text-main: #f5f5f7; --text-muted: #777777; --btn-bg: #ffffff; --btn-text: #000000; --blob-1: #151515; --blob-2: #0d0d0d; --blob-3: #1a1a1a; }
         html { scroll-behavior: smooth; }
@@ -33,9 +30,6 @@
         .dark-mode::after { opacity: 0.06; }
         .color-main { color: var(--text-main); } .color-muted { color: var(--text-muted); } .bg-inverted { background-color: var(--btn-bg); color: var(--btn-text); transition: all 0.4s ease; }
 
-        /* ========================================== */
-        /* 2. iOS 26 Liquid Glass 材质库 */
-        /* ========================================== */
         .liquid-glass { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(48px) saturate(200%); -webkit-backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.4); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05), inset 0 1.5px 2px rgba(255, 255, 255, 0.9), inset 0 -1.5px 2px rgba(255, 255, 255, 0.15); border-radius: 24px; transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); }
         .dark-mode .liquid-glass { background: rgba(20, 20, 20, 0.35); border-color: rgba(255, 255, 255, 0.15); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), inset 0 1.5px 2px rgba(255, 255, 255, 0.2), inset 0 -1.5px 2px rgba(0, 0, 0, 0.5); }
         
@@ -60,9 +54,6 @@
         .glass-card-img { transition: transform 0.8s ease; }
         .hover-elastic:hover .glass-card-img { transform: scale(1.06); }
 
-        /* ========================================== */
-        /* 3. 动画、排版与流体遮罩 */
-        /* ========================================== */
         #blocksContainer { --font-multiplier: 1; transition: background-color 0.4s ease; margin: 0 auto; position: relative; }
         .work-text-main { font-size: calc(clamp(2rem, 5vw, 3.5rem) * var(--font-multiplier)); line-height: 1.2; font-weight: 900; letter-spacing: -0.02em; transition: font-size 0.3s ease; }
         .work-text-sub { font-size: calc(clamp(1.1rem, 2.5vw, 1.6rem) * var(--font-multiplier)); font-weight: 500; opacity: 0.6; transition: font-size 0.3s ease; }
@@ -90,16 +81,13 @@
         .reveal-up { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal-up.revealed { opacity: 1; transform: translateY(0); }
         .text-balance { text-wrap: balance; }
-        .hero-title-line { display: block; white-space: nowrap; font-size: clamp(1.6rem, 6.5vw, 6.5rem); }
+        .hero-title-line { display: block; white-space: nowrap; font-size: clamp(1rem, 7vw, 6.5rem); }
         .overflow-hidden-wrap { overflow: hidden; display: block; line-height: 1.1; padding-bottom: 0.1em; }
         .animate-slide-up-text { display: block; transform: translateY(110%); opacity: 0; animation: revealText 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         @keyframes revealText { 0% { transform: translateY(110%); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
         .intro-fade-in { opacity: 0; transform: translateY(10px); transition: all 1s ease; }
         .intro-fade-in.active { opacity: 0.9; transform: translateY(0); }
 
-        /* ========================================== */
-        /* 4. 弹窗与高级搜索/海报引擎 */
-        /* ========================================== */
         .modal { opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s ease; background: var(--bg-base); }
         .modal.active { opacity: 1; visibility: visible; }
         .modal-content { transition: all 0.4s ease; transform: scale(0.98) translateY(20px); opacity: 0; }
@@ -131,8 +119,7 @@
         #globalBackToTop { opacity: 0; pointer-events: none; transform: translateY(20px); transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); z-index: 90; }
         #globalBackToTop.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 
-        /* 🚀 修复截图引擎隐形 Bug */
-        #posterTemplate { position: absolute; top: -9999px; left: -9999px; z-index: -100; width: 750px; background-color: #ffffff; color: #111; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; padding-bottom: 40px; box-sizing: border-box; overflow: hidden; }
+        #posterTemplate { position: absolute; top: -9999px; left: -9999px; z-index: -100; opacity: 0; width: 750px; background-color: #ffffff; color: #111; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; padding-bottom: 40px; box-sizing: border-box; overflow: hidden; }
         .poster-cover { width: 100%; height: 500px; object-fit: cover; object-position: center; border-radius: 0 0 40px 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
         .poster-content { padding: 50px 60px 20px 60px; }
         .poster-title { font-size: 52px; font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 15px; color: #000; }
@@ -163,7 +150,6 @@
             
             <div class="flex items-center gap-1 relative z-10 px-2" id="navLinksContainer">
                 <div id="navIndicator" class="absolute h-8 bg-black/10 dark:bg-white/15 rounded-full transition-all duration-300 z-[-1]" style="left: 0; width: 0; opacity: 0;"></div>
-                
                 <a href="#home" class="nav-link cursor-pointer nav-item" data-target="home">首页</a>
                 <a href="#works" class="nav-link cursor-pointer nav-item" data-target="works">作品</a>
                 <a href="#about" class="nav-link cursor-pointer nav-item" data-target="about">关于</a>
@@ -361,20 +347,6 @@
         let filteredWorksList = [];
         let currentOpenWorkId = null;
 
-        // 🚀 修复 3：极度智能的前端原生标签解析器 (在 AI 后台没起作用时的完美替补)
-        function getSmartFallbackTags(title, desc) {
-            const text = (title + " " + desc).toLowerCase();
-            let tags = [];
-            if(text.includes('烙') || text.includes('黔')) tags.push('贵州烙锅', '地方餐饮', '文化餐饮');
-            if(text.includes('云') || text.includes('自然') || text.includes('雨果')) tags.push('云南菜', '自然生态', '漂亮饭');
-            if(text.includes('馄饨') || text.includes('饺') || text.includes('仁宝')) tags.push('社区餐饮', '手工现包', '品牌全案');
-            if(text.includes('川') || text.includes('晓棠') || text.includes('辣')) tags.push('高端川菜', '东方美学', '空间设计');
-            if(text.includes('日料') || text.includes('寿司')) tags.push('日式料理', '极简美学', '品牌升级');
-            if(text.includes('老字号') || text.includes('百年') || text.includes('同盛生')) tags.push('老字号焕新', '非遗传承', '视觉重塑');
-            if(tags.length === 0) tags = ['品牌全案', '商业策略', '视觉统筹']; // 兜底
-            return tags.slice(0, 3);
-        }
-
         window.addEventListener('load', () => {
             const island = document.getElementById('islandContainer');
             if(island) island.classList.add('reveal-up');
@@ -500,11 +472,14 @@
                 const delay = index * 0.1; 
                 const coverUrl = work.cover ? work.cover : 'images/placeholder.jpg';
                 
-                // 优先读取后端 AI 标签，如果没有，则采用精准的前端截取器
-                const tags = (work.tags && work.tags.length > 0) ? work.tags : getSmartFallbackTags(work.title, work.desc);
-                const tagsHTML = `<div class="absolute bottom-3 left-3 flex gap-1.5 z-10 flex-wrap max-w-[90%]">` + 
-                    tags.map(t => `<span class="px-2 py-1 text-[9px] font-bold rounded-md bg-black/60 text-white backdrop-blur-md border border-white/20 shadow-md tracking-wider"># ${t}</span>`).join('') + 
-                    `</div>`;
+                // 彻底删除前端截取逻辑，只读取机器人推过来的真·AI标签！
+                const tags = (work.tags && work.tags.length > 0) ? work.tags : [];
+                let tagsHTML = '';
+                if(tags.length > 0) {
+                    tagsHTML = `<div class="absolute bottom-3 left-3 flex gap-1.5 z-10 flex-wrap max-w-[90%]">` + 
+                        tags.map(t => `<span class="px-2 py-1 text-[9px] font-bold rounded-md bg-black/60 text-white backdrop-blur-md border border-white/20 shadow-md tracking-wider"># ${t}</span>`).join('') + 
+                        `</div>`;
+                }
 
                 const cardHTML = `
                     <div class="liquid-glass hover-elastic flex flex-col cursor-pointer reveal-up" style="transition-delay: ${delay}s;" onclick="openWork('${work.id}')">
@@ -692,7 +667,7 @@
         window.copyTextToClipboard = function(text, type) { navigator.clipboard.writeText(text).then(() => { showToast(`已成功复制${type}: ${text}`); }).catch(err => { showToast('复制失败，请手动选择复制', true); }); }
 
         // ==========================================
-        // 🚀 核心：分享海报生成引擎 (已修复弹窗触发与截图问题)
+        // 🚀 核心：分享海报生成引擎 (彻底修复无响应 Bug)
         // ==========================================
         const generatePosterBtn = document.getElementById('generatePosterBtn');
         const posterModal = document.getElementById('posterModal');
@@ -706,10 +681,13 @@
             const work = worksList.find(w => String(w.id) === String(currentOpenWorkId));
             if(!work) return;
 
+            // 第一时间弹出提示，证明按键有效
+            showToast('正在为您生成高定海报，请稍候...');
+
             posterResult.innerHTML = '<div class="py-20 text-center text-gray-500"><i class="fa fa-circle-o-notch fa-spin text-4xl mb-4"></i><p class="text-sm tracking-widest font-bold mt-2">正在合成专属海报...</p></div>';
             downloadPosterBtn.classList.add('hidden'); 
             
-            // 修复：之前用 remove('hidden')，现在用 active 正确呼出弹窗！
+            // 修复：确保用 .active 呼出弹窗
             posterModal.classList.add('active');
 
             const pCover = document.getElementById('p-cover');
@@ -736,7 +714,7 @@
                         console.error('海报生成失败:', err);
                         posterResult.innerHTML = '<div class="py-20 text-center text-red-500"><i class="fa fa-exclamation-triangle text-4xl mb-4"></i><p class="text-sm tracking-widest font-bold">海报生成失败，请重试</p></div>';
                     });
-                }, 600); 
+                }, 800); 
             };
         });
 
