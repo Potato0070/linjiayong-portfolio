@@ -12,7 +12,6 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
@@ -21,7 +20,6 @@
     </script>
 
     <style>
-        /* 🚀 物理级抹杀移动端点击灰块 */
         * { -webkit-tap-highlight-color: transparent !important; outline: none !important; }
         a, button, div { -webkit-tap-highlight-color: rgba(0,0,0,0) !important; }
 
@@ -34,7 +32,10 @@
         .dark-mode::after { opacity: 0.06; }
         .color-main { color: var(--text-main); } .color-muted { color: var(--text-muted); } .bg-inverted { background-color: var(--btn-bg); color: var(--btn-text); transition: all 0.4s ease; }
 
-        /* Liquid Glass 统一材质 */
+        /* 🚀 品牌 Logo 光学自适应引擎 (黑白自动翻转) */
+        .logo-adapt { transition: filter 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .dark-mode .logo-adapt { filter: invert(1) hue-rotate(180deg) brightness(1.2); }
+
         .liquid-glass { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(48px) saturate(200%); -webkit-backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.4); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05), inset 0 1.5px 2px rgba(255, 255, 255, 0.9), inset 0 -1.5px 2px rgba(255, 255, 255, 0.15); border-radius: 24px; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
         .dark-mode .liquid-glass { background: rgba(20, 20, 20, 0.35); border-color: rgba(255, 255, 255, 0.15); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), inset 0 1.5px 2px rgba(255, 255, 255, 0.2), inset 0 -1.5px 2px rgba(0, 0, 0, 0.5); }
         .liquid-glass-dark { background: rgba(20, 20, 20, 0.5); backdrop-filter: blur(48px) saturate(200%); -webkit-backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 12px 32px rgba(0,0,0,0.2), inset 0 1.5px 2px rgba(255, 255, 255, 0.3), inset 0 -1.5px 2px rgba(0, 0, 0, 0.4); color: #fff; border-radius: 100px; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -96,7 +97,6 @@
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .mask-linear-fade { mask-image: linear-gradient(to right, black 85%, transparent 100%); -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%); }
 
-        /* 🚀 严格 Z-index 规范：模版必须高于导航栏 */
         .modal { opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s ease; background: var(--bg-base); z-index: 9999; }
         .modal.active { opacity: 1; visibility: visible; }
         .modal-content { transition: all 0.4s ease; transform: scale(0.98) translateY(20px); opacity: 0; }
@@ -128,8 +128,7 @@
         #globalBackToTop { opacity: 0; pointer-events: none; transform: translateY(20px); transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); z-index: 90; }
         #globalBackToTop.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 
-        /* 🚀 终极截图层修复：iOS 绝不渲染隐藏或移出屏幕的元素！
-           对策：放在视口顶端，设置极低透明度，放置于最底层。截完图再隐藏。 */
+        /* 🚀 海报引擎光学隐形基座 */
         #posterTemplateWrapper { position: fixed; top: 0; left: 0; z-index: -1000; opacity: 0.01; pointer-events: none; overflow: hidden; }
         #posterTemplate { width: 750px; background-color: #ffffff; color: #111; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; padding-bottom: 40px; box-sizing: border-box; }
         .poster-cover { width: 100%; height: 500px; object-fit: cover; object-position: center; border-radius: 0 0 40px 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
@@ -146,6 +145,11 @@
         .poster-qr-container { text-align: right; }
         .poster-qr { width: 100px; height: 100px; background: #fff; padding: 4px; border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; display: block; object-fit: contain; }
         .poster-qr-text { font-size: 12px; font-weight: bold; color: #aaa; letter-spacing: 0.1em; }
+        
+        /* 🚀 铭牌专属光泽扫描动画 */
+        .plaque-glare { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.4) 45%, transparent 70%); transform: translateX(-100%); transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .dark-mode .plaque-glare { background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.1) 45%, transparent 70%); }
+        .group:hover .plaque-glare { transform: translateX(100%); }
     </style>
 </head>
 
@@ -162,7 +166,10 @@
         <nav class="nav-island flex items-center justify-between px-4 py-2.5 md:px-3 md:py-2 w-full shadow-2xl relative">
             <div id="navIndicator" class="nav-indicator hidden md:block"></div>
             
-            <a href="#home" class="text-[16px] md:text-lg font-black tracking-tight color-main btn-elastic flex-shrink-0 relative z-10 pl-2 md:pl-5">林嘉雍<span class="opacity-30 mx-1">·</span>品牌策划</a>
+            <a href="#home" class="flex items-center gap-2.5 pl-2 md:pl-5 text-[16px] md:text-lg font-black tracking-tight color-main btn-elastic flex-shrink-0 relative z-10">
+                <img src="images/logo.png" class="h-5 md:h-6 w-auto object-contain logo-adapt" alt="林嘉雍 Logo" onerror="this.style.display='none'">
+                <span>林嘉雍<span class="opacity-30 mx-1">·</span>品牌策划</span>
+            </a>
             
             <div class="hidden md:flex items-center gap-1 relative z-10 px-2" id="navLinksContainer">
                 <a href="#home" class="nav-link cursor-pointer nav-item" data-target="home">首页</a>
@@ -246,7 +253,14 @@
         <section id="about" class="scroll-section py-24 md:py-32 px-6 md:px-12 relative z-20">
             <div class="max-w-5xl mx-auto"><div class="liquid-glass hover-elastic !rounded-[2rem] md:!rounded-[3rem] p-8 md:p-20 reveal-up"><div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
                 <div><h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-6 md:mb-8 color-main">关于我</h2><div class="space-y-4 md:space-y-6 color-main opacity-90 text-[14px] md:text-lg leading-relaxed font-medium tracking-wide text-justify text-balance"><p>5年餐饮品牌相关工作经验，2年+品牌全案策划与团队管理经验，累计主导多个品牌从0到1搭建与战略升维全案。</p><p>端到端覆盖市场洞察、定位策略、IP打造、品牌文案体系、落地运营全闭环，具备成熟的跨团队统筹、多项目管控能力。</p><p>熟悉各类主流AI软件，可快速适配多行业品牌策划需求，坚持用策略驱动设计，用设计落地商业价值。</p></div></div>
-                <div class="flex flex-col gap-6 md:gap-8"><div class="liquid-glass overflow-hidden flex items-center justify-center p-8 shadow-sm border-none bg-inverted relative group"><img src="images/avatar.png" id="authorAvatar" alt="个人图片" class="w-full max-h-[300px] object-contain relative z-10" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="color-muted font-bold tracking-widest hidden relative z-10">等待上传个人图片</span></div><button id="openResumeBtn" class="liquid-glass-dark w-full py-4 rounded-full font-bold text-[15px] md:text-lg shadow-2xl flex items-center justify-center gap-3 cursor-pointer tracking-widest btn-elastic"><i class="fa fa-file-text-o text-xl"></i> 查看个人简历</button></div>
+                <div class="flex flex-col gap-6 md:gap-8">
+                    <div class="liquid-glass overflow-hidden flex items-center justify-center p-12 md:p-16 border border-[var(--glass-border)] bg-gradient-to-br from-[var(--bg-base)] to-[var(--glass-bg)] relative group transition-all duration-700 hover:shadow-[0_30px_60px_rgba(0,0,0,0.1)] hover:-translate-y-2 !rounded-[2rem]">
+                        <div class="plaque-glare z-20"></div>
+                        <img src="images/logo.png" alt="林嘉雍品牌标识" class="w-full max-w-[180px] object-contain relative z-10 logo-adapt transform transition-transform duration-700 group-hover:scale-105 drop-shadow-xl" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="color-muted font-bold tracking-widest hidden relative z-10 text-sm">等待上传专属 Logo</span>
+                    </div>
+                    <button id="openResumeBtn" class="liquid-glass-dark w-full py-4 rounded-full font-bold text-[15px] md:text-lg shadow-2xl flex items-center justify-center gap-3 cursor-pointer tracking-widest btn-elastic"><i class="fa fa-file-text-o text-xl"></i> 查看个人简历</button>
+                </div>
             </div></div></div>
         </section>
 
@@ -262,13 +276,13 @@
         </section>
     </main>
 
-    <footer class="py-12 border-t border-[var(--glass-border)] text-center relative z-10">
+    <footer class="pt-20 pb-16 border-t border-[var(--glass-border)] text-center relative z-10 flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-transparent to-[var(--bg-base)]">
+        <img src="images/logo.png" class="h-16 md:h-20 mb-8 opacity-[0.06] dark:opacity-[0.15] logo-adapt pointer-events-none select-none blur-[0.5px]" alt="Brand Watermark" onerror="this.style.display='none'">
         <p class="text-[10px] font-black tracking-[0.25em] color-muted opacity-40 uppercase">© 2026 LINJIAYONG. ALL RIGHTS RESERVED.</p>
     </footer>
 
-    <div id="workModal" class="modal fixed inset-0 z-[9999] flex items-center justify-center">
+    <div id="workModal" class="modal fixed inset-0 z-[100] flex items-center justify-center">
         <div class="modal-content w-full h-full flex flex-col relative overflow-hidden bg-[var(--bg-base)]">
-            
             <button id="closeWorkModal" class="fixed top-4 right-4 md:top-6 md:right-6 w-11 h-11 bg-black/40 dark:bg-white/20 backdrop-blur-2xl border border-white/10 rounded-full flex items-center justify-center text-white z-[99999] shadow-2xl btn-elastic">
                 <i class="fa fa-times text-lg"></i>
             </button>
@@ -344,7 +358,7 @@
             <div class="poster-footer">
                 <div class="poster-author">
                     <div class="poster-logo-container">
-                        <img id="p-logo" src="images/logo.png" class="poster-logo" crossorigin="anonymous" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
+                        <img id="p-logo" src="images/logo.png" class="poster-logo logo-adapt" crossorigin="anonymous" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
                     </div>
                     <div class="poster-author-info">
                         <h4>林嘉雍</h4>
@@ -365,7 +379,7 @@
             <div id="posterResult" class="w-full rounded-[1.5rem] overflow-hidden shadow-2xl bg-white mb-6 min-h-[400px] flex items-center justify-center relative">
                 <div class="py-20 text-center text-gray-500 flex flex-col items-center justify-center w-full h-full">
                     <i class="fa fa-circle-o-notch fa-spin text-4xl mb-4"></i>
-                    <p class="text-sm tracking-widest font-bold mt-3">引擎渲染中...</p>
+                    <p class="text-sm tracking-widest font-bold mt-3">排版合成中...</p>
                 </div>
             </div>
             <button id="downloadPosterBtn" class="liquid-glass-dark w-full py-4 rounded-full font-bold text-[16px] shadow-2xl flex items-center justify-center gap-2 cursor-pointer tracking-widest hidden btn-elastic border border-white/20"><i class="fa fa-download text-lg"></i> 存至本地相册</button>
@@ -739,9 +753,6 @@
         if(closeResumeModal) closeResumeModal.addEventListener('click', closeResume);
         window.copyTextToClipboard = function(text, type) { navigator.clipboard.writeText(text).then(() => { showToast(`已复制${type}: ${text}`); }).catch(err => { showToast('复制失败', true); }); }
 
-        // ==========================================
-        // 🚀 引擎核心重构：防 iOS 内存白屏渲染技术
-        // ==========================================
         const generatePosterBtn = document.getElementById('generatePosterBtn');
         const posterModal = document.getElementById('posterModal');
         const closePosterModal = document.getElementById('closePosterModal');
@@ -749,13 +760,12 @@
         const downloadPosterBtn = document.getElementById('downloadPosterBtn');
         let generatedCanvas = null;
 
-        // 加载图片的 Promise 封装，强制等图片读进内存
         const loadImgAsync = (imgElement, src) => {
             return new Promise((resolve) => {
                 imgElement.onload = () => resolve(true);
                 imgElement.onerror = () => resolve(false);
                 imgElement.src = src;
-                setTimeout(() => resolve(false), 2000); // 绝对防卡死：2秒超时强制放行
+                setTimeout(() => resolve(false), 2000); 
             });
         };
 
@@ -781,15 +791,12 @@
             const qr = new QRious({ value: shareUrl, size: 300, level: 'H', background: 'white', foreground: 'black' });
             document.getElementById('p-qrcode').src = qr.toDataURL();
 
-            // 🚀 强制等待封面图加载入 iOS 内存
             await loadImgAsync(pCover, work.cover || 'images/placeholder.jpg');
 
-            // 留出 100ms 让浏览器重新排版 DOM
             setTimeout(() => {
                 const posterDOM = document.getElementById('posterTemplate');
-                // 取消跨域污染限制，直接在本地环境抓取
                 html2canvas(posterDOM, { 
-                    scale: window.devicePixelRatio > 1 ? 2 : 1.5, // 智能高清适配
+                    scale: window.devicePixelRatio > 1 ? 2 : 1.5, 
                     allowTaint: false, 
                     useCORS: true,
                     backgroundColor: '#ffffff' 
