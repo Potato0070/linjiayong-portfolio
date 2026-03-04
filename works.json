@@ -1008,6 +1008,22 @@
           "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_33.jpg"
         },
         {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_34.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_35.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_36.jpg"
+        },
+        {
+          "type": "image",
+          "src": "images/uploads/content_3179e0b6-b52d-8041-9734-e57965e2309d_37.jpg"
+        },
+        {
           "type": "h1",
           "html": "<strong>THANKS~</strong>"
         }
@@ -1466,7 +1482,7 @@
       "tags": [],
       "cover": "images/uploads/cover_3179e0b6-b52d-800e-9027-e20974fa0f80.jpg",
       "sort": 6,
-      "featured": false,
+      "featured": true,
       "blocks": [
         {
           "type": "h1",
@@ -1645,6 +1661,10 @@
           "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_31.jpg"
         },
         {
+          "type": "p",
+          "html": "以 “社区鲜食堂，新鲜看得见” 为设计核心，打造透明、高效、温暖的社区快餐空间。门头强化 “徽仨宝 现包现做手作馄饨” 的品牌核心标识，搭配核心卖点，打造极具亲和力的社区门店形象。空间科学划分 61㎡前厅与 25㎡后厨，前厅设置 24 张二人方台与长吧桌，可容纳 48 个座位，完美适配社区单人简餐、双人同行等高频用餐场景；核心打造明档现包操作间，全程可视化展示馄饨手工包制全过程，让消费者看得见新鲜、吃得更放心。空间动线贴合快餐高峰时段的高效运营需求，选用易清洁、暖质感的适配材质，墙面融入品牌标语与制作工艺内容，全方位营造干净、透明、有温度的社区鲜食堂用餐氛围。"
+        },
+        {
           "type": "image",
           "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_32.jpg"
         },
@@ -1663,82 +1683,6 @@
         {
           "type": "image",
           "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_36.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_37.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_38.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_39.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_40.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_41.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_42.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_43.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_44.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_45.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_46.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_47.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_48.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_49.jpg"
-        },
-        {
-          "type": "p",
-          "html": "以 “社区鲜食堂，新鲜看得见” 为设计核心，打造透明、高效、温暖的社区快餐空间。门头强化 “徽仨宝 现包现做手作馄饨” 的品牌核心标识，搭配核心卖点，打造极具亲和力的社区门店形象。空间科学划分 61㎡前厅与 25㎡后厨，前厅设置 24 张二人方台与长吧桌，可容纳 48 个座位，完美适配社区单人简餐、双人同行等高频用餐场景；核心打造明档现包操作间，全程可视化展示馄饨手工包制全过程，让消费者看得见新鲜、吃得更放心。空间动线贴合快餐高峰时段的高效运营需求，选用易清洁、暖质感的适配材质，墙面融入品牌标语与制作工艺内容，全方位营造干净、透明、有温度的社区鲜食堂用餐氛围。"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_50.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_51.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_52.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_53.jpg"
-        },
-        {
-          "type": "image",
-          "src": "images/uploads/content_3179e0b6-b52d-800e-9027-e20974fa0f80_54.jpg"
         },
         {
           "type": "h1",
