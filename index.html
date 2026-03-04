@@ -40,7 +40,7 @@
         .dark-mode .liquid-glass-dark { background: rgba(240, 240, 240, 0.7); color: #000; border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: 0 12px 32px rgba(0,0,0,0.1), inset 0 1.5px 2px #fff, inset 0 -1.5px 2px rgba(0,0,0,0.1); }
         .dark-mode .liquid-glass-dark:hover { background: rgba(255, 255, 255, 0.9); box-shadow: 0 16px 40px rgba(0,0,0,0.15), inset 0 2px 3px #fff; }
         
-        .nav-island { position: relative; background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(48px) saturate(250%); -webkit-backdrop-filter: blur(48px) saturate(250%); border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 16px 32px rgba(0,0,0,0.06), inset 0 1.5px 2px rgba(255,255,255,0.9), inset 0 -1px 1px rgba(255,255,255,0.2); border-radius: 100px; transition: all 0.5s ease; }
+        .nav-island { position: relative; background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(48px) saturate(250%); border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 16px 32px rgba(0,0,0,0.06), inset 0 1.5px 2px rgba(255,255,255,0.9), inset 0 -1px 1px rgba(255,255,255,0.2); border-radius: 100px; transition: all 0.5s ease; }
         .dark-mode .nav-island { background: rgba(30, 30, 30, 0.4); border-color: rgba(255, 255, 255, 0.15); box-shadow: 0 16px 32px rgba(0,0,0,0.4), inset 0 1.5px 2px rgba(255,255,255,0.2), inset 0 -1px 1px rgba(0,0,0,0.5); }
         
         .nav-indicator-wrapper { position: absolute; top: 50%; transform: translateY(-50%); height: 34px; border-radius: 100px; transition: all 0.5s cubic-bezier(0.25, 1, 0.3, 1); z-index: 0; pointer-events: none; opacity: 0; display: flex; align-items: center; justify-content: center; }
@@ -98,31 +98,41 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* 🚀 方案 B：高定级“3D 透视玻璃陈列馆” (Isometric Glass Grid) */
+        /* 🚀 方案 B (升级版)：高定级“3D 透视玻璃陈列馆” */
         .partner-3d-wrapper { perspective: 1200px; padding: 20px 10px; margin: 0 auto; max-width: 1100px; overflow-x: hidden; }
-        
         .partner-grid-3d { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; transform: rotateX(25deg); transform-style: preserve-3d; transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
-        
-        /* 响应式：PC 端展现极强的 3D 纵深与偏移感 */
         @media (min-width: 768px) {
             .partner-grid-3d { grid-template-columns: repeat(4, 1fr); gap: 2rem; transform: rotateX(35deg) rotateZ(-3deg) rotateY(4deg); }
-            /* 鼠标移入整个陈列馆，视角微微抬起，极具高级感 */
             .partner-3d-wrapper:hover .partner-grid-3d { transform: rotateX(15deg) rotateZ(0deg) rotateY(0deg); }
         }
 
-        /* 去框化的高级玻璃卡片 */
-        .partner-card-3d { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(48px) saturate(200%); -webkit-backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.4); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05), inset 0 1.5px 2px rgba(255, 255, 255, 0.9); border-radius: 20px; padding: 1.5rem 1rem; display: flex; align-items: center; justify-content: center; transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); transform: translateZ(0); filter: grayscale(100%) opacity(0.4); cursor: pointer; }
-        .dark-mode .partner-card-3d { background: rgba(20, 20, 20, 0.35); border-color: rgba(255, 255, 255, 0.15); filter: grayscale(100%) opacity(0.3) brightness(1.5); }
+        .partner-card-3d { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(48px) saturate(200%); -webkit-backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.4); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05), inset 0 1.5px 2px rgba(255, 255, 255, 0.9); border-radius: 20px; padding: 1.5rem 1rem; display: flex; align-items: center; justify-content: center; transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); transform: translateZ(0); cursor: pointer; }
+        .dark-mode .partner-card-3d { background: rgba(20, 20, 20, 0.35); border-color: rgba(255, 255, 255, 0.15); }
         
-        /* 空间失重悬停状态：浮出、全彩、发光 */
-        .partner-card-3d:hover { transform: translateZ(60px) translateY(-10px) rotateX(-15deg); filter: grayscale(0%) opacity(1) brightness(1.05); background: rgba(255,255,255,0.9); box-shadow: 0 30px 60px rgba(0,0,0,0.15), inset 0 2px 3px rgba(255, 255, 255, 1); z-index: 10; }
-        .dark-mode .partner-card-3d:hover { background: rgba(255,255,255,0.15); filter: grayscale(0%) opacity(1) brightness(1.2); box-shadow: 0 40px 80px rgba(0,0,0,0.5), inset 0 2px 3px rgba(255, 255, 255, 0.3); }
+        .partner-card-3d:hover { transform: translateZ(60px) translateY(-10px) rotateX(-15deg); background: rgba(255,255,255,0.9); box-shadow: 0 30px 60px rgba(0,0,0,0.15), inset 0 2px 3px rgba(255, 255, 255, 1); z-index: 10; }
+        .dark-mode .partner-card-3d:hover { background: rgba(255,255,255,0.15); box-shadow: 0 40px 80px rgba(0,0,0,0.5), inset 0 2px 3px rgba(255, 255, 255, 0.3); }
         
-        /* 物理级定标：统一视觉高度，打破“米粒大小”魔咒 */
-        .partner-card-3d img { width: auto; height: 32px; object-fit: contain; pointer-events: none; transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        /* 🚀 魔法一：Logo 单色深邃剪影化 (Brightness Override) */
+        .partner-card-3d img { 
+            width: auto; height: 32px; object-fit: contain; pointer-events: none; transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            /* 强制压暗：白天模式变成极深的黑灰剪影，清晰度爆表 */
+            filter: brightness(0) opacity(0.85); 
+        }
         @media (min-width: 768px) { .partner-card-3d img { height: 42px; } }
-        /* Logo 在玻璃块上二次悬浮 */
-        .partner-card-3d:hover img { transform: scale(1.15) translateZ(20px); filter: drop-shadow(0 10px 10px rgba(0,0,0,0.1)); }
+        
+        .dark-mode .partner-card-3d img { 
+            /* 夜间模式：强制变成极亮的纯白剪影 */
+            filter: brightness(0) invert(1) opacity(0.9); 
+        }
+        
+        /* 悬停瞬间解除封印，恢复原彩 */
+        .partner-card-3d:hover img { 
+            transform: scale(1.15) translateZ(20px); 
+            filter: brightness(1) invert(0) opacity(1) drop-shadow(0 10px 10px rgba(0,0,0,0.1)); 
+        }
+        .dark-mode .partner-card-3d:hover img { 
+            filter: brightness(1) invert(0) opacity(1) drop-shadow(0 10px 10px rgba(0,0,0,0.4)); 
+        }
 
         .modal { opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s ease; background: var(--bg-base); z-index: 9999; }
         .modal.active { opacity: 1; visibility: visible; }
@@ -147,8 +157,15 @@
         .fade-img { opacity: 0; transition: opacity 0.8s ease; position: relative; z-index: 3; width: 100%; height: auto; display: block; }
         .fade-img.loaded { opacity: 1; }
 
-        .watermark-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 40; pointer-events: none; background-repeat: repeat; opacity: 0; transition: opacity 0.8s ease; }
-        .watermark-layer.active { opacity: 1; }
+        /* 🚀 魔法二：变色龙反相矩阵 (Chameleon Matrix) */
+        .watermark-layer { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            z-index: 40; pointer-events: none; background-repeat: repeat; 
+            opacity: 0; transition: opacity 0.8s ease; 
+            /* 开启物理反相，遇到任何背景都会生成其补色，无法被涂抹！ */
+            mix-blend-mode: difference; 
+        }
+        .watermark-layer.active { opacity: 0.18; } /* 极具压迫感的显示浓度 */
 
         #globalBackToTop { opacity: 0; pointer-events: none; transform: translateY(20px); transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); z-index: 90; }
         #globalBackToTop.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
@@ -409,8 +426,8 @@
         // ==========================================
         // 🚨 微信通知核心：填入你的 WxPusher 凭证！
         // ==========================================
-        const WXPUSHER_APP_TOKEN = "AT_OOIhjUdzftM1RYbWGj6jfGy37JmapCSI"; // 例如："AT_1a2b3c4d5e6f7g8h9i0j"
-        const WXPUSHER_UID = "UID_s8ryFtV6PpO7XiPnCzPyVGnWBfDV";       // 例如："UID_1a2b3c4d5e6f7g8h9i0j"
+        const WXPUSHER_APP_TOKEN = ""; // 例如："AT_1a2b3c4d5e6f7g8h9i0j"
+        const WXPUSHER_UID = "";       // 例如："UID_1a2b3c4d5e6f7g8h9i0j"
         
         let worksList = [];
         let filteredWorksList = [];
@@ -429,12 +446,13 @@
             return `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
         }
 
+        // 🚀 核心：注射高密度、大字体变色龙水印！
         function injectDynamicWatermark(ip, timeStr) {
-            const svg = `<svg width='320' height='320' xmlns='http://www.w3.org/2000/svg'>
-                <g transform='translate(160,160) rotate(-25) translate(-160,-160)'>
-                    <text x='160' y='140' font-size='18' fill='rgba(150,150,150,0.14)' font-family='sans-serif' font-weight='900' letter-spacing='2' text-anchor='middle'>LINJIAYONG · 专属版权</text>
-                    <text x='160' y='165' font-size='14' fill='rgba(150,150,150,0.12)' font-family='monospace' font-weight='bold' letter-spacing='1' text-anchor='middle'>IP: ${ip}</text>
-                    <text x='160' y='185' font-size='12' fill='rgba(150,150,150,0.12)' font-family='sans-serif' font-weight='bold' letter-spacing='1' text-anchor='middle'>${timeStr}</text>
+            const svg = `<svg width='220' height='220' xmlns='http://www.w3.org/2000/svg'>
+                <g transform='translate(110,110) rotate(-20) translate(-110,-110)'>
+                    <text x='110' y='90' font-size='14' fill='rgba(255,255,255,0.9)' font-family='sans-serif' font-weight='900' letter-spacing='2' text-anchor='middle'>LINJIAYONG · 专属版权</text>
+                    <text x='110' y='115' font-size='20' fill='rgba(255,255,255,1)' font-family='monospace' font-weight='900' letter-spacing='1' text-anchor='middle'>IP: ${ip}</text>
+                    <text x='110' y='135' font-size='12' fill='rgba(255,255,255,0.7)' font-family='sans-serif' font-weight='bold' letter-spacing='1' text-anchor='middle'>${timeStr}</text>
                 </g>
             </svg>`;
             const watermarkLayer = document.getElementById('dynamicWatermark');
@@ -444,7 +462,6 @@
             }
         }
 
-        // 🚀 核心：通过 WxPusher 发送高定版通知
         function sendPushNotification(ip, workTitle) {
             if (!WXPUSHER_APP_TOKEN || !WXPUSHER_UID) return;
             const ua = navigator.userAgent;
