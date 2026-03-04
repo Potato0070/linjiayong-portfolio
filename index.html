@@ -34,16 +34,15 @@
         /* 极致胶片颗粒感 */
         body::after { content: ""; position: fixed; inset: 0; width: 100vw; height: 100vh; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); opacity: 0.06; z-index: 9999; pointer-events: none; mix-blend-mode: overlay; }
         
-        /* 🐯 新 Logo 自发光救援 (Neon Silhouette) */
+        /* 🐯 新 Logo 封印解除 + 霓虹剥离术 (Neon Silhouette) */
         .logo-adapt { 
-            /* 第一层极细白光剥离黑底，第二三层琥珀色环境光 */
-            filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 8px rgba(245, 158, 11, 0.6)) drop-shadow(0 0 20px rgba(234, 88, 12, 0.3)); 
+            filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 10px rgba(245, 158, 11, 0.7)) drop-shadow(0 0 25px rgba(234, 88, 12, 0.4)); 
             transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); 
         }
-        .logo-adapt:hover { transform: scale(1.05); filter: drop-shadow(0 0 2px rgba(255, 255, 255, 1)) drop-shadow(0 0 15px rgba(245, 158, 11, 0.8)) drop-shadow(0 0 30px rgba(234, 88, 12, 0.5)); }
+        .logo-adapt:hover { transform: scale(1.04); filter: drop-shadow(0 0 2px rgba(255, 255, 255, 1)) drop-shadow(0 0 18px rgba(245, 158, 11, 0.9)) drop-shadow(0 0 35px rgba(234, 88, 12, 0.6)); }
 
-        /* 🧊 极其锐利的黑曜石导航栏 */
-        .nav-island { position: relative; background: rgba(10, 10, 10, 0.7); backdrop-filter: blur(24px) saturate(150%); -webkit-backdrop-filter: blur(24px) saturate(150%); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 20px 40px rgba(0,0,0,0.9), inset 0 1px 1px rgba(255,255,255,0.1); border-radius: 100px; transition: all 0.5s ease; }
+        /* 🧊 顶层、晶莹剔透的黑曜石导航栏 (Highest Z-Index) */
+        .nav-island { position: relative; background: rgba(15, 15, 15, 0.7); backdrop-filter: blur(24px) saturate(150%); -webkit-backdrop-filter: blur(24px) saturate(150%); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 20px 40px rgba(0,0,0,0.9), inset 0 1px 1px rgba(255,255,255,0.1); border-radius: 100px; transition: all 0.5s ease; z-index: 9999; }
         
         .nav-indicator-wrapper { position: absolute; top: 50%; transform: translateY(-50%); height: 34px; border-radius: 100px; transition: all 0.5s cubic-bezier(0.25, 1, 0.3, 1); z-index: 0; pointer-events: none; opacity: 0; display: flex; align-items: center; justify-content: center; }
         .nav-indicator-bg { position: absolute; inset: 0; background: #ffffff; border-radius: 100px; z-index: 1; }
@@ -60,54 +59,70 @@
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
         /* ================================================================= */
-        /* 🌌 1. 核弹级：流沙点燃文字引擎 (Color-Dodge Ignition Engine) 🌌 */
+        /* 🌌 1. 核心视觉：世界级 Agency 湍流分形噪声流体背景 (在文字背后) 🌌 */
         /* ================================================================= */
-        .hero-cinematic-container { position: relative; background-color: #000000; overflow: hidden; }
+        .hero-cinematic-wrapper { position: relative; background-color: #000000; overflow: hidden; }
         
-        /* 巨幕冷灰文字：等待被点燃 */
-        .hero-title-line { 
-            display: block; white-space: nowrap; 
-            font-size: clamp(2.5rem, 8vw, 7.5rem); 
-            font-weight: 900; letter-spacing: -0.05em; line-height: 1.05;
-            color: #777777; /* 极其高级的冷铁灰，遇到color-dodge会爆出极光 */
+        /* 湍流核心：狭长、横贯全屏的高热琥珀流沙云 (位于所有文字背后) */
+        .hero-aura-sweep-core {
+            position: absolute; top: 20%; left: -60%; width: 160vw; height: 80vh;
+            /* 极其猛烈、高热量的破晓金/琥珀色 */
+            background: radial-gradient(ellipse 70% 50% at center, rgba(251, 146, 60, 0.9) 0%, rgba(234, 88, 12, 0.4) 40%, transparent 70%);
+            /* 挂载 SVG 数学湍流滤镜 */
+            filter: url(#fluidFilter) blur(50px);
+            animation: sweepCinematic 18s ease-in-out infinite alternate;
+            pointer-events: none; z-index: 0;
         }
-        
-        /* 在文字之上拂过的流沙火海 */
-        .hero-sand-overlay {
-            position: absolute; inset: -20%; z-index: 20; pointer-events: none;
-            mix-blend-mode: color-dodge; /* 核心魔法：只点燃下方有灰度的地方，纯黑背景免疫 */
+        /* 干扰流体：稍微偏红的暗橙色光束，产生星云纹理 */
+        .hero-aura-fluid {
+            position: absolute; top: 10%; right: -60%; width: 130vw; height: 90vh;
+            background: radial-gradient(ellipse 60% 60% at center, rgba(234, 88, 12, 0.3) 0%, transparent 65%);
+            filter: url(#fluidFilter) blur(60px); mix-blend-mode: screen;
+            animation: fluidCinematic 22s ease-in-out infinite alternate;
+            pointer-events: none; z-index: 0;
         }
-        .hero-sand-sweep {
-            position: absolute; top: 30%; left: -60%; width: 150vw; height: 70vh;
-            /* 极其猛烈的高热琥珀色 */
-            background: radial-gradient(ellipse 60% 50% at center, rgba(251, 146, 60, 0.8) 0%, rgba(234, 88, 12, 0.3) 40%, transparent 70%);
-            filter: blur(50px);
-            animation: sweepIgnite 12s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+        @keyframes sweepCinematic {
+            0% { transform: translateX(-35vw) rotate(-10deg) scale(0.9); opacity: 0.7; }
+            100% { transform: translateX(35vw) rotate(-5deg) scale(1.1); opacity: 1; }
         }
-        @keyframes sweepIgnite {
-            0% { transform: translateX(0vw) rotate(-10deg) scale(0.9); }
-            100% { transform: translateX(50vw) rotate(5deg) scale(1.1); }
+        @keyframes fluidCinematic {
+            0% { transform: translateX(35vw) rotate(15deg); }
+            100% { transform: translateX(-35vw) rotate(5deg); }
         }
 
+        /* 礁石巨幕排版：文字本身是高级冷灰，被背后流光剥离 */
+        .hero-title-line { 
+            display: block; white-space: nowrap; 
+            font-size: clamp(2.8rem, 8vw, 7.5rem); 
+            font-weight: 900; letter-spacing: -0.05em; line-height: 1.05;
+            color: #777777; /* 极其高级的冷铁灰，文字本身不发光 */
+            
+            /* 🔥 x.ai 的灵魂：背后的远处探照灯打过来，爆出刺眼金橙色背光印记 */
+            filter: drop-shadow(0 15px 45px rgba(251, 146, 60, 0.85));
+            text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+        
         /* ================================================================= */
-        /* 🌅 2. 巨型恒星地平线 (The Burning Dome Footer) 🌅 */
+        /* 🌅 2. 巨型恒星穹顶地平线 (The Burning Dome Footer) 🌅 */
         /* ================================================================= */
-        .footer-dome-wrapper { position: relative; overflow: hidden; background-color: #000; min-height: 400px; display: flex; flex-col; justify-content: flex-end; align-items: center; padding-bottom: 4rem;}
-        .footer-dome {
+        .footer-dome-wrapper {
+            position: relative; overflow: hidden; background-color: #000;
+        }
+        .footer-dome-burning {
             position: absolute; bottom: -80vw; left: 50%; transform: translateX(-50%);
             width: 160vw; height: 160vw; border-radius: 50%;
-            /* 巨大的发光半圆 */
+            /* 巨大的发光半圆穹顶 */
             background: radial-gradient(circle at top, rgba(245, 158, 11, 0.2) 0%, rgba(234, 88, 12, 0.05) 45%, transparent 70%);
-            filter: blur(60px); pointer-events: none; z-index: 0;
+            /* 🔥 挂载本页通用的 SVG 湍流分形噪声滤镜 */
+            filter: url(#fluidFilter) blur(60px); pointer-events: none; z-index: 0;
         }
-        /* 地平线最底部的实体高热红线 */
-        .footer-core-line {
+        /* 地平线核心高热红线 */
+        .footer-core-burning {
             position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
             background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.8), transparent);
             box-shadow: 0 -20px 60px 20px rgba(245, 158, 11, 0.4); z-index: 1;
         }
 
-        /* 动画与显示 */
         .reveal-up { opacity: 0; transform: translateY(50px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal-up.revealed { opacity: 1; transform: translateY(0); }
         .animate-slide-up-text { display: block; transform: translateY(110%); opacity: 0; animation: revealText 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
@@ -115,7 +130,7 @@
         .intro-fade-in { opacity: 0; transform: translateY(10px); transition: all 1s ease; }
         .intro-fade-in.active { opacity: 1; transform: translateY(0); }
         
-        /* 🚀 3D 悬浮阵列：保持深黑高级感 */
+        /* 🚀 3D 悬浮阵列：保持深黑克制 */
         .partner-3d-wrapper { perspective: 1200px; padding: 20px 10px; margin: 0 auto; max-width: 1100px; overflow-x: hidden; }
         .partner-grid-3d { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; transform: rotateX(20deg); transform-style: preserve-3d; transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
         @media (min-width: 768px) {
@@ -128,12 +143,13 @@
         .partner-card-3d:hover .partner-card-inner { background: rgba(35,35,35,0.9); box-shadow: 0 30px 60px rgba(0,0,0,0.8), inset 0 1px 1px rgba(255, 255, 255, 0.2); border-color: rgba(255,255,255,0.2); }
         .partner-card-3d::after {
             content: ''; position: absolute; inset: 0; border-radius: 20px; padding: 2px;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent); background-size: 200% 100%; animation: flowGlow 2s linear infinite;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent);
+            background-size: 200% 100%; animation: flowGlow 2s linear infinite;
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
             opacity: 0; transition: opacity 0.5s ease; pointer-events: none; z-index: 20;
         }
         .partner-card-3d:hover::after { opacity: 1; }
-        /* Logo强制极简反白 */
+        /* Logo反白 */
         .partner-card-3d img { width: auto; height: 32px; object-fit: contain; filter: brightness(0) invert(1) opacity(0.3); transition: all 0.6s; }
         @media (min-width: 768px) { .partner-card-3d img { height: 40px; } }
         .partner-card-3d:hover img { filter: brightness(0) invert(1) opacity(1); transform: scale(1.1); }
@@ -149,12 +165,11 @@
         .fade-img { opacity: 0; transition: opacity 0.8s ease; position: relative; z-index: 3; width: 100%; height: auto; display: block; }
         .fade-img.loaded { opacity: 1; }
 
-        /* 🦎 变色龙机密水印 (高密度对角线，物理反相) */
-        .chameleon-watermark-layer {
+        /* 🛡️ 终极安防水印：全屏固定机密对角线 (不遮挡、不消失) */
+        .secure-watermark-overlay {
             position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0; transition: opacity 0.5s;
-            mix-blend-mode: difference; /* 遇到黑变白，遇到白变黑 */
         }
-        .chameleon-watermark-layer.active { opacity: 0.3; } /* 高级灰度显示 */
+        .secure-watermark-overlay.active { opacity: 1; }
         
         .liquid-glass-controls { background: rgba(20,20,20,0.8); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 40px; }
 
@@ -177,6 +192,15 @@
 
 <body class="antialiased flex flex-col min-h-screen relative">
     
+    <svg width="0" height="0" class="absolute">
+        <filter id="fluidFilter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.015 0.015" numOctaves="3" seed="5">
+                <animate attributeName="baseFrequency" dur="60s" values="0.015 0.015;0.02 0.02;0.015 0.015" repeatCount="indefinite" />
+            </feTurbulence>
+            <feDisplacementMap in="SourceGraphic" scale="50" />
+        </filter>
+    </svg>
+
     <div id="toast" class="fixed top-24 left-1/2 transform -translate-x-1/2 bg-white text-black px-6 py-3 rounded-full shadow-2xl opacity-0 z-[999999] flex items-center gap-3 transition-opacity duration-400 pointer-events-none whitespace-nowrap"><i id="toastIcon" class="fa fa-info-circle text-lg"></i><span id="toastMessage" class="font-bold tracking-widest text-[12px]"></span></div>
 
     <button id="globalBackToTop" class="fixed bottom-8 right-6 md:right-8 w-12 h-12 bg-white/10 backdrop-blur-md border border-white/10 rounded-full flex items-center justify-center text-white shadow-2xl btn-elastic">
@@ -222,23 +246,22 @@
 
     <main class="flex-1 w-full relative z-10">
         
-        <section id="home" class="scroll-section hero-cinematic-container min-h-screen flex flex-col items-center justify-center px-4 md:px-12 pt-20">
-            <div class="max-w-6xl mx-auto text-center relative z-10 mt-[-5vh] reveal-up w-full">
+        <section id="home" class="scroll-section hero-cinematic-wrapper relative min-h-screen flex flex-col items-center justify-center px-4 md:px-12 pt-20">
+            <div class="hero-aura-sweep-core"></div>
+            <div class="hero-aura-fluid"></div>
+            
+            <div class="max-w-6xl mx-auto text-center relative z-20 mt-[-5vh] reveal-up w-full">
                 <h1 class="font-black tracking-tighter mb-8 flex flex-col items-center">
                     <span class="overflow-hidden-wrap"><span class="animate-slide-up-text hero-title-line" style="animation-delay: 0.1s">用策略与设计</span></span>
                     <span class="overflow-hidden-wrap mt-2 md:mt-4"><span class="animate-slide-up-text hero-title-line" style="animation-delay: 0.3s">为品牌赋予商业灵魂</span></span>
                 </h1>
-                <p class="text-[clamp(1.1rem,2vw,1.4rem)] text-white/50 max-w-2xl mx-auto mb-12 text-balance font-medium leading-relaxed tracking-widest intro-fade-in relative">
+                <p class="text-[clamp(1.1rem,2vw,1.4rem)] text-white/50 max-w-2xl mx-auto mb-12 text-balance font-medium leading-relaxed tracking-widest intro-fade-in relative z-20">
                     专注餐饮品牌全案策划与统筹设计团队<br>从0到1搭建体系，端到端覆盖策略到落地全闭环。
                 </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-5 intro-fade-in px-4">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-5 intro-fade-in px-4 relative z-20">
                     <a href="#works" class="bg-white text-black btn-elastic px-10 py-4 rounded-full font-black text-[16px] md:text-lg w-full sm:w-auto text-center tracking-widest">浏览作品集</a>
                     <a href="#contact" class="bg-transparent border border-white/30 text-white hover:bg-white/10 btn-elastic px-10 py-4 rounded-full font-bold text-[16px] md:text-lg w-full sm:w-auto inline-block cursor-pointer tracking-widest text-center transition-colors">联系合作</a>
                 </div>
-            </div>
-
-            <div class="hero-sand-overlay">
-                <div class="hero-sand-sweep"></div>
             </div>
         </section>
 
@@ -303,19 +326,19 @@
         </section>
 
         <section id="about" class="scroll-section py-24 md:py-32 px-6 md:px-12 relative z-20">
-            <div class="max-w-5xl mx-auto"><div class="bg-[#111] border border-white/5 hover-elastic !rounded-[2rem] md:!rounded-[3rem] p-8 md:p-20 reveal-up"><div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+            <div class="max-w-5xl mx-auto"><div class="bg-[#111] border border-white/5 hover-elastic !rounded-[2rem] md:!rounded-[3rem] p-8 md:p-12 md:p-20 reveal-up"><div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
                 <div><h2 class="text-4xl md:text-5xl font-black tracking-tighter mb-8 text-white">关于我</h2><div class="space-y-6 text-white/70 text-[15px] md:text-lg leading-relaxed font-medium text-justify"><p>5年餐饮品牌相关工作经验，2年+品牌全案策划与团队管理经验，累计主导多个品牌从0到1搭建与战略升维全案。</p><p>端到端覆盖市场洞察、定位策略、IP打造、品牌文案体系、落地运营全闭环，具备成熟的跨团队统筹、多项目管控能力。</p><p>熟悉各类主流AI软件，可快速适配多行业品牌策划需求，坚持用策略驱动设计，用设计落地商业价值。</p></div></div>
                 <div class="flex flex-col gap-8 items-center justify-center">
                     <div class="relative flex items-center justify-center p-8">
                         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(245,158,11,0.15)_0%,transparent_60%)] blur-[30px] opacity-80 z-0"></div>
-                        <img src="images/logo.png?v=8.0" alt="JOHN'S FRIES" class="w-full max-w-[200px] object-contain relative z-10 logo-adapt" onerror="this.style.display='none';">
+                        <img src="images/logo.png?v=8.0" alt="JOHN'S FRIES" class="w-full max-w-[400px] object-contain relative z-10 logo-adapt" onerror="this.style.display='none';">
                     </div>
                     <button id="openResumeBtn" class="bg-white text-black w-full max-w-[260px] py-4 rounded-full font-black text-[15px] md:text-lg flex items-center justify-center gap-3 cursor-pointer tracking-widest btn-elastic"><i class="fa fa-file-text-o text-xl"></i> 查看个人简历</button>
                 </div>
             </div></div></div>
         </section>
 
-        <section id="contact" class="scroll-section pt-24 pb-32 px-6 md:px-12 relative z-20">
+        <section id="contact" class="scroll-section pt-24 pb-48 px-6 md:px-12 relative z-20">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16 reveal-up"><h2 class="text-4xl md:text-6xl font-black tracking-tighter mb-4 text-white">随时沟通合作</h2><p class="text-white/50 text-[14px] md:text-xl font-medium tracking-widest uppercase">Get in Touch</p></div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -327,9 +350,10 @@
         </section>
     </main>
 
-    <footer class="footer-dome-wrapper">
-        <div class="footer-dome"></div>
-        <div class="footer-core-line"></div>
+    <footer class="footer-dome-wrapper pt-32 pb-16 text-center">
+        <div class="footer-dome-burning"></div>
+        <div class="footer-core-burning"></div>
+        
         <div class="relative z-10 flex flex-col items-center">
             <img src="images/logo.png?v=8.0" class="h-12 md:h-14 mb-6 opacity-40 logo-adapt pointer-events-none select-none blur-[0.5px]" alt="JOHN'S FRIES Watermark" onerror="this.style.display='none'">
             <p class="text-[12px] font-black tracking-[0.3em] text-white opacity-90 uppercase mb-3 drop-shadow-lg">陪伴下一个伟大餐饮品牌的诞生</p>
@@ -372,7 +396,7 @@
             </div>
             
             <div class="modal-scroll-box w-full relative" id="workModalScrollBox">
-                <div id="dynamicStaticWatermark" class="chameleon-watermark-layer"></div>
+                <div id="dynamicStaticWatermark" class="secure-watermark-overlay"></div>
                 
                 <div id="loadingSpinner" class="absolute inset-0 flex flex-col items-center justify-center z-50 hidden"><i class="fa fa-circle-o-notch fa-spin text-4xl text-amber-500 mb-4"></i><p class="text-white/50 font-bold text-sm tracking-widest mt-4">读取高定排版中...</p></div>
                 <div class="relative w-full mx-auto" id="modalImageContainerWrapper">
@@ -418,7 +442,7 @@
 
     <script>
         // ==========================================
-        // 🚨 WxPusher 秘钥已为您写入底层！
+        // 🚨 您的秘钥，我已经直接写死在代码里了！
         // ==========================================
         const WXPUSHER_APP_TOKEN = "AT_OOIhjUdzftM1RYbWGj6jfGy37JmapCSI"; 
         const WXPUSHER_UID = "UID_s8ryFtV6PpO7XiPnCzPyVGnWBfDV";       
@@ -440,12 +464,12 @@
             return `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
         }
 
-        // 🦎 变色龙机密水印 (高密度对角线，物理反相不消失)
+        // 🦎 变色龙机密水印 (高密度、物理反相、不丢失)
         function applyStaticWatermark(ip, timeStr) {
             const svg = `<svg width='320' height='320' xmlns='http://www.w3.org/2000/svg'>
                 <g transform='translate(160,160) rotate(-30) translate(-160,-160)'>
-                    <text x='160' y='150' font-size='18' fill='rgba(255,255,255,0.7)' font-family='sans-serif' font-weight='900' letter-spacing='3' text-anchor='middle'>JOHN'S FRIES · 机密</text>
-                    <text x='160' y='175' font-size='13' fill='rgba(255,255,255,0.5)' font-family='monospace' font-weight='bold' text-anchor='middle'>IP: ${ip} · ${timeStr}</text>
+                    <text x='160' y='140' font-size='18' fill='rgba(255,255,255,0.7)' font-family='sans-serif' font-weight='900' letter-spacing='3' text-anchor='middle'>JOHN'S FRIES · 机密</text>
+                    <text x='160' y='170' font-size='13' fill='rgba(255,255,255,0.5)' font-family='monospace' font-weight='bold' text-anchor='middle'>IP: ${ip} · ${timeStr}</text>
                 </g>
             </svg>`;
             const wmOverlay = document.getElementById('dynamicStaticWatermark');
@@ -455,7 +479,7 @@
             }
         }
 
-        // 📡 手机端究极追踪：Image Ping 探针 (无视跨域拦截)
+        // 📡 手机端纠极追踪：Image Ping 探针 (0拦截)
         function sendPushNotification(ip, workTitle) {
             if (!WXPUSHER_APP_TOKEN || !WXPUSHER_UID) return;
             const ua = navigator.userAgent;
@@ -468,7 +492,7 @@
             const content = `🚨 您的作品集刚刚被访问！\n\n- 访问作品：${workTitle}\n- 访客 IP：${ip}\n- 访问设备：${device}\n- 访问时间：${getNowTimeStr()}`;
             const url = `https://wxpusher.zjiecode.com/api/send/message/?appToken=${WXPUSHER_APP_TOKEN}&content=${encodeURIComponent(content)}&uid=${WXPUSHER_UID}`;
             
-            // 🔥 使用隐形图片发送 GET 请求，绝不被手机浏览器拦截！
+            // 🔥 创建隐形图片探针发送报警，绝对有效
             const ping = new Image();
             ping.src = url;
         }
@@ -622,18 +646,18 @@
                 const delay = index * 0.1; 
                 const coverUrl = work.cover ? work.cover : 'images/placeholder.jpg';
                 
-                // 📱 手机端标签栏支持横向滑动 (whitespace-nowrap 防止换行)
+                // 📱 标签栏：whitespace-nowrap 强制横向，no-scrollbar 隐形滚动
                 let tags = (work.tags && work.tags.length > 0) ? work.tags : getSmartFallbackTags(work.title, work.desc);
-                let tagsHTML = `<div class="absolute bottom-2 md:bottom-3 left-2 md:left-3 right-2 md:right-3 flex gap-1.5 md:gap-2 z-10 overflow-x-auto no-scrollbar items-center">` + 
+                let tagsHTML = `<div class="absolute bottom-2 left-2 right-2 md:bottom-3 md:left-3 md:right-3 flex gap-1.5 md:gap-2 z-10 overflow-x-auto no-scrollbar items-center">` + 
                     tags.map(t => `<span class="whitespace-nowrap flex-shrink-0 px-2 md:px-2.5 py-1 text-[9px] md:text-[10px] font-bold rounded bg-black/70 text-white backdrop-blur-md border border-white/10 tracking-widest leading-none"># ${t}</span>`).join('') + 
                     `</div>`;
 
                 let featuredHTML = '';
                 if (work.featured) {
                     featuredHTML = `
-                    <div class="absolute top-2 md:top-4 right-2 md:right-4 z-20 flex items-center gap-1 px-2 md:px-3 py-1 md:py-1.5 rounded-full backdrop-blur-xl border border-white/20 shadow-2xl" style="background: linear-gradient(135deg, rgba(234, 88, 12, 0.8), rgba(217, 119, 6, 0.6));">
+                    <div class="absolute top-2 right-2 md:top-4 md:right-4 z-20 flex items-center gap-1 px-2 md:px-3 py-1 rounded-full backdrop-blur-xl border border-white/20 shadow-2xl" style="background: linear-gradient(135deg, rgba(234, 88, 12, 0.8), rgba(217, 119, 6, 0.6));">
                         <i class="fa fa-fire text-white text-[9px] md:text-[10px]"></i>
-                        <span class="text-white text-[9px] md:text-[10px] font-black tracking-widest hidden md:inline">精选案例</span>
+                        <span class="text-white text-[9px] md:text-[10px] font-black tracking-widest hidden md:inline">精选</span>
                     </div>`;
                 }
 
