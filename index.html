@@ -30,8 +30,9 @@
         .dark-mode::after { opacity: 0.06; }
         .color-main { color: var(--text-main); } .color-muted { color: var(--text-muted); } .bg-inverted { background-color: var(--btn-bg); color: var(--btn-text); transition: all 0.4s ease; }
 
+        /* 🚀 Logo 核心修复：黑夜模式下去除阴间反相，加上极其高级的纯白柔光剥离 */
         .logo-adapt { transition: filter 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-        /* 换成极其高级的白色柔光阴影，不改变 Logo 原色，完美剥离黑夜背景 */ .dark-mode .logo-adapt { filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.5)) drop-shadow(0 0 12px rgba(255, 255, 255, 0.1)); }
+        .dark-mode .logo-adapt { filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 12px rgba(255, 255, 255, 0.15)); }
 
         .liquid-glass { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.4); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05), inset 0 1.5px 2px rgba(255, 255, 255, 0.9), inset 0 -1.5px 2px rgba(255, 255, 255, 0.15); border-radius: 24px; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
         .dark-mode .liquid-glass { background: rgba(20, 20, 20, 0.35); border-color: rgba(255, 255, 255, 0.15); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), inset 0 1.5px 2px rgba(255, 255, 255, 0.2), inset 0 -1.5px 2px rgba(0, 0, 0, 0.5); }
@@ -157,30 +158,33 @@
         .fade-img { opacity: 0; transition: opacity 0.8s ease; position: relative; z-index: 3; width: 100%; height: auto; display: block; }
         .fade-img.loaded { opacity: 1; }
 
-        /* 幽灵游走水印 (固定高层级，不被遮挡) */
-/* ================================================================= */
-        /* 🌌 核心视觉：Agency 级巨型凹版蚀刻印刷 (Gravure) 引擎 (Stationary Background) 🌌 */
+        /* ================================================================= */
+        /* 🛡️ 顶层防线：变色龙机密文字阵列 (固定高层级，物理反相高级灰) */
+        /* ================================================================= */
+        .chameleon-watermark-layer {
+            position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0; transition: opacity 0.5s;
+            mix-blend-mode: difference; 
+        }
+        .chameleon-watermark-layer.active { opacity: 0.25; }
+
+        /* ================================================================= */
+        /* 🌌 底层防线：Agency 级巨型凹版蚀刻印刷 (Gravure) Logo引擎 */
         /* ================================================================= */
         .work-gravure-etched-engine {
-            position: fixed; inset: 0; z-index: -2; /* 牢牢钉在所有文字、幽灵水印和图片的背后 */
+            position: fixed; inset: 0; z-index: -2; /* 牢牢钉在底层 */
             pointer-events: none; opacity: 0; transition: opacity 0.8s ease; 
-            
-            /* 🔥 绝对巨型：1000px 的平铺 Logo，根据审美决策，不再是一个具体的Logo，而是纹理 */
-            background-image: url('images/logo.png?v=11.0'); /* 强制拉取新版放大Logo */
+            background-image: url('images/logo.png?v=11.0'); 
             background-repeat: repeat; background-position: center;
-            background-size: clamp(400px, 100vw, 1000px); /* 手机端拉大，电脑端巨型化 */
-            
-            /* 🌌 凹版蚀刻核心魔法：通过数学滤镜生成精密刻痕质感 */
+            background-size: clamp(400px, 100vw, 1000px); 
             filter: grayscale(1) contrast(1.5) brightness(1.2) sepia(0.2) blur(0.2px) drop-shadow(0 0 1px rgba(0,0,0,0.5));
-            mix-blend-mode: multiply; /* 白天模式下，确保它像暗灰色墨水沉淀在纸里 */
+            mix-blend-mode: multiply; 
         }
+        .work-gravure-etched-engine.active { opacity: 0.04; }
         
-        .work-gravure-etched-engine.active { opacity: 0.04; } /* 巨幅降低不透明度：高级灰0.04，高级黑0.06 */
-
         .dark-mode .work-gravure-etched-engine { 
-            /* 黑夜模式处理：转为暗调银色蚀刻纹理 */
+            /* 保持 invert 让线条在黑底上变成白色蚀刻感 */
             filter: grayscale(1) contrast(0.5) brightness(0.7) invert(1) blur(0.2px) drop-shadow(0 0 1px rgba(255,255,255,0.4));
-            mix-blend-mode: overlay; /* 黑夜下，让它像光一样融入黑色结界 */
+            mix-blend-mode: overlay; 
         }
         .dark-mode .work-gravure-etched-engine.active { opacity: 0.06; }
 
@@ -280,7 +284,7 @@
                     <p class="color-main font-bold tracking-widest text-lg">未找到相关案例</p>
                 </div>
 
-                <div id="worksGrid" class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-10 min-h-[400px]"></div>
+                <div id="worksGrid" class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-10 min-h-[400px]"></div>
                 
                 <div class="mt-16 flex flex-col md:flex-row items-center justify-center gap-4 reveal-up">
                     <div class="liquid-glass-controls flex items-center px-5 py-2.5">
@@ -347,11 +351,12 @@
     </main>
 
     <footer class="pt-20 pb-16 text-center relative z-10 flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-transparent to-[var(--bg-base)] border-none outline-none">
-        <img src="images/logo.png?v=10.0" class="h-16 md:h-20 mb-8 opacity-[0.06] dark:opacity-[0.15] logo-adapt pointer-events-none select-none blur-[0.5px]" alt="JOHN'S FRIES Watermark" onerror="this.style.display='none'">
+        <img src="images/logo.png?v=11.0" class="h-16 md:h-20 mb-8 opacity-[0.06] dark:opacity-[0.15] logo-adapt pointer-events-none select-none blur-[0.5px]" alt="JOHN'S FRIES Watermark" onerror="this.style.display='none'">
         <p class="text-[10px] font-black tracking-[0.25em] color-muted opacity-40 uppercase">© 2026 JOHN'S FRIES. ALL RIGHTS RESERVED.</p>
     </footer>
 
     <div id="workModal" class="modal fixed inset-0 z-[9999] flex items-center justify-center">
+        
         <div id="securityAlertBar" class="fixed top-0 left-0 w-full bg-red-600/90 backdrop-blur-md text-white text-[10px] md:text-xs font-bold text-center py-2 z-[100000] transform -translate-y-full transition-transform duration-500 tracking-widest shadow-md">
             <i class="fa fa-shield mr-1"></i> 核心资产保护开启：已记录您的访客IP及设备标识，动态防伪溯源运行中
         </div>
@@ -384,7 +389,9 @@
             </div>
             
             <div class="modal-scroll-box flex-1 w-full h-full relative pb-40 pt-16 md:pt-0" id="workModalScrollBox">
-                <div id="gravureWatermarkEngine" class="work-gravure-etched-engine"></div>
+                <div id="gravureBackground" class="work-gravure-etched-engine"></div>
+                <div id="dynamicStaticWatermark" class="chameleon-watermark-layer"></div>
+
                 <div id="loadingSpinner" class="absolute inset-0 flex flex-col items-center justify-center z-10 hidden"><i class="fa fa-circle-o-notch fa-spin text-4xl text-[var(--text-main)] mb-4"></i><p class="color-muted font-bold text-sm tracking-widest mt-4">读取机密排版中...</p></div>
                 <div class="relative w-full mx-auto overflow-hidden">
                     <div class="absolute inset-0 z-[5] bg-transparent w-full h-full" oncontextmenu="return false;" style="-webkit-touch-callout: none; pointer-events: auto;"></div>
@@ -429,7 +436,7 @@
 
     <script>
         // ==========================================
-        // 🚨 微信推送秘钥 (已写入底层)
+        // 🚨 微信推送秘钥 (隐形探针引擎所需)
         // ==========================================
         const WXPUSHER_APP_TOKEN = "AT_OOIhjUdzftM1RYbWGj6jfGy37JmapCSI";
         const WXPUSHER_UID = "UID_s8ryFtV6PpO7XiPnCzPyVGnWBfDV";
@@ -451,22 +458,27 @@
             return `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
         }
 
-// 🦎 变色龙机密水印 (高密度、物理反相、不丢失)
+        // 🚀 终极防盗双引擎触发
         function applyStaticWatermark(ip, timeStr) {
+            // 1. 变色龙文字阵列 (生成SVG图层)
             const svg = `<svg width='320' height='320' xmlns='http://www.w3.org/2000/svg'>
                 <g transform='translate(160,160) rotate(-30) translate(-160,-160)'>
                     <text x='160' y='140' font-size='18' fill='rgba(255,255,255,0.8)' font-family='sans-serif' font-weight='900' letter-spacing='3' text-anchor='middle'>JOHN'S FRIES · 机密档案</text>
                     <text x='160' y='170' font-size='13' fill='rgba(255,255,255,0.6)' font-family='monospace' font-weight='bold' text-anchor='middle'>IP: ${ip} · ${timeStr}</text>
                 </g>
             </svg>`;
-            const wmOverlay = document.getElementById('gravureWatermarkEngine');
+            const wmOverlay = document.getElementById('dynamicStaticWatermark');
             if(wmOverlay) {
                 wmOverlay.style.backgroundImage = `url("data:image/svg+xml;utf8,${encodeURIComponent(svg)}")`;
                 wmOverlay.classList.add('active');
             }
+            
+            // 2. 巨型 Logo 凹版蚀刻背景 (唤醒底层图层)
+            const gravureBg = document.getElementById('gravureBackground');
+            if(gravureBg) gravureBg.classList.add('active');
         }
 
-        // 🚀 保留手机端无感探针推送技术 (Image Ping)
+        // 📡 手机端纠极追踪：Image Ping 探针 (无视跨域拦截)
         function sendPushNotification(ip, workTitle) {
             if (!WXPUSHER_APP_TOKEN || !WXPUSHER_UID) return;
             const ua = navigator.userAgent;
@@ -479,7 +491,7 @@
             const content = `🚨 您的作品集刚刚被访问！\n\n- 访问作品：${workTitle}\n- 访客 IP：${ip}\n- 访问设备：${device}\n- 访问时间：${getNowTimeStr()}`;
             const url = `https://wxpusher.zjiecode.com/api/send/message/?appToken=${WXPUSHER_APP_TOKEN}&content=${encodeURIComponent(content)}&uid=${WXPUSHER_UID}`;
             
-            // 使用隐形图片探针发送报警，解决手机浏览器拦截问题
+            // 使用隐形图片探针发送报警，解决手机端失效问题
             const ping = new Image();
             ping.src = url;
         }
@@ -644,18 +656,18 @@
                 const delay = index * 0.1; 
                 const coverUrl = work.cover ? work.cover : 'images/placeholder.jpg';
                 
-                // 📱 保留手机端标签横向滑动
+                // 📱 手机端标签横向滑动
                 let tags = (work.tags && work.tags.length > 0) ? work.tags : getSmartFallbackTags(work.title, work.desc);
-                let tagsHTML = `<div class="absolute bottom-2 left-2 right-2 flex gap-1 z-10 overflow-x-auto no-scrollbar mask-linear-fade items-center">` + 
-                    tags.map(t => `<span class="whitespace-nowrap flex-shrink-0 px-2 py-1 text-[10px] font-bold rounded bg-black/50 text-white backdrop-blur-md shadow-sm border border-white/10 tracking-widest leading-none"># ${t}</span>`).join('') + 
+                let tagsHTML = `<div class="absolute bottom-2 md:bottom-3 left-2 md:left-3 right-2 md:right-3 flex gap-1.5 md:gap-2 z-10 overflow-x-auto no-scrollbar items-center">` + 
+                    tags.map(t => `<span class="whitespace-nowrap flex-shrink-0 px-2 md:px-2.5 py-1 text-[9px] md:text-[10px] font-bold rounded bg-black/50 text-white backdrop-blur-md shadow-sm border border-white/10 tracking-widest leading-none"># ${t}</span>`).join('') + 
                     `</div>`;
 
                 let featuredHTML = '';
                 if (work.featured) {
                     featuredHTML = `
-                    <div class="absolute top-3 right-3 z-20 flex items-center gap-1 px-2.5 py-1 rounded-full backdrop-blur-xl border border-white/30 shadow-[0_4px_15px_rgba(0,0,0,0.2)]" style="background: linear-gradient(135deg, rgba(255, 59, 48, 0.6), rgba(255, 149, 0, 0.4));">
-                        <i class="fa fa-fire text-white text-[10px]"></i>
-                        <span class="text-white text-[10px] font-black tracking-widest">精选</span>
+                    <div class="absolute top-2 md:top-3 right-2 md:right-3 z-20 flex items-center gap-1 px-2 md:px-2.5 py-1 rounded-full backdrop-blur-xl border border-white/30 shadow-[0_4px_15px_rgba(0,0,0,0.2)]" style="background: linear-gradient(135deg, rgba(255, 59, 48, 0.6), rgba(255, 149, 0, 0.4));">
+                        <i class="fa fa-fire text-white text-[9px] md:text-[10px]"></i>
+                        <span class="text-white text-[9px] md:text-[10px] font-black tracking-widest hidden md:inline">精选</span>
                     </div>`;
                 }
 
@@ -668,22 +680,22 @@
                 }
 
                 let titleBlock = displaySub 
-                    ? `<h3 class="text-[15px] md:text-[17px] font-black text-[var(--text-main)] truncate tracking-wide">${displayTitle}</h3>
-                       <p class="text-[11px] md:text-[13px] font-bold mt-0.5 md:mt-1 text-[var(--text-muted)] truncate tracking-wide">${displaySub}</p>`
-                    : `<h3 class="text-[15px] md:text-[17px] font-black text-[var(--text-main)] line-clamp-2 tracking-wide">${displayTitle}</h3>`;
+                    ? `<h3 class="text-[13px] md:text-[17px] font-black text-[var(--text-main)] truncate tracking-wide">${displayTitle}</h3>
+                       <p class="text-[10px] md:text-[13px] font-bold mt-0.5 md:mt-1 text-[var(--text-muted)] truncate tracking-wide">${displaySub}</p>`
+                    : `<h3 class="text-[13px] md:text-[17px] font-black text-[var(--text-main)] line-clamp-2 tracking-wide">${displayTitle}</h3>`;
 
                 const cardHTML = `
                     <div class="liquid-glass hover-elastic flex flex-col cursor-pointer reveal-up h-full overflow-hidden group" style="transition-delay: ${delay}s;" onclick="openWork('${work.id}')">
-                        <div class="relative aspect-[4/3] w-full overflow-hidden rounded-t-[24px] border-b border-[var(--glass-border)] flex-shrink-0">
+                        <div class="relative aspect-[4/3] w-full overflow-hidden rounded-t-[18px] md:rounded-t-[24px] border-b border-[var(--glass-border)] flex-shrink-0">
                             <img src="${coverUrl}" alt="${displayTitle}" class="w-full h-full object-cover glass-card-img" loading="lazy">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 pointer-events-none"></div>
                             ${featuredHTML}
                             ${tagsHTML}
                         </div>
-                        <div class="p-4 md:p-6 flex-1 flex flex-col justify-center bg-[var(--bg-base)]/50">
+                        <div class="p-3 md:p-6 flex-1 flex flex-col justify-center bg-[var(--bg-base)]/50">
                             ${titleBlock}
-                            <div class="w-4 h-[2px] bg-[var(--text-main)] opacity-10 my-2.5 md:my-3"></div>
-                            <p class="text-[var(--text-muted)] font-medium text-[11px] md:text-[12px] leading-relaxed line-clamp-2 tracking-wide opacity-90">${work.desc}</p>
+                            <div class="w-4 md:w-4 h-[2px] bg-[var(--text-main)] opacity-10 my-2 md:my-2.5"></div>
+                            <p class="text-[var(--text-muted)] font-medium text-[10px] md:text-[12px] leading-relaxed line-clamp-2 tracking-wide opacity-90">${work.desc}</p>
                         </div>
                     </div>
                 `;
@@ -704,7 +716,7 @@
             if (work) {
                 currentOpenWorkId = work.id;
                 modalImageContainer.innerHTML = ''; 
-                loadingSpinner.classList.add('hidden'); modalImageContainer.classList.remove('opacity-0'); modalImageContainer.classList.add('opacity-100');
+                loadingSpinner.classList.remove('hidden'); modalImageContainer.classList.remove('opacity-0'); modalImageContainer.classList.add('opacity-100');
                 closeInPageSearch(); currentTextScale = 1; scrollTopDetailBtn.classList.add('scroll-top-disabled');
                 
                 fetchVisitorIP().then(ip => {
@@ -803,7 +815,10 @@
         
         const closeWork = () => { 
             currentOpenWorkId = null; workModal.classList.remove('active'); document.body.style.overflow = ''; 
-            const wmOverlay = document.getElementById('dynamicStaticWatermark'); if(wmOverlay) wmOverlay.classList.remove('active'); 
+            // 🚀 关闭防盗水印
+            const wmOverlay = document.getElementById('dynamicStaticWatermark'); if(wmOverlay) wmOverlay.classList.remove('active');
+            const gravureBg = document.getElementById('gravureBackground'); if(gravureBg) gravureBg.classList.remove('active');
+            
             setTimeout(() => { modalImageContainer.innerHTML = ''; closeInPageSearch(); }, 400); 
         };
         if(closeWorkModal) closeWorkModal.addEventListener('click', closeWork);
@@ -852,7 +867,7 @@
 
             await Promise.all([
                 loadImage(coverImg, work.cover || 'images/placeholder.jpg'),
-                loadImage(logoImg, 'images/logo.png?v=9.0')
+                loadImage(logoImg, 'images/logo.png?v=11.0')
             ]);
             
             if(coverImg.complete && coverImg.width > 0) {
@@ -928,7 +943,7 @@
             ctx.fillText('林嘉雍', 60, authorY);
             ctx.fillStyle = '#999999';
             ctx.font = 'bold 18px -apple-system, sans-serif';
-            // 🚀 海报专属高端英文文案保留
+            // 🚀 高定海报英文
             ctx.fillText("FULL-SERVICE BRANDING", 60, authorY + 50);
 
             const qrS = 130; 
