@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>林嘉雍 | 品牌策划作品集</title>
     
-    <meta name="description" content="林嘉雍 | 专注餐饮品牌全案策划与统筹设计。用策略与设计，为品牌赋予商业灵魂。">
+    <meta name="description" content="JOHN'S FRIES | 专注餐饮品牌全案策划与统筹设计。用策略与设计，为品牌赋予商业灵魂。">
     <meta property="og:title" content="林嘉雍 | 品牌策划作品集">
     <meta property="og:description" content="专注餐饮品牌全案策划与统筹设计团队。从0到1搭建体系，用策略驱动设计，落地商业价值。">
     
@@ -21,8 +21,8 @@
         * { -webkit-tap-highlight-color: transparent !important; outline: none !important; }
         a, button, div { -webkit-tap-highlight-color: rgba(0,0,0,0) !important; }
 
-        :root { --bg-base: #f4f4f6; --text-main: #111111; --text-muted: #888888; --btn-bg: #111111; --btn-text: #ffffff; --blob-1: #eaeaea; --blob-2: #e0e0e0; --blob-3: #f9f9f9; --logo-glow: rgba(255,255,255,0.8); }
-        .dark-mode { --bg-base: #0a0a0a; --text-main: #f5f5f7; --text-muted: #777777; --btn-bg: #ffffff; --btn-text: #000000; --blob-1: #151515; --blob-2: #0d0d0d; --blob-3: #1a1a1a; --logo-glow: rgba(50,50,50,0.4); }
+        :root { --bg-base: #f4f4f6; --text-main: #111111; --text-muted: #888888; --btn-bg: #111111; --btn-text: #ffffff; --logo-glow: rgba(255,255,255,0.8); }
+        .dark-mode { --bg-base: #0a0a0a; --text-main: #f5f5f7; --text-muted: #777777; --btn-bg: #ffffff; --btn-text: #000000; --logo-glow: rgba(50,50,50,0.4); }
         html { scroll-behavior: smooth; }
         body { background-color: var(--bg-base); color: var(--text-main); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; transition: background-color 0.8s ease, color 0.8s ease; user-select: none; -webkit-touch-callout: none; overflow-x: hidden; }
         img { pointer-events: none; -webkit-user-drag: none; }
@@ -65,13 +65,13 @@
         @keyframes navDrop { 0% { transform: translate(-50%, -100%); opacity: 0; } 100% { transform: translate(-50%, 0); opacity: 1; } }
 
         /* 🌌 电影级光影引擎 (Cinematic Volumetric Lights) 🌌 */
-        /* 1. 顶部破晓极光 (Hero Aura) */
+        /* 1. 顶部破晓极光 - 强行锁定在首屏内，绝对不乱跑！ */
         .hero-cinematic-wrapper { position: absolute; inset: 0; overflow: hidden; z-index: 0; pointer-events: none; }
         .hero-cinematic-aura {
             position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%);
             width: 150vw; height: 100vw; max-width: 1400px; max-height: 1000px;
-            /* 琥珀色/暗金色的核心光源 */
-            background: radial-gradient(ellipse at center, rgba(245, 158, 11, 0.15) 0%, rgba(217, 119, 6, 0.05) 35%, transparent 65%);
+            /* 更有质感的破晓琥珀金光 */
+            background: radial-gradient(ellipse at center, rgba(245, 158, 11, 0.2) 0%, rgba(217, 119, 6, 0.06) 40%, transparent 65%);
             filter: blur(80px); opacity: 0.8;
             animation: cinematicBreathe 10s ease-in-out infinite alternate;
         }
@@ -94,7 +94,6 @@
         }
         .footer-horizon-glow::after {
             content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
-            /* 地平线最底部的实体高光线 */
             background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.6), transparent);
             box-shadow: 0 -15px 50px 15px rgba(245, 158, 11, 0.3);
         }
@@ -109,7 +108,7 @@
         .intro-fade-in { opacity: 0; transform: translateY(10px); transition: all 1s ease; }
         .intro-fade-in.active { opacity: 0.9; transform: translateY(0); }
         
-        /* 🚀 终极版：正交 3D 悬浮阵列 + 流光边缘 */
+        /* 🚀 正交 3D 悬浮阵列 + 流光边缘 */
         .partner-3d-wrapper { perspective: 1200px; padding: 20px 10px; margin: 0 auto; max-width: 1100px; overflow-x: hidden; }
         .partner-grid-3d { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; transform: rotateX(25deg); transform-style: preserve-3d; transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
         @media (min-width: 768px) {
@@ -126,7 +125,7 @@
         .partner-card-3d:hover .partner-card-inner { background: rgba(255,255,255,0.9); box-shadow: 0 30px 60px rgba(0,0,0,0.15), inset 0 2px 3px rgba(255, 255, 255, 1); }
         .dark-mode .partner-card-3d:hover .partner-card-inner { background: rgba(255,255,255,0.15); box-shadow: 0 40px 80px rgba(0,0,0,0.5), inset 0 2px 3px rgba(255, 255, 255, 0.3); }
 
-        /* ✨ 边缘流光 (Gradient Mask Border) */
+        /* ✨ 边缘流光 */
         .partner-card-3d::after {
             content: ''; position: absolute; inset: 0; border-radius: 20px; padding: 2px;
             background: linear-gradient(90deg, transparent, rgba(100,100,100,0.8), transparent);
@@ -172,7 +171,6 @@
         .liquid-glass-controls { background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.6); box-shadow: 0 20px 40px rgba(0,0,0,0.1), inset 0 1.5px 2px rgba(255,255,255,0.9); border-radius: 40px; }
         .dark-mode .liquid-glass-controls { background: rgba(30, 30, 30, 0.6); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 1.5px 2px rgba(255,255,255,0.2); }
 
-        /* 作品排版内容样式 */
         #blocksContainer { --font-multiplier: 1; transition: background-color 0.4s ease; margin: 0 auto; position: relative; }
         .work-text-main { font-size: calc(clamp(1.8rem, 5vw, 3.5rem) * var(--font-multiplier)); line-height: 1.2; font-weight: 900; letter-spacing: -0.02em; transition: font-size 0.3s ease; }
         .work-text-sub { font-size: calc(clamp(1rem, 2.5vw, 1.6rem) * var(--font-multiplier)); font-weight: 500; opacity: 0.6; transition: font-size 0.3s ease; }
@@ -188,15 +186,10 @@
         .holographic-aura-container { position: relative; display: flex; align-items: center; justify-content: center; padding: 2.5rem; transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); overflow: hidden; border-radius: 2rem; }
         .holographic-aura-container:hover { transform: translateY(-8px); }
         .holographic-aura { position: absolute; inset: -20%; background: radial-gradient(ellipse at center, rgba(245,158,11,0.3) 0%, transparent 70%); background-size: 200% 200%; filter: blur(40px); animation: auraFlow 6s ease infinite alternate; opacity: 0.8; z-index: 0; pointer-events: none; }
-        
-        mark.search-highlight { background-color: #ffeb3b; color: #000; border-radius: 2px; padding: 0 2px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); font-weight: bold; }
-        .dark-mode mark.search-highlight { background-color: #facc15; }
-        mark.search-highlight.active-match { box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.8); background-color: #fde047; }
     </style>
 </head>
 
 <body class="antialiased flex flex-col min-h-screen relative">
-    <div class="hero-cinematic-wrapper"><div class="hero-cinematic-aura"></div></div>
     
     <div id="toast" class="fixed top-24 left-1/2 transform -translate-x-1/2 bg-[var(--text-main)] text-[var(--bg-base)] px-6 py-3 md:px-8 md:py-3.5 rounded-full shadow-2xl opacity-0 z-[999999] flex items-center gap-3 transition-opacity duration-400 pointer-events-none whitespace-nowrap"><i id="toastIcon" class="fa fa-info-circle text-lg opacity-80"></i><span id="toastMessage" class="font-bold tracking-widest text-[12px] md:text-[13px]">系统提示</span></div>
 
@@ -246,6 +239,8 @@
 
     <main class="flex-1 w-full relative z-10">
         <section id="home" class="scroll-section relative min-h-screen flex flex-col items-center justify-center px-4 md:px-12 pt-20 overflow-hidden">
+            <div class="hero-cinematic-wrapper"><div class="hero-cinematic-aura"></div></div>
+            
             <div class="max-w-5xl mx-auto text-center relative z-10 mt-[-10vh] reveal-up w-full">
                 <h1 class="font-black tracking-tighter leading-[1.1] mb-8 drop-shadow-sm flex flex-col items-center relative z-10">
                     <span class="overflow-hidden-wrap"><span class="animate-slide-up-text text-fluid-mask hero-title-line" style="animation-delay: 0.1s">用策略与设计</span></span>
@@ -455,11 +450,10 @@
             return `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
         }
 
-        // 🚀 核心防盗：幽灵游走水印 (修复被隐藏的Bug)
+        // 🚀 核心防盗修复：打破结界，注入到全局弹窗顶部
         let ghostIntervals = [];
         function spawnGhosts(ip, timeStr) {
             clearGhosts();
-            // 直接绑定在最高的 modal 容器上，突破 overflow: hidden 结界！
             const container = document.getElementById('workModal'); 
             if(!container) return;
             
@@ -867,7 +861,7 @@
 
             await Promise.all([
                 loadImage(coverImg, work.cover || 'images/placeholder.jpg'),
-                // 海报上的 Logo 也加上防缓存戳
+                // 🚀 防缓存戳
                 loadImage(logoImg, 'images/logo.png?v=4.0')
             ]);
             
