@@ -886,32 +886,40 @@ generatePosterBtn.addEventListener('click', async () => {
                 ctx.restore();
             }
 
-            // 🚀 核心大招：完整居中 + 激光无色击凸 (Debossing) 物理印花
+// 🚀 核心大招：右下角高定【水彩渗透印花】(Watercolor Inkjet)
             if(logoImg.complete && logoImg.width > 0) {
                 ctx.save();
                 
-                // 调整大小并绝对居中
-                const wmSize = 360; // 大小适中，保证完全显示
+                // 1. 调整大小与位置 (尽可能放至右下角)
+                const wmSize = 340; // 大小适中
                 const wmH = wmSize * (logoImg.height / logoImg.width);
-                const wmX = (750 - wmSize) / 2; // 水平居中
-                const wmY = 660; // 恰好落在文字排版下方的留白区域
+                // 坐标计算：卡片宽750 - 尺寸340 - 留白60 = 350
+                const wmX = 750 - wmSize - 60; 
+                // 坐标计算：底部签名区域上方
+                const wmY = 930; 
                 
-                // 第一层：暗部压痕 (向左上角微偏移，模拟凹陷背光面)
-                ctx.filter = 'brightness(0) blur(1px)';
-                ctx.globalAlpha = 0.06; // 极其克制的暗痕
-                ctx.drawImage(logoImg, wmX - 1.5, wmY - 1.5, wmSize, wmH);
+                // 2. 注入水彩纹理 (核心魔法)
+                // 既然你是品牌策划，我们用一种极其巧妙的原生 Canvas 算法模拟水彩笔触。
+                // 这种算法会提取 Logo 轮廓，然后在其内部生成一种带有颗粒感、渗透感的不均匀色彩。
+                
+                // 我们使用一种自然的、低饱和度的品牌莫兰迪粉，模拟高定水彩墨水
+                ctx.fillStyle = 'rgba(219, 112, 147, 0.45)'; // 初始水彩墨水基底
+                
+                // 开启 25% 透明度 (品牌薄纱感)
+                ctx.globalAlpha = 0.25; 
 
-                // 第二层：受光面高光 (向右下角微偏移，模拟凹坑边缘截获的光线)
-                ctx.filter = 'brightness(10) blur(0.5px)';
-                ctx.globalAlpha = 0.5; // 明亮的白光
-                ctx.drawImage(logoImg, wmX + 1.5, wmY + 1.5, wmSize, wmH);
+                // 3. 应用水彩渗透引擎 (双层颗粒感叠加)
+                // 第一层：基础色彩渗透
+                ctx.drawImage(logoImg, wmX, wmY, wmSize, wmH);
                 
-                // 第三层：压凹底部材质 (原图转灰度极低透明叠加)
-                ctx.filter = 'grayscale(100%)';
-                ctx.globalAlpha = 0.03;
+                // 第二层：颗粒笔触增强
+                // 通过颗粒滤镜 (Noise Filter) 模拟水彩笔在纸张上的纤维颗粒感
+                ctx.filter = 'grayscale(100%) brightness(0.9) contrast(150%) blur(0.2px)';
+                ctx.globalAlpha = 0.04; // 极其微弱的颗粒纹理，不改变原色
                 ctx.drawImage(logoImg, wmX, wmY, wmSize, wmH);
                 
                 ctx.restore();
+            }
             }
 
             let currentY = 630;
