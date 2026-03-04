@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>JOHN'S FRIES | 品牌策划作品集</title>
+    <title>林嘉雍 | 品牌策划作品集</title>
     
-    <meta name="description" content="JOHN'S FRIES | 专注餐饮品牌全案策划与统筹设计。用策略与设计，为品牌赋予商业灵魂。">
-    <meta property="og:title" content="JOHN'S FRIES | 品牌策划作品集">
+    <meta name="description" content="林嘉雍 | 专注餐饮品牌全案策划与统筹设计。用策略与设计，为品牌赋予商业灵魂。">
+    <meta property="og:title" content="林嘉雍 | 品牌策划作品集">
     <meta property="og:description" content="专注餐饮品牌全案策划与统筹设计团队。从0到1搭建体系，用策略驱动设计，落地商业价值。">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -26,6 +26,8 @@
         html { scroll-behavior: smooth; }
         body { background-color: var(--bg-base); color: var(--text-main); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; transition: background-color 0.8s ease, color 0.8s ease; user-select: none; -webkit-touch-callout: none; overflow-x: hidden; }
         img { pointer-events: none; -webkit-user-drag: none; }
+        
+        /* 噪点纹理 */
         body::after { content: ""; position: fixed; inset: 0; width: 100vw; height: 100vh; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); opacity: 0.04; z-index: 9999; pointer-events: none; mix-blend-mode: overlay; }
         .dark-mode::after { opacity: 0.06; }
         .color-main { color: var(--text-main); } .color-muted { color: var(--text-muted); } .bg-inverted { background-color: var(--btn-bg); color: var(--btn-text); transition: all 0.4s ease; }
@@ -40,7 +42,7 @@
         .dark-mode .liquid-glass-dark { background: rgba(240, 240, 240, 0.7); color: #000; border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: 0 12px 32px rgba(0,0,0,0.1), inset 0 1.5px 2px #fff, inset 0 -1.5px 2px rgba(0,0,0,0.1); }
         .dark-mode .liquid-glass-dark:hover { background: rgba(255, 255, 255, 0.9); box-shadow: 0 16px 40px rgba(0,0,0,0.15), inset 0 2px 3px #fff; }
         
-        .nav-island { position: relative; background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(48px) saturate(250%); border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 16px 32px rgba(0,0,0,0.06), inset 0 1.5px 2px rgba(255,255,255,0.9), inset 0 -1px 1px rgba(255,255,255,0.2); border-radius: 100px; transition: all 0.5s ease; }
+        .nav-island { position: relative; background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(48px) saturate(250%); -webkit-backdrop-filter: blur(48px) saturate(250%); border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 16px 32px rgba(0,0,0,0.06), inset 0 1.5px 2px rgba(255,255,255,0.9), inset 0 -1px 1px rgba(255,255,255,0.2); border-radius: 100px; transition: all 0.5s ease; }
         .dark-mode .nav-island { background: rgba(30, 30, 30, 0.4); border-color: rgba(255, 255, 255, 0.15); box-shadow: 0 16px 32px rgba(0,0,0,0.4), inset 0 1.5px 2px rgba(255,255,255,0.2), inset 0 -1px 1px rgba(0,0,0,0.5); }
         
         .nav-indicator-wrapper { position: absolute; top: 50%; transform: translateY(-50%); height: 34px; border-radius: 100px; transition: all 0.5s cubic-bezier(0.25, 1, 0.3, 1); z-index: 0; pointer-events: none; opacity: 0; display: flex; align-items: center; justify-content: center; }
@@ -49,59 +51,66 @@
         .dark-mode .nav-indicator-glow { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent); }
         @keyframes flowGlow { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 
-        .liquid-glass-controls { background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.6); box-shadow: 0 20px 40px rgba(0,0,0,0.1), inset 0 1.5px 2px rgba(255,255,255,0.9); border-radius: 40px; }
-        .dark-mode .liquid-glass-controls { background: rgba(30, 30, 30, 0.6); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 1.5px 2px rgba(255,255,255,0.2); }
-        
         .hover-elastic { will-change: transform, box-shadow; transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
         .hover-elastic:hover { transform: scale(1.02) translateY(-4px); background: rgba(255, 255, 255, 0.25); box-shadow: 0 24px 50px rgba(0,0,0,0.08), inset 0 2px 3px rgba(255, 255, 255, 1), inset 0 -1px 2px rgba(255, 255, 255, 0.2); }
         .dark-mode .hover-elastic:hover { background: rgba(30, 30, 30, 0.45); box-shadow: 0 24px 50px rgba(0,0,0,0.5), inset 0 1.5px 2px rgba(255, 255, 255, 0.3); }
-        .hover-elastic:active { transform: scale(0.96); transition: all 0.2s ease; }
         .btn-elastic { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform; }
         .btn-elastic:active { transform: scale(0.92); opacity: 0.8; }
         .glass-card-img { transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .hover-elastic:hover .glass-card-img { transform: scale(1.05); }
 
-        #blocksContainer { --font-multiplier: 1; transition: background-color 0.4s ease; margin: 0 auto; position: relative; }
-        .work-text-main { font-size: calc(clamp(1.8rem, 5vw, 3.5rem) * var(--font-multiplier)); line-height: 1.2; font-weight: 900; letter-spacing: -0.02em; transition: font-size 0.3s ease; }
-        .work-text-sub { font-size: calc(clamp(1rem, 2.5vw, 1.6rem) * var(--font-multiplier)); font-weight: 500; opacity: 0.6; transition: font-size 0.3s ease; }
-        .work-text-h1 { font-size: calc(clamp(1.5rem, 4vw, 2.4rem) * var(--font-multiplier)); font-weight: 800; transition: font-size 0.3s ease; }
-        .work-text-h2 { font-size: calc(clamp(1.1rem, 2.5vw, 1.6rem) * var(--font-multiplier)); font-weight: 700; transition: font-size 0.3s ease; }
-        .work-text-p { font-size: calc(clamp(0.95rem, 1.8vw, 1.15rem) * var(--font-multiplier)); line-height: 2.2; font-weight: 500; transition: font-size 0.3s ease; text-align: justify; text-wrap: balance; }
-        .work-text-quote { font-size: calc(clamp(1.1rem, 2.5vw, 1.5rem) * var(--font-multiplier)); font-style: italic; transition: font-size 0.3s ease; }
-
         .nav-link { position: relative; z-index: 2; padding: 0.5rem 1.2rem; border-radius: 100px; font-weight: 800; font-size: 13px; letter-spacing: 0.05em; transition: color 0.4s ease; display: flex; align-items: center; justify-content: center; gap: 6px; color: var(--text-main); }
         .nav-link.active-capsule { color: var(--bg-base) !important; }
-        
         .nav-drop-in { animation: navDrop 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         @keyframes navDrop { 0% { transform: translate(-50%, -100%); opacity: 0; } 100% { transform: translate(-50%, 0); opacity: 1; } }
 
-        .global-fluid-bg { position: fixed; inset: 0; overflow: hidden; z-index: -1; pointer-events: none; }
-        .blob { position: absolute; filter: blur(140px); border-radius: 50%; opacity: 0.8; animation: floatBlob 30s infinite ease-in-out alternate; }
-        .blob-1 { width: 70vw; height: 70vw; background: var(--blob-1); top: -20%; left: -10%; animation-duration: 28s; }
-        .blob-2 { width: 60vw; height: 60vw; background: var(--blob-2); bottom: -30%; right: -10%; animation-duration: 25s; animation-direction: alternate-reverse; }
-        .blob-3 { width: 50vw; height: 50vw; background: var(--blob-3); top: 40%; left: 40%; animation-duration: 32s; }
-        @keyframes floatBlob { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(4vw, -4vh) scale(1.05); } 100% { transform: translate(-4vw, 4vh) scale(0.95); } }
+        /* 🌌 电影级光影引擎 (Cinematic Volumetric Lights) 🌌 */
+        /* 1. 顶部破晓极光 (Hero Aura) */
+        .hero-cinematic-wrapper { position: absolute; inset: 0; overflow: hidden; z-index: 0; pointer-events: none; }
+        .hero-cinematic-aura {
+            position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%);
+            width: 150vw; height: 100vw; max-width: 1400px; max-height: 1000px;
+            /* 琥珀色/暗金色的核心光源 */
+            background: radial-gradient(ellipse at center, rgba(245, 158, 11, 0.15) 0%, rgba(217, 119, 6, 0.05) 35%, transparent 65%);
+            filter: blur(80px); opacity: 0.8;
+            animation: cinematicBreathe 10s ease-in-out infinite alternate;
+        }
+        .dark-mode .hero-cinematic-aura {
+            background: radial-gradient(ellipse at center, rgba(245, 158, 11, 0.25) 0%, rgba(217, 119, 6, 0.08) 45%, transparent 70%);
+        }
+        @keyframes cinematicBreathe {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+            100% { transform: translate(-50%, -45%) scale(1.05); opacity: 1; }
+        }
+
+        /* 2. 底部地平线 (Footer Horizon Glow) */
+        .footer-horizon-glow {
+            position: absolute; bottom: 0; left: 0; right: 0; height: 400px;
+            background: linear-gradient(to top, rgba(245, 158, 11, 0.08), transparent);
+            pointer-events: none; z-index: 0;
+        }
+        .dark-mode .footer-horizon-glow {
+            background: linear-gradient(to top, rgba(245, 158, 11, 0.15), rgba(217, 119, 6, 0.02), transparent);
+        }
+        .footer-horizon-glow::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+            /* 地平线最底部的实体高光线 */
+            background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.6), transparent);
+            box-shadow: 0 -15px 50px 15px rgba(245, 158, 11, 0.3);
+        }
 
         .text-fluid-mask { background: linear-gradient(110deg, var(--text-main) 15%, var(--text-muted) 40%, var(--bg-base) 50%, var(--text-muted) 60%, var(--text-main) 85%); background-size: 250% 250%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; animation: fluidMaskMove 10s ease-in-out infinite alternate; }
         @keyframes fluidMaskMove { 0% { background-position: 0% 0%; } 100% { background-position: 100% 100%; } }
         
         .reveal-up { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal-up.revealed { opacity: 1; transform: translateY(0); }
-        .text-balance { text-wrap: balance; }
-        .hero-title-line { display: block; white-space: nowrap; font-size: clamp(1.4rem, 6.5vw, 6.5rem); }
-        .overflow-hidden-wrap { overflow: hidden; display: block; line-height: 1.1; padding-bottom: 0.1em; }
         .animate-slide-up-text { display: block; transform: translateY(110%); opacity: 0; animation: revealText 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         @keyframes revealText { 0% { transform: translateY(110%); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
         .intro-fade-in { opacity: 0; transform: translateY(10px); transition: all 1s ease; }
         .intro-fade-in.active { opacity: 0.9; transform: translateY(0); }
-
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
         /* 🚀 终极版：正交 3D 悬浮阵列 + 流光边缘 */
         .partner-3d-wrapper { perspective: 1200px; padding: 20px 10px; margin: 0 auto; max-width: 1100px; overflow-x: hidden; }
-        
-        /* 剔除歪斜，回归正交视角，极其端正稳重 */
         .partner-grid-3d { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; transform: rotateX(25deg); transform-style: preserve-3d; transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
         @media (min-width: 768px) {
             .partner-grid-3d { grid-template-columns: repeat(4, 1fr); gap: 2rem; transform: rotateX(30deg); }
@@ -113,12 +122,11 @@
         .partner-card-inner { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(48px) saturate(200%); -webkit-backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.4); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05), inset 0 1.5px 2px rgba(255, 255, 255, 0.9); border-radius: inherit; padding: 1.5rem 1rem; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
         .dark-mode .partner-card-inner { background: rgba(20, 20, 20, 0.35); border-color: rgba(255, 255, 255, 0.15); }
         
-        /* 悬停物理跃升 */
         .partner-card-3d:hover { transform: translateZ(50px) translateY(-8px); z-index: 10; }
         .partner-card-3d:hover .partner-card-inner { background: rgba(255,255,255,0.9); box-shadow: 0 30px 60px rgba(0,0,0,0.15), inset 0 2px 3px rgba(255, 255, 255, 1); }
         .dark-mode .partner-card-3d:hover .partner-card-inner { background: rgba(255,255,255,0.15); box-shadow: 0 40px 80px rgba(0,0,0,0.5), inset 0 2px 3px rgba(255, 255, 255, 0.3); }
 
-        /* ✨ 绝杀：悬停时的边缘流光 (Gradient Mask Border) */
+        /* ✨ 边缘流光 (Gradient Mask Border) */
         .partner-card-3d::after {
             content: ''; position: absolute; inset: 0; border-radius: 20px; padding: 2px;
             background: linear-gradient(90deg, transparent, rgba(100,100,100,0.8), transparent);
@@ -130,12 +138,10 @@
         .dark-mode .partner-card-3d::after { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent); }
         .partner-card-3d:hover::after { opacity: 1; }
 
-        /* 统一的单色蚀刻视觉：极简、克制 */
+        /* 单色蚀刻视觉 */
         .partner-card-3d img { width: auto; height: 32px; object-fit: contain; pointer-events: none; transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); filter: brightness(0) opacity(0.35); }
         @media (min-width: 768px) { .partner-card-3d img { height: 42px; } }
         .dark-mode .partner-card-3d img { filter: brightness(0) invert(1) opacity(0.35); }
-        
-        /* 悬停瞬间透明度拉满，变为绝对锐利的单色实体 */
         .partner-card-3d:hover img { filter: brightness(0) opacity(1); transform: scale(1.1); }
         .dark-mode .partner-card-3d:hover img { filter: brightness(0) invert(1) opacity(1); }
 
@@ -146,45 +152,51 @@
         .modal-scroll-box { overflow: auto; -webkit-overflow-scrolling: touch; padding-bottom: env(safe-area-inset-bottom, 80px); padding-top: 60px; }
         @media (min-width: 768px) { .modal-scroll-box { padding-top: 0; } }
         .modal-scroll-box::-webkit-scrollbar { width: 0px; height: 0px; } 
-        .scroll-top-disabled { opacity: 0.3; cursor: not-allowed; pointer-events: none; }
-
-        mark.search-highlight { background-color: #ffeb3b; color: #000; border-radius: 2px; padding: 0 2px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); font-weight: bold; }
-        .dark-mode mark.search-highlight { background-color: #facc15; }
-        mark.search-highlight.active-match { box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.8); background-color: #fde047; }
-
-        .image-wrapper { position: relative; overflow: hidden; background: rgba(150,150,150,0.1); border-radius: 1rem; margin-top: 0.5rem; margin-bottom: 0.5rem; min-height: 200px; display: flex; align-items: center; justify-content: center; }
-        .image-wrapper::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); background-size: 200% 100%; animation: shimmer 1.5s infinite; z-index: 1; pointer-events: none; }
-        .dark-mode .image-wrapper::before { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent); }
-        .image-wrapper.loaded::before { display: none; }
-        @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-        .img-loader { position: absolute; z-index: 2; color: var(--text-muted); opacity: 0.4; font-size: 1.5rem; }
-        .image-wrapper.loaded .img-loader { display: none; }
+        
         .fade-img { opacity: 0; transition: opacity 0.8s ease; position: relative; z-index: 3; width: 100%; height: auto; display: block; }
         .fade-img.loaded { opacity: 1; }
 
-        /* 👻 终极防盗：幽灵游走水印容器 */
+        /* 👻 突破结界：幽灵游走水印 (注入到 absolute top layer) */
         .ghost-watermark {
-            position: fixed; pointer-events: none; z-index: 99999;
-            opacity: 0.08; color: var(--text-main); font-weight: 900;
+            position: fixed; pointer-events: none; z-index: 999999; /* 最高权限图层，绝不被遮挡 */
+            opacity: 0.15; /* 适度提高可见度 */
+            color: var(--text-main); font-weight: 900;
             font-family: monospace; white-space: nowrap;
-            transition: all 18s linear; /* 极其缓慢的漂浮 */
+            transition: all 15s linear; /* 缓慢游走 */
             transform: translate(-50%, -50%) rotate(-15deg);
-            font-size: clamp(1rem, 2vw, 1.5rem); letter-spacing: 2px; text-shadow: 0 0 10px rgba(150,150,150,0.5);
-            mix-blend-mode: difference; /* 遇到黑底变白，白底变黑 */
+            font-size: clamp(1rem, 2vw, 1.5rem); letter-spacing: 2px; 
+            text-shadow: 0 0 10px rgba(150,150,150,0.3);
+            mix-blend-mode: difference; /* 变色龙效应 */
         }
+        
+        .liquid-glass-controls { background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.6); box-shadow: 0 20px 40px rgba(0,0,0,0.1), inset 0 1.5px 2px rgba(255,255,255,0.9); border-radius: 40px; }
+        .dark-mode .liquid-glass-controls { background: rgba(30, 30, 30, 0.6); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 1.5px 2px rgba(255,255,255,0.2); }
 
+        /* 作品排版内容样式 */
+        #blocksContainer { --font-multiplier: 1; transition: background-color 0.4s ease; margin: 0 auto; position: relative; }
+        .work-text-main { font-size: calc(clamp(1.8rem, 5vw, 3.5rem) * var(--font-multiplier)); line-height: 1.2; font-weight: 900; letter-spacing: -0.02em; transition: font-size 0.3s ease; }
+        .work-text-sub { font-size: calc(clamp(1rem, 2.5vw, 1.6rem) * var(--font-multiplier)); font-weight: 500; opacity: 0.6; transition: font-size 0.3s ease; }
+        .work-text-h1 { font-size: calc(clamp(1.5rem, 4vw, 2.4rem) * var(--font-multiplier)); font-weight: 800; transition: font-size 0.3s ease; }
+        .work-text-h2 { font-size: calc(clamp(1.1rem, 2.5vw, 1.6rem) * var(--font-multiplier)); font-weight: 700; transition: font-size 0.3s ease; }
+        .work-text-p { font-size: calc(clamp(0.95rem, 1.8vw, 1.15rem) * var(--font-multiplier)); line-height: 2.2; font-weight: 500; transition: font-size 0.3s ease; text-align: justify; text-wrap: balance; }
+        .work-text-quote { font-size: calc(clamp(1.1rem, 2.5vw, 1.5rem) * var(--font-multiplier)); font-style: italic; transition: font-size 0.3s ease; }
+        
         #globalBackToTop { opacity: 0; pointer-events: none; transform: translateY(20px); transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); z-index: 90; }
         #globalBackToTop.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+        .scroll-top-disabled { opacity: 0.3; cursor: not-allowed; pointer-events: none; }
         
         .holographic-aura-container { position: relative; display: flex; align-items: center; justify-content: center; padding: 2.5rem; transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); overflow: hidden; border-radius: 2rem; }
         .holographic-aura-container:hover { transform: translateY(-8px); }
-        .holographic-aura { position: absolute; inset: -20%; background: radial-gradient(ellipse at center, var(--logo-glow) 0%, transparent 70%); background-size: 200% 200%; filter: blur(40px); animation: auraFlow 6s ease infinite alternate; opacity: 0.8; z-index: 0; pointer-events: none; }
-        @keyframes auraFlow { 0% { background-position: 0% 0%; } 100% { background-position: 100% 100%; } }
+        .holographic-aura { position: absolute; inset: -20%; background: radial-gradient(ellipse at center, rgba(245,158,11,0.3) 0%, transparent 70%); background-size: 200% 200%; filter: blur(40px); animation: auraFlow 6s ease infinite alternate; opacity: 0.8; z-index: 0; pointer-events: none; }
+        
+        mark.search-highlight { background-color: #ffeb3b; color: #000; border-radius: 2px; padding: 0 2px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); font-weight: bold; }
+        .dark-mode mark.search-highlight { background-color: #facc15; }
+        mark.search-highlight.active-match { box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.8); background-color: #fde047; }
     </style>
 </head>
 
-<body class="antialiased flex flex-col min-h-screen">
-    <div class="global-fluid-bg"><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div></div>
+<body class="antialiased flex flex-col min-h-screen relative">
+    <div class="hero-cinematic-wrapper"><div class="hero-cinematic-aura"></div></div>
     
     <div id="toast" class="fixed top-24 left-1/2 transform -translate-x-1/2 bg-[var(--text-main)] text-[var(--bg-base)] px-6 py-3 md:px-8 md:py-3.5 rounded-full shadow-2xl opacity-0 z-[999999] flex items-center gap-3 transition-opacity duration-400 pointer-events-none whitespace-nowrap"><i id="toastIcon" class="fa fa-info-circle text-lg opacity-80"></i><span id="toastMessage" class="font-bold tracking-widest text-[12px] md:text-[13px]">系统提示</span></div>
 
@@ -194,9 +206,9 @@
 
     <div class="fixed top-4 md:top-6 left-1/2 transform -translate-x-1/2 z-[100] w-[92%] max-w-5xl nav-drop-in" id="islandContainer">
         <nav class="nav-island flex items-center justify-between px-4 py-2.5 md:px-3 md:py-2 w-full shadow-2xl relative">
-            <a href="#home" class="flex items-center gap-2.5 pl-2 md:pl-5 text-[16px] md:text-lg font-black tracking-tight color-main btn-elastic flex-shrink-0 relative z-10">
-                <img src="images/logo.png" class="h-6 w-auto object-contain logo-adapt" alt="JOHN'S FRIES Logo" onerror="this.style.display='none'">
-                <span>JOHN'S FRIES<span class="opacity-30 mx-1">·</span>品牌策划</span>
+            <a href="#home" class="flex items-center gap-2.5 pl-2 md:pl-5 text-[16px] md:text-[17px] font-black tracking-tight color-main btn-elastic flex-shrink-0 relative z-10">
+                <img src="images/logo.png?v=4.0" class="h-6 w-auto object-contain logo-adapt" alt="JOHN'S FRIES Logo" onerror="this.style.display='none'">
+                <span>林嘉雍<span class="opacity-30 mx-1">·</span>品牌策划作品集</span>
             </a>
             
             <div class="hidden md:flex items-center relative z-10 px-2 py-1" id="navLinksContainer">
@@ -235,11 +247,11 @@
     <main class="flex-1 w-full relative z-10">
         <section id="home" class="scroll-section relative min-h-screen flex flex-col items-center justify-center px-4 md:px-12 pt-20 overflow-hidden">
             <div class="max-w-5xl mx-auto text-center relative z-10 mt-[-10vh] reveal-up w-full">
-                <h1 class="font-black tracking-tighter leading-[1.1] mb-8 drop-shadow-sm flex flex-col items-center">
+                <h1 class="font-black tracking-tighter leading-[1.1] mb-8 drop-shadow-sm flex flex-col items-center relative z-10">
                     <span class="overflow-hidden-wrap"><span class="animate-slide-up-text text-fluid-mask hero-title-line" style="animation-delay: 0.1s">用策略与设计</span></span>
                     <span class="overflow-hidden-wrap mt-2"><span class="animate-slide-up-text text-fluid-mask hero-title-line" style="animation-delay: 0.3s">为品牌赋予商业灵魂。</span></span>
                 </h1>
-                <p class="color-muted text-[clamp(1.05rem,2vw,1.4rem)] max-w-2xl mx-auto mb-12 text-balance font-medium leading-relaxed opacity-90 tracking-wide intro-fade-in">
+                <p class="color-muted text-[clamp(1.05rem,2vw,1.4rem)] max-w-2xl mx-auto mb-12 text-balance font-medium leading-relaxed opacity-90 tracking-wide intro-fade-in relative z-10">
                     专注餐饮品牌全案策划与统筹设计团队<br>从0到1搭建体系，端到端覆盖策略到落地全闭环。
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-5 relative z-20 intro-fade-in px-4">
@@ -315,7 +327,7 @@
                 <div class="flex flex-col gap-6 md:gap-8">
                     <div class="holographic-aura-container">
                         <div class="holographic-aura"></div>
-                        <img src="images/logo.png" alt="JOHN'S FRIES 品牌标识" class="w-full max-w-[180px] object-contain relative z-10 logo-adapt transform transition-transform duration-700 group-hover:scale-105 drop-shadow-sm" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <img src="images/logo.png?v=4.0" alt="JOHN'S FRIES 品牌标识" class="w-full max-w-[180px] object-contain relative z-10 logo-adapt transform transition-transform duration-700 group-hover:scale-105 drop-shadow-sm" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         <span class="color-muted font-bold tracking-widest hidden relative z-10 text-sm">等待上传专属 Logo</span>
                     </div>
                     <button id="openResumeBtn" class="liquid-glass-dark w-full py-4 rounded-full font-bold text-[15px] md:text-lg shadow-2xl flex items-center justify-center gap-3 cursor-pointer tracking-widest btn-elastic"><i class="fa fa-file-text-o text-xl"></i> 查看个人简历</button>
@@ -323,7 +335,7 @@
             </div></div></div>
         </section>
 
-        <section id="contact" class="scroll-section py-24 md:py-32 px-6 md:px-12 relative z-20">
+        <section id="contact" class="scroll-section py-24 md:py-32 px-6 md:px-12 relative z-20 mb-20">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16 md:mb-20 reveal-up"><h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-3 md:mb-4 color-main">随时沟通合作</h2><p class="color-muted text-[13px] md:text-xl font-medium truncate tracking-wide">探讨品牌策略与设计的更多可能</p></div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-10">
@@ -335,9 +347,13 @@
         </section>
     </main>
 
-    <footer class="pt-20 pb-16 text-center relative z-10 flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-transparent to-[var(--bg-base)] border-none outline-none">
-        <img src="images/logo.png" class="h-16 md:h-20 mb-8 opacity-[0.06] dark:opacity-[0.15] logo-adapt pointer-events-none select-none blur-[0.5px]" alt="JOHN'S FRIES Watermark" onerror="this.style.display='none'">
-        <p class="text-[10px] font-black tracking-[0.25em] color-muted opacity-40 uppercase">© 2026 JOHN'S FRIES. ALL RIGHTS RESERVED.</p>
+    <footer class="pt-24 pb-12 text-center relative flex flex-col items-center justify-center overflow-hidden bg-transparent border-none outline-none">
+        <div class="footer-horizon-glow"></div>
+        <div class="relative z-10 flex flex-col items-center">
+            <img src="images/logo.png?v=4.0" class="h-12 md:h-14 mb-6 opacity-[0.4] logo-adapt pointer-events-none select-none blur-[0.5px]" alt="JOHN'S FRIES Watermark" onerror="this.style.display='none'">
+            <p class="text-[11px] font-black tracking-[0.25em] color-main opacity-80 uppercase mb-2">陪伴下一个伟大餐饮品牌的诞生</p>
+            <p class="text-[9px] font-bold tracking-[0.1em] color-muted opacity-40 uppercase">© 2026 JOHN'S FRIES. ALL RIGHTS RESERVED.</p>
+        </div>
     </footer>
 
     <div id="workModal" class="modal fixed inset-0 z-[9999] flex items-center justify-center">
@@ -374,7 +390,7 @@
             
             <div class="modal-scroll-box flex-1 w-full h-full relative pb-40 pt-16 md:pt-0" id="workModalScrollBox">
                 <div id="loadingSpinner" class="absolute inset-0 flex flex-col items-center justify-center z-10 hidden"><i class="fa fa-circle-o-notch fa-spin text-4xl text-[var(--text-main)] mb-4"></i><p class="color-muted font-bold text-sm tracking-widest mt-4">读取机密排版中...</p></div>
-                <div class="relative w-full mx-auto overflow-hidden" id="modalGhostContainer">
+                <div class="relative w-full mx-auto overflow-hidden">
                     <div class="absolute inset-0 z-[5] bg-transparent w-full h-full" oncontextmenu="return false;" style="-webkit-touch-callout: none; pointer-events: auto;"></div>
                     <div id="modalImageContainer" class="w-full flex flex-col items-center opacity-0 transition-opacity duration-500 origin-top"></div>
                 </div>
@@ -419,8 +435,8 @@
         // ==========================================
         // 🚨 微信通知核心：填入你的 WxPusher 凭证！
         // ==========================================
-        const WXPUSHER_APP_TOKEN = "350421b163274c2e91e035e47fb73689"; // 例如："AT_1a2b3c4d5e6f7g8h9i0j"
-        const WXPUSHER_UID = "UID_s8ryFtV6PpO7XiPnCzPyVGnWBfDV";       // 例如："UID_1a2b3c4d5e6f7g8h9i0j"
+        const WXPUSHER_APP_TOKEN = ""; // 例如："AT_1a2b3c4d5e6f7g8h9i0j"
+        const WXPUSHER_UID = "";       // 例如："UID_1a2b3c4d5e6f7g8h9i0j"
         
         let worksList = [];
         let filteredWorksList = [];
@@ -439,14 +455,14 @@
             return `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
         }
 
-        // 🚀 核心防盗：幽灵游走水印 (Floating Ghost)
+        // 🚀 核心防盗：幽灵游走水印 (修复被隐藏的Bug)
         let ghostIntervals = [];
         function spawnGhosts(ip, timeStr) {
             clearGhosts();
-            const container = document.getElementById('modalGhostContainer');
+            // 直接绑定在最高的 modal 容器上，突破 overflow: hidden 结界！
+            const container = document.getElementById('workModal'); 
             if(!container) return;
             
-            // 生成 3 只幽灵
             for(let i=0; i<3; i++) {
                 let ghost = document.createElement('div');
                 ghost.className = 'ghost-watermark';
@@ -454,13 +470,13 @@
                 container.appendChild(ghost);
                 
                 const moveGhost = () => {
-                    const x = Math.random() * 80 + 10; // 10% - 90%
+                    const x = Math.random() * 80 + 10; 
                     const y = Math.random() * 80 + 10;
                     ghost.style.left = `${x}%`;
                     ghost.style.top = `${y}%`;
                 };
-                moveGhost(); // 初始位置
-                ghostIntervals.push(setInterval(moveGhost, 15000)); // 每15秒缓慢游走一次
+                moveGhost(); 
+                ghostIntervals.push(setInterval(moveGhost, 15000));
             }
         }
         function clearGhosts() {
@@ -851,7 +867,8 @@
 
             await Promise.all([
                 loadImage(coverImg, work.cover || 'images/placeholder.jpg'),
-                loadImage(logoImg, 'images/logo.png')
+                // 海报上的 Logo 也加上防缓存戳
+                loadImage(logoImg, 'images/logo.png?v=4.0')
             ]);
             
             if(coverImg.complete && coverImg.width > 0) {
