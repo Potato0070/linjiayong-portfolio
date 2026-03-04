@@ -40,7 +40,7 @@
         .dark-mode .liquid-glass-dark { background: rgba(240, 240, 240, 0.7); color: #000; border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: 0 12px 32px rgba(0,0,0,0.1), inset 0 1.5px 2px #fff, inset 0 -1.5px 2px rgba(0,0,0,0.1); }
         .dark-mode .liquid-glass-dark:hover { background: rgba(255, 255, 255, 0.9); box-shadow: 0 16px 40px rgba(0,0,0,0.15), inset 0 2px 3px #fff; }
         
-        .nav-island { position: relative; background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(48px) saturate(250%); border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 16px 32px rgba(0,0,0,0.06), inset 0 1.5px 2px rgba(255,255,255,0.9), inset 0 -1px 1px rgba(255,255,255,0.2); border-radius: 100px; transition: all 0.5s ease; }
+        .nav-island { position: relative; background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(48px) saturate(250%); -webkit-backdrop-filter: blur(48px) saturate(250%); border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 16px 32px rgba(0,0,0,0.06), inset 0 1.5px 2px rgba(255,255,255,0.9), inset 0 -1px 1px rgba(255,255,255,0.2); border-radius: 100px; transition: all 0.5s ease; }
         .dark-mode .nav-island { background: rgba(30, 30, 30, 0.4); border-color: rgba(255, 255, 255, 0.15); box-shadow: 0 16px 32px rgba(0,0,0,0.4), inset 0 1.5px 2px rgba(255,255,255,0.2), inset 0 -1px 1px rgba(0,0,0,0.5); }
         
         .nav-indicator-wrapper { position: absolute; top: 50%; transform: translateY(-50%); height: 34px; border-radius: 100px; transition: all 0.5s cubic-bezier(0.25, 1, 0.3, 1); z-index: 0; pointer-events: none; opacity: 0; display: flex; align-items: center; justify-content: center; }
@@ -98,18 +98,31 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        .mask-horizontal-fade { mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%); }
-        .marquee-track { display: flex; width: fit-content; animation: marqueeLeft 45s linear infinite; }
-        .marquee-track-reverse { display: flex; width: fit-content; animation: marqueeRight 50s linear infinite; }
-        .marquee-track:hover, .marquee-track-reverse:hover { animation-play-state: paused; }
-        @keyframes marqueeLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        @keyframes marqueeRight { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+        /* 🚀 方案 B：高定级“3D 透视玻璃陈列馆” (Isometric Glass Grid) */
+        .partner-3d-wrapper { perspective: 1200px; padding: 20px 10px; margin: 0 auto; max-width: 1100px; overflow-x: hidden; }
         
-        .partner-capsule { @apply liquid-glass hover-elastic; width: 140px; height: 65px; border-radius: 100px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; filter: grayscale(100%) opacity(0.5); transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; margin: 0 8px; }
-        @media (min-width: 768px) { .partner-capsule { width: 220px; height: 90px; margin: 0 12px; } }
-        .partner-capsule:hover { filter: grayscale(0%) opacity(1) brightness(1); background: rgba(255,255,255,0.6); transform: scale(1.05) translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); z-index: 10; }
-        .dark-mode .partner-capsule { filter: grayscale(100%) opacity(0.4) brightness(1.5); }
-        .dark-mode .partner-capsule:hover { filter: grayscale(0%) opacity(1) brightness(1.2); background: rgba(255,255,255,0.1); }
+        .partner-grid-3d { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; transform: rotateX(25deg); transform-style: preserve-3d; transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        
+        /* 响应式：PC 端展现极强的 3D 纵深与偏移感 */
+        @media (min-width: 768px) {
+            .partner-grid-3d { grid-template-columns: repeat(4, 1fr); gap: 2rem; transform: rotateX(35deg) rotateZ(-3deg) rotateY(4deg); }
+            /* 鼠标移入整个陈列馆，视角微微抬起，极具高级感 */
+            .partner-3d-wrapper:hover .partner-grid-3d { transform: rotateX(15deg) rotateZ(0deg) rotateY(0deg); }
+        }
+
+        /* 去框化的高级玻璃卡片 */
+        .partner-card-3d { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(48px) saturate(200%); -webkit-backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.4); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05), inset 0 1.5px 2px rgba(255, 255, 255, 0.9); border-radius: 20px; padding: 1.5rem 1rem; display: flex; align-items: center; justify-content: center; transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); transform: translateZ(0); filter: grayscale(100%) opacity(0.4); cursor: pointer; }
+        .dark-mode .partner-card-3d { background: rgba(20, 20, 20, 0.35); border-color: rgba(255, 255, 255, 0.15); filter: grayscale(100%) opacity(0.3) brightness(1.5); }
+        
+        /* 空间失重悬停状态：浮出、全彩、发光 */
+        .partner-card-3d:hover { transform: translateZ(60px) translateY(-10px) rotateX(-15deg); filter: grayscale(0%) opacity(1) brightness(1.05); background: rgba(255,255,255,0.9); box-shadow: 0 30px 60px rgba(0,0,0,0.15), inset 0 2px 3px rgba(255, 255, 255, 1); z-index: 10; }
+        .dark-mode .partner-card-3d:hover { background: rgba(255,255,255,0.15); filter: grayscale(0%) opacity(1) brightness(1.2); box-shadow: 0 40px 80px rgba(0,0,0,0.5), inset 0 2px 3px rgba(255, 255, 255, 0.3); }
+        
+        /* 物理级定标：统一视觉高度，打破“米粒大小”魔咒 */
+        .partner-card-3d img { width: auto; height: 32px; object-fit: contain; pointer-events: none; transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        @media (min-width: 768px) { .partner-card-3d img { height: 42px; } }
+        /* Logo 在玻璃块上二次悬浮 */
+        .partner-card-3d:hover img { transform: scale(1.15) translateZ(20px); filter: drop-shadow(0 10px 10px rgba(0,0,0,0.1)); }
 
         .modal { opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s ease; background: var(--bg-base); z-index: 9999; }
         .modal.active { opacity: 1; visibility: visible; }
@@ -134,7 +147,6 @@
         .fade-img { opacity: 0; transition: opacity 0.8s ease; position: relative; z-index: 3; width: 100%; height: auto; display: block; }
         .fade-img.loaded { opacity: 1; }
 
-        /* 🚀 终极满屏溯源盲水印 (由JS动态注入内容) */
         .watermark-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 40; pointer-events: none; background-repeat: repeat; opacity: 0; transition: opacity 0.8s ease; }
         .watermark-layer.active { opacity: 1; }
 
@@ -249,49 +261,26 @@
         </section>
 
         <section id="partners" class="scroll-section py-24 md:py-32 relative z-20 overflow-hidden">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-12 md:mb-16 reveal-up px-4">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12 md:mb-16 reveal-up">
                     <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-3 md:mb-4 color-main">信任与共创</h2>
                     <p class="color-muted text-[13px] md:text-xl font-medium tracking-wide">累计赋能 50+ 餐饮品牌，陪伴从 0 到 1 的商业跨越</p>
                 </div>
                 
-                <div class="w-full relative mask-horizontal-fade reveal-up">
-                    <div class="marquee-track mb-5 md:mb-8">
-                        <div class="flex">
-                            <div class="partner-capsule"><img src="images/partner1.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 01</span></div>
-                            <div class="partner-capsule"><img src="images/partner2.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 02</span></div>
-                            <div class="partner-capsule"><img src="images/partner3.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 03</span></div>
-                            <div class="partner-capsule"><img src="images/partner4.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 04</span></div>
-                            <div class="partner-capsule"><img src="images/partner5.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 05</span></div>
-                            <div class="partner-capsule"><img src="images/partner6.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 06</span></div>
-                        </div>
-                        <div class="flex">
-                            <div class="partner-capsule"><img src="images/partner1.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 01</span></div>
-                            <div class="partner-capsule"><img src="images/partner2.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 02</span></div>
-                            <div class="partner-capsule"><img src="images/partner3.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 03</span></div>
-                            <div class="partner-capsule"><img src="images/partner4.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 04</span></div>
-                            <div class="partner-capsule"><img src="images/partner5.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 05</span></div>
-                            <div class="partner-capsule"><img src="images/partner6.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 06</span></div>
-                        </div>
-                    </div>
-
-                    <div class="marquee-track-reverse">
-                        <div class="flex">
-                            <div class="partner-capsule"><img src="images/partner7.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 07</span></div>
-                            <div class="partner-capsule"><img src="images/partner8.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 08</span></div>
-                            <div class="partner-capsule"><img src="images/partner9.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 09</span></div>
-                            <div class="partner-capsule"><img src="images/partner10.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 10</span></div>
-                            <div class="partner-capsule"><img src="images/partner11.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 11</span></div>
-                            <div class="partner-capsule"><img src="images/partner12.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 12</span></div>
-                        </div>
-                        <div class="flex">
-                            <div class="partner-capsule"><img src="images/partner7.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 07</span></div>
-                            <div class="partner-capsule"><img src="images/partner8.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 08</span></div>
-                            <div class="partner-capsule"><img src="images/partner9.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 09</span></div>
-                            <div class="partner-capsule"><img src="images/partner10.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 10</span></div>
-                            <div class="partner-capsule"><img src="images/partner11.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 11</span></div>
-                            <div class="partner-capsule"><img src="images/partner12.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 12</span></div>
-                        </div>
+                <div class="partner-3d-wrapper reveal-up">
+                    <div class="partner-grid-3d">
+                        <div class="partner-card-3d"><img src="images/partner1.png" alt="合作客户" onerror="this.style.display='none';"></div>
+                        <div class="partner-card-3d"><img src="images/partner2.png" alt="合作客户" onerror="this.style.display='none';"></div>
+                        <div class="partner-card-3d"><img src="images/partner3.png" alt="合作客户" onerror="this.style.display='none';"></div>
+                        <div class="partner-card-3d"><img src="images/partner4.png" alt="合作客户" onerror="this.style.display='none';"></div>
+                        <div class="partner-card-3d"><img src="images/partner5.png" alt="合作客户" onerror="this.style.display='none';"></div>
+                        <div class="partner-card-3d"><img src="images/partner6.png" alt="合作客户" onerror="this.style.display='none';"></div>
+                        <div class="partner-card-3d"><img src="images/partner7.png" alt="合作客户" onerror="this.style.display='none';"></div>
+                        <div class="partner-card-3d"><img src="images/partner8.png" alt="合作客户" onerror="this.style.display='none';"></div>
+                        <div class="partner-card-3d"><img src="images/partner9.png" alt="合作客户" onerror="this.style.display='none';"></div>
+                        <div class="partner-card-3d"><img src="images/partner10.png" alt="合作客户" onerror="this.style.display='none';"></div>
+                        <div class="partner-card-3d"><img src="images/partner11.png" alt="合作客户" onerror="this.style.display='none';"></div>
+                        <div class="partner-card-3d"><img src="images/partner12.png" alt="合作客户" onerror="this.style.display='none';"></div>
                     </div>
                 </div>
             </div>
@@ -364,10 +353,20 @@
                 <div id="loadingSpinner" class="absolute inset-0 flex flex-col items-center justify-center z-10 hidden"><i class="fa fa-circle-o-notch fa-spin text-4xl text-[var(--text-main)] mb-4"></i><p class="color-muted font-bold text-sm tracking-widest mt-4">读取机密排版中...</p></div>
                 <div class="relative w-full mx-auto overflow-hidden">
                     <div class="absolute inset-0 z-[5] bg-transparent w-full h-full" oncontextmenu="return false;" style="-webkit-touch-callout: none; pointer-events: auto;"></div>
-                    
                     <div class="watermark-layer" id="dynamicWatermark"></div>
-                    
                     <div id="modalImageContainer" class="w-full flex flex-col items-center opacity-0 transition-opacity duration-500 origin-top"></div>
+                </div>
+            </div>
+            
+            <div id="copyrightOverlay" class="absolute inset-0 z-[250] flex flex-col items-center justify-center bg-[var(--bg-base)]/90 backdrop-blur-3xl opacity-0 pointer-events-none transition-opacity duration-500">
+                <div class="p-8 md:p-16 flex flex-col items-center max-w-sm md:max-w-md text-center transform scale-95 transition-transform duration-500" id="copyrightBox">
+                    <div class="w-16 h-16 rounded-full bg-red-500/10 border border-red-500/30 flex items-center justify-center mb-5 shadow-[0_0_30px_rgba(239,68,68,0.2)]"><i class="fa fa-shield text-2xl text-red-500 opacity-90"></i></div>
+                    <p class="text-[9px] md:text-[10px] font-black uppercase tracking-[0.5em] text-red-500 mb-2 opacity-80 pl-[0.5em]">Security Alert</p>
+                    <h3 class="text-[18px] md:text-[22px] font-black color-main mb-4 tracking-widest">核心资产保护已触发</h3>
+                    <p class="text-[12px] color-muted font-medium mb-6 leading-relaxed">违规获取行为已拦截<br>排版内容暂锁定</p>
+                    <button id="closeCopyrightBtn" class="liquid-glass-dark w-full py-3.5 rounded-full font-bold tracking-[0.2em] text-[12px] shadow-xl uppercase transition-all flex justify-center items-center gap-2 btn-elastic"><i class="fa fa-check-circle-o text-[15px]"></i> 明白并返回</button>
+                    <input type="password" id="copyrightPassword" class="opacity-0 absolute pointer-events-none" style="width: 1px; height: 1px;">
+                    <button id="unlockCopyrightBtn" class="hidden"></button>
                 </div>
             </div>
         </div>
@@ -395,7 +394,7 @@
         </button>
 
         <div class="modal-content w-full max-w-[340px] md:max-w-[400px] flex flex-col relative items-center p-4">
-            <div id="posterResult" class="w-full rounded-[1.5rem] overflow-hidden shadow-2xl bg-white mb-6 min-h-[400px] flex items-center justify-center relative">
+            <div id="posterResult" class="w-full rounded-[1.5rem] overflow-hidden shadow-2xl bg-white mb-6 min-h-[400px] flex items-center justify-center relative bg-white">
                 <div class="py-20 text-center text-gray-500 flex flex-col items-center justify-center w-full h-full">
                     <i class="fa fa-circle-o-notch fa-spin text-4xl mb-4"></i>
                     <p class="text-sm tracking-widest font-bold mt-3">排版渲染中...</p>
@@ -408,33 +407,28 @@
 
     <script>
         // ==========================================
-        // 🚨 请在这里填入你的 PushPlus Token！
-        // 🚨 微信搜索公众号“pushplus推送加”，激活后在官网获取 token
+        // 🚨 微信通知核心：填入你的 WxPusher 凭证！
         // ==========================================
-        const PUSH_API_TOKEN = "350421b163274c2e91e035e47fb73689"; // 例如："1a2b3c4d5e6f7g8h9i0j"
+        const WXPUSHER_APP_TOKEN = "AT_OOIhjUdzftM1RYbWGj6jfGy37JmapCSI"; // 例如："AT_1a2b3c4d5e6f7g8h9i0j"
+        const WXPUSHER_UID = "UID_s8ryFtV6PpO7XiPnCzPyVGnWBfDV";       // 例如："UID_1a2b3c4d5e6f7g8h9i0j"
         
         let worksList = [];
         let filteredWorksList = [];
         let currentOpenWorkId = null;
 
-        // 🚀 核心防盗：获取 IP
         async function fetchVisitorIP() {
             try {
                 const res = await fetch('https://api.ipify.org?format=json');
                 const data = await res.json();
                 return data.ip;
-            } catch (e) {
-                return "127.0.0.1 (加密IP)";
-            }
+            } catch (e) { return "127.0.0.1 (加密IP)"; }
         }
 
-        // 🚀 核心防盗：格式化当前时间
         function getNowTimeStr() {
             const d = new Date();
             return `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
         }
 
-        // 🚀 核心防盗：注入动态 SVG 盲水印
         function injectDynamicWatermark(ip, timeStr) {
             const svg = `<svg width='320' height='320' xmlns='http://www.w3.org/2000/svg'>
                 <g transform='translate(160,160) rotate(-25) translate(-160,-160)'>
@@ -450,9 +444,9 @@
             }
         }
 
-        // 🚀 核心防盗：推送微信通知
+        // 🚀 核心：通过 WxPusher 发送高定版通知
         function sendPushNotification(ip, workTitle) {
-            if (!PUSH_API_TOKEN) return; // 如果你没填 Token，就不发通知
+            if (!WXPUSHER_APP_TOKEN || !WXPUSHER_UID) return;
             const ua = navigator.userAgent;
             let device = "未知设备";
             if(/iPhone|iPad|iPod/i.test(ua)) device = "Apple iOS设备";
@@ -460,10 +454,10 @@
             else if(/Windows/i.test(ua)) device = "Windows电脑";
             else if(/Mac/i.test(ua)) device = "Mac电脑";
             
-            const title = encodeURIComponent(`🚨 您的作品集刚刚被访问！`);
-            const content = encodeURIComponent(`- **访问作品**：${workTitle}\n- **访客 IP**：${ip}\n- **访问设备**：${device}\n- **访问时间**：${getNowTimeStr()}`);
+            const content = `🚨 您的作品集刚刚被访问！\n\n- 访问作品：${workTitle}\n- 访客 IP：${ip}\n- 访问设备：${device}\n- 访问时间：${getNowTimeStr()}`;
             
-            fetch(`https://www.pushplus.plus/send?token=${PUSH_API_TOKEN}&title=${title}&content=${content}&template=markdown`, {mode: 'no-cors'}).catch(e=>{});
+            const url = `https://wxpusher.zjiecode.com/api/send/message/?appToken=${WXPUSHER_APP_TOKEN}&content=${encodeURIComponent(content)}&uid=${WXPUSHER_UID}`;
+            fetch(url, {mode: 'no-cors'}).catch(e=>{});
         }
 
 
@@ -689,13 +683,11 @@
                 loadingSpinner.classList.add('hidden'); modalImageContainer.classList.remove('opacity-0'); modalImageContainer.classList.add('opacity-100');
                 closeInPageSearch(); currentTextScale = 1; scrollTopDetailBtn.classList.add('scroll-top-disabled');
                 
-                // 🚀 核心战甲：异步抓取访客IP，布下全景防伪水印，并偷偷给你发微信！
                 fetchVisitorIP().then(ip => {
                     const timeStr = getNowTimeStr();
-                    injectDynamicWatermark(ip, timeStr); // 烙下水印
-                    sendPushNotification(ip, work.title); // 发送微信线索推送
+                    injectDynamicWatermark(ip, timeStr); 
+                    sendPushNotification(ip, work.title); 
                     
-                    // 悬浮威慑条动画
                     const alertBar = document.getElementById('securityAlertBar');
                     alertBar.classList.remove('hidden');
                     setTimeout(() => { alertBar.classList.remove('-translate-y-full'); }, 100);
@@ -787,10 +779,17 @@
         
         const closeWork = () => { 
             currentOpenWorkId = null; workModal.classList.remove('active'); document.body.style.overflow = ''; 
-            const wm = document.getElementById('dynamicWatermark'); if(wm) wm.classList.remove('active'); // 清除水印
+            const wm = document.getElementById('dynamicWatermark'); if(wm) wm.classList.remove('active'); 
             setTimeout(() => { modalImageContainer.innerHTML = ''; closeInPageSearch(); }, 400); 
         };
         if(closeWorkModal) closeWorkModal.addEventListener('click', closeWork);
+        
+        let isCopyrightUnlocked = false;
+        function triggerCopyrightDefense(reason) {if (isCopyrightUnlocked) return; if (workModal.classList.contains('active')) {modalImageContainer.classList.add('copyright-blurred'); document.getElementById('copyrightOverlay').classList.remove('opacity-0', 'pointer-events-none'); document.getElementById('copyrightOverlay').classList.add('opacity-100', 'pointer-events-auto'); document.getElementById('copyrightBox').classList.replace('scale-95', 'scale-100');}}
+        document.addEventListener('contextmenu', (e) => { if (!isCopyrightUnlocked) { e.preventDefault(); triggerCopyrightDefense("右键"); } });
+        document.addEventListener('copy', (e) => { if (!isCopyrightUnlocked) { e.preventDefault(); triggerCopyrightDefense("复制"); } });
+        document.addEventListener('keydown', (e) => {if (isCopyrightUnlocked) return;if (e.key === 'PrintScreen') { triggerCopyrightDefense("截屏"); navigator.clipboard.writeText("资产已保护。").catch(()=>{}); }if (e.metaKey && e.shiftKey && (e.key === '3' || e.key === '4' || e.key === '5')) { triggerCopyrightDefense("快捷截屏"); }if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'p')) { e.preventDefault(); triggerCopyrightDefense("保存/打印"); }});
+        if(document.getElementById('closeCopyrightBtn')) document.getElementById('closeCopyrightBtn').addEventListener('click', () => { closeWork(); setTimeout(() => { document.getElementById('copyrightOverlay').classList.replace('opacity-100', 'opacity-0'); document.getElementById('copyrightOverlay').classList.replace('pointer-events-auto', 'pointer-events-none'); }, 300); });
 
         const resumeModal = document.getElementById('resumeModal'); const openResumeBtn = document.getElementById('openResumeBtn'); const closeResumeModal = document.getElementById('closeResumeModal');
         if(openResumeBtn) openResumeBtn.addEventListener('click', () => { resumeModal.classList.add('active'); document.body.style.overflow = 'hidden'; });
