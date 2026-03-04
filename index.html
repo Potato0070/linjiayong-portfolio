@@ -98,7 +98,6 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* 🚀 合作伙伴：无缝横向流动引擎 */
         .mask-horizontal-fade { mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%); }
         .marquee-track { display: flex; width: fit-content; animation: marqueeLeft 45s linear infinite; }
         .marquee-track-reverse { display: flex; width: fit-content; animation: marqueeRight 50s linear infinite; }
@@ -108,9 +107,7 @@
         
         .partner-capsule { @apply liquid-glass hover-elastic; width: 140px; height: 65px; border-radius: 100px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; filter: grayscale(100%) opacity(0.5); transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; margin: 0 8px; }
         @media (min-width: 768px) { .partner-capsule { width: 220px; height: 90px; margin: 0 12px; } }
-        /* 悬停时恢复原色并照亮 */
         .partner-capsule:hover { filter: grayscale(0%) opacity(1) brightness(1); background: rgba(255,255,255,0.6); transform: scale(1.05) translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); z-index: 10; }
-        /* 暗黑模式下，默认提亮一点确保能看清，悬停发光 */
         .dark-mode .partner-capsule { filter: grayscale(100%) opacity(0.4) brightness(1.5); }
         .dark-mode .partner-capsule:hover { filter: grayscale(0%) opacity(1) brightness(1.2); background: rgba(255,255,255,0.1); }
 
@@ -137,11 +134,9 @@
         .fade-img { opacity: 0; transition: opacity 0.8s ease; position: relative; z-index: 3; width: 100%; height: auto; display: block; }
         .fade-img.loaded { opacity: 1; }
 
-        .watermark-layer { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 40; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(100,100) rotate(-30) translate(-100,-100)'%3E%3Ctext x='100' y='90' font-size='22' fill='rgba(140,140,140,0.06)' font-family='sans-serif' font-weight='900' text-anchor='middle'%3ELINJIAYONG%3C/text%3E%3Ctext x='100' y='115' font-size='14' fill='rgba(140,140,140,0.08)' font-family='sans-serif' font-weight='bold' letter-spacing='4' text-anchor='middle'%3E版权作品 · 禁止盗用%3C/text%3E%3C/g%3E%3C/svg%3E"); background-repeat: repeat; opacity: 0; transition: opacity 0.8s ease; }
-        .dark-mode .watermark-layer { background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(100,100) rotate(-30) translate(-100,-100)'%3E%3Ctext x='100' y='90' font-size='22' fill='rgba(200,200,200,0.03)' font-family='sans-serif' font-weight='900' text-anchor='middle'%3ELINJIAYONG%3C/text%3E%3Ctext x='100' y='115' font-size='14' fill='rgba(200,200,200,0.06)' font-family='sans-serif' font-weight='bold' letter-spacing='4' text-anchor='middle'%3E版权作品 · 禁止盗用%3C/text%3E%3C/g%3E%3C/svg%3E"); }
+        /* 🚀 终极满屏溯源盲水印 (由JS动态注入内容) */
+        .watermark-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 40; pointer-events: none; background-repeat: repeat; opacity: 0; transition: opacity 0.8s ease; }
         .watermark-layer.active { opacity: 1; }
-        .copyright-blurred { filter: blur(30px) brightness(0.5) !important; pointer-events: none; transition: filter 0.2s ease; }
-        .dark-mode .copyright-blurred { filter: blur(30px) brightness(0.2) !important; }
 
         #globalBackToTop { opacity: 0; pointer-events: none; transform: translateY(20px); transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); z-index: 90; }
         #globalBackToTop.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
@@ -334,9 +329,14 @@
     </footer>
 
     <div id="workModal" class="modal fixed inset-0 z-[9999] flex items-center justify-center">
+        <div id="securityAlertBar" class="fixed top-0 left-0 w-full bg-red-600/90 backdrop-blur-md text-white text-[10px] md:text-xs font-bold text-center py-2 z-[100000] transform -translate-y-full transition-transform duration-500 tracking-widest shadow-md">
+            <i class="fa fa-shield mr-1"></i> 核心资产保护开启：已记录您的访客IP及设备标识，动态防伪溯源运行中
+        </div>
+
         <button id="closeWorkModal" class="absolute top-6 right-6 md:top-8 md:right-8 z-[999999] w-11 h-11 rounded-full bg-black/40 hover:bg-black/60 dark:bg-white/20 backdrop-blur-2xl border border-white/20 text-white flex items-center justify-center transition-colors shadow-[0_10px_40px_rgba(0,0,0,0.5)] cursor-pointer">
             <i class="fa fa-times text-xl"></i>
         </button>
+        
         <div class="modal-content w-full h-full flex flex-col relative overflow-hidden bg-[var(--bg-base)]">
             <div id="inPageSearchUI" class="fixed top-4 left-1/2 transform -translate-x-1/2 z-[250] liquid-glass-controls px-4 py-2 !rounded-full flex items-center gap-2 transition-all duration-300 opacity-0 pointer-events-none translate-y-[-20px] shadow-2xl">
                 <i class="fa fa-search text-xs color-muted ml-1"></i>
@@ -361,22 +361,13 @@
             </div>
             
             <div class="modal-scroll-box flex-1 w-full h-full relative pb-40 pt-16 md:pt-0" id="workModalScrollBox">
-                <div id="loadingSpinner" class="absolute inset-0 flex flex-col items-center justify-center z-10 hidden"><i class="fa fa-circle-o-notch fa-spin text-4xl text-[var(--text-main)] mb-4"></i><p class="color-muted font-bold text-sm tracking-widest mt-4">读取排版中...</p></div>
+                <div id="loadingSpinner" class="absolute inset-0 flex flex-col items-center justify-center z-10 hidden"><i class="fa fa-circle-o-notch fa-spin text-4xl text-[var(--text-main)] mb-4"></i><p class="color-muted font-bold text-sm tracking-widest mt-4">读取机密排版中...</p></div>
                 <div class="relative w-full mx-auto overflow-hidden">
                     <div class="absolute inset-0 z-[5] bg-transparent w-full h-full" oncontextmenu="return false;" style="-webkit-touch-callout: none; pointer-events: auto;"></div>
+                    
+                    <div class="watermark-layer" id="dynamicWatermark"></div>
+                    
                     <div id="modalImageContainer" class="w-full flex flex-col items-center opacity-0 transition-opacity duration-500 origin-top"></div>
-                </div>
-            </div>
-            
-            <div id="copyrightOverlay" class="absolute inset-0 z-[250] flex flex-col items-center justify-center bg-[var(--bg-base)]/90 backdrop-blur-3xl opacity-0 pointer-events-none transition-opacity duration-500">
-                <div class="p-8 md:p-16 flex flex-col items-center max-w-sm md:max-w-md text-center transform scale-95 transition-transform duration-500" id="copyrightBox">
-                    <div class="w-16 h-16 rounded-full bg-red-500/10 border border-red-500/30 flex items-center justify-center mb-5 shadow-[0_0_30px_rgba(239,68,68,0.2)]"><i class="fa fa-shield text-2xl text-red-500 opacity-90"></i></div>
-                    <p class="text-[9px] md:text-[10px] font-black uppercase tracking-[0.5em] text-red-500 mb-2 opacity-80 pl-[0.5em]">Security Alert</p>
-                    <h3 class="text-[18px] md:text-[22px] font-black color-main mb-4 tracking-widest">核心资产保护已触发</h3>
-                    <p class="text-[12px] color-muted font-medium mb-6 leading-relaxed">系统侦测到违规获取行为<br>为保护创作者心血，排版内容已锁定</p>
-                    <button id="closeCopyrightBtn" class="liquid-glass-dark w-full py-3.5 rounded-full font-bold tracking-[0.2em] text-[12px] shadow-xl uppercase transition-all flex justify-center items-center gap-2 btn-elastic"><i class="fa fa-check-circle-o text-[15px]"></i> 明白并返回</button>
-                    <input type="password" id="copyrightPassword" class="opacity-0 absolute pointer-events-none" style="width: 1px; height: 1px;">
-                    <button id="unlockCopyrightBtn" class="hidden"></button>
                 </div>
             </div>
         </div>
@@ -407,7 +398,7 @@
             <div id="posterResult" class="w-full rounded-[1.5rem] overflow-hidden shadow-2xl bg-white mb-6 min-h-[400px] flex items-center justify-center relative">
                 <div class="py-20 text-center text-gray-500 flex flex-col items-center justify-center w-full h-full">
                     <i class="fa fa-circle-o-notch fa-spin text-4xl mb-4"></i>
-                    <p class="text-sm tracking-widest font-bold mt-3">印花排版中...</p>
+                    <p class="text-sm tracking-widest font-bold mt-3">排版渲染中...</p>
                 </div>
             </div>
             <button id="downloadPosterBtn" class="liquid-glass-dark w-full py-4 rounded-full font-bold text-[16px] shadow-2xl flex items-center justify-center gap-2 cursor-pointer tracking-widest hidden btn-elastic border border-white/20"><i class="fa fa-download text-lg"></i> 存至本地相册</button>
@@ -416,9 +407,65 @@
     </div>
 
     <script>
+        // ==========================================
+        // 🚨 请在这里填入你的 PushPlus Token！
+        // 🚨 微信搜索公众号“pushplus推送加”，激活后在官网获取 token
+        // ==========================================
+        const PUSH_API_TOKEN = "350421b163274c2e91e035e47fb73689"; // 例如："1a2b3c4d5e6f7g8h9i0j"
+        
         let worksList = [];
         let filteredWorksList = [];
         let currentOpenWorkId = null;
+
+        // 🚀 核心防盗：获取 IP
+        async function fetchVisitorIP() {
+            try {
+                const res = await fetch('https://api.ipify.org?format=json');
+                const data = await res.json();
+                return data.ip;
+            } catch (e) {
+                return "127.0.0.1 (加密IP)";
+            }
+        }
+
+        // 🚀 核心防盗：格式化当前时间
+        function getNowTimeStr() {
+            const d = new Date();
+            return `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+        }
+
+        // 🚀 核心防盗：注入动态 SVG 盲水印
+        function injectDynamicWatermark(ip, timeStr) {
+            const svg = `<svg width='320' height='320' xmlns='http://www.w3.org/2000/svg'>
+                <g transform='translate(160,160) rotate(-25) translate(-160,-160)'>
+                    <text x='160' y='140' font-size='18' fill='rgba(150,150,150,0.14)' font-family='sans-serif' font-weight='900' letter-spacing='2' text-anchor='middle'>LINJIAYONG · 专属版权</text>
+                    <text x='160' y='165' font-size='14' fill='rgba(150,150,150,0.12)' font-family='monospace' font-weight='bold' letter-spacing='1' text-anchor='middle'>IP: ${ip}</text>
+                    <text x='160' y='185' font-size='12' fill='rgba(150,150,150,0.12)' font-family='sans-serif' font-weight='bold' letter-spacing='1' text-anchor='middle'>${timeStr}</text>
+                </g>
+            </svg>`;
+            const watermarkLayer = document.getElementById('dynamicWatermark');
+            if (watermarkLayer) {
+                watermarkLayer.style.backgroundImage = `url("data:image/svg+xml;utf8,${encodeURIComponent(svg)}")`;
+                watermarkLayer.classList.add('active');
+            }
+        }
+
+        // 🚀 核心防盗：推送微信通知
+        function sendPushNotification(ip, workTitle) {
+            if (!PUSH_API_TOKEN) return; // 如果你没填 Token，就不发通知
+            const ua = navigator.userAgent;
+            let device = "未知设备";
+            if(/iPhone|iPad|iPod/i.test(ua)) device = "Apple iOS设备";
+            else if(/Android/i.test(ua)) device = "Android安卓设备";
+            else if(/Windows/i.test(ua)) device = "Windows电脑";
+            else if(/Mac/i.test(ua)) device = "Mac电脑";
+            
+            const title = encodeURIComponent(`🚨 您的作品集刚刚被访问！`);
+            const content = encodeURIComponent(`- **访问作品**：${workTitle}\n- **访客 IP**：${ip}\n- **访问设备**：${device}\n- **访问时间**：${getNowTimeStr()}`);
+            
+            fetch(`https://www.pushplus.plus/send?token=${PUSH_API_TOKEN}&title=${title}&content=${content}&template=markdown`, {mode: 'no-cors'}).catch(e=>{});
+        }
+
 
         function getSmartFallbackTags(title, desc) {
             const text = (title + " " + desc).toLowerCase();
@@ -634,16 +681,26 @@
         const workModal = document.getElementById('workModal'); const closeWorkModal = document.getElementById('closeWorkModal'); const modalImageContainer = document.getElementById('modalImageContainer'); const workModalScrollBox = document.getElementById('workModalScrollBox'); const loadingSpinner = document.getElementById('loadingSpinner'); const scrollTopDetailBtn = document.getElementById('scrollTopDetailBtn');
         let currentTextScale = 1; const textZoomStep = 0.15; const maxTextScale = 1.8; const minTextScale = 0.7; const baseContainerWidth = 900; 
 
-        window.openWork = function(workId) {
+        window.openWork = async function(workId) {
             const work = worksList.find(w => String(w.id) === String(workId));
             if (work) {
                 currentOpenWorkId = work.id;
-                modalImageContainer.innerHTML = ''; modalImageContainer.classList.remove('copyright-blurred'); document.getElementById('copyrightOverlay').classList.replace('opacity-100', 'opacity-0'); document.getElementById('copyrightOverlay').classList.replace('pointer-events-auto', 'pointer-events-none');
+                modalImageContainer.innerHTML = ''; modalImageContainer.classList.remove('copyright-blurred'); 
                 loadingSpinner.classList.add('hidden'); modalImageContainer.classList.remove('opacity-0'); modalImageContainer.classList.add('opacity-100');
                 closeInPageSearch(); currentTextScale = 1; scrollTopDetailBtn.classList.add('scroll-top-disabled');
                 
-                const watermark = document.createElement('div'); watermark.className = 'watermark-layer'; modalImageContainer.appendChild(watermark);
-                setTimeout(() => watermark.classList.add('active'), 100);
+                // 🚀 核心战甲：异步抓取访客IP，布下全景防伪水印，并偷偷给你发微信！
+                fetchVisitorIP().then(ip => {
+                    const timeStr = getNowTimeStr();
+                    injectDynamicWatermark(ip, timeStr); // 烙下水印
+                    sendPushNotification(ip, work.title); // 发送微信线索推送
+                    
+                    // 悬浮威慑条动画
+                    const alertBar = document.getElementById('securityAlertBar');
+                    alertBar.classList.remove('hidden');
+                    setTimeout(() => { alertBar.classList.remove('-translate-y-full'); }, 100);
+                    setTimeout(() => { alertBar.classList.add('-translate-y-full'); setTimeout(() => alertBar.classList.add('hidden'), 500); }, 3500); 
+                });
 
                 const blocksContainer = document.createElement('div'); blocksContainer.id = "blocksContainer"; blocksContainer.className = "w-full mx-auto pb-20 flex flex-col gap-6 md:gap-10 relative z-10 transition-colors duration-300"; blocksContainer.style.maxWidth = window.innerWidth < 768 ? '100%' : `${baseContainerWidth}px`; blocksContainer.style.setProperty('--font-multiplier', currentTextScale);
 
@@ -695,7 +752,7 @@
                         }
                         if (el) contentWrapper.appendChild(el);
                     });
-                } else { contentWrapper.innerHTML = '<div class="py-20 text-center color-muted tracking-widest text-sm font-bold">作品加载中...</div>'; }
+                } else { contentWrapper.innerHTML = '<div class="py-20 text-center color-muted tracking-widest text-sm font-bold">加载中...</div>'; }
 
                 blocksContainer.appendChild(contentWrapper); modalImageContainer.appendChild(blocksContainer);
                 workModalScrollBox.scrollTop = 0; workModal.classList.add('active'); document.body.style.overflow = 'hidden';
@@ -705,7 +762,7 @@
         function updateTextZoom(step) {
             currentTextScale = Math.max(minTextScale, Math.min(maxTextScale, currentTextScale + step));
             const container = document.getElementById('blocksContainer');
-            if(container) { container.style.setProperty('--font-multiplier', currentTextScale); showToast(`排版比例: ${Math.round(currentTextScale * 100)}%`); }
+            if(container) { container.style.setProperty('--font-multiplier', currentTextScale); showToast(`排版缩放: ${Math.round(currentTextScale * 100)}%`); }
         }
         if(document.getElementById('fontZoomInBtn')) document.getElementById('fontZoomInBtn').addEventListener('click', (e) => { e.stopPropagation(); updateTextZoom(textZoomStep); });
         if(document.getElementById('fontZoomOutBtn')) document.getElementById('fontZoomOutBtn').addEventListener('click', (e) => { e.stopPropagation(); updateTextZoom(-textZoomStep); });
@@ -727,15 +784,13 @@
             else { scrollTopDetailBtn.classList.add('scroll-top-disabled'); }
         });
         if(scrollTopDetailBtn) scrollTopDetailBtn.addEventListener('click', (e) => { e.stopPropagation(); workModalScrollBox.scrollTo({ top: 0, behavior: 'smooth' }); });
-        const closeWork = () => { currentOpenWorkId = null; workModal.classList.remove('active'); document.body.style.overflow = ''; setTimeout(() => { modalImageContainer.innerHTML = ''; closeInPageSearch(); }, 400); };
-        if(closeWorkModal) closeWorkModal.addEventListener('click', closeWork);
         
-        let isCopyrightUnlocked = false;
-        function triggerCopyrightDefense(reason) {if (isCopyrightUnlocked) return; if (workModal.classList.contains('active')) {modalImageContainer.classList.add('copyright-blurred'); document.getElementById('copyrightOverlay').classList.remove('opacity-0', 'pointer-events-none'); document.getElementById('copyrightOverlay').classList.add('opacity-100', 'pointer-events-auto'); document.getElementById('copyrightBox').classList.replace('scale-95', 'scale-100');}}
-        document.addEventListener('contextmenu', (e) => { if (!isCopyrightUnlocked) { e.preventDefault(); triggerCopyrightDefense("右键"); } });
-        document.addEventListener('copy', (e) => { if (!isCopyrightUnlocked) { e.preventDefault(); triggerCopyrightDefense("复制"); } });
-        document.addEventListener('keydown', (e) => {if (isCopyrightUnlocked) return;if (e.key === 'PrintScreen') { triggerCopyrightDefense("截屏"); navigator.clipboard.writeText("资产已保护。").catch(()=>{}); }if (e.metaKey && e.shiftKey && (e.key === '3' || e.key === '4' || e.key === '5')) { triggerCopyrightDefense("快捷截屏"); }if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'p')) { e.preventDefault(); triggerCopyrightDefense("保存/打印"); }});
-        if(document.getElementById('closeCopyrightBtn')) document.getElementById('closeCopyrightBtn').addEventListener('click', () => { closeWork(); setTimeout(() => { document.getElementById('copyrightOverlay').classList.replace('opacity-100', 'opacity-0'); document.getElementById('copyrightOverlay').classList.replace('pointer-events-auto', 'pointer-events-none'); }, 300); });
+        const closeWork = () => { 
+            currentOpenWorkId = null; workModal.classList.remove('active'); document.body.style.overflow = ''; 
+            const wm = document.getElementById('dynamicWatermark'); if(wm) wm.classList.remove('active'); // 清除水印
+            setTimeout(() => { modalImageContainer.innerHTML = ''; closeInPageSearch(); }, 400); 
+        };
+        if(closeWorkModal) closeWorkModal.addEventListener('click', closeWork);
 
         const resumeModal = document.getElementById('resumeModal'); const openResumeBtn = document.getElementById('openResumeBtn'); const closeResumeModal = document.getElementById('closeResumeModal');
         if(openResumeBtn) openResumeBtn.addEventListener('click', () => { resumeModal.classList.add('active'); document.body.style.overflow = 'hidden'; });
@@ -755,7 +810,7 @@
             if(!work) return;
 
             showToast('提取排版数据中...');
-            posterResult.innerHTML = '<div class="py-20 text-center text-gray-500 flex flex-col items-center"><i class="fa fa-circle-o-notch fa-spin text-4xl mb-4"></i><p class="text-sm font-bold mt-3">高定印花生成中...</p></div>';
+            posterResult.innerHTML = '<div class="py-20 text-center text-gray-500 flex flex-col items-center"><i class="fa fa-circle-o-notch fa-spin text-4xl mb-4"></i><p class="text-sm font-bold mt-3">印花排版中...</p></div>';
             downloadPosterBtn.classList.add('hidden'); 
             posterModal.classList.add('active');
 
@@ -767,8 +822,8 @@
             ctx.fillStyle = '#FFFFFF';
             ctx.fillRect(0, 0, cvs.width, cvs.height);
 
-            const coverImg = new Image(); 
-            const logoImg = new Image(); 
+            const coverImg = new Image(); coverImg.crossOrigin = 'Anonymous';
+            const logoImg = new Image(); logoImg.crossOrigin = 'Anonymous';
             const shareUrl = window.location.origin + window.location.pathname + '?work=' + work.id;
             const qr = new QRious({ value: shareUrl, size: 200, level: 'H' });
             const qrImgData = qr.toDataURL();
