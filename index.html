@@ -31,7 +31,7 @@
         .color-main { color: var(--text-main); } .color-muted { color: var(--text-muted); } .bg-inverted { background-color: var(--btn-bg); color: var(--btn-text); transition: all 0.4s ease; }
 
         .logo-adapt { transition: filter 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-        .dark-mode .logo-adapt { filter: invert(1) hue-rotate(180deg) brightness(1.2); }
+        /* 换成极其高级的白色柔光阴影，不改变 Logo 原色，完美剥离黑夜背景 */ .dark-mode .logo-adapt { filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.5)) drop-shadow(0 0 12px rgba(255, 255, 255, 0.1)); }
 
         .liquid-glass { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(48px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.4); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05), inset 0 1.5px 2px rgba(255, 255, 255, 0.9), inset 0 -1.5px 2px rgba(255, 255, 255, 0.15); border-radius: 24px; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
         .dark-mode .liquid-glass { background: rgba(20, 20, 20, 0.35); border-color: rgba(255, 255, 255, 0.15); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), inset 0 1.5px 2px rgba(255, 255, 255, 0.2), inset 0 -1.5px 2px rgba(0, 0, 0, 0.5); }
@@ -158,16 +158,12 @@
         .fade-img.loaded { opacity: 1; }
 
         /* 幽灵游走水印 (固定高层级，不被遮挡) */
-        .ghost-watermark {
-            position: fixed; pointer-events: none; z-index: 999999;
-            opacity: 0.15; color: var(--text-main); font-weight: 900;
-            font-family: monospace; white-space: nowrap;
-            transition: all 15s linear; 
-            transform: translate(-50%, -50%) rotate(-15deg);
-            font-size: clamp(1rem, 2vw, 1.5rem); letter-spacing: 2px; 
-            text-shadow: 0 0 10px rgba(150,150,150,0.3);
-            mix-blend-mode: difference; 
+/* 🦎 变色龙机密水印 (高密度对角线，物理反相) */
+        .chameleon-watermark-layer {
+            position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0; transition: opacity 0.5s;
+            mix-blend-mode: difference; /* 遇到黑变白，遇到白变黑 */
         }
+        .chameleon-watermark-layer.active { opacity: 0.25; } /* 透明度0.25在白底上刚好是高级灰 */
 
         #globalBackToTop { opacity: 0; pointer-events: none; transform: translateY(20px); transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); z-index: 90; }
         #globalBackToTop.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
@@ -191,7 +187,7 @@
     <div class="fixed top-4 md:top-6 left-1/2 transform -translate-x-1/2 z-[100] w-[92%] max-w-5xl nav-drop-in" id="islandContainer">
         <nav class="nav-island flex items-center justify-between px-4 py-2.5 md:px-3 md:py-2 w-full shadow-2xl relative">
             <a href="#home" class="flex items-center gap-2.5 pl-2 md:pl-5 text-[16px] md:text-[17px] font-black tracking-tight color-main btn-elastic flex-shrink-0 relative z-10">
-                <img src="images/logo.png?v=10.0" class="h-6 w-auto object-contain logo-adapt" alt="JOHN'S FRIES Logo" onerror="this.style.display='none'">
+                <img src="images/logo.png?v=11.0" class="h-9 md:h-11 w-auto object-contain logo-adapt scale-125 origin-left" alt="JOHN'S FRIES Logo" onerror="this.style.display='none'">
                 <span>林嘉雍<span class="opacity-30 mx-1">·</span>品牌策划作品集</span>
             </a>
             
@@ -311,7 +307,7 @@
                 <div class="flex flex-col gap-6 md:gap-8">
                     <div class="holographic-aura-container">
                         <div class="holographic-aura"></div>
-                        <img src="images/logo.png?v=10.0" alt="JOHN'S FRIES 品牌标识" class="w-full max-w-[200px] md:max-w-[260px] object-contain relative z-10 logo-adapt transform transition-transform duration-700 group-hover:scale-105 drop-shadow-sm" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <img src="images/logo.png?v=11.0" alt="JOHN'S FRIES 品牌标识" class="w-full max-w-[280px] md:max-w-[380px] object-contain relative z-10 logo-adapt transform transition-transform duration-700 hover:scale-110 drop-shadow-2xl" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         <span class="color-muted font-bold tracking-widest hidden relative z-10 text-sm">等待上传专属 Logo</span>
                     </div>
                     <button id="openResumeBtn" class="liquid-glass-dark w-full py-4 rounded-full font-bold text-[15px] md:text-lg shadow-2xl flex items-center justify-center gap-3 cursor-pointer tracking-widest btn-elastic"><i class="fa fa-file-text-o text-xl"></i> 查看个人简历</button>
@@ -369,6 +365,7 @@
             </div>
             
             <div class="modal-scroll-box flex-1 w-full h-full relative pb-40 pt-16 md:pt-0" id="workModalScrollBox">
+                <div id="dynamicStaticWatermark" class="chameleon-watermark-layer"></div>
                 <div id="loadingSpinner" class="absolute inset-0 flex flex-col items-center justify-center z-10 hidden"><i class="fa fa-circle-o-notch fa-spin text-4xl text-[var(--text-main)] mb-4"></i><p class="color-muted font-bold text-sm tracking-widest mt-4">读取机密排版中...</p></div>
                 <div class="relative w-full mx-auto overflow-hidden">
                     <div class="absolute inset-0 z-[5] bg-transparent w-full h-full" oncontextmenu="return false;" style="-webkit-touch-callout: none; pointer-events: auto;"></div>
@@ -435,33 +432,19 @@
             return `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
         }
 
-        // 🚀 保留高级幽灵水印 (突破结界，注入到全局弹窗)
-        let ghostIntervals = [];
-        function spawnGhosts(ip, timeStr) {
-            clearGhosts();
-            const container = document.getElementById('workModal'); 
-            if(!container) return;
-            
-            for(let i=0; i<3; i++) {
-                let ghost = document.createElement('div');
-                ghost.className = 'ghost-watermark';
-                ghost.innerHTML = `JOHN'S FRIES · 版权保护<br>IP: ${ip}<br>${timeStr}`;
-                container.appendChild(ghost);
-                
-                const moveGhost = () => {
-                    const x = Math.random() * 80 + 10; 
-                    const y = Math.random() * 80 + 10;
-                    ghost.style.left = `${x}%`;
-                    ghost.style.top = `${y}%`;
-                };
-                moveGhost(); 
-                ghostIntervals.push(setInterval(moveGhost, 15000));
+// 🦎 变色龙机密水印 (高密度、物理反相、不丢失)
+        function applyStaticWatermark(ip, timeStr) {
+            const svg = `<svg width='320' height='320' xmlns='http://www.w3.org/2000/svg'>
+                <g transform='translate(160,160) rotate(-30) translate(-160,-160)'>
+                    <text x='160' y='140' font-size='18' fill='rgba(255,255,255,0.8)' font-family='sans-serif' font-weight='900' letter-spacing='3' text-anchor='middle'>JOHN'S FRIES · 机密档案</text>
+                    <text x='160' y='170' font-size='13' fill='rgba(255,255,255,0.6)' font-family='monospace' font-weight='bold' text-anchor='middle'>IP: ${ip} · ${timeStr}</text>
+                </g>
+            </svg>`;
+            const wmOverlay = document.getElementById('dynamicStaticWatermark');
+            if(wmOverlay) {
+                wmOverlay.style.backgroundImage = `url("data:image/svg+xml;utf8,${encodeURIComponent(svg)}")`;
+                wmOverlay.classList.add('active');
             }
-        }
-        function clearGhosts() {
-            ghostIntervals.forEach(clearInterval);
-            ghostIntervals = [];
-            document.querySelectorAll('.ghost-watermark').forEach(e => e.remove());
         }
 
         // 🚀 保留手机端无感探针推送技术 (Image Ping)
@@ -707,7 +690,7 @@
                 
                 fetchVisitorIP().then(ip => {
                     const timeStr = getNowTimeStr();
-                    spawnGhosts(ip, timeStr); 
+                    applyStaticWatermark(ip, timeStr); 
                     sendPushNotification(ip, work.title); 
                     
                     const alertBar = document.getElementById('securityAlertBar');
@@ -801,7 +784,7 @@
         
         const closeWork = () => { 
             currentOpenWorkId = null; workModal.classList.remove('active'); document.body.style.overflow = ''; 
-            clearGhosts(); 
+            const wmOverlay = document.getElementById('dynamicStaticWatermark'); if(wmOverlay) wmOverlay.classList.remove('active'); 
             setTimeout(() => { modalImageContainer.innerHTML = ''; closeInPageSearch(); }, 400); 
         };
         if(closeWorkModal) closeWorkModal.addEventListener('click', closeWork);
