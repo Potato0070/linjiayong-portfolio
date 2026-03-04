@@ -8,8 +8,7 @@
     <meta name="description" content="林嘉雍 | 专注餐饮品牌全案策划与统筹设计。用策略与设计，为品牌赋予商业灵魂。">
     <meta property="og:title" content="林嘉雍 | 品牌策划作品集">
     <meta property="og:description" content="专注餐饮品牌全案策划与统筹设计团队。从0到1搭建体系，用策略驱动设计，落地商业价值。">
-    <meta property="og:image" content="https://www.linjiayong.cn/images/share-cover.jpg">
-
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
@@ -44,7 +43,6 @@
         .nav-island { position: relative; background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(48px) saturate(250%); border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 16px 32px rgba(0,0,0,0.06), inset 0 1.5px 2px rgba(255,255,255,0.9), inset 0 -1px 1px rgba(255,255,255,0.2); border-radius: 100px; transition: all 0.5s ease; }
         .dark-mode .nav-island { background: rgba(30, 30, 30, 0.4); border-color: rgba(255, 255, 255, 0.15); box-shadow: 0 16px 32px rgba(0,0,0,0.4), inset 0 1.5px 2px rgba(255,255,255,0.2), inset 0 -1px 1px rgba(0,0,0,0.5); }
         
-        /* 🚀 光效胶囊 (防错位追踪引擎) */
         .nav-indicator-wrapper { position: absolute; top: 50%; transform: translateY(-50%); height: 34px; border-radius: 100px; transition: all 0.5s cubic-bezier(0.25, 1, 0.3, 1); z-index: 0; pointer-events: none; opacity: 0; display: flex; align-items: center; justify-content: center; }
         .nav-indicator-bg { position: absolute; inset: 0; background: var(--text-main); border-radius: 100px; z-index: 1; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
         .nav-indicator-glow { position: absolute; inset: -3px; border-radius: 100px; background: linear-gradient(90deg, transparent, rgba(150,150,150,0.5), transparent); background-size: 200% 100%; animation: flowGlow 2.5s linear infinite; z-index: 0; opacity: 0.8; }
@@ -99,13 +97,30 @@
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .mask-linear-fade { mask-image: linear-gradient(to right, black 85%, transparent 100%); -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%); }
+        
+        /* 🚀 合作伙伴：无缝横向流动引擎 */
+        .mask-horizontal-fade { mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%); }
+        .marquee-track { display: flex; width: fit-content; animation: marqueeLeft 45s linear infinite; }
+        .marquee-track-reverse { display: flex; width: fit-content; animation: marqueeRight 50s linear infinite; }
+        .marquee-track:hover, .marquee-track-reverse:hover { animation-play-state: paused; }
+        @keyframes marqueeLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes marqueeRight { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+        
+        .partner-capsule { @apply liquid-glass hover-elastic; width: 140px; height: 65px; border-radius: 100px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; filter: grayscale(100%) opacity(0.5); transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; margin: 0 8px; }
+        @media (min-width: 768px) { .partner-capsule { width: 220px; height: 90px; margin: 0 12px; } }
+        /* 悬停时恢复原色并照亮 */
+        .partner-capsule:hover { filter: grayscale(0%) opacity(1) brightness(1); background: rgba(255,255,255,0.6); transform: scale(1.05) translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); z-index: 10; }
+        /* 暗黑模式下，默认提亮一点确保能看清，悬停发光 */
+        .dark-mode .partner-capsule { filter: grayscale(100%) opacity(0.4) brightness(1.5); }
+        .dark-mode .partner-capsule:hover { filter: grayscale(0%) opacity(1) brightness(1.2); background: rgba(255,255,255,0.1); }
 
         .modal { opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s ease; background: var(--bg-base); z-index: 9999; }
         .modal.active { opacity: 1; visibility: visible; }
         .modal-content { transition: all 0.4s ease; transform: scale(0.98) translateY(20px); opacity: 0; }
         .modal.active .modal-content { transform: scale(1) translateY(0); opacity: 1; }
-        .modal-scroll-box { overflow: auto; -webkit-overflow-scrolling: touch; padding-bottom: env(safe-area-inset-bottom, 80px); }
+        .modal-scroll-box { overflow: auto; -webkit-overflow-scrolling: touch; padding-bottom: env(safe-area-inset-bottom, 80px); padding-top: 60px; }
+        @media (min-width: 768px) { .modal-scroll-box { padding-top: 0; } }
+        .modal-scroll-box::-webkit-scrollbar { width: 0px; height: 0px; } 
         .scroll-top-disabled { opacity: 0.3; cursor: not-allowed; pointer-events: none; }
 
         mark.search-highlight { background-color: #ffeb3b; color: #000; border-radius: 2px; padding: 0 2px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); font-weight: bold; }
@@ -131,7 +146,8 @@
         #globalBackToTop { opacity: 0; pointer-events: none; transform: translateY(20px); transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); z-index: 90; }
         #globalBackToTop.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
         
-        .holographic-aura-container { position: relative; display: flex; items: center; justify-content: center; p-10 md:p-14 relative group transition-all duration-700 hover:-translate-y-2; overflow: hidden; }
+        .holographic-aura-container { position: relative; display: flex; align-items: center; justify-content: center; padding: 2.5rem; transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); overflow: hidden; border-radius: 2rem; }
+        .holographic-aura-container:hover { transform: translateY(-8px); }
         .holographic-aura { position: absolute; inset: -20%; background: radial-gradient(ellipse at center, var(--logo-glow) 0%, transparent 70%); background-size: 200% 200%; filter: blur(40px); animation: auraFlow 6s ease infinite alternate; opacity: 0.8; z-index: 0; pointer-events: none; }
         @keyframes auraFlow { 0% { background-position: 0% 0%; } 100% { background-position: 100% 100%; } }
     </style>
@@ -149,7 +165,7 @@
     <div class="fixed top-4 md:top-6 left-1/2 transform -translate-x-1/2 z-[100] w-[92%] max-w-5xl nav-drop-in" id="islandContainer">
         <nav class="nav-island flex items-center justify-between px-4 py-2.5 md:px-3 md:py-2 w-full shadow-2xl relative">
             <a href="#home" class="flex items-center gap-2.5 pl-2 md:pl-5 text-[16px] md:text-lg font-black tracking-tight color-main btn-elastic flex-shrink-0 relative z-10">
-                <img src="images/logo.png" class="h-5 md:h-6 w-auto object-contain logo-adapt" alt="林嘉雍 Logo" onerror="this.style.display='none'">
+                <img src="images/logo.png?v=3.1" class="h-5 md:h-6 w-auto object-contain logo-adapt" alt="林嘉雍 Logo" onerror="this.style.display='none'">
                 <span>林嘉雍<span class="opacity-30 mx-1">·</span>品牌策划</span>
             </a>
             
@@ -160,6 +176,7 @@
                 </div>
                 <a href="#home" class="nav-link cursor-pointer nav-item" data-target="home">首页</a>
                 <a href="#works" class="nav-link cursor-pointer nav-item" data-target="works">作品</a>
+                <a href="#partners" class="nav-link cursor-pointer nav-item" data-target="partners">客户</a>
                 <a href="#about" class="nav-link cursor-pointer nav-item" data-target="about">关于</a>
                 <a href="#contact" class="nav-link cursor-pointer nav-item" data-target="contact">联系</a>
             </div>
@@ -178,6 +195,7 @@
             <div id="mobileMenu" class="absolute top-[110%] left-0 w-full liquid-glass flex flex-col text-center shadow-2xl p-2 z-[140] rounded-[1.5rem] transition-all duration-400 transform origin-top opacity-0 pointer-events-none scale-95 md:hidden">
                 <a href="#home" class="text-[15px] font-bold py-3.5 mx-2 my-1 rounded-xl color-main cursor-pointer tracking-widest nav-item hover:bg-black/5 dark:hover:bg-white/10 transition-colors" data-target="home">首页</a>
                 <a href="#works" class="text-[15px] font-bold py-3.5 mx-2 my-1 rounded-xl color-main cursor-pointer tracking-widest nav-item hover:bg-black/5 dark:hover:bg-white/10 transition-colors" data-target="works">作品</a>
+                <a href="#partners" class="text-[15px] font-bold py-3.5 mx-2 my-1 rounded-xl color-main cursor-pointer tracking-widest nav-item hover:bg-black/5 dark:hover:bg-white/10 transition-colors" data-target="partners">客户</a>
                 <a href="#about" class="text-[15px] font-bold py-3.5 mx-2 my-1 rounded-xl color-main cursor-pointer tracking-widest nav-item hover:bg-black/5 dark:hover:bg-white/10 transition-colors" data-target="about">关于</a>
                 <a href="#contact" class="text-[15px] font-bold py-3.5 mx-2 my-1 rounded-xl color-main cursor-pointer tracking-widest nav-item hover:bg-black/5 dark:hover:bg-white/10 transition-colors" data-target="contact">联系</a>
             </div>
@@ -235,17 +253,64 @@
             </div>
         </section>
 
+        <section id="partners" class="scroll-section py-24 md:py-32 relative z-20 overflow-hidden">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-12 md:mb-16 reveal-up px-4">
+                    <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-3 md:mb-4 color-main">信任与共创</h2>
+                    <p class="color-muted text-[13px] md:text-xl font-medium tracking-wide">累计赋能 50+ 餐饮品牌，陪伴从 0 到 1 的商业跨越</p>
+                </div>
+                
+                <div class="w-full relative mask-horizontal-fade reveal-up">
+                    <div class="marquee-track mb-5 md:mb-8">
+                        <div class="flex">
+                            <div class="partner-capsule"><img src="images/partner1.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 01</span></div>
+                            <div class="partner-capsule"><img src="images/partner2.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 02</span></div>
+                            <div class="partner-capsule"><img src="images/partner3.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 03</span></div>
+                            <div class="partner-capsule"><img src="images/partner4.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 04</span></div>
+                            <div class="partner-capsule"><img src="images/partner5.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 05</span></div>
+                            <div class="partner-capsule"><img src="images/partner6.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 06</span></div>
+                        </div>
+                        <div class="flex">
+                            <div class="partner-capsule"><img src="images/partner1.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 01</span></div>
+                            <div class="partner-capsule"><img src="images/partner2.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 02</span></div>
+                            <div class="partner-capsule"><img src="images/partner3.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 03</span></div>
+                            <div class="partner-capsule"><img src="images/partner4.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 04</span></div>
+                            <div class="partner-capsule"><img src="images/partner5.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 05</span></div>
+                            <div class="partner-capsule"><img src="images/partner6.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 06</span></div>
+                        </div>
+                    </div>
+
+                    <div class="marquee-track-reverse">
+                        <div class="flex">
+                            <div class="partner-capsule"><img src="images/partner7.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 07</span></div>
+                            <div class="partner-capsule"><img src="images/partner8.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 08</span></div>
+                            <div class="partner-capsule"><img src="images/partner9.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 09</span></div>
+                            <div class="partner-capsule"><img src="images/partner10.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 10</span></div>
+                            <div class="partner-capsule"><img src="images/partner11.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 11</span></div>
+                            <div class="partner-capsule"><img src="images/partner12.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 12</span></div>
+                        </div>
+                        <div class="flex">
+                            <div class="partner-capsule"><img src="images/partner7.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 07</span></div>
+                            <div class="partner-capsule"><img src="images/partner8.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 08</span></div>
+                            <div class="partner-capsule"><img src="images/partner9.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 09</span></div>
+                            <div class="partner-capsule"><img src="images/partner10.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 10</span></div>
+                            <div class="partner-capsule"><img src="images/partner11.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 11</span></div>
+                            <div class="partner-capsule"><img src="images/partner12.png" class="max-w-[70%] max-h-[50%] object-contain" alt="合作客户" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="hidden text-xs font-black tracking-widest uppercase opacity-40">Brand 12</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="about" class="scroll-section py-24 md:py-32 px-6 md:px-12 relative z-20">
             <div class="max-w-5xl mx-auto"><div class="liquid-glass hover-elastic !rounded-[2rem] md:!rounded-[3rem] p-8 md:p-20 reveal-up"><div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
                 <div><h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-6 md:mb-8 color-main">关于我</h2><div class="space-y-4 md:space-y-6 color-main opacity-90 text-[14px] md:text-lg leading-relaxed font-medium tracking-wide text-justify text-balance"><p>5年餐饮品牌相关工作经验，2年+品牌全案策划与团队管理经验，累计主导多个品牌从0到1搭建与战略升维全案。</p><p>端到端覆盖市场洞察、定位策略、IP打造、品牌文案体系、落地运营全闭环，具备成熟的跨团队统筹、多项目管控能力。</p><p>熟悉各类主流AI软件，可快速适配多行业品牌策划需求，坚持用策略驱动设计，用设计落地商业价值。</p></div></div>
                 <div class="flex flex-col gap-6 md:gap-8">
-                    
                     <div class="holographic-aura-container">
                         <div class="holographic-aura"></div>
-                        <img src="images/logo.png" alt="林嘉雍品牌标识" class="w-full max-w-[180px] object-contain relative z-10 logo-adapt transform transition-transform duration-700 group-hover:scale-105 drop-shadow-sm" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <img src="images/logo.png?v=3.1" alt="林嘉雍品牌标识" class="w-full max-w-[180px] object-contain relative z-10 logo-adapt transform transition-transform duration-700 group-hover:scale-105 drop-shadow-sm" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         <span class="color-muted font-bold tracking-widest hidden relative z-10 text-sm">等待上传专属 Logo</span>
                     </div>
-
                     <button id="openResumeBtn" class="liquid-glass-dark w-full py-4 rounded-full font-bold text-[15px] md:text-lg shadow-2xl flex items-center justify-center gap-3 cursor-pointer tracking-widest btn-elastic"><i class="fa fa-file-text-o text-xl"></i> 查看个人简历</button>
                 </div>
             </div></div></div>
@@ -264,7 +329,7 @@
     </main>
 
     <footer class="pt-20 pb-16 text-center relative z-10 flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-transparent to-[var(--bg-base)] border-none outline-none">
-        <img src="images/logo.png" class="h-16 md:h-20 mb-8 opacity-[0.06] dark:opacity-[0.15] logo-adapt pointer-events-none select-none blur-[0.5px]" alt="Brand Watermark" onerror="this.style.display='none'">
+        <img src="images/logo.png?v=3.1" class="h-16 md:h-20 mb-8 opacity-[0.06] dark:opacity-[0.15] logo-adapt pointer-events-none select-none blur-[0.5px]" alt="Brand Watermark" onerror="this.style.display='none'">
         <p class="text-[10px] font-black tracking-[0.25em] color-muted opacity-40 uppercase">© 2026 LINJIAYONG. ALL RIGHTS RESERVED.</p>
     </footer>
 
@@ -272,7 +337,6 @@
         <button id="closeWorkModal" class="absolute top-6 right-6 md:top-8 md:right-8 z-[999999] w-11 h-11 rounded-full bg-black/40 hover:bg-black/60 dark:bg-white/20 backdrop-blur-2xl border border-white/20 text-white flex items-center justify-center transition-colors shadow-[0_10px_40px_rgba(0,0,0,0.5)] cursor-pointer">
             <i class="fa fa-times text-xl"></i>
         </button>
-        
         <div class="modal-content w-full h-full flex flex-col relative overflow-hidden bg-[var(--bg-base)]">
             <div id="inPageSearchUI" class="fixed top-4 left-1/2 transform -translate-x-1/2 z-[250] liquid-glass-controls px-4 py-2 !rounded-full flex items-center gap-2 transition-all duration-300 opacity-0 pointer-events-none translate-y-[-20px] shadow-2xl">
                 <i class="fa fa-search text-xs color-muted ml-1"></i>
@@ -296,7 +360,7 @@
                 <button id="scrollTopDetailBtn" title="回到顶部" class="btn-elastic flex items-center justify-center w-10 h-10 md:w-11 md:h-11 rounded-full text-md md:text-lg scroll-top-disabled color-main cursor-pointer"><i class="fa fa-arrow-up"></i></button>
             </div>
             
-            <div class="modal-scroll-box flex-1 w-full h-full relative pb-40" id="workModalScrollBox">
+            <div class="modal-scroll-box flex-1 w-full h-full relative pb-40 pt-16 md:pt-0" id="workModalScrollBox">
                 <div id="loadingSpinner" class="absolute inset-0 flex flex-col items-center justify-center z-10 hidden"><i class="fa fa-circle-o-notch fa-spin text-4xl text-[var(--text-main)] mb-4"></i><p class="color-muted font-bold text-sm tracking-widest mt-4">读取排版中...</p></div>
                 <div class="relative w-full mx-auto overflow-hidden">
                     <div class="absolute inset-0 z-[5] bg-transparent w-full h-full" oncontextmenu="return false;" style="-webkit-touch-callout: none; pointer-events: auto;"></div>
@@ -415,7 +479,6 @@
             if (workId) { setTimeout(() => openWork(workId), 500); }
         }
 
-        // 🚀 核心：修复胶囊坐标，用 getBoundingClientRect 绝对计算
         function initScrollSpy() {
             const sections = document.querySelectorAll('.scroll-section');
             const navItemsDesktop = document.querySelectorAll('#navLinksContainer .nav-item');
@@ -451,7 +514,7 @@
             };
 
             window.addEventListener('scroll', handleScroll);
-            window.addEventListener('resize', handleScroll); // 窗口大小改变时强制重绘
+            window.addEventListener('resize', handleScroll); 
             setTimeout(handleScroll, 100);
 
             document.getElementById('globalBackToTop').addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
@@ -506,8 +569,8 @@
         function renderWorks() {
             if(!gridElement) return;
             gridElement.innerHTML = ''; 
-            if(filteredWorksList.length === 0) { noWorksFound.classList.remove('hidden'); noWorksFound.classList.add('flex'); if(pageIndicator) pageIndicator.textContent = `0 / 0`; return; } 
-            else { noWorksFound.classList.add('hidden'); noWorksFound.classList.remove('flex'); }
+            if(filteredWorksList.length === 0) { noWorksFound.classList.remove('hidden'); if(pageIndicator) pageIndicator.textContent = `0 / 0`; return; } 
+            else { noWorksFound.classList.add('hidden'); }
 
             totalPages = Math.max(1, Math.ceil(filteredWorksList.length / itemsPerPage));
             const startIdx = (currentPage - 1) * itemsPerPage;
@@ -562,24 +625,6 @@
                 gridElement.insertAdjacentHTML('beforeend', cardHTML);
             });
 
-            if(gallerySearchInput.value.trim() === '') {
-                const remainingSlots = itemsPerPage - currentWorks.length;
-                if (remainingSlots > 0 && remainingSlots < itemsPerPage) {
-                    for (let i = 0; i < remainingSlots; i++) {
-                        const delay = (currentWorks.length + i) * 0.1;
-                        const placeholderHTML = `
-                            <div class="flex flex-col justify-center items-center h-full reveal-up relative overflow-hidden group rounded-[24px]" style="border: 1px dashed rgba(150, 150, 150, 0.35); transition-delay: ${delay}s;">
-                                <div class="flex flex-col items-center justify-center p-4 md:p-8 opacity-40 group-hover:opacity-100 transition-all duration-700 transform group-hover:scale-105 w-full">
-                                    <div class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-[var(--text-muted)] flex items-center justify-center mb-4 md:mb-5 opacity-80"><i class="fa fa-hourglass-half text-[var(--text-muted)] text-[10px] md:text-sm"></i></div>
-                                    <p class="text-[8px] md:text-[9px] font-black uppercase tracking-[0.4em] color-muted mb-2 md:mb-3 pl-[0.4em] text-center w-full">TO BE CONTINUED</p>
-                                    <h3 class="text-[11px] sm:text-[12px] md:text-[14px] font-bold tracking-[0.2em] color-main text-center leading-relaxed pl-[0.2em] w-full">作品持续更新中<br>敬请期待</h3>
-                                </div>
-                            </div>
-                        `;
-                        gridElement.insertAdjacentHTML('beforeend', placeholderHTML);
-                    }
-                }
-            }
             if(pageIndicator) pageIndicator.textContent = `${currentPage} / ${totalPages}`;
             setTimeout(bindObserver, 50);
         }
@@ -602,19 +647,17 @@
 
                 const blocksContainer = document.createElement('div'); blocksContainer.id = "blocksContainer"; blocksContainer.className = "w-full mx-auto pb-20 flex flex-col gap-6 md:gap-10 relative z-10 transition-colors duration-300"; blocksContainer.style.maxWidth = window.innerWidth < 768 ? '100%' : `${baseContainerWidth}px`; blocksContainer.style.setProperty('--font-multiplier', currentTextScale);
 
-                // 🚀 头图：绝对剔除版本号，解除 iOS 白屏诅咒
                 if (work.cover) {
                     const heroImageContainer = document.createElement('div'); heroImageContainer.className = "w-full relative shadow-sm image-wrapper !rounded-none !mt-0 !mb-0";
                     const heroLoader = document.createElement('i'); heroLoader.className = "fa fa-circle-o-notch fa-spin img-loader"; heroImageContainer.appendChild(heroLoader);
                     const heroImg = document.createElement('img'); 
-                    heroImg.src = work.cover; // 纯净链接
+                    heroImg.src = work.cover; 
                     heroImg.className = "fade-img w-full h-auto object-cover max-h-[55vh]"; 
                     heroImg.onload = function() { this.classList.add('loaded'); this.parentElement.classList.add('loaded'); };
                     heroImg.onerror = function() { this.classList.add('loaded'); this.parentElement.classList.add('loaded'); };
                     heroImageContainer.appendChild(heroImg); blocksContainer.appendChild(heroImageContainer);
                 }
 
-                // 🚀 实色标签组
                 let tags = (work.tags && work.tags.length > 0) ? work.tags : getSmartFallbackTags(work.title, work.desc);
                 let tagsHTML = `<div class="flex gap-2 flex-wrap justify-center mt-5">` + 
                     tags.map(t => `<span class="px-3 py-1 text-[11px] font-bold rounded-full bg-[var(--text-main)] text-[var(--bg-base)] tracking-widest shadow-sm"># ${t}</span>`).join('') + 
@@ -644,7 +687,7 @@
                             el = document.createElement('div'); el.className = `w-full relative shadow-lg image-wrapper my-2`;
                             const loader = document.createElement('i'); loader.className = "fa fa-circle-o-notch fa-spin img-loader"; el.appendChild(loader);
                             const img = document.createElement('img'); 
-                            img.src = block.src; // 纯净链接
+                            img.src = block.src; 
                             img.className = "fade-img pointer-events-none rounded-xl md:rounded-2xl"; img.loading = "lazy"; 
                             img.onload = function() { this.classList.add('loaded'); this.parentElement.classList.add('loaded'); };
                             img.onerror = function() { this.classList.add('loaded'); this.parentElement.classList.add('loaded'); };
@@ -652,7 +695,7 @@
                         }
                         if (el) contentWrapper.appendChild(el);
                     });
-                } else { contentWrapper.innerHTML = '<div class="py-20 text-center color-muted tracking-widest text-sm font-bold">完善中...</div>'; }
+                } else { contentWrapper.innerHTML = '<div class="py-20 text-center color-muted tracking-widest text-sm font-bold">作品加载中...</div>'; }
 
                 blocksContainer.appendChild(contentWrapper); modalImageContainer.appendChild(blocksContainer);
                 workModalScrollBox.scrollTop = 0; workModal.classList.add('active'); document.body.style.overflow = 'hidden';
@@ -699,9 +742,6 @@
         if(closeResumeModal) closeResumeModal.addEventListener('click', () => { resumeModal.classList.remove('active'); document.body.style.overflow = ''; });
         window.copyTextToClipboard = function(text, type) { navigator.clipboard.writeText(text).then(() => { showToast(`已复制${type}`); }).catch(err => { showToast('复制失败', true); }); }
 
-        // ==========================================
-        // 🚀 高定暗纹印花引擎 (Canvas 像素原生绘制，秒开不卡死)
-        // ==========================================
         const generatePosterBtn = document.getElementById('generatePosterBtn');
         const posterModal = document.getElementById('posterModal');
         const closePosterModal = document.getElementById('closePosterModal');
@@ -715,39 +755,35 @@
             if(!work) return;
 
             showToast('提取排版数据中...');
-            posterResult.innerHTML = '<div class="py-20 text-center text-gray-500 flex flex-col items-center"><i class="fa fa-circle-o-notch fa-spin text-4xl mb-4"></i><p class="text-sm font-bold mt-3">印花排版中...</p></div>';
+            posterResult.innerHTML = '<div class="py-20 text-center text-gray-500 flex flex-col items-center"><i class="fa fa-circle-o-notch fa-spin text-4xl mb-4"></i><p class="text-sm font-bold mt-3">高定印花生成中...</p></div>';
             downloadPosterBtn.classList.add('hidden'); 
             posterModal.classList.add('active');
 
-            // 1. 创建画板 (1350 解决文字挤压)
             const cvs = document.createElement('canvas');
             const ctx = cvs.getContext('2d');
             cvs.width = 750;
             cvs.height = 1350; 
 
-            // 2. 涂白背景
             ctx.fillStyle = '#FFFFFF';
             ctx.fillRect(0, 0, cvs.width, cvs.height);
 
-            const coverImg = new Image(); coverImg.crossOrigin = 'Anonymous';
-            const logoImg = new Image(); logoImg.crossOrigin = 'Anonymous';
+            const coverImg = new Image(); 
+            const logoImg = new Image(); 
             const shareUrl = window.location.origin + window.location.pathname + '?work=' + work.id;
             const qr = new QRious({ value: shareUrl, size: 200, level: 'H' });
             const qrImgData = qr.toDataURL();
 
-            // 为后台 Canvas 加载图片
             const loadImage = (img, src) => new Promise((resolve) => {
                 img.onload = () => resolve(true);
                 img.onerror = () => resolve(false);
-                img.src = src; // 同源直接加载，绝不卡死
+                img.src = src; 
             });
 
             await Promise.all([
                 loadImage(coverImg, work.cover || 'images/placeholder.jpg'),
                 loadImage(logoImg, 'images/logo.png')
             ]);
-
-            // A. 顶部封面图
+            
             if(coverImg.complete && coverImg.width > 0) {
                 const targetH = 550; 
                 const imgRatio = coverImg.width / coverImg.height;
@@ -766,18 +802,16 @@
                 ctx.restore();
             }
 
-            // B. 👑 绝美暗纹印花 (巨大化，放置在画面右侧白底区域)
             if(logoImg.complete && logoImg.width > 0) {
                 ctx.save();
-                ctx.globalAlpha = 0.04; // 极其克制的 4% 透明度，对标特种纸暗纹
+                ctx.globalAlpha = 0.04; 
                 const wmSize = 480; 
-                const wmX = cvs.width - wmSize + 80; // 偏右侧切边
+                const wmX = cvs.width - wmSize + 80; 
                 const wmY = 620; 
                 ctx.drawImage(logoImg, wmX, wmY, wmSize, wmSize * (logoImg.height/logoImg.width));
                 ctx.restore();
             }
 
-            // C. 文本排版
             let currentY = 630;
             let mainTitle = work.title; let subTitle = '';
             if (work.title.includes('|') || work.title.includes('｜')) {
@@ -811,15 +845,13 @@
             }
             ctx.fillText(line, 60, descY);
 
-            // D. 底部 Footer 重构 (极致空间感，左侧文字，右侧二维码)
-            const footerY = 1120; // 坐标大幅下移，留出呼吸空间
+            const footerY = 1120; 
             
             ctx.strokeStyle = '#EEEEEE'; ctx.lineWidth = 1;
             ctx.beginPath(); ctx.moveTo(60, footerY); ctx.lineTo(690, footerY); ctx.stroke();
 
             const authorY = footerY + 50;
 
-            // 左侧落款
             ctx.fillStyle = '#111111';
             ctx.font = '900 34px -apple-system, sans-serif';
             ctx.fillText('林嘉雍', 60, authorY);
@@ -827,7 +859,6 @@
             ctx.font = 'bold 18px -apple-system, sans-serif';
             ctx.fillText('品牌全案策划与统筹设计', 60, authorY + 50);
 
-            // 右侧二维码及引导文字
             const qrS = 130; 
             const qrX = 560;
             const qrY = authorY - 15;
@@ -842,7 +873,6 @@
             ctx.fillText('扫码查看全案', qrX + qrS/2, qrY + qrS + 25);
             ctx.textAlign = 'left';
 
-            // E. 瞬间输出图片
             setTimeout(() => {
                 try {
                     generatedPosterDataB64 = cvs.toDataURL('image/jpeg', 0.9);
