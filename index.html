@@ -158,12 +158,31 @@
         .fade-img.loaded { opacity: 1; }
 
         /* 幽灵游走水印 (固定高层级，不被遮挡) */
-/* 🦎 变色龙机密水印 (高密度对角线，物理反相) */
-        .chameleon-watermark-layer {
-            position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0; transition: opacity 0.5s;
-            mix-blend-mode: difference; /* 遇到黑变白，遇到白变黑 */
+/* ================================================================= */
+        /* 🌌 核心视觉：Agency 级巨型凹版蚀刻印刷 (Gravure) 引擎 (Stationary Background) 🌌 */
+        /* ================================================================= */
+        .work-gravure-etched-engine {
+            position: fixed; inset: 0; z-index: -2; /* 牢牢钉在所有文字、幽灵水印和图片的背后 */
+            pointer-events: none; opacity: 0; transition: opacity 0.8s ease; 
+            
+            /* 🔥 绝对巨型：1000px 的平铺 Logo，根据审美决策，不再是一个具体的Logo，而是纹理 */
+            background-image: url('images/logo.png?v=11.0'); /* 强制拉取新版放大Logo */
+            background-repeat: repeat; background-position: center;
+            background-size: clamp(400px, 100vw, 1000px); /* 手机端拉大，电脑端巨型化 */
+            
+            /* 🌌 凹版蚀刻核心魔法：通过数学滤镜生成精密刻痕质感 */
+            filter: grayscale(1) contrast(1.5) brightness(1.2) sepia(0.2) blur(0.2px) drop-shadow(0 0 1px rgba(0,0,0,0.5));
+            mix-blend-mode: multiply; /* 白天模式下，确保它像暗灰色墨水沉淀在纸里 */
         }
-        .chameleon-watermark-layer.active { opacity: 0.25; } /* 透明度0.25在白底上刚好是高级灰 */
+        
+        .work-gravure-etched-engine.active { opacity: 0.04; } /* 巨幅降低不透明度：高级灰0.04，高级黑0.06 */
+
+        .dark-mode .work-gravure-etched-engine { 
+            /* 黑夜模式处理：转为暗调银色蚀刻纹理 */
+            filter: grayscale(1) contrast(0.5) brightness(0.7) invert(1) blur(0.2px) drop-shadow(0 0 1px rgba(255,255,255,0.4));
+            mix-blend-mode: overlay; /* 黑夜下，让它像光一样融入黑色结界 */
+        }
+        .dark-mode .work-gravure-etched-engine.active { opacity: 0.06; }
 
         #globalBackToTop { opacity: 0; pointer-events: none; transform: translateY(20px); transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); z-index: 90; }
         #globalBackToTop.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
@@ -365,7 +384,7 @@
             </div>
             
             <div class="modal-scroll-box flex-1 w-full h-full relative pb-40 pt-16 md:pt-0" id="workModalScrollBox">
-                <div id="dynamicStaticWatermark" class="chameleon-watermark-layer"></div>
+                <div id="gravureWatermarkEngine" class="work-gravure-etched-engine"></div>
                 <div id="loadingSpinner" class="absolute inset-0 flex flex-col items-center justify-center z-10 hidden"><i class="fa fa-circle-o-notch fa-spin text-4xl text-[var(--text-main)] mb-4"></i><p class="color-muted font-bold text-sm tracking-widest mt-4">读取机密排版中...</p></div>
                 <div class="relative w-full mx-auto overflow-hidden">
                     <div class="absolute inset-0 z-[5] bg-transparent w-full h-full" oncontextmenu="return false;" style="-webkit-touch-callout: none; pointer-events: auto;"></div>
@@ -440,7 +459,7 @@
                     <text x='160' y='170' font-size='13' fill='rgba(255,255,255,0.6)' font-family='monospace' font-weight='bold' text-anchor='middle'>IP: ${ip} · ${timeStr}</text>
                 </g>
             </svg>`;
-            const wmOverlay = document.getElementById('dynamicStaticWatermark');
+            const wmOverlay = document.getElementById('gravureWatermarkEngine');
             if(wmOverlay) {
                 wmOverlay.style.backgroundImage = `url("data:image/svg+xml;utf8,${encodeURIComponent(svg)}")`;
                 wmOverlay.classList.add('active');
