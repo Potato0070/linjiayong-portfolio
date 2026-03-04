@@ -30,7 +30,6 @@
         .dark-mode::after { opacity: 0.06; }
         .color-main { color: var(--text-main); } .color-muted { color: var(--text-muted); } .bg-inverted { background-color: var(--btn-bg); color: var(--btn-text); transition: all 0.4s ease; }
 
-        /* 🚀 Logo 核心修复：黑夜模式下去除阴间反相，加上极其高级的纯白柔光剥离 */
         .logo-adapt { transition: filter 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
         .dark-mode .logo-adapt { filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 12px rgba(255, 255, 255, 0.15)); }
 
@@ -159,34 +158,13 @@
         .fade-img.loaded { opacity: 1; }
 
         /* ================================================================= */
-        /* 🛡️ 顶层防线：变色龙机密文字阵列 (固定高层级，物理反相高级灰) */
+        /* 🛡️ 详情页防盗：变色龙机密文字阵列 (固定高层级，物理反相高级灰) */
         /* ================================================================= */
         .chameleon-watermark-layer {
             position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0; transition: opacity 0.5s;
             mix-blend-mode: difference; 
         }
         .chameleon-watermark-layer.active { opacity: 0.25; }
-
-        /* ================================================================= */
-        /* 🌌 底层防线：Agency 级巨型凹版蚀刻印刷 (Gravure) Logo引擎 */
-        /* ================================================================= */
-        .work-gravure-etched-engine {
-            position: fixed; inset: 0; z-index: -2; /* 牢牢钉在底层 */
-            pointer-events: none; opacity: 0; transition: opacity 0.8s ease; 
-            background-image: url('images/logo.png?v=11.0'); 
-            background-repeat: repeat; background-position: center;
-            background-size: clamp(400px, 100vw, 1000px); 
-            filter: grayscale(1) contrast(1.5) brightness(1.2) sepia(0.2) blur(0.2px) drop-shadow(0 0 1px rgba(0,0,0,0.5));
-            mix-blend-mode: multiply; 
-        }
-        .work-gravure-etched-engine.active { opacity: 0.04; }
-        
-        .dark-mode .work-gravure-etched-engine { 
-            /* 保持 invert 让线条在黑底上变成白色蚀刻感 */
-            filter: grayscale(1) contrast(0.5) brightness(0.7) invert(1) blur(0.2px) drop-shadow(0 0 1px rgba(255,255,255,0.4));
-            mix-blend-mode: overlay; 
-        }
-        .dark-mode .work-gravure-etched-engine.active { opacity: 0.06; }
 
         #globalBackToTop { opacity: 0; pointer-events: none; transform: translateY(20px); transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); z-index: 90; }
         #globalBackToTop.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
@@ -210,7 +188,7 @@
     <div class="fixed top-4 md:top-6 left-1/2 transform -translate-x-1/2 z-[100] w-[92%] max-w-5xl nav-drop-in" id="islandContainer">
         <nav class="nav-island flex items-center justify-between px-4 py-2.5 md:px-3 md:py-2 w-full shadow-2xl relative">
             <a href="#home" class="flex items-center gap-2.5 pl-2 md:pl-5 text-[16px] md:text-[17px] font-black tracking-tight color-main btn-elastic flex-shrink-0 relative z-10">
-                <img src="images/logo.png?v=11.0" class="h-9 md:h-11 w-auto object-contain logo-adapt scale-125 origin-left" alt="JOHN'S FRIES Logo" onerror="this.style.display='none'">
+                <img src="images/logo.png?v=11.0" class="h-8 md:h-9 w-auto object-contain logo-adapt scale-110 origin-left" alt="JOHN'S FRIES Logo" onerror="this.style.display='none'">
                 <span>林嘉雍<span class="opacity-30 mx-1">·</span>品牌策划作品集</span>
             </a>
             
@@ -389,7 +367,6 @@
             </div>
             
             <div class="modal-scroll-box flex-1 w-full h-full relative pb-40 pt-16 md:pt-0" id="workModalScrollBox">
-                <div id="gravureBackground" class="work-gravure-etched-engine"></div>
                 <div id="dynamicStaticWatermark" class="chameleon-watermark-layer"></div>
 
                 <div id="loadingSpinner" class="absolute inset-0 flex flex-col items-center justify-center z-10 hidden"><i class="fa fa-circle-o-notch fa-spin text-4xl text-[var(--text-main)] mb-4"></i><p class="color-muted font-bold text-sm tracking-widest mt-4">读取机密排版中...</p></div>
@@ -458,9 +435,8 @@
             return `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
         }
 
-        // 🚀 终极防盗双引擎触发
+        // 🚀 终极防盗：变色龙文字阵列 (生成SVG图层)
         function applyStaticWatermark(ip, timeStr) {
-            // 1. 变色龙文字阵列 (生成SVG图层)
             const svg = `<svg width='320' height='320' xmlns='http://www.w3.org/2000/svg'>
                 <g transform='translate(160,160) rotate(-30) translate(-160,-160)'>
                     <text x='160' y='140' font-size='18' fill='rgba(255,255,255,0.8)' font-family='sans-serif' font-weight='900' letter-spacing='3' text-anchor='middle'>JOHN'S FRIES · 机密档案</text>
@@ -472,10 +448,6 @@
                 wmOverlay.style.backgroundImage = `url("data:image/svg+xml;utf8,${encodeURIComponent(svg)}")`;
                 wmOverlay.classList.add('active');
             }
-            
-            // 2. 巨型 Logo 凹版蚀刻背景 (唤醒底层图层)
-            const gravureBg = document.getElementById('gravureBackground');
-            if(gravureBg) gravureBg.classList.add('active');
         }
 
         // 📡 手机端纠极追踪：Image Ping 探针 (无视跨域拦截)
@@ -491,7 +463,6 @@
             const content = `🚨 您的作品集刚刚被访问！\n\n- 访问作品：${workTitle}\n- 访客 IP：${ip}\n- 访问设备：${device}\n- 访问时间：${getNowTimeStr()}`;
             const url = `https://wxpusher.zjiecode.com/api/send/message/?appToken=${WXPUSHER_APP_TOKEN}&content=${encodeURIComponent(content)}&uid=${WXPUSHER_UID}`;
             
-            // 使用隐形图片探针发送报警，解决手机端失效问题
             const ping = new Image();
             ping.src = url;
         }
@@ -656,7 +627,6 @@
                 const delay = index * 0.1; 
                 const coverUrl = work.cover ? work.cover : 'images/placeholder.jpg';
                 
-                // 📱 手机端标签横向滑动
                 let tags = (work.tags && work.tags.length > 0) ? work.tags : getSmartFallbackTags(work.title, work.desc);
                 let tagsHTML = `<div class="absolute bottom-2 md:bottom-3 left-2 md:left-3 right-2 md:right-3 flex gap-1.5 md:gap-2 z-10 overflow-x-auto no-scrollbar items-center">` + 
                     tags.map(t => `<span class="whitespace-nowrap flex-shrink-0 px-2 md:px-2.5 py-1 text-[9px] md:text-[10px] font-bold rounded bg-black/50 text-white backdrop-blur-md shadow-sm border border-white/10 tracking-widest leading-none"># ${t}</span>`).join('') + 
@@ -815,10 +785,7 @@
         
         const closeWork = () => { 
             currentOpenWorkId = null; workModal.classList.remove('active'); document.body.style.overflow = ''; 
-            // 🚀 关闭防盗水印
             const wmOverlay = document.getElementById('dynamicStaticWatermark'); if(wmOverlay) wmOverlay.classList.remove('active');
-            const gravureBg = document.getElementById('gravureBackground'); if(gravureBg) gravureBg.classList.remove('active');
-            
             setTimeout(() => { modalImageContainer.innerHTML = ''; closeInPageSearch(); }, 400); 
         };
         if(closeWorkModal) closeWorkModal.addEventListener('click', closeWork);
@@ -888,13 +855,25 @@
                 ctx.restore();
             }
 
+            // 🚀 核弹级修复：海报专属【巨型激光凹印】物理效果渲染
             if(logoImg.complete && logoImg.width > 0) {
                 ctx.save();
-                ctx.globalAlpha = 0.04; 
-                const wmSize = 480; 
-                const wmX = cvs.width - wmSize + 80; 
-                const wmY = 620; 
-                ctx.drawImage(logoImg, wmX, wmY, wmSize, wmSize * (logoImg.height/logoImg.width));
+                
+                const wmSize = 750; // 极其巨大的印花
+                const wmX = cvs.width - wmSize + 280; // 偏右侧，切出画面边缘，更有设计感
+                const wmY = 480; // 位于画面中下部
+                const wmH = wmSize * (logoImg.height/logoImg.width);
+
+                // 第一层：暗部阴影，模拟物理纸张的凹陷压痕
+                ctx.filter = 'grayscale(100%) contrast(200%) brightness(0.2)';
+                ctx.globalAlpha = 0.04;
+                ctx.drawImage(logoImg, wmX, wmY, wmSize, wmH);
+
+                // 第二层：亮部高光，向右下角微小偏移 2px，产生物理边缘受光面的厚度感！
+                ctx.filter = 'grayscale(100%) brightness(200%)';
+                ctx.globalAlpha = 0.06;
+                ctx.drawImage(logoImg, wmX + 2, wmY + 2, wmSize, wmH);
+                
                 ctx.restore();
             }
 
@@ -943,7 +922,7 @@
             ctx.fillText('林嘉雍', 60, authorY);
             ctx.fillStyle = '#999999';
             ctx.font = 'bold 18px -apple-system, sans-serif';
-            // 🚀 高定海报英文
+            // 🚀 海报专属高端英文
             ctx.fillText("FULL-SERVICE BRANDING", 60, authorY + 50);
 
             const qrS = 130; 
