@@ -31,15 +31,19 @@
         body { background-color: var(--bg-base); color: var(--text-main); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; user-select: none; -webkit-touch-callout: none; overflow-x: hidden; }
         img { pointer-events: none; -webkit-user-drag: none; }
         
-        /* 极致细腻的胶片噪点 */
-        body::after { content: ""; position: fixed; inset: 0; width: 100vw; height: 100vh; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); opacity: 0.05; z-index: 9999; pointer-events: none; mix-blend-mode: overlay; }
+        /* 极致胶片颗粒感 */
+        body::after { content: ""; position: fixed; inset: 0; width: 100vw; height: 100vh; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); opacity: 0.06; z-index: 9999; pointer-events: none; mix-blend-mode: overlay; }
         
-        /* 🐯 新 Logo 自发光救援：去掉反相，加上精准的白色柔光，完美剥离黑底 */
-        .logo-adapt { filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.2)); transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-        .logo-adapt:hover { transform: scale(1.05); filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4)); }
+        /* 🐯 新 Logo 自发光救援 (Neon Silhouette) */
+        .logo-adapt { 
+            /* 第一层极细白光剥离黑底，第二三层琥珀色环境光 */
+            filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 8px rgba(245, 158, 11, 0.6)) drop-shadow(0 0 20px rgba(234, 88, 12, 0.3)); 
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+        .logo-adapt:hover { transform: scale(1.05); filter: drop-shadow(0 0 2px rgba(255, 255, 255, 1)) drop-shadow(0 0 15px rgba(245, 158, 11, 0.8)) drop-shadow(0 0 30px rgba(234, 88, 12, 0.5)); }
 
-        /* 🧊 晶莹剔透的导航栏：增加对比度与玻璃质感 */
-        .nav-island { position: relative; background: rgba(15, 15, 15, 0.6); backdrop-filter: blur(30px) saturate(200%); -webkit-backdrop-filter: blur(30px) saturate(200%); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.8), inset 0 1px 1px rgba(255,255,255,0.05); border-radius: 100px; transition: all 0.5s ease; }
+        /* 🧊 极其锐利的黑曜石导航栏 */
+        .nav-island { position: relative; background: rgba(10, 10, 10, 0.7); backdrop-filter: blur(24px) saturate(150%); -webkit-backdrop-filter: blur(24px) saturate(150%); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 20px 40px rgba(0,0,0,0.9), inset 0 1px 1px rgba(255,255,255,0.1); border-radius: 100px; transition: all 0.5s ease; }
         
         .nav-indicator-wrapper { position: absolute; top: 50%; transform: translateY(-50%); height: 34px; border-radius: 100px; transition: all 0.5s cubic-bezier(0.25, 1, 0.3, 1); z-index: 0; pointer-events: none; opacity: 0; display: flex; align-items: center; justify-content: center; }
         .nav-indicator-bg { position: absolute; inset: 0; background: #ffffff; border-radius: 100px; z-index: 1; }
@@ -51,65 +55,65 @@
         
         .nav-link { position: relative; z-index: 2; padding: 0.5rem 1.2rem; border-radius: 100px; font-weight: 800; font-size: 13px; letter-spacing: 0.05em; transition: color 0.4s ease; display: flex; align-items: center; justify-content: center; gap: 6px; color: #ffffff; }
         .nav-link.active-capsule { color: #000000 !important; }
+        
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
         /* ================================================================= */
-        /* 🌌 1. 核心视觉：x.ai 电影级流体体积光 (Volumetric Sweep) 🌌 */
+        /* 🌌 1. 核弹级：流沙点燃文字引擎 (Color-Dodge Ignition Engine) 🌌 */
         /* ================================================================= */
-        .hero-cinematic-wrapper { 
-            position: absolute; inset: 0; overflow: hidden; background-color: #000000; z-index: 0; pointer-events: none;
-        }
-        /* 主干洋流：狭长、横贯屏幕的破晓金光，从左向右扫射 */
-        .hero-aura-sweep {
-            position: absolute; top: 30%; left: -50%; width: 150vw; height: 50vh;
-            background: radial-gradient(ellipse 70% 50% at center, rgba(245, 158, 11, 0.25) 0%, rgba(217, 119, 6, 0.08) 40%, transparent 70%);
-            transform: rotate(-10deg); filter: blur(60px);
-            animation: sweepMotion 18s ease-in-out infinite alternate;
-        }
-        /* 干扰流体：稍微偏红的暗橙色光束，从右向左逆流，产生星云纹理 */
-        .hero-aura-fluid {
-            position: absolute; top: 20%; right: -50%; width: 120vw; height: 60vh;
-            background: radial-gradient(ellipse 60% 60% at center, rgba(234, 88, 12, 0.2) 0%, transparent 65%);
-            transform: rotate(15deg); filter: blur(70px); mix-blend-mode: screen;
-            animation: fluidMotion 22s ease-in-out infinite alternate;
-        }
-        @keyframes sweepMotion {
-            0% { transform: translateX(-30vw) rotate(-10deg); opacity: 0.6; }
-            100% { transform: translateX(30vw) rotate(-5deg); opacity: 1; }
-        }
-        @keyframes fluidMotion {
-            0% { transform: translateX(30vw) rotate(15deg); }
-            100% { transform: translateX(-30vw) rotate(5deg); }
-        }
-
-        /* 巨幕文字排版 (Massive Cinematic Typography) */
+        .hero-cinematic-container { position: relative; background-color: #000000; overflow: hidden; }
+        
+        /* 巨幕冷灰文字：等待被点燃 */
         .hero-title-line { 
             display: block; white-space: nowrap; 
-            font-size: clamp(2.8rem, 8vw, 7.5rem); /* 极致拉大 */
+            font-size: clamp(2.5rem, 8vw, 7.5rem); 
             font-weight: 900; letter-spacing: -0.05em; line-height: 1.05;
-            color: #ffffff; 
-            /* 微弱的高光描边，让字体在光流中更立体 */
-            text-shadow: 0 10px 40px rgba(0,0,0,0.9), 0 0 1px rgba(255,255,255,0.3);
+            color: #777777; /* 极其高级的冷铁灰，遇到color-dodge会爆出极光 */
         }
         
-        /* ================================================================= */
-        /* 🌅 2. 页尾极致地平线 (The Horizon Glow) 🌅 */
-        /* ================================================================= */
-        .footer-horizon-wrapper {
-            position: relative; overflow: hidden; background-color: #000;
+        /* 在文字之上拂过的流沙火海 */
+        .hero-sand-overlay {
+            position: absolute; inset: -20%; z-index: 20; pointer-events: none;
+            mix-blend-mode: color-dodge; /* 核心魔法：只点燃下方有灰度的地方，纯黑背景免疫 */
         }
-        .footer-horizon-glow {
-            position: absolute; bottom: 0; left: 0; right: 0; height: 60vh; max-height: 700px;
-            /* 极其平滑的日出渐变，无任何生硬线条 */
-            background: linear-gradient(to top, rgba(245, 158, 11, 0.18) 0%, rgba(234, 88, 12, 0.08) 30%, transparent 100%);
-            pointer-events: none; z-index: 0; filter: blur(30px);
+        .hero-sand-sweep {
+            position: absolute; top: 30%; left: -60%; width: 150vw; height: 70vh;
+            /* 极其猛烈的高热琥珀色 */
+            background: radial-gradient(ellipse 60% 50% at center, rgba(251, 146, 60, 0.8) 0%, rgba(234, 88, 12, 0.3) 40%, transparent 70%);
+            filter: blur(50px);
+            animation: sweepIgnite 12s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+        }
+        @keyframes sweepIgnite {
+            0% { transform: translateX(0vw) rotate(-10deg) scale(0.9); }
+            100% { transform: translateX(50vw) rotate(5deg) scale(1.1); }
         }
 
+        /* ================================================================= */
+        /* 🌅 2. 巨型恒星地平线 (The Burning Dome Footer) 🌅 */
+        /* ================================================================= */
+        .footer-dome-wrapper { position: relative; overflow: hidden; background-color: #000; min-height: 400px; display: flex; flex-col; justify-content: flex-end; align-items: center; padding-bottom: 4rem;}
+        .footer-dome {
+            position: absolute; bottom: -80vw; left: 50%; transform: translateX(-50%);
+            width: 160vw; height: 160vw; border-radius: 50%;
+            /* 巨大的发光半圆 */
+            background: radial-gradient(circle at top, rgba(245, 158, 11, 0.2) 0%, rgba(234, 88, 12, 0.05) 45%, transparent 70%);
+            filter: blur(60px); pointer-events: none; z-index: 0;
+        }
+        /* 地平线最底部的实体高热红线 */
+        .footer-core-line {
+            position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.8), transparent);
+            box-shadow: 0 -20px 60px 20px rgba(245, 158, 11, 0.4); z-index: 1;
+        }
+
+        /* 动画与显示 */
         .reveal-up { opacity: 0; transform: translateY(50px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal-up.revealed { opacity: 1; transform: translateY(0); }
-        .animate-slide-up-text { display: block; transform: translateY(110%); opacity: 0; animation: revealText 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .animate-slide-up-text { display: block; transform: translateY(110%); opacity: 0; animation: revealText 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         @keyframes revealText { 0% { transform: translateY(110%); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
         .intro-fade-in { opacity: 0; transform: translateY(10px); transition: all 1s ease; }
-        .intro-fade-in.active { opacity: 0.9; transform: translateY(0); }
+        .intro-fade-in.active { opacity: 1; transform: translateY(0); }
         
         /* 🚀 3D 悬浮阵列：保持深黑高级感 */
         .partner-3d-wrapper { perspective: 1200px; padding: 20px 10px; margin: 0 auto; max-width: 1100px; overflow-x: hidden; }
@@ -122,16 +126,14 @@
         .partner-card-inner { background: rgba(20, 20, 20, 0.8); backdrop-filter: blur(48px); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: inherit; padding: 1.5rem 1rem; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; transition: all 0.6s ease; }
         .partner-card-3d:hover { transform: translateZ(50px) translateY(-8px); z-index: 10; }
         .partner-card-3d:hover .partner-card-inner { background: rgba(35,35,35,0.9); box-shadow: 0 30px 60px rgba(0,0,0,0.8), inset 0 1px 1px rgba(255, 255, 255, 0.2); border-color: rgba(255,255,255,0.2); }
-        /* 悬停边缘流光 */
         .partner-card-3d::after {
             content: ''; position: absolute; inset: 0; border-radius: 20px; padding: 2px;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent);
-            background-size: 200% 100%; animation: flowGlow 2s linear infinite;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent); background-size: 200% 100%; animation: flowGlow 2s linear infinite;
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
             opacity: 0; transition: opacity 0.5s ease; pointer-events: none; z-index: 20;
         }
         .partner-card-3d:hover::after { opacity: 1; }
-        /* Logo强制极简反白，去掉原色彩带来的杂乱 */
+        /* Logo强制极简反白 */
         .partner-card-3d img { width: auto; height: 32px; object-fit: contain; filter: brightness(0) invert(1) opacity(0.3); transition: all 0.6s; }
         @media (min-width: 768px) { .partner-card-3d img { height: 40px; } }
         .partner-card-3d:hover img { filter: brightness(0) invert(1) opacity(1); transform: scale(1.1); }
@@ -147,11 +149,12 @@
         .fade-img { opacity: 0; transition: opacity 0.8s ease; position: relative; z-index: 3; width: 100%; height: auto; display: block; }
         .fade-img.loaded { opacity: 1; }
 
-        /* 🛡️ 终极安防水印：全屏固定机密对角线 (不遮挡、不消失) */
-        .secure-watermark-overlay {
+        /* 🦎 变色龙机密水印 (高密度对角线，物理反相) */
+        .chameleon-watermark-layer {
             position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0; transition: opacity 0.5s;
+            mix-blend-mode: difference; /* 遇到黑变白，遇到白变黑 */
         }
-        .secure-watermark-overlay.active { opacity: 1; }
+        .chameleon-watermark-layer.active { opacity: 0.3; } /* 高级灰度显示 */
         
         .liquid-glass-controls { background: rgba(20,20,20,0.8); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 40px; }
 
@@ -182,8 +185,8 @@
 
     <div class="fixed top-4 md:top-6 left-1/2 transform -translate-x-1/2 z-[100] w-[92%] max-w-5xl nav-drop-in" id="islandContainer">
         <nav class="nav-island flex items-center justify-between px-4 py-2.5 md:px-3 md:py-2 w-full shadow-2xl relative">
-            <a href="#home" class="flex items-center gap-2.5 pl-2 md:pl-5 text-[16px] md:text-[17px] font-black tracking-tight color-main btn-elastic flex-shrink-0 relative z-10">
-                <img src="images/logo.png?v=6.0" class="h-7 md:h-8 w-auto object-contain logo-adapt" alt="JOHN'S FRIES Logo" onerror="this.style.display='none'">
+            <a href="#home" class="flex items-center gap-2.5 pl-2 md:pl-5 text-[15px] md:text-[17px] font-black tracking-tight color-main btn-elastic flex-shrink-0 relative z-10">
+                <img src="images/logo.png?v=8.0" class="h-6 md:h-8 w-auto object-contain logo-adapt" alt="JOHN'S FRIES Logo" onerror="this.style.display='none'">
                 <span>林嘉雍<span class="opacity-30 mx-1">·</span>品牌策划作品集</span>
             </a>
             
@@ -219,24 +222,23 @@
 
     <main class="flex-1 w-full relative z-10">
         
-        <section id="home" class="scroll-section relative min-h-screen flex flex-col items-center justify-center px-4 md:px-12 pt-20 overflow-hidden bg-black">
-            <div class="hero-cinematic-wrapper">
-                <div class="hero-aura-sweep"></div>
-                <div class="hero-aura-fluid"></div>
-            </div>
-            
+        <section id="home" class="scroll-section hero-cinematic-container min-h-screen flex flex-col items-center justify-center px-4 md:px-12 pt-20">
             <div class="max-w-6xl mx-auto text-center relative z-10 mt-[-5vh] reveal-up w-full">
                 <h1 class="font-black tracking-tighter mb-8 flex flex-col items-center">
                     <span class="overflow-hidden-wrap"><span class="animate-slide-up-text hero-title-line" style="animation-delay: 0.1s">用策略与设计</span></span>
                     <span class="overflow-hidden-wrap mt-2 md:mt-4"><span class="animate-slide-up-text hero-title-line" style="animation-delay: 0.3s">为品牌赋予商业灵魂</span></span>
                 </h1>
-                <p class="text-[clamp(1.1rem,2vw,1.4rem)] text-white/60 max-w-2xl mx-auto mb-12 text-balance font-medium leading-relaxed tracking-widest intro-fade-in relative z-10">
+                <p class="text-[clamp(1.1rem,2vw,1.4rem)] text-white/50 max-w-2xl mx-auto mb-12 text-balance font-medium leading-relaxed tracking-widest intro-fade-in relative">
                     专注餐饮品牌全案策划与统筹设计团队<br>从0到1搭建体系，端到端覆盖策略到落地全闭环。
                 </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-5 relative z-20 intro-fade-in px-4">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-5 intro-fade-in px-4">
                     <a href="#works" class="bg-white text-black btn-elastic px-10 py-4 rounded-full font-black text-[16px] md:text-lg w-full sm:w-auto text-center tracking-widest">浏览作品集</a>
                     <a href="#contact" class="bg-transparent border border-white/30 text-white hover:bg-white/10 btn-elastic px-10 py-4 rounded-full font-bold text-[16px] md:text-lg w-full sm:w-auto inline-block cursor-pointer tracking-widest text-center transition-colors">联系合作</a>
                 </div>
+            </div>
+
+            <div class="hero-sand-overlay">
+                <div class="hero-sand-sweep"></div>
             </div>
         </section>
 
@@ -260,7 +262,7 @@
                     <p class="text-white/60 font-bold tracking-widest text-lg">未找到相关案例</p>
                 </div>
 
-                <div id="worksGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 min-h-[400px]"></div>
+                <div id="worksGrid" class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-8 min-h-[400px]"></div>
                 
                 <div class="mt-16 flex flex-col md:flex-row items-center justify-center gap-4 reveal-up">
                     <div class="bg-[#111] border border-white/10 rounded-full flex items-center px-5 py-2.5">
@@ -306,14 +308,14 @@
                 <div class="flex flex-col gap-8 items-center justify-center">
                     <div class="relative flex items-center justify-center p-8">
                         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(245,158,11,0.15)_0%,transparent_60%)] blur-[30px] opacity-80 z-0"></div>
-                        <img src="images/logo.png?v=6.0" alt="JOHN'S FRIES" class="w-full max-w-[200px] object-contain relative z-10 logo-adapt" onerror="this.style.display='none';">
+                        <img src="images/logo.png?v=8.0" alt="JOHN'S FRIES" class="w-full max-w-[200px] object-contain relative z-10 logo-adapt" onerror="this.style.display='none';">
                     </div>
                     <button id="openResumeBtn" class="bg-white text-black w-full max-w-[260px] py-4 rounded-full font-black text-[15px] md:text-lg flex items-center justify-center gap-3 cursor-pointer tracking-widest btn-elastic"><i class="fa fa-file-text-o text-xl"></i> 查看个人简历</button>
                 </div>
             </div></div></div>
         </section>
 
-        <section id="contact" class="scroll-section pt-24 pb-48 px-6 md:px-12 relative z-20">
+        <section id="contact" class="scroll-section pt-24 pb-32 px-6 md:px-12 relative z-20">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16 reveal-up"><h2 class="text-4xl md:text-6xl font-black tracking-tighter mb-4 text-white">随时沟通合作</h2><p class="text-white/50 text-[14px] md:text-xl font-medium tracking-widest uppercase">Get in Touch</p></div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -325,12 +327,13 @@
         </section>
     </main>
 
-    <footer class="footer-horizon-wrapper pt-32 pb-16 text-center flex flex-col items-center justify-center">
-        <div class="footer-horizon-glow"></div>
+    <footer class="footer-dome-wrapper">
+        <div class="footer-dome"></div>
+        <div class="footer-core-line"></div>
         <div class="relative z-10 flex flex-col items-center">
-            <img src="images/logo.png?v=6.0" class="h-12 md:h-14 mb-6 opacity-30 logo-adapt pointer-events-none select-none blur-[0.5px]" alt="JOHN'S FRIES Watermark" onerror="this.style.display='none'">
-            <p class="text-[12px] font-black tracking-[0.3em] text-white opacity-90 uppercase mb-3">陪伴下一个伟大餐饮品牌的诞生</p>
-            <p class="text-[10px] font-bold tracking-[0.1em] text-white/30 uppercase">© 2026 JOHN'S FRIES. ALL RIGHTS RESERVED.</p>
+            <img src="images/logo.png?v=8.0" class="h-12 md:h-14 mb-6 opacity-40 logo-adapt pointer-events-none select-none blur-[0.5px]" alt="JOHN'S FRIES Watermark" onerror="this.style.display='none'">
+            <p class="text-[12px] font-black tracking-[0.3em] text-white opacity-90 uppercase mb-3 drop-shadow-lg">陪伴下一个伟大餐饮品牌的诞生</p>
+            <p class="text-[10px] font-bold tracking-[0.1em] text-white/40 uppercase">© 2026 JOHN'S FRIES. ALL RIGHTS RESERVED.</p>
         </div>
     </footer>
 
@@ -369,7 +372,7 @@
             </div>
             
             <div class="modal-scroll-box w-full relative" id="workModalScrollBox">
-                <div id="dynamicStaticWatermark" class="secure-watermark-overlay"></div>
+                <div id="dynamicStaticWatermark" class="chameleon-watermark-layer"></div>
                 
                 <div id="loadingSpinner" class="absolute inset-0 flex flex-col items-center justify-center z-50 hidden"><i class="fa fa-circle-o-notch fa-spin text-4xl text-amber-500 mb-4"></i><p class="text-white/50 font-bold text-sm tracking-widest mt-4">读取高定排版中...</p></div>
                 <div class="relative w-full mx-auto" id="modalImageContainerWrapper">
@@ -415,10 +418,10 @@
 
     <script>
         // ==========================================
-        // 🚨 微信通知核心：填入你的 WxPusher 凭证！
+        // 🚨 WxPusher 秘钥已为您写入底层！
         // ==========================================
-        const WXPUSHER_APP_TOKEN = "AT_OOIhjUdzftM1RYbWGj6jfGy37JmapCSI"; // 例如："AT_1a2b3c4d5e6f7g8h9i0j"
-        const WXPUSHER_UID = "UID_s8ryFtV6PpO7XiPnCzPyVGnWBfDV";       // 例如："UID_1a2b3c4d5e6f7g8h9i0j"
+        const WXPUSHER_APP_TOKEN = "AT_OOIhjUdzftM1RYbWGj6jfGy37JmapCSI"; 
+        const WXPUSHER_UID = "UID_s8ryFtV6PpO7XiPnCzPyVGnWBfDV";       
         
         let worksList = [];
         let filteredWorksList = [];
@@ -437,12 +440,12 @@
             return `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
         }
 
-        // 🚀 核心防盗修复：注入极其克制、专业的高级对角线印记
+        // 🦎 变色龙机密水印 (高密度对角线，物理反相不消失)
         function applyStaticWatermark(ip, timeStr) {
-            const svg = `<svg width='300' height='300' xmlns='http://www.w3.org/2000/svg'>
-                <g transform='translate(150,150) rotate(-25) translate(-150,-150)'>
-                    <text x='150' y='140' font-size='16' fill='rgba(255,255,255,0.06)' font-family='sans-serif' font-weight='900' letter-spacing='2' text-anchor='middle'>JOHN'S FRIES · 版权保护</text>
-                    <text x='150' y='165' font-size='12' fill='rgba(255,255,255,0.04)' font-family='monospace' font-weight='bold' text-anchor='middle'>IP: ${ip} · ${timeStr}</text>
+            const svg = `<svg width='320' height='320' xmlns='http://www.w3.org/2000/svg'>
+                <g transform='translate(160,160) rotate(-30) translate(-160,-160)'>
+                    <text x='160' y='150' font-size='18' fill='rgba(255,255,255,0.7)' font-family='sans-serif' font-weight='900' letter-spacing='3' text-anchor='middle'>JOHN'S FRIES · 机密</text>
+                    <text x='160' y='175' font-size='13' fill='rgba(255,255,255,0.5)' font-family='monospace' font-weight='bold' text-anchor='middle'>IP: ${ip} · ${timeStr}</text>
                 </g>
             </svg>`;
             const wmOverlay = document.getElementById('dynamicStaticWatermark');
@@ -452,6 +455,7 @@
             }
         }
 
+        // 📡 手机端究极追踪：Image Ping 探针 (无视跨域拦截)
         function sendPushNotification(ip, workTitle) {
             if (!WXPUSHER_APP_TOKEN || !WXPUSHER_UID) return;
             const ua = navigator.userAgent;
@@ -462,9 +466,11 @@
             else if(/Mac/i.test(ua)) device = "Mac电脑";
             
             const content = `🚨 您的作品集刚刚被访问！\n\n- 访问作品：${workTitle}\n- 访客 IP：${ip}\n- 访问设备：${device}\n- 访问时间：${getNowTimeStr()}`;
-            
             const url = `https://wxpusher.zjiecode.com/api/send/message/?appToken=${WXPUSHER_APP_TOKEN}&content=${encodeURIComponent(content)}&uid=${WXPUSHER_UID}`;
-            fetch(url, {mode: 'no-cors'}).catch(e=>{});
+            
+            // 🔥 使用隐形图片发送 GET 请求，绝不被手机浏览器拦截！
+            const ping = new Image();
+            ping.src = url;
         }
 
         function getSmartFallbackTags(title, desc) {
@@ -616,17 +622,18 @@
                 const delay = index * 0.1; 
                 const coverUrl = work.cover ? work.cover : 'images/placeholder.jpg';
                 
+                // 📱 手机端标签栏支持横向滑动 (whitespace-nowrap 防止换行)
                 let tags = (work.tags && work.tags.length > 0) ? work.tags : getSmartFallbackTags(work.title, work.desc);
-                let tagsHTML = `<div class="absolute bottom-3 left-3 right-3 flex gap-2 z-10 overflow-x-auto no-scrollbar mask-linear-fade items-center">` + 
-                    tags.map(t => `<span class="flex-shrink-0 px-2.5 py-1 text-[10px] font-bold rounded bg-black/60 text-white backdrop-blur-md border border-white/10 tracking-widest leading-none"># ${t}</span>`).join('') + 
+                let tagsHTML = `<div class="absolute bottom-2 md:bottom-3 left-2 md:left-3 right-2 md:right-3 flex gap-1.5 md:gap-2 z-10 overflow-x-auto no-scrollbar items-center">` + 
+                    tags.map(t => `<span class="whitespace-nowrap flex-shrink-0 px-2 md:px-2.5 py-1 text-[9px] md:text-[10px] font-bold rounded bg-black/70 text-white backdrop-blur-md border border-white/10 tracking-widest leading-none"># ${t}</span>`).join('') + 
                     `</div>`;
 
                 let featuredHTML = '';
                 if (work.featured) {
                     featuredHTML = `
-                    <div class="absolute top-4 right-4 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full backdrop-blur-xl border border-white/20 shadow-2xl" style="background: linear-gradient(135deg, rgba(234, 88, 12, 0.8), rgba(217, 119, 6, 0.6));">
-                        <i class="fa fa-fire text-white text-[10px]"></i>
-                        <span class="text-white text-[10px] font-black tracking-widest">精选案例</span>
+                    <div class="absolute top-2 md:top-4 right-2 md:right-4 z-20 flex items-center gap-1 px-2 md:px-3 py-1 md:py-1.5 rounded-full backdrop-blur-xl border border-white/20 shadow-2xl" style="background: linear-gradient(135deg, rgba(234, 88, 12, 0.8), rgba(217, 119, 6, 0.6));">
+                        <i class="fa fa-fire text-white text-[9px] md:text-[10px]"></i>
+                        <span class="text-white text-[9px] md:text-[10px] font-black tracking-widest hidden md:inline">精选案例</span>
                     </div>`;
                 }
 
@@ -639,22 +646,22 @@
                 }
 
                 let titleBlock = displaySub 
-                    ? `<h3 class="text-[16px] md:text-[18px] font-black text-white truncate tracking-wide">${displayTitle}</h3>
-                       <p class="text-[12px] md:text-[13px] font-bold mt-1 text-white/50 truncate tracking-wide">${displaySub}</p>`
-                    : `<h3 class="text-[16px] md:text-[18px] font-black text-white line-clamp-2 tracking-wide">${displayTitle}</h3>`;
+                    ? `<h3 class="text-[13px] md:text-[18px] font-black text-white truncate tracking-wide">${displayTitle}</h3>
+                       <p class="text-[10px] md:text-[13px] font-bold mt-0.5 md:mt-1 text-white/50 truncate tracking-wide">${displaySub}</p>`
+                    : `<h3 class="text-[13px] md:text-[18px] font-black text-white line-clamp-2 tracking-wide">${displayTitle}</h3>`;
 
                 const cardHTML = `
-                    <div class="bg-[#151515] border border-white/5 rounded-3xl hover:bg-[#1a1a1a] hover:border-white/20 hover-elastic flex flex-col cursor-pointer reveal-up h-full overflow-hidden group shadow-xl" style="transition-delay: ${delay}s;" onclick="openWork('${work.id}')">
+                    <div class="bg-[#151515] border border-white/5 rounded-2xl md:rounded-3xl hover:bg-[#1a1a1a] hover:border-white/20 hover-elastic flex flex-col cursor-pointer reveal-up h-full overflow-hidden group shadow-xl" style="transition-delay: ${delay}s;" onclick="openWork('${work.id}')">
                         <div class="relative aspect-[4/3] w-full overflow-hidden border-b border-white/5 flex-shrink-0">
                             <img src="${coverUrl}" alt="${displayTitle}" class="w-full h-full object-cover glass-card-img" loading="lazy">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#151515] via-transparent to-transparent opacity-90 pointer-events-none"></div>
                             ${featuredHTML}
                             ${tagsHTML}
                         </div>
-                        <div class="p-6 md:p-8 flex-1 flex flex-col justify-center">
+                        <div class="p-3 md:p-8 flex-1 flex flex-col justify-center">
                             ${titleBlock}
-                            <div class="w-6 h-[2px] bg-amber-500 opacity-60 my-4"></div>
-                            <p class="text-white/60 font-medium text-[12px] md:text-[13px] leading-relaxed line-clamp-2 tracking-wide">${work.desc}</p>
+                            <div class="w-4 md:w-6 h-[2px] bg-amber-500 opacity-60 my-2 md:my-4"></div>
+                            <p class="text-white/60 font-medium text-[10px] md:text-[13px] leading-relaxed line-clamp-2 tracking-wide">${work.desc}</p>
                         </div>
                     </div>
                 `;
@@ -827,7 +834,7 @@
             await Promise.all([
                 loadImage(coverImg, work.cover || 'images/placeholder.jpg'),
                 // 🚀 强制拉取新版老虎Logo
-                loadImage(logoImg, 'images/logo.png?v=6.0')
+                loadImage(logoImg, 'images/logo.png?v=8.0')
             ]);
             
             if(coverImg.complete && coverImg.width > 0) {
