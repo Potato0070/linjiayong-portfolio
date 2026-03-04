@@ -802,23 +802,53 @@
         const downloadPosterBtn = document.getElementById('downloadPosterBtn');
         let generatedPosterDataB64 = null;
 
-        generatePosterBtn.addEventListener('click', async () => {
+generatePosterBtn.addEventListener('click', async () => {
             if(!currentOpenWorkId) return;
             const work = worksList.find(w => String(w.id) === String(currentOpenWorkId));
             if(!work) return;
 
             showToast('提取排版数据中...');
-            posterResult.innerHTML = '<div class="py-20 text-center text-gray-500 flex flex-col items-center"><i class="fa fa-circle-o-notch fa-spin text-4xl mb-4"></i><p class="text-sm font-bold mt-3">印花排版中...</p></div>';
+            posterResult.innerHTML = '<div class="py-20 text-center text-gray-500 flex flex-col items-center"><i class="fa fa-circle-o-notch fa-spin text-4xl mb-4"></i><p class="text-sm font-bold mt-3">特种纸压印中...</p></div>';
             downloadPosterBtn.classList.add('hidden'); 
             posterModal.classList.add('active');
 
             const cvs = document.createElement('canvas');
             const ctx = cvs.getContext('2d');
-            cvs.width = 750;
-            cvs.height = 1350; 
+            
+            // 1. 扩容画布：四周增加 50px 留白，为了给卡片阴影腾出空间
+            cvs.width = 850;  // 原 750 + 左右各 50
+            cvs.height = 1450; // 原 1350 + 上下各 50
 
-            ctx.fillStyle = '#FFFFFF';
+            // 2. 绘制微信聊天框那种极其干净的浅灰色背景
+            ctx.fillStyle = '#F4F4F6';
             ctx.fillRect(0, 0, cvs.width, cvs.height);
+
+            // 3. 开启卡片悬浮外阴影
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.15)';
+            ctx.shadowBlur = 40;
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = 15;
+
+            // 4. 绘制特种纸材质的实体卡片
+            ctx.fillStyle = '#FCFBF9'; // 极其高级的微暖白棉纸色
+            const radius = 32;
+            ctx.beginPath();
+            ctx.moveTo(50 + radius, 50);
+            ctx.lineTo(800 - radius, 50);
+            ctx.quadraticCurveTo(800, 50, 800, 50 + radius);
+            ctx.lineTo(800, 1400 - radius);
+            ctx.quadraticCurveTo(800, 1400, 800 - radius, 1400);
+            ctx.lineTo(50 + radius, 1400);
+            ctx.quadraticCurveTo(50, 1400, 50, 1400 - radius);
+            ctx.lineTo(50, 50 + radius);
+            ctx.quadraticCurveTo(50, 50, 50 + radius, 50);
+            ctx.closePath();
+            ctx.fill();
+
+            // 5. 关闭阴影，并将所有后续坐标系锚定到卡片内部 (核心魔法)
+            ctx.shadowColor = 'transparent';
+            ctx.clip(); // 锁定只在卡片范围内作画
+            ctx.translate(50, 50); // 坐标系归零，完美兼容旧版 750x1350 坐标
 
             const coverImg = new Image(); coverImg.crossOrigin = 'Anonymous';
             const logoImg = new Image(); logoImg.crossOrigin = 'Anonymous';
@@ -834,9 +864,10 @@
 
             await Promise.all([
                 loadImage(coverImg, work.cover || 'images/placeholder.jpg'),
-                loadImage(logoImg, 'images/logo.png?v=11.0')
+                loadImage(logoImg, 'images/logo.png?v=12.0')
             ]);
             
+            // 绘制顶部封面图
             if(coverImg.complete && coverImg.width > 0) {
                 const targetH = 550; 
                 const imgRatio = coverImg.width / coverImg.height;
@@ -855,24 +886,30 @@
                 ctx.restore();
             }
 
-            // 🚀 核弹级修复：海报专属【巨型激光凹印】物理效果渲染
+            // 🚀 核心大招：完整居中 + 激光无色击凸 (Debossing) 物理印花
             if(logoImg.complete && logoImg.width > 0) {
                 ctx.save();
                 
-                const wmSize = 750; // 极其巨大的印花
-                const wmX = cvs.width - wmSize + 280; // 偏右侧，切出画面边缘，更有设计感
-                const wmY = 480; // 位于画面中下部
-                const wmH = wmSize * (logoImg.height/logoImg.width);
+                // 调整大小并绝对居中
+                const wmSize = 360; // 大小适中，保证完全显示
+                const wmH = wmSize * (logoImg.height / logoImg.width);
+                const wmX = (750 - wmSize) / 2; // 水平居中
+                const wmY = 660; // 恰好落在文字排版下方的留白区域
+                
+                // 第一层：暗部压痕 (向左上角微偏移，模拟凹陷背光面)
+                ctx.filter = 'brightness(0) blur(1px)';
+                ctx.globalAlpha = 0.06; // 极其克制的暗痕
+                ctx.drawImage(logoImg, wmX - 1.5, wmY - 1.5, wmSize, wmH);
 
-                // 第一层：暗部阴影，模拟物理纸张的凹陷压痕
-                ctx.filter = 'grayscale(100%) contrast(200%) brightness(0.2)';
-                ctx.globalAlpha = 0.04;
+                // 第二层：受光面高光 (向右下角微偏移，模拟凹坑边缘截获的光线)
+                ctx.filter = 'brightness(10) blur(0.5px)';
+                ctx.globalAlpha = 0.5; // 明亮的白光
+                ctx.drawImage(logoImg, wmX + 1.5, wmY + 1.5, wmSize, wmH);
+                
+                // 第三层：压凹底部材质 (原图转灰度极低透明叠加)
+                ctx.filter = 'grayscale(100%)';
+                ctx.globalAlpha = 0.03;
                 ctx.drawImage(logoImg, wmX, wmY, wmSize, wmH);
-
-                // 第二层：亮部高光，向右下角微小偏移 2px，产生物理边缘受光面的厚度感！
-                ctx.filter = 'grayscale(100%) brightness(200%)';
-                ctx.globalAlpha = 0.06;
-                ctx.drawImage(logoImg, wmX + 2, wmY + 2, wmSize, wmH);
                 
                 ctx.restore();
             }
@@ -922,7 +959,6 @@
             ctx.fillText('林嘉雍', 60, authorY);
             ctx.fillStyle = '#999999';
             ctx.font = 'bold 18px -apple-system, sans-serif';
-            // 🚀 海报专属高端英文
             ctx.fillText("FULL-SERVICE BRANDING", 60, authorY + 50);
 
             const qrS = 130; 
@@ -941,19 +977,21 @@
 
             setTimeout(() => {
                 try {
+                    // 使用 0.9 质量输出 JPEG，连同阴影和灰底一起合成
                     generatedPosterDataB64 = cvs.toDataURL('image/jpeg', 0.9);
                     const finalImg = document.createElement('img');
                     finalImg.src = generatedPosterDataB64;
-                    finalImg.className = 'w-full h-auto block rounded-[1rem] shadow-sm';
+                    // 图片展示时为了配合页面也加个圆角
+                    finalImg.className = 'w-full h-auto block rounded-[1.5rem] shadow-sm';
                     posterResult.innerHTML = '';
                     posterResult.appendChild(finalImg);
                     downloadPosterBtn.classList.remove('hidden');
-                    showToast('排版合成成功');
+                    showToast('特种纸压印合成成功');
                 } catch(e) {
                     console.error(e);
                     posterResult.innerHTML = '<div class="py-20 text-center text-red-500"><i class="fa fa-exclamation-triangle text-4xl mb-4"></i><p class="text-sm font-bold">合成失败，请重试</p></div>';
                 }
-            }, 10);
+            }, 50);
         });
 
         downloadPosterBtn.addEventListener('click', () => {
