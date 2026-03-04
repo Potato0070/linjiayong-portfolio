@@ -30,6 +30,7 @@
         .dark-mode::after { opacity: 0.06; }
         .color-main { color: var(--text-main); } .color-muted { color: var(--text-muted); } .bg-inverted { background-color: var(--btn-bg); color: var(--btn-text); transition: all 0.4s ease; }
 
+        /* 🚀 黑夜模式下去除阴间反相，加上极其高级的纯白柔光剥离 */
         .logo-adapt { transition: filter 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
         .dark-mode .logo-adapt { filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 12px rgba(255, 255, 255, 0.15)); }
 
@@ -177,6 +178,7 @@
 </head>
 
 <body class="antialiased flex flex-col min-h-screen relative">
+    <!-- 经典白底流动背景 -->
     <div class="global-fluid-bg"><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div></div>
     
     <div id="toast" class="fixed top-24 left-1/2 transform -translate-x-1/2 bg-[var(--text-main)] text-[var(--bg-base)] px-6 py-3 md:px-8 md:py-3.5 rounded-full shadow-2xl opacity-0 z-[999999] flex items-center gap-3 transition-opacity duration-400 pointer-events-none whitespace-nowrap"><i id="toastIcon" class="fa fa-info-circle text-lg opacity-80"></i><span id="toastMessage" class="font-bold tracking-widest text-[12px] md:text-[13px]">系统提示</span></div>
@@ -188,6 +190,7 @@
     <div class="fixed top-4 md:top-6 left-1/2 transform -translate-x-1/2 z-[100] w-[92%] max-w-5xl nav-drop-in" id="islandContainer">
         <nav class="nav-island flex items-center justify-between px-4 py-2.5 md:px-3 md:py-2 w-full shadow-2xl relative">
             <a href="#home" class="flex items-center gap-2.5 pl-2 md:pl-5 text-[16px] md:text-[17px] font-black tracking-tight color-main btn-elastic flex-shrink-0 relative z-10">
+                <!-- 🚀 导航栏 Logo 优雅比例 (缩小变精致) -->
                 <img src="images/logo.png?v=11.0" class="h-8 md:h-9 w-auto object-contain logo-adapt scale-110 origin-left" alt="JOHN'S FRIES Logo" onerror="this.style.display='none'">
                 <span>林嘉雍<span class="opacity-30 mx-1">·</span>品牌策划作品集</span>
             </a>
@@ -242,6 +245,7 @@
             </div>
         </section>
 
+        <!-- 手机端固定 grid-cols-2 -->
         <section id="works" class="scroll-section py-24 md:py-32 px-4 md:px-12 relative z-20">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-10 reveal-up">
@@ -262,6 +266,7 @@
                     <p class="color-main font-bold tracking-widest text-lg">未找到相关案例</p>
                 </div>
 
+                <!-- 📱 手机端固定 grid-cols-2 -->
                 <div id="worksGrid" class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-10 min-h-[400px]"></div>
                 
                 <div class="mt-16 flex flex-col md:flex-row items-center justify-center gap-4 reveal-up">
@@ -276,6 +281,7 @@
             </div>
         </section>
 
+        <!-- 3D 正交悬浮阵列 -->
         <section id="partners" class="scroll-section py-24 md:py-32 relative z-20 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4">
                 <div class="text-center mb-12 md:mb-16 reveal-up">
@@ -308,6 +314,7 @@
                 <div class="flex flex-col gap-6 md:gap-8">
                     <div class="holographic-aura-container">
                         <div class="holographic-aura"></div>
+                        <!-- 🚀 突破封印：Logo 放大大气 -->
                         <img src="images/logo.png?v=11.0" alt="JOHN'S FRIES 品牌标识" class="w-full max-w-[280px] md:max-w-[380px] object-contain relative z-10 logo-adapt transform transition-transform duration-700 hover:scale-110 drop-shadow-2xl" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         <span class="color-muted font-bold tracking-widest hidden relative z-10 text-sm">等待上传专属 Logo</span>
                     </div>
@@ -333,6 +340,7 @@
         <p class="text-[10px] font-black tracking-[0.25em] color-muted opacity-40 uppercase">© 2026 JOHN'S FRIES. ALL RIGHTS RESERVED.</p>
     </footer>
 
+    <!-- 作品详情弹窗 -->
     <div id="workModal" class="modal fixed inset-0 z-[9999] flex items-center justify-center">
         
         <div id="securityAlertBar" class="fixed top-0 left-0 w-full bg-red-600/90 backdrop-blur-md text-white text-[10px] md:text-xs font-bold text-center py-2 z-[100000] transform -translate-y-full transition-transform duration-500 tracking-widest shadow-md">
@@ -367,6 +375,7 @@
             </div>
             
             <div class="modal-scroll-box flex-1 w-full h-full relative pb-40 pt-16 md:pt-0" id="workModalScrollBox">
+                <!-- 🚀 绝杀：保留变色龙文字 IP 对角线阵列 (浮在最顶层) -->
                 <div id="dynamicStaticWatermark" class="chameleon-watermark-layer"></div>
 
                 <div id="loadingSpinner" class="absolute inset-0 flex flex-col items-center justify-center z-10 hidden"><i class="fa fa-circle-o-notch fa-spin text-4xl text-[var(--text-main)] mb-4"></i><p class="color-muted font-bold text-sm tracking-widest mt-4">读取机密排版中...</p></div>
@@ -378,6 +387,7 @@
         </div>
     </div>
 
+    <!-- 简历与海报弹窗 -->
     <div id="resumeModal" class="modal fixed inset-0 z-[9999] flex items-center justify-center">
         <button id="closeResumeModal" class="fixed top-6 right-6 md:top-8 md:right-8 z-[999999] w-11 h-11 rounded-full bg-black/40 hover:bg-black/60 dark:bg-white/20 backdrop-blur-2xl border border-white/20 text-white flex items-center justify-center transition-colors shadow-[0_10px_40px_rgba(0,0,0,0.5)] cursor-pointer">
             <i class="fa fa-times text-xl"></i>
@@ -394,6 +404,7 @@
         </div>
     </div>
 
+    <!-- 海报结果弹窗 -->
     <div id="posterModal" class="modal fixed inset-0 z-[99999] flex items-center justify-center bg-black/85 backdrop-blur-md">
         <button id="closePosterModal" class="fixed top-6 right-6 md:top-8 md:right-8 z-[999999] w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-2xl border border-white/20 text-white flex items-center justify-center transition-colors shadow-2xl cursor-pointer">
             <i class="fa fa-times text-xl"></i>
@@ -403,7 +414,7 @@
             <div id="posterResult" class="w-full rounded-[1.5rem] overflow-hidden shadow-2xl bg-white mb-6 min-h-[400px] flex items-center justify-center relative border border-[var(--glass-border)]">
                 <div class="py-20 text-center text-gray-500 flex flex-col items-center justify-center w-full h-full">
                     <i class="fa fa-circle-o-notch fa-spin text-4xl mb-4"></i>
-                    <p class="text-sm tracking-widest font-bold mt-3">排版渲染中...</p>
+                    <p class="text-sm tracking-widest font-bold mt-3">生成特种纸名片中...</p>
                 </div>
             </div>
             <button id="downloadPosterBtn" class="liquid-glass-dark w-full py-4 rounded-full font-bold text-[16px] shadow-2xl flex items-center justify-center gap-2 cursor-pointer tracking-widest hidden btn-elastic border border-white/20"><i class="fa fa-download text-lg"></i> 存至本地相册</button>
@@ -802,7 +813,7 @@
         const downloadPosterBtn = document.getElementById('downloadPosterBtn');
         let generatedPosterDataB64 = null;
 
-generatePosterBtn.addEventListener('click', async () => {
+        generatePosterBtn.addEventListener('click', async () => {
             if(!currentOpenWorkId) return;
             const work = worksList.find(w => String(w.id) === String(currentOpenWorkId));
             if(!work) return;
@@ -815,11 +826,11 @@ generatePosterBtn.addEventListener('click', async () => {
             const cvs = document.createElement('canvas');
             const ctx = cvs.getContext('2d');
             
-            // 1. 扩容画布：四周增加 50px 留白，为了给卡片阴影腾出空间
-            cvs.width = 850;  // 原 750 + 左右各 50
-            cvs.height = 1450; // 原 1350 + 上下各 50
+            // 1. 扩容画布：四周增加 50px 留白，用于显示卡片阴影
+            cvs.width = 850; 
+            cvs.height = 1450; 
 
-            // 2. 绘制微信聊天框那种极其干净的浅灰色背景
+            // 2. 极其干净的浅灰色底图 (微信聊天框质感)
             ctx.fillStyle = '#F4F4F6';
             ctx.fillRect(0, 0, cvs.width, cvs.height);
 
@@ -830,7 +841,7 @@ generatePosterBtn.addEventListener('click', async () => {
             ctx.shadowOffsetY = 15;
 
             // 4. 绘制特种纸材质的实体卡片
-            ctx.fillStyle = '#FCFBF9'; // 极其高级的微暖白棉纸色
+            ctx.fillStyle = '#FCFBF9'; // 高级微暖白棉纸色
             const radius = 32;
             ctx.beginPath();
             ctx.moveTo(50 + radius, 50);
@@ -845,10 +856,10 @@ generatePosterBtn.addEventListener('click', async () => {
             ctx.closePath();
             ctx.fill();
 
-            // 5. 关闭阴影，并将所有后续坐标系锚定到卡片内部 (核心魔法)
+            // 5. 关闭阴影，坐标系锚定到卡片内部 (750x1350体系)
             ctx.shadowColor = 'transparent';
-            ctx.clip(); // 锁定只在卡片范围内作画
-            ctx.translate(50, 50); // 坐标系归零，完美兼容旧版 750x1350 坐标
+            ctx.clip(); 
+            ctx.translate(50, 50); 
 
             const coverImg = new Image(); coverImg.crossOrigin = 'Anonymous';
             const logoImg = new Image(); logoImg.crossOrigin = 'Anonymous';
@@ -867,7 +878,7 @@ generatePosterBtn.addEventListener('click', async () => {
                 loadImage(logoImg, 'images/logo.png?v=12.0')
             ]);
             
-            // 绘制顶部封面图
+            // 绘制封面图
             if(coverImg.complete && coverImg.width > 0) {
                 const targetH = 550; 
                 const imgRatio = coverImg.width / coverImg.height;
@@ -886,40 +897,32 @@ generatePosterBtn.addEventListener('click', async () => {
                 ctx.restore();
             }
 
-// 🚀 核心大招：右下角高定【水彩渗透印花】(Watercolor Inkjet)
+            // 🚀 核心大招：右下角高定【水彩渗透印花】(Watercolor Inkjet)
             if(logoImg.complete && logoImg.width > 0) {
                 ctx.save();
                 
-                // 1. 调整大小与位置 (尽可能放至右下角)
-                const wmSize = 340; // 大小适中
+                const wmSize = 340; // 调整为完整显示的大小
                 const wmH = wmSize * (logoImg.height / logoImg.width);
-                // 坐标计算：卡片宽750 - 尺寸340 - 留白60 = 350
+                // 右下角靠边留白 60px
                 const wmX = 750 - wmSize - 60; 
-                // 坐标计算：底部签名区域上方
+                // 签名区域上方
                 const wmY = 930; 
                 
-                // 2. 注入水彩纹理 (核心魔法)
-                // 既然你是品牌策划，我们用一种极其巧妙的原生 Canvas 算法模拟水彩笔触。
-                // 这种算法会提取 Logo 轮廓，然后在其内部生成一种带有颗粒感、渗透感的不均匀色彩。
+                // 莫兰迪粉水彩基底
+                ctx.fillStyle = 'rgba(219, 112, 147, 0.45)'; 
                 
-                // 我们使用一种自然的、低饱和度的品牌莫兰迪粉，模拟高定水彩墨水
-                ctx.fillStyle = 'rgba(219, 112, 147, 0.45)'; // 初始水彩墨水基底
-                
-                // 开启 25% 透明度 (品牌薄纱感)
+                // 开启 25% 透明度 (高级薄纱感)
                 ctx.globalAlpha = 0.25; 
 
-                // 3. 应用水彩渗透引擎 (双层颗粒感叠加)
                 // 第一层：基础色彩渗透
                 ctx.drawImage(logoImg, wmX, wmY, wmSize, wmH);
                 
-                // 第二层：颗粒笔触增强
-                // 通过颗粒滤镜 (Noise Filter) 模拟水彩笔在纸张上的纤维颗粒感
+                // 第二层：纤维颗粒感滤镜增强 (模拟水彩渗透进纸张)
                 ctx.filter = 'grayscale(100%) brightness(0.9) contrast(150%) blur(0.2px)';
-                ctx.globalAlpha = 0.04; // 极其微弱的颗粒纹理，不改变原色
+                ctx.globalAlpha = 0.04; 
                 ctx.drawImage(logoImg, wmX, wmY, wmSize, wmH);
                 
                 ctx.restore();
-            }
             }
 
             let currentY = 630;
@@ -985,16 +988,15 @@ generatePosterBtn.addEventListener('click', async () => {
 
             setTimeout(() => {
                 try {
-                    // 使用 0.9 质量输出 JPEG，连同阴影和灰底一起合成
+                    // 使用 0.9 质量输出，连同阴影一起合成
                     generatedPosterDataB64 = cvs.toDataURL('image/jpeg', 0.9);
                     const finalImg = document.createElement('img');
                     finalImg.src = generatedPosterDataB64;
-                    // 图片展示时为了配合页面也加个圆角
                     finalImg.className = 'w-full h-auto block rounded-[1.5rem] shadow-sm';
                     posterResult.innerHTML = '';
                     posterResult.appendChild(finalImg);
                     downloadPosterBtn.classList.remove('hidden');
-                    showToast('特种纸压印合成成功');
+                    showToast('高定海报合成成功');
                 } catch(e) {
                     console.error(e);
                     posterResult.innerHTML = '<div class="py-20 text-center text-red-500"><i class="fa fa-exclamation-triangle text-4xl mb-4"></i><p class="text-sm font-bold">合成失败，请重试</p></div>';
