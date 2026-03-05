@@ -305,7 +305,7 @@
 
         <section id="about" class="scroll-section py-24 md:py-32 px-6 md:px-12 relative z-20">
             <div class="max-w-5xl mx-auto"><div class="liquid-glass hover-elastic !rounded-[2rem] md:!rounded-[3rem] p-8 md:p-20 reveal-up"><div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
-                <div><h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-6 md:mb-8 color-main">关于我</h2><div class="space-y-4 md:space-y-6 color-main opacity-90 text-[14px] md:text-lg leading-relaxed font-medium tracking-wide text-justify text-balance"><p>5年餐饮品牌相关工作经验，2年+品牌全案策划与团队管理经验，累计主导多个品牌从0到1搭建与战略升维全案。</p><p>端到端覆盖市场洞察、定位策略、IP打造、品牌文案体系、落地运营全闭环，具备成熟的跨团队统筹、多项目管控能力。</p><p>熟悉各类主流AI软件，可快速适配多行业品牌策划需求，坚持用策略驱动设计，用设计落地商业价值。</p></div></div>
+                <div><h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-6 md:mb-8 color-main">关于我</h2><div class="space-y-4 md:space-y-6 color-main opacity-90 text-[14px] md:text-lg leading-relaxed font-medium tracking-wide text-justify text-balance"><p>5年餐饮品牌相关工作经验，2年+品牌全案策划与团队管理经验，累计主导多个品牌从0到1搭建与战略升维全案。</p><p>端到端覆盖市场洞察、定位策略、IP打造、品牌文案体系、落地运营全闭环，具备成熟的跨团队统统筹、多项目管控能力。</p><p>熟悉各类主流AI软件，可快速适配多行业品牌策划需求，坚持用策略驱动设计，用设计落地商业价值。</p></div></div>
                 <div class="flex flex-col gap-6 md:gap-8">
                     <div class="holographic-aura-container">
                         <div class="holographic-aura"></div>
@@ -759,7 +759,7 @@
                 workModal.classList.add('active'); 
                 document.body.style.overflow = 'hidden';
                 
-                // 🚀 这里修复了加载圈圈遮挡标题的问题！
+                // 🚀 这里修复了加载圈圈遮挡标题的问题！ DOM 加载渲染完毕后干掉转圈
                 loadingSpinner.classList.add('hidden');
             }
         };
@@ -809,7 +809,7 @@
         const downloadPosterBtn = document.getElementById('downloadPosterBtn');
         let generatedPosterDataB64 = null;
 
-        // 🚀 全新逻辑：使用 Canvas 绘制流体玻璃质感高定卡片
+        // 🚀 全新逻辑：使用 Canvas 绘制基于封面主色调的高定流体玻璃卡片
         generatePosterBtn.addEventListener('click', async () => {
             if(!currentOpenWorkId) return;
             const work = worksList.find(w => String(w.id) === String(currentOpenWorkId));
@@ -823,12 +823,13 @@
             const cvs = document.createElement('canvas');
             const ctx = cvs.getContext('2d');
             
-            // 设定画布尺寸 (更修长的比例适配现代手机)
+            // 1. 设定画布尺寸 (更修长的比例适配现代手机)
             const width = 800;
             const height = 1350;
             cvs.width = width; 
             cvs.height = height; 
 
+            // 加载所有需要的图片资源
             const coverImg = new Image(); coverImg.crossOrigin = 'Anonymous';
             const logoImg = new Image(); logoImg.crossOrigin = 'Anonymous';
             const shareUrl = window.location.origin + window.location.pathname + '?work=' + work.id;
@@ -854,14 +855,15 @@
             ctx.fillRect(0, 0, width, height);
 
             if(coverImg.complete && coverImg.width > 0) {
-                // 利用 Canvas 滤镜制造极度模糊的光晕
-                ctx.filter = 'blur(100px) saturate(200%) brightness(0.8)';
+                // 🚀 修改点 1：将模糊度从 100px 增加到 220px，完全变为柔和的色彩光晕
+                ctx.filter = 'blur(220px) saturate(250%) brightness(0.85)';
                 
                 // 将原图放大并拉伸，铺满整个背景，作为环境光
                 const imgRatio = coverImg.width / coverImg.height;
                 const targetRatio = width / height;
                 let bgW, bgH, bgX, bgY;
                 
+                // 放大 1.5 倍让光晕更柔和
                 if(imgRatio > targetRatio) { 
                     bgH = height * 1.5; bgW = bgH * imgRatio; 
                     bgX = -(bgW - width) / 2; bgY = -(bgH - height) / 2; 
@@ -870,7 +872,7 @@
                     bgX = -(bgW - width) / 2; bgY = -(bgH - height) / 2; 
                 }
                 
-                ctx.globalAlpha = 0.8;
+                ctx.globalAlpha = 0.6; // 稍微降低一点透明度
                 ctx.drawImage(coverImg, bgX, bgY, bgW, bgH);
             }
             ctx.restore();
@@ -889,6 +891,7 @@
             const radius = 40;
 
             ctx.save();
+            // 绘制圆角矩形路径
             ctx.beginPath();
             ctx.moveTo(cardX + radius, cardY);
             ctx.lineTo(cardX + cardW - radius, cardY);
@@ -935,14 +938,31 @@
                     dx = cardX; dy = cardY - (dh - imgTargetH) / 2; 
                 }
                 
+                // 🚀 修改点 2：给图片加上底部圆角切割，避免割裂感
+                const imgRadius = radius * 0.6; // 定义图片底部圆角半径 (24)
+
+                ctx.save();
+                ctx.beginPath();
+                // 绘制只包含底部圆角的路径用于裁剪图片
+                ctx.moveTo(cardX, cardY);
+                ctx.lineTo(cardX + cardW, cardY);
+                ctx.lineTo(cardX + cardW, cardY + imgTargetH - imgRadius);
+                ctx.quadraticCurveTo(cardX + cardW, cardY + imgTargetH, cardX + cardW - imgRadius, cardY + imgTargetH);
+                ctx.lineTo(cardX + imgRadius, cardY + imgTargetH);
+                ctx.quadraticCurveTo(cardX, cardY + imgTargetH, cardX, cardY + imgTargetH - imgRadius);
+                ctx.closePath();
+                ctx.clip(); // 裁剪出圆角区域
+
+                // 在裁剪区内绘制图片
                 ctx.drawImage(coverImg, dx, dy, dw, dh);
+                ctx.restore(); // 恢复裁剪区
                 
-                // 给图片底部加一个平滑过渡到玻璃层的渐变遮罩
-                const fadeGradient = ctx.createLinearGradient(cardX, cardY + imgTargetH - 100, cardX, cardY + imgTargetH);
+                // ======= 保留图片底部渐变过渡遮罩 (让过渡更柔和) =======
+                const fadeGradient = ctx.createLinearGradient(cardX, cardY + imgTargetH - 80, cardX, cardY + imgTargetH);
                 fadeGradient.addColorStop(0, 'rgba(0,0,0,0)');
-                fadeGradient.addColorStop(1, 'rgba(20,20,20,0.8)');
+                fadeGradient.addColorStop(1, 'rgba(15,15,15,0.7)'); // 融入暗色背景
                 ctx.fillStyle = fadeGradient;
-                ctx.fillRect(cardX, cardY + imgTargetH - 100, cardW, 100);
+                ctx.fillRect(cardX, cardY + imgTargetH - 80, cardW, 80);
             }
 
             // 文本起始 Y 坐标 (图片下方留白)
@@ -950,6 +970,7 @@
             const textLeftX = cardX + 50;
             const maxTextW = cardW - 100;
 
+            // 解析标题
             let mainTitle = work.title; let subTitle = '';
             if (work.title.includes('|') || work.title.includes('｜')) {
                 const parts = work.title.split(/\||｜/); mainTitle = parts[0].trim(); subTitle = parts[1].trim();
@@ -959,11 +980,12 @@
             ctx.fillStyle = '#FFFFFF';
             ctx.font = '900 64px -apple-system, "SF Pro Display", sans-serif';
             ctx.textBaseline = 'top';
+            // 文字发光效果
             ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
             ctx.shadowBlur = 10;
             ctx.shadowOffsetY = 4;
             ctx.fillText(mainTitle, textLeftX, currentY);
-            ctx.shadowColor = 'transparent';
+            ctx.shadowColor = 'transparent'; // 关掉阴影以免影响后续
             currentY += 85;
 
             // 3. 副标题
@@ -974,17 +996,19 @@
                 currentY += 60;
             } else { currentY += 10; }
 
-            // 4. 作品简介
+            // 4. 作品简介 (处理自动换行)
             ctx.fillStyle = 'rgba(255, 255, 255, 0.55)';
             ctx.font = '500 24px/1.6 -apple-system, sans-serif';
             const desc = work.desc || '专注餐饮品牌全案策划与统筹设计。';
             let line = ''; let descY = currentY + 10;
             
+            // 简单分词换行逻辑
             for(let n = 0; n < desc.length; n++) {
                 let testLine = line + desc[n];
                 if(ctx.measureText(testLine).width > maxTextW && n > 0) {
                     ctx.fillText(line, textLeftX, descY);
-                    line = desc[n]; descY += 40; 
+                    line = desc[n]; descY += 40; // 行高
+                    // 最多显示 4 行，多了截断
                     if(descY > currentY + 160) { line += '...'; break; } 
                 } else { line = testLine; }
             }
@@ -997,6 +1021,7 @@
             
             const footerY = cardY + cardH - 160;
             
+            // 画一条淡淡的分割线
             ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
             ctx.lineWidth = 1;
             ctx.beginPath(); 
@@ -1012,6 +1037,7 @@
                 const targetLogoW = targetLogoH * logoRatio;
                 
                 ctx.save();
+                // 🚀 这里把彩色 Logo 洗成了高级的半透明纯白色
                 ctx.filter = 'brightness(0) invert(1) opacity(0.4)';
                 ctx.drawImage(logoImg, textLeftX, logoAreaY + 10, targetLogoW, targetLogoH);
                 ctx.restore();
@@ -1026,6 +1052,7 @@
             const qrX = cardX + cardW - 50 - qrSize;
             const qrY = footerY + 25;
             
+            // 给二维码加个纯白底座，防止因为背景颜色太深扫不出来
             ctx.fillStyle = '#FFFFFF';
             ctx.beginPath();
             ctx.roundRect ? ctx.roundRect(qrX - 5, qrY - 5, qrSize + 10, qrSize + 10, 8) : ctx.fillRect(qrX - 5, qrY - 5, qrSize + 10, qrSize + 10);
@@ -1038,9 +1065,11 @@
             // 输出图像
             setTimeout(() => {
                 try {
+                    // 使用 0.95 质量输出，生成更真实的 JPEG
                     generatedPosterDataB64 = cvs.toDataURL('image/jpeg', 0.95);
                     const finalImg = document.createElement('img');
                     finalImg.src = generatedPosterDataB64;
+                    // 让生成的预览图适应弹窗大小，加点阴影
                     finalImg.className = 'w-full h-auto block rounded-[1rem] md:rounded-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10';
                     
                     posterResult.innerHTML = '';
