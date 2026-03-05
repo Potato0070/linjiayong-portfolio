@@ -178,7 +178,6 @@
 </head>
 
 <body class="antialiased flex flex-col min-h-screen relative">
-    <!-- 经典白底流动背景 -->
     <div class="global-fluid-bg"><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div></div>
     
     <div id="toast" class="fixed top-24 left-1/2 transform -translate-x-1/2 bg-[var(--text-main)] text-[var(--bg-base)] px-6 py-3 md:px-8 md:py-3.5 rounded-full shadow-2xl opacity-0 z-[999999] flex items-center gap-3 transition-opacity duration-400 pointer-events-none whitespace-nowrap"><i id="toastIcon" class="fa fa-info-circle text-lg opacity-80"></i><span id="toastMessage" class="font-bold tracking-widest text-[12px] md:text-[13px]">系统提示</span></div>
@@ -190,7 +189,6 @@
     <div class="fixed top-4 md:top-6 left-1/2 transform -translate-x-1/2 z-[100] w-[92%] max-w-5xl nav-drop-in" id="islandContainer">
         <nav class="nav-island flex items-center justify-between px-4 py-2.5 md:px-3 md:py-2 w-full shadow-2xl relative">
             <a href="#home" class="flex items-center gap-2.5 pl-2 md:pl-5 text-[16px] md:text-[17px] font-black tracking-tight color-main btn-elastic flex-shrink-0 relative z-10">
-                <!-- 🚀 导航栏 Logo 优雅比例 (缩小变精致) -->
                 <img src="images/logo.png?v=11.0" class="h-8 md:h-9 w-auto object-contain logo-adapt scale-110 origin-left" alt="JOHN'S FRIES Logo" onerror="this.style.display='none'">
                 <span>林嘉雍<span class="opacity-30 mx-1">·</span>品牌策划作品集</span>
             </a>
@@ -245,7 +243,6 @@
             </div>
         </section>
 
-        <!-- 手机端固定 grid-cols-2 -->
         <section id="works" class="scroll-section py-24 md:py-32 px-4 md:px-12 relative z-20">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-10 reveal-up">
@@ -266,7 +263,6 @@
                     <p class="color-main font-bold tracking-widest text-lg">未找到相关案例</p>
                 </div>
 
-                <!-- 📱 手机端固定 grid-cols-2 -->
                 <div id="worksGrid" class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-10 min-h-[400px]"></div>
                 
                 <div class="mt-16 flex flex-col md:flex-row items-center justify-center gap-4 reveal-up">
@@ -281,7 +277,6 @@
             </div>
         </section>
 
-        <!-- 3D 正交悬浮阵列 -->
         <section id="partners" class="scroll-section py-24 md:py-32 relative z-20 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4">
                 <div class="text-center mb-12 md:mb-16 reveal-up">
@@ -314,7 +309,6 @@
                 <div class="flex flex-col gap-6 md:gap-8">
                     <div class="holographic-aura-container">
                         <div class="holographic-aura"></div>
-                        <!-- 🚀 突破封印：Logo 放大大气 -->
                         <img src="images/logo.png?v=11.0" alt="JOHN'S FRIES 品牌标识" class="w-full max-w-[280px] md:max-w-[380px] object-contain relative z-10 logo-adapt transform transition-transform duration-700 hover:scale-110 drop-shadow-2xl" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         <span class="color-muted font-bold tracking-widest hidden relative z-10 text-sm">等待上传专属 Logo</span>
                     </div>
@@ -340,7 +334,6 @@
         <p class="text-[10px] font-black tracking-[0.25em] color-muted opacity-40 uppercase">© 2026 JOHN'S FRIES. ALL RIGHTS RESERVED.</p>
     </footer>
 
-    <!-- 作品详情弹窗 -->
     <div id="workModal" class="modal fixed inset-0 z-[9999] flex items-center justify-center">
         
         <div id="securityAlertBar" class="fixed top-0 left-0 w-full bg-red-600/90 backdrop-blur-md text-white text-[10px] md:text-xs font-bold text-center py-2 z-[100000] transform -translate-y-full transition-transform duration-500 tracking-widest shadow-md">
@@ -375,7 +368,6 @@
             </div>
             
             <div class="modal-scroll-box flex-1 w-full h-full relative pb-40 pt-16 md:pt-0" id="workModalScrollBox">
-                <!-- 🚀 绝杀：保留变色龙文字 IP 对角线阵列 (浮在最顶层) -->
                 <div id="dynamicStaticWatermark" class="chameleon-watermark-layer"></div>
 
                 <div id="loadingSpinner" class="absolute inset-0 flex flex-col items-center justify-center z-10 hidden"><i class="fa fa-circle-o-notch fa-spin text-4xl text-[var(--text-main)] mb-4"></i><p class="color-muted font-bold text-sm tracking-widest mt-4">读取机密排版中...</p></div>
@@ -387,7 +379,6 @@
         </div>
     </div>
 
-    <!-- 简历与海报弹窗 -->
     <div id="resumeModal" class="modal fixed inset-0 z-[9999] flex items-center justify-center">
         <button id="closeResumeModal" class="fixed top-6 right-6 md:top-8 md:right-8 z-[999999] w-11 h-11 rounded-full bg-black/40 hover:bg-black/60 dark:bg-white/20 backdrop-blur-2xl border border-white/20 text-white flex items-center justify-center transition-colors shadow-[0_10px_40px_rgba(0,0,0,0.5)] cursor-pointer">
             <i class="fa fa-times text-xl"></i>
@@ -404,7 +395,6 @@
         </div>
     </div>
 
-    <!-- 海报结果弹窗 -->
     <div id="posterModal" class="modal fixed inset-0 z-[99999] flex items-center justify-center bg-black/85 backdrop-blur-md">
         <button id="closePosterModal" class="fixed top-6 right-6 md:top-8 md:right-8 z-[999999] w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-2xl border border-white/20 text-white flex items-center justify-center transition-colors shadow-2xl cursor-pointer">
             <i class="fa fa-times text-xl"></i>
@@ -763,8 +753,14 @@
                     });
                 } else { contentWrapper.innerHTML = '<div class="py-20 text-center color-muted tracking-widest text-sm font-bold">加载中...</div>'; }
 
-                blocksContainer.appendChild(contentWrapper); modalImageContainer.appendChild(blocksContainer);
-                workModalScrollBox.scrollTop = 0; workModal.classList.add('active'); document.body.style.overflow = 'hidden';
+                blocksContainer.appendChild(contentWrapper); 
+                modalImageContainer.appendChild(blocksContainer);
+                workModalScrollBox.scrollTop = 0; 
+                workModal.classList.add('active'); 
+                document.body.style.overflow = 'hidden';
+                
+                // 🚀 这里修复了加载圈圈遮挡标题的问题！
+                loadingSpinner.classList.add('hidden');
             }
         };
 
@@ -813,58 +809,30 @@
         const downloadPosterBtn = document.getElementById('downloadPosterBtn');
         let generatedPosterDataB64 = null;
 
+        // 🚀 全新逻辑：使用 Canvas 绘制流体玻璃质感高定卡片
         generatePosterBtn.addEventListener('click', async () => {
             if(!currentOpenWorkId) return;
             const work = worksList.find(w => String(w.id) === String(currentOpenWorkId));
             if(!work) return;
 
-            showToast('提取排版数据中...');
-            posterResult.innerHTML = '<div class="py-20 text-center text-gray-500 flex flex-col items-center"><i class="fa fa-circle-o-notch fa-spin text-4xl mb-4"></i><p class="text-sm font-bold mt-3">特种纸压印中...</p></div>';
+            showToast('正在提取光影色彩...');
+            posterResult.innerHTML = '<div class="py-20 text-center text-gray-500 flex flex-col items-center"><i class="fa fa-circle-o-notch fa-spin text-4xl mb-4"></i><p class="text-sm font-bold mt-3">渲染流体玻璃质感中...</p></div>';
             downloadPosterBtn.classList.add('hidden'); 
             posterModal.classList.add('active');
 
             const cvs = document.createElement('canvas');
             const ctx = cvs.getContext('2d');
             
-            // 1. 扩容画布：四周增加 50px 留白，用于显示卡片阴影
-            cvs.width = 850; 
-            cvs.height = 1450; 
-
-            // 2. 极其干净的浅灰色底图 (微信聊天框质感)
-            ctx.fillStyle = '#F4F4F6';
-            ctx.fillRect(0, 0, cvs.width, cvs.height);
-
-            // 3. 开启卡片悬浮外阴影
-            ctx.shadowColor = 'rgba(0, 0, 0, 0.15)';
-            ctx.shadowBlur = 40;
-            ctx.shadowOffsetX = 0;
-            ctx.shadowOffsetY = 15;
-
-            // 4. 绘制特种纸材质的实体卡片
-            ctx.fillStyle = '#FCFBF9'; // 高级微暖白棉纸色
-            const radius = 32;
-            ctx.beginPath();
-            ctx.moveTo(50 + radius, 50);
-            ctx.lineTo(800 - radius, 50);
-            ctx.quadraticCurveTo(800, 50, 800, 50 + radius);
-            ctx.lineTo(800, 1400 - radius);
-            ctx.quadraticCurveTo(800, 1400, 800 - radius, 1400);
-            ctx.lineTo(50 + radius, 1400);
-            ctx.quadraticCurveTo(50, 1400, 50, 1400 - radius);
-            ctx.lineTo(50, 50 + radius);
-            ctx.quadraticCurveTo(50, 50, 50 + radius, 50);
-            ctx.closePath();
-            ctx.fill();
-
-            // 5. 关闭阴影，坐标系锚定到卡片内部 (750x1350体系)
-            ctx.shadowColor = 'transparent';
-            ctx.clip(); 
-            ctx.translate(50, 50); 
+            // 设定画布尺寸 (更修长的比例适配现代手机)
+            const width = 800;
+            const height = 1350;
+            cvs.width = width; 
+            cvs.height = height; 
 
             const coverImg = new Image(); coverImg.crossOrigin = 'Anonymous';
             const logoImg = new Image(); logoImg.crossOrigin = 'Anonymous';
             const shareUrl = window.location.origin + window.location.pathname + '?work=' + work.id;
-            const qr = new QRious({ value: shareUrl, size: 200, level: 'H' });
+            const qr = new QRious({ value: shareUrl, size: 200, level: 'H', foreground: '#000000', background: '#ffffff' });
             const qrImgData = qr.toDataURL();
 
             const loadImage = (img, src) => new Promise((resolve) => {
@@ -877,137 +845,219 @@
                 loadImage(coverImg, work.cover || 'images/placeholder.jpg'),
                 loadImage(logoImg, 'images/logo.png?v=12.0')
             ]);
-            
-            // 绘制封面图
+
+            // ==========================================
+            // 第一层：基于封面的流光溢彩背景 (The Aura)
+            // ==========================================
+            ctx.save();
+            ctx.fillStyle = '#111111'; // 默认深色底
+            ctx.fillRect(0, 0, width, height);
+
             if(coverImg.complete && coverImg.width > 0) {
-                const targetH = 550; 
+                // 利用 Canvas 滤镜制造极度模糊的光晕
+                ctx.filter = 'blur(100px) saturate(200%) brightness(0.8)';
+                
+                // 将原图放大并拉伸，铺满整个背景，作为环境光
                 const imgRatio = coverImg.width / coverImg.height;
-                const targetRatio = 750 / targetH;
+                const targetRatio = width / height;
+                let bgW, bgH, bgX, bgY;
+                
+                if(imgRatio > targetRatio) { 
+                    bgH = height * 1.5; bgW = bgH * imgRatio; 
+                    bgX = -(bgW - width) / 2; bgY = -(bgH - height) / 2; 
+                } else { 
+                    bgW = width * 1.5; bgH = bgW / imgRatio; 
+                    bgX = -(bgW - width) / 2; bgY = -(bgH - height) / 2; 
+                }
+                
+                ctx.globalAlpha = 0.8;
+                ctx.drawImage(coverImg, bgX, bgY, bgW, bgH);
+            }
+            ctx.restore();
+
+            // 为了让文字更清晰，给背景叠一层淡淡的深色遮罩
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
+            ctx.fillRect(0, 0, width, height);
+
+            // ==========================================
+            // 第二层：居中的磨砂玻璃卡片 (Glassmorphism Panel)
+            // ==========================================
+            const cardX = 40;
+            const cardY = 80;
+            const cardW = width - 80;
+            const cardH = height - 160;
+            const radius = 40;
+
+            ctx.save();
+            ctx.beginPath();
+            ctx.moveTo(cardX + radius, cardY);
+            ctx.lineTo(cardX + cardW - radius, cardY);
+            ctx.quadraticCurveTo(cardX + cardW, cardY, cardX + cardW, cardY + radius);
+            ctx.lineTo(cardX + cardW, cardY + cardH - radius);
+            ctx.quadraticCurveTo(cardX + cardW, cardY + cardH, cardX + cardW - radius, cardY + cardH);
+            ctx.lineTo(cardX + radius, cardY + cardH);
+            ctx.quadraticCurveTo(cardX, cardY + cardH, cardX, cardY + cardH - radius);
+            ctx.lineTo(cardX, cardY + radius);
+            ctx.quadraticCurveTo(cardX, cardY, cardX + radius, cardY);
+            ctx.closePath();
+
+            // 玻璃质感填充 (半透明白 + 微弱渐变)
+            const glassGradient = ctx.createLinearGradient(cardX, cardY, cardX + cardW, cardY + cardH);
+            glassGradient.addColorStop(0, 'rgba(255, 255, 255, 0.15)');
+            glassGradient.addColorStop(1, 'rgba(255, 255, 255, 0.05)');
+            ctx.fillStyle = glassGradient;
+            ctx.fill();
+
+            // 玻璃高光描边 (上边和左边亮一点，下边暗一点)
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+            ctx.stroke();
+
+            // 裁剪后续内容，使其全部被限制在这个圆角玻璃卡片内
+            ctx.clip();
+
+            // ==========================================
+            // 第三层：卡片内部内容排版
+            // ==========================================
+            
+            // 1. 顶部封面大图 (占卡片上方约 45%)
+            if(coverImg.complete && coverImg.width > 0) {
+                const imgTargetH = cardH * 0.45; 
+                const imgRatio = coverImg.width / coverImg.height;
+                const targetRatio = cardW / imgTargetH;
                 let dw, dh, dx, dy;
-                if(imgRatio > targetRatio) { dh = targetH; dw = targetH * imgRatio; dx = -(dw - 750) / 2; dy = 0; } 
-                else { dw = 750; dh = 750 / imgRatio; dx = 0; dy = -(dh - targetH) / 2; }
                 
-                ctx.save();
-                ctx.beginPath();
-                ctx.moveTo(0, 0); ctx.lineTo(750, 0); ctx.lineTo(750, targetH - 40);
-                ctx.quadraticCurveTo(750, targetH, 710, targetH); ctx.lineTo(40, targetH);
-                ctx.quadraticCurveTo(0, targetH, 0, targetH - 40); ctx.closePath();
-                ctx.clip();
+                if(imgRatio > targetRatio) { 
+                    dh = imgTargetH; dw = imgTargetH * imgRatio; 
+                    dx = cardX - (dw - cardW) / 2; dy = cardY; 
+                } else { 
+                    dw = cardW; dh = cardW / imgRatio; 
+                    dx = cardX; dy = cardY - (dh - imgTargetH) / 2; 
+                }
+                
                 ctx.drawImage(coverImg, dx, dy, dw, dh);
-                ctx.restore();
+                
+                // 给图片底部加一个平滑过渡到玻璃层的渐变遮罩
+                const fadeGradient = ctx.createLinearGradient(cardX, cardY + imgTargetH - 100, cardX, cardY + imgTargetH);
+                fadeGradient.addColorStop(0, 'rgba(0,0,0,0)');
+                fadeGradient.addColorStop(1, 'rgba(20,20,20,0.8)');
+                ctx.fillStyle = fadeGradient;
+                ctx.fillRect(cardX, cardY + imgTargetH - 100, cardW, 100);
             }
 
-            // 🚀 核心大招：右下角高定【水彩渗透印花】(Watercolor Inkjet)
-            if(logoImg.complete && logoImg.width > 0) {
-                ctx.save();
-                
-                const wmSize = 340; // 调整为完整显示的大小
-                const wmH = wmSize * (logoImg.height / logoImg.width);
-                // 右下角靠边留白 60px
-                const wmX = 750 - wmSize - 60; 
-                // 签名区域上方
-                const wmY = 930; 
-                
-                // 莫兰迪粉水彩基底
-                ctx.fillStyle = 'rgba(219, 112, 147, 0.45)'; 
-                
-                // 开启 25% 透明度 (高级薄纱感)
-                ctx.globalAlpha = 0.25; 
+            // 文本起始 Y 坐标 (图片下方留白)
+            let currentY = cardY + cardH * 0.45 + 50;
+            const textLeftX = cardX + 50;
+            const maxTextW = cardW - 100;
 
-                // 第一层：基础色彩渗透
-                ctx.drawImage(logoImg, wmX, wmY, wmSize, wmH);
-                
-                // 第二层：纤维颗粒感滤镜增强 (模拟水彩渗透进纸张)
-                ctx.filter = 'grayscale(100%) brightness(0.9) contrast(150%) blur(0.2px)';
-                ctx.globalAlpha = 0.04; 
-                ctx.drawImage(logoImg, wmX, wmY, wmSize, wmH);
-                
-                ctx.restore();
-            }
-
-            let currentY = 630;
             let mainTitle = work.title; let subTitle = '';
             if (work.title.includes('|') || work.title.includes('｜')) {
                 const parts = work.title.split(/\||｜/); mainTitle = parts[0].trim(); subTitle = parts[1].trim();
             }
 
-            ctx.fillStyle = '#000000';
-            ctx.font = '900 56px -apple-system, sans-serif';
+            // 2. 主标题
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '900 64px -apple-system, "SF Pro Display", sans-serif';
             ctx.textBaseline = 'top';
-            ctx.fillText(mainTitle, 60, currentY);
-            currentY += 75;
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+            ctx.shadowBlur = 10;
+            ctx.shadowOffsetY = 4;
+            ctx.fillText(mainTitle, textLeftX, currentY);
+            ctx.shadowColor = 'transparent';
+            currentY += 85;
 
+            // 3. 副标题
             if(subTitle) {
-                ctx.fillStyle = '#666666';
-                ctx.font = '500 30px -apple-system, sans-serif';
-                ctx.fillText(subTitle, 60, currentY);
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+                ctx.font = '700 28px -apple-system, "SF Pro Text", sans-serif';
+                ctx.fillText(subTitle, textLeftX, currentY);
                 currentY += 60;
             } else { currentY += 10; }
 
-            ctx.fillStyle = '#888888';
-            ctx.font = '500 22px/1.8 -apple-system, sans-serif';
+            // 4. 作品简介
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.55)';
+            ctx.font = '500 24px/1.6 -apple-system, sans-serif';
             const desc = work.desc || '专注餐饮品牌全案策划与统筹设计。';
-            let line = ''; let descY = currentY;
+            let line = ''; let descY = currentY + 10;
+            
             for(let n = 0; n < desc.length; n++) {
                 let testLine = line + desc[n];
-                if(ctx.measureText(testLine).width > 630 && n > 0) {
-                    ctx.fillText(line, 60, descY);
-                    line = desc[n]; descY += 40;
-                    if(descY > currentY + 120) break; 
+                if(ctx.measureText(testLine).width > maxTextW && n > 0) {
+                    ctx.fillText(line, textLeftX, descY);
+                    line = desc[n]; descY += 40; 
+                    if(descY > currentY + 160) { line += '...'; break; } 
                 } else { line = testLine; }
             }
-            ctx.fillText(line, 60, descY);
+            ctx.fillText(line, textLeftX, descY);
 
-            const footerY = 1120; 
+            // ==========================================
+            // 第四层：底部 Footer (Logo + 二维码)
+            // ==========================================
+            ctx.restore(); // 释放裁剪区
             
-            ctx.strokeStyle = '#EEEEEE'; ctx.lineWidth = 1;
-            ctx.beginPath(); ctx.moveTo(60, footerY); ctx.lineTo(690, footerY); ctx.stroke();
+            const footerY = cardY + cardH - 160;
+            
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+            ctx.lineWidth = 1;
+            ctx.beginPath(); 
+            ctx.moveTo(cardX + 40, footerY); 
+            ctx.lineTo(cardX + cardW - 40, footerY); 
+            ctx.stroke();
 
-            const authorY = footerY + 50;
+            // 左侧：半透明个人 Logo
+            const logoAreaY = footerY + 30;
+            if(logoImg.complete && logoImg.width > 0) {
+                const targetLogoH = 40;
+                const logoRatio = logoImg.width / logoImg.height;
+                const targetLogoW = targetLogoH * logoRatio;
+                
+                ctx.save();
+                ctx.filter = 'brightness(0) invert(1) opacity(0.4)';
+                ctx.drawImage(logoImg, textLeftX, logoAreaY + 10, targetLogoW, targetLogoH);
+                ctx.restore();
+                
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+                ctx.font = '600 16px -apple-system, sans-serif';
+                ctx.fillText('JOHN\'S FRIES BRANDING', textLeftX, logoAreaY + 65);
+            }
 
-            ctx.fillStyle = '#111111';
-            ctx.font = '900 34px -apple-system, sans-serif';
-            ctx.fillText('林嘉雍', 60, authorY);
-            ctx.fillStyle = '#999999';
-            ctx.font = 'bold 18px -apple-system, sans-serif';
-            ctx.fillText("FULL-SERVICE BRANDING", 60, authorY + 50);
-
-            const qrS = 130; 
-            const qrX = 560;
-            const qrY = authorY - 15;
+            // 右侧：生成的高清二维码
+            const qrSize = 100;
+            const qrX = cardX + cardW - 50 - qrSize;
+            const qrY = footerY + 25;
+            
+            ctx.fillStyle = '#FFFFFF';
+            ctx.beginPath();
+            ctx.roundRect ? ctx.roundRect(qrX - 5, qrY - 5, qrSize + 10, qrSize + 10, 8) : ctx.fillRect(qrX - 5, qrY - 5, qrSize + 10, qrSize + 10);
+            ctx.fill();
             
             const qrieImg = new Image();
             await new Promise(r => { qrieImg.onload = r; qrieImg.src = qrImgData; });
-            ctx.drawImage(qrieImg, qrX, qrY, qrS, qrS);
+            ctx.drawImage(qrieImg, qrX, qrY, qrSize, qrSize);
 
-            ctx.fillStyle = '#AAAAAA';
-            ctx.font = 'bold 14px -apple-system, sans-serif';
-            ctx.textAlign = 'center';
-            ctx.fillText('扫码查看全案', qrX + qrS/2, qrY + qrS + 25);
-            ctx.textAlign = 'left';
-
+            // 输出图像
             setTimeout(() => {
                 try {
-                    // 使用 0.9 质量输出，连同阴影一起合成
-                    generatedPosterDataB64 = cvs.toDataURL('image/jpeg', 0.9);
+                    generatedPosterDataB64 = cvs.toDataURL('image/jpeg', 0.95);
                     const finalImg = document.createElement('img');
                     finalImg.src = generatedPosterDataB64;
-                    finalImg.className = 'w-full h-auto block rounded-[1.5rem] shadow-sm';
+                    finalImg.className = 'w-full h-auto block rounded-[1rem] md:rounded-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10';
+                    
                     posterResult.innerHTML = '';
                     posterResult.appendChild(finalImg);
                     downloadPosterBtn.classList.remove('hidden');
-                    showToast('高定海报合成成功');
+                    showToast('流体玻璃卡片已生成');
                 } catch(e) {
                     console.error(e);
-                    posterResult.innerHTML = '<div class="py-20 text-center text-red-500"><i class="fa fa-exclamation-triangle text-4xl mb-4"></i><p class="text-sm font-bold">合成失败，请重试</p></div>';
+                    posterResult.innerHTML = '<div class="py-20 text-center text-red-500"><i class="fa fa-exclamation-triangle text-4xl mb-4"></i><p class="text-sm font-bold">合成失败，可能是图片跨域限制</p></div>';
                 }
-            }, 50);
+            }, 100);
         });
 
         downloadPosterBtn.addEventListener('click', () => {
             if(generatedPosterDataB64) {
                 const link = document.createElement('a'); const work = worksList.find(w => String(w.id) === String(currentOpenWorkId));
-                link.download = `JOHN'S-FRIES-全案复盘-${work ? work.title.split('|')[0].trim() : '海报'}.jpg`; link.href = generatedPosterDataB64; link.click();
+                link.download = `JOHN'S-FRIES-品牌全案-${work ? work.title.split('|')[0].trim() : '海报'}.jpg`; link.href = generatedPosterDataB64; link.click();
             }
         });
         
